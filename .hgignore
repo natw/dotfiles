@@ -1,15 +1,4 @@
-^Desktop$
-^Documents$
-^Downloads$
-^Libraries$
-^Movies$
-^Music$
-^Pictures$
-^Public$
-^Sites$
-^code$
-^bin$
-^junk$
-^projects$
-^src$
-^work$
+syntax: glob
+
+*
+
