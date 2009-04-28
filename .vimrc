@@ -76,9 +76,18 @@ noremap <silent> <F6> :TlistToggle<CR>
 " file encoding stuff
 set enc=utf-8
 set fenc=utf-8
-set fencs=utf-8,utf-16,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
+set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
 
 let g:py_select_leading_comments = 1
 let g:py_select_trailing_comments = 1
 
 map ,t :tabnew
+
+python << EOF
+import os
+import sys
+import vim
+for p in sys.path:
+    if os.path.isdir(p):
+        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+EOF
