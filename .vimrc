@@ -12,6 +12,7 @@ filetype indent on
 " I don't actually know exactly what these do
 set ttyfast
 set lz
+set mouse=a
 
 " 2 = backspace works like it should
 set bs=2
