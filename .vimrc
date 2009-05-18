@@ -15,10 +15,10 @@ map  :set paste!<CR>:set paste?<CR>
 " new tab
 map ,t :tabnew
 
-" shift-h previous tab
-map <S-h> gT
-" shift-l for next tab
-map <S-l> gt
+" ctrl-h for previous tab
+map  gT
+" ctrl-L for next tab
+map  gt
 
 :command W w
 
@@ -62,7 +62,10 @@ set tabstop=4        " 4 space tabs (hard)
 set expandtab        " use soft tabs
 set enc=utf-8
 set fenc=utf-8
-set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
+" having utf-16 in fencs seems to hurt more than help
+" who the hell uses utf-16 anyway?
+" set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
+set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
 
 """"""""" OTHER
@@ -86,6 +89,7 @@ endif
 
 " adds python path to vim path, so putting the cursor over an import and
 " hitting 'gf' should jump to that module
+if has("python")
 python << EOF
 import os
 import sys
@@ -94,3 +98,4 @@ for p in sys.path:
     if os.path.isdir(p):
         vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
+endif
