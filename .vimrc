@@ -100,7 +100,7 @@ for p in sys.path:
 EOF
 endif
 
-function! Baz()
+function! ReRunMINDError()
 python << EOF
 import vim, os, re
 line = vim.current.line
@@ -111,8 +111,9 @@ fnc = m.group(2)
 site = m.group(3)
 exp = m.group(4)
 cmd = 'nosetests %s:%s --with-csg-site=%s --with-csg-exp=%s' % (mdl, fnc, site, exp)
-vim.command(':! clear;%s' % cmd)
+cmd1 = 'echo "%s"' % cmd
+vim.command(':! clear;%s;%s' % (cmd1, cmd))
 EOF
 endfunction
 
-map P :call Baz()<CR>
+map P :call ReRunMINDError()<CR>
