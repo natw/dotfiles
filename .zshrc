@@ -219,6 +219,7 @@ function svnurlof() {
     svn info $1 | grep '^URL: ' | sed 's/URL: //'
 }
 
+# use vimdiff for hg diffs (new version on right side)
 hgdiff() {
 	vimdiff -c 'map q :qa!<CR>' <(hg cat "$1") "$1";
 }
