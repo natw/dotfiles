@@ -99,3 +99,20 @@ for p in sys.path:
         vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
 endif
+
+function! Baz()
+python << EOF
+import vim, os, re
+line = vim.current.line
+reg = re.compile(r'(\w+)\.(\w+)\(\<Scenario Object: (\S+) \| (\S+) \|.*$')
+m = reg.search(line)
+mdl = '%s.py' % m.group(1)
+fnc = m.group(2)
+site = m.group(3)
+exp = m.group(4)
+cmd = 'nosetests %s:%s --with-csg-site=%s --with-csg-exp=%s' % (mdl, fnc, site, exp)
+vim.command(':! clear;%s' % cmd)
+EOF
+endfunction
+
+map P :call Baz()<CR>
