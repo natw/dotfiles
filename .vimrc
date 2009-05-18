@@ -6,6 +6,22 @@ set bs=2             " make backspace work like it should
 set autoread         " automatically check for changes to the file
 set incsearch        " turn on incremental searching
 
+" F5 toggles search highlighting
+map <F5> :set hls!<bar>set hls?<CR>
+
+" ^P toggles paste mode (from insert mode)
+map  :set paste!<CR>:set paste?<CR>
+
+" new tab
+map ,t :tabnew
+
+" shift-h previous tab
+map <S-h> gT
+" shift-l for next tab
+map <S-l> gt
+
+:command W w
+
 """"""""" DISPLAY
 
 set t_Co=256         " use 256 colors
@@ -48,13 +64,6 @@ set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
 
-""""""""" MAPPINGS
-
-" F5 toggles search highlighting
-map <F5> :set hls!<bar>set hls?<CR>
-
-" ^P toggles paste mode (from insert mode)
-map  :set paste!<CR>:set paste?<CR>
 
 """"""""" OTHER
 
@@ -74,7 +83,6 @@ if &term == "xterm-256color"
 	colorscheme railscasts
 endif
 
-map ,t :tabnew
 
 " adds python path to vim path, so putting the cursor over an import and
 " hitting 'gf' should jump to that module
