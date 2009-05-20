@@ -116,4 +116,4 @@ vim.command(':! clear;%s;%s' % (cmd1, cmd))
 EOF
 endfunction
 
-map P :call ReRunMINDError()<CR>
+nmap P :call ReRunMINDError()<CR>
