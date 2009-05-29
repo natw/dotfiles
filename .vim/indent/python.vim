@@ -14,7 +14,8 @@ setlocal expandtab
 setlocal nolisp
 setlocal autoindent
 setlocal indentexpr=GetPythonIndent(v:lnum)
-setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except,0#
+setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
+inoremap # X<C-H>#
 
 let s:maxoff = 50
 

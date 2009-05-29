@@ -218,11 +218,6 @@ function! PythonCommentSelection()  range
     let ind = ind + 1
   endif
 
-  " hardcoding indentkeys to thing that works with this
-  " THIS IS NOT REALLY VERY GOOD
-  " the '0#' that makes vim not unindent comments fucks this script up
-  setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
-
   let cl = a:firstline
   execute ":".cl
   " Insert commentString in each non-empty line, in column ind
@@ -233,9 +228,6 @@ function! PythonCommentSelection()  range
     execute "normal \<Down>"
     let cl = cl + 1
   endwhile
-
-  " this is probably what indentkeys was before
-  setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except,0#
 
 endfunction
 
