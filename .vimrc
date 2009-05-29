@@ -68,6 +68,7 @@ set fenc=utf-8
 set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
 
+
 """"""""" OTHER
 
 " taglist
@@ -84,6 +85,10 @@ let g:py_select_trailing_comments = 1
 " use railscast color scheme if using 256 color terminal
 if &term == "xterm-256color"
 	colorscheme railscasts
+endif
+
+if &term == "builtin_gui"
+    colorscheme railscasts
 endif
 
 
