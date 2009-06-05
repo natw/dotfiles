@@ -9,6 +9,8 @@ export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export MANPATH=$MANPATH:/opt/local/share/man
+export WORKON_HOME="$HOME/.virtualenvs"
+source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
 
 export RUBYOPT=rubygems
 
@@ -223,6 +225,8 @@ function svnurlof() {
 hgdiff() {
 	vimdiff -c 'map q :qa!<CR>' <(hg cat "$1") "$1";
 }
+
+alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 
 ##################
 # COMMAND PROMPT #
