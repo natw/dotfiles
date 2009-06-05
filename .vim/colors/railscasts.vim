@@ -94,3 +94,11 @@ highlight SpellBad                  guifg=#D70000 ctermfg=160 ctermbg=NONE cterm
 highlight SpellRare                 guifg=#D75F87 ctermfg=168 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight SpellCap                  guifg=#D0D0FF ctermfg=189 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 highlight MatchParen                guifg=#FFFFFF ctermfg=15 guibg=#005f5f ctermbg=23
+
+highlight DiffAdd ctermfg=0 cterm=NONE guifg=#000000 gui=NONE
+highlight DiffChange ctermfg=0 cterm=NONE guifg=#000000 gui=NONE
+highlight DiffText ctermfg=0 guifg=#000000 cterm=NONE gui=NONE
+" highlight DiffAdd cterm=none ctermfg=bg ctermbg=Green gui=none guifg=bg guibg=Green
+" highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
+" highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
+" highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta 
