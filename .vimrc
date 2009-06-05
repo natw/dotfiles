@@ -1,7 +1,7 @@
 """"""""" UI
 
 set nocompatible     " vi is a butt
-set mouse=a          " let the mouse do stuff (a = in all modes) 
+set mouse=nv         " let the mouse do stuff
 set bs=2             " make backspace work like it should
 set autoread         " automatically check for changes to the file
 set incsearch        " turn on incremental searching
