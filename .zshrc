@@ -10,7 +10,7 @@ export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export MANPATH=$MANPATH:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
-source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
+# source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
 
 export RUBYOPT=rubygems
 
@@ -54,6 +54,7 @@ alias pgrep='pgrep -fiL'
 # fancy renaming
 autoload -U zmv
 alias mmv='noglob zmv -W'
+
 
 ################
 # Key Bindings #
@@ -210,9 +211,14 @@ fi
 
 host_nick='%m'
 
+autoload -Uz vcs_info
+
 # precmd is a builtin function that is called before every rendering of the command prompt
 precmd() {
 	echo -ne "\033]0;${host_nick}: ${PWD/#$HOME/~}\007"
+#     psvar=()
+    vcs_info
+#     [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
 }
 precmd
 
@@ -244,6 +250,20 @@ else
 	ucolor=$fg[green]
 fi
 
+# precmd () { vcs_info }
+
+# zstyle ':vcs_info:*' actionformats "%{%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f%} "
+zstyle ':vcs_info:*' actionformats "(%s)-[%b|%s]"
+# zstyle ':vcs_info:*' formats "%{%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f%} "
+zstyle ':vcs_info:*' formats "(%s)-[%b]"
+# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%{%b%F{1}:%F{3}%r%}"
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b:%r"
+zstyle ':vcs_info:*' enable svn git hg
+# PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f%# '
+# PS1='%m%(1v.%F{green}%1v%f.)%# '
+RPROMPT='%{${fg_bold[white]}%}[${vcs_info_msg_0_}%{${fg_bold[white]}%}]'
+
+
 
 # define host_nick in .zshrc-machine to override
 
@@ -260,7 +280,5 @@ fi
 # %~ is long, %. is the short pwd
 
 PS1='%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{${fg[yellow]}%}%~%{${fg[white]}%}]%{${fg[green]}%}%# %{${reset_color}%}'
-
-
 
 
