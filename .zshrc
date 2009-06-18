@@ -254,7 +254,7 @@ fi
 
 zstyle ':vcs_info:*' enable svn git hg
 zstyle ':vcs_info:hg:*:nwilliams' formats "%{%}"
-zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%}%{${fg_bold[yellow]}%}%r"
+zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%}%{${fg_bold[yellow]}%}:%r"
 zstyle ':vcs_info:*' actionformats "(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}|%{${fg_bold[yellow]}%}%s%{${fg_bold[white]}%}]"
 zstyle ':vcs_info:*' formats "(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${reset_color}%}"
 
