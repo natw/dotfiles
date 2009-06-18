@@ -245,23 +245,25 @@ promptinit
 
 # render machine name in red for root users
 if [ "x`whoami`" = "xroot" ]; then
-	ucolor=$fg[red]
+	ucolor=$fg_bold[red]
 else
-	ucolor=$fg[green]
+	ucolor=$fg_bold[green]
 fi
 
 # precmd () { vcs_info }
 
-# zstyle ':vcs_info:*' actionformats "%{%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f%} "
-zstyle ':vcs_info:*' actionformats "(%s)-[%b|%s]"
-# zstyle ':vcs_info:*' formats "%{%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f%} "
-zstyle ':vcs_info:*' formats "(%s)-[%b]"
-# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%{%b%F{1}:%F{3}%r%}"
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b:%r"
 zstyle ':vcs_info:*' enable svn git hg
+zstyle ':vcs_info:hg:*:nwilliams' formats "%{%}"
+zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%}%{${fg_bold[yellow]}%}%r"
+zstyle ':vcs_info:*' actionformats "(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}|%{${fg_bold[yellow]}%}%s%{${fg_bold[white]}%}]"
+zstyle ':vcs_info:*' formats "(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${reset_color}%}"
+
+# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%{${fg_bold[white]}%}:%{${fg_bold[yellow]}%}%r"
 # PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f%# '
 # PS1='%m%(1v.%F{green}%1v%f.)%# '
-RPROMPT='%{${fg_bold[white]}%}[${vcs_info_msg_0_}%{${fg_bold[white]}%}]'
+
+# RPROMPT='%{${fg_bold[white]}%}[${vcs_info_msg_0_}%{${fg_bold[white]}%}]'
+RPROMPT='${vcs_info_msg_0_}'
 
 
 
@@ -279,6 +281,6 @@ fi
 # I didn't even know there was more than one yellow.  I want 1;33
 # %~ is long, %. is the short pwd
 
-PS1='%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{${fg[yellow]}%}%~%{${fg[white]}%}]%{${fg[green]}%}%# %{${reset_color}%}'
+PS1='%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}'
 
 
