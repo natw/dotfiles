@@ -1,18 +1,20 @@
-# set PATH stuff in .zshenv, Augie says this is a Good Idea
 
-# Basic shell var stuff:
+# machine specific settings
+if [[ -a ~/.zshrc-local ]]; then
+	source ~/.zshrc-local
+fi
+
 
 # path for zsh completion functions
-export FPATH='/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions'
-export FPATH=$FPATH:~/.zsh/functions
+export FPATH="/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions:~/.zsh/functions"
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export MANPATH=$MANPATH:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
+export RUBYOPT=rubygems
 # source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
 
-export RUBYOPT=rubygems
 
 # this is all kind of a mess, but it seems to be working ok
 # for BSD ls (osx)
@@ -21,8 +23,7 @@ export LSCOLORS="Dxgxcxdxcxegedabagacad"
 LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 export LS_COLORS
 # for zsh (I hope)
-ZLS_COLORS=$LS_COLORS
-export ZLS_COLORS
+export ZLS_COLORS=$LS_COLORS
 
 # history stuff
 HISTFILE=~/.zhistory
@@ -84,15 +85,16 @@ bindkey "^[[3~" delete-char # delete
 
 setopt autocd # evaluating a dir name cds to that dir
 
+ulimit -c 0 # no process limit?
+setopt prompt_subst # allow variable substitution in the prompt
+setopt c_bases # output hex and octal in better format.  what the hell?
+
 ##############
 # COMPLETION #
 ##############
 
-setopt PROMPT_SUBST
-setopt CORRECT
-ulimit -c 0
-setopt c_bases
-setopt autolist
+setopt correct # correct commands
+setopt autolist # list completion candidates
 
 autoload -U compinit
 compinit -C
@@ -172,6 +174,7 @@ zstyle ':completion:*:*:nosetests:*:*' file-patterns '*.py'
 # commands that have nice --help output and I want to complete arguments for
 compdef _gnu_generic nosetests
 
+# I don't remember commenting this out, I guess it broke something?
 # if [ "`uname`" = "Darwin" ]; then
 #    compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" 
 # #-- open
@@ -209,39 +212,52 @@ else
 fi 
 }
 
-host_nick='%m'
-
-autoload -Uz vcs_info
+autoload -Uz vcs_info # for pulling info from version control systems
 
 # precmd is a builtin function that is called before every rendering of the command prompt
 precmd() {
 	echo -ne "\033]0;${host_nick}: ${PWD/#$HOME/~}\007"
-#     psvar=()
     vcs_info
-#     [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
 }
-precmd
+# precmd
 
 # Function to grab the url of an svn wc
 function svnurlof() {
     svn info $1 | grep '^URL: ' | sed 's/URL: //'
 }
 
+alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 # use vimdiff for hg diffs (new version on right side)
 hgdiff() {
-	vimdiff -c 'map q :qa!<CR>' <(hg cat "$1") "$1";
+	vimdiff <(hg cat "$1") "$1";
 }
 
-alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
-
-##################
-# COMMAND PROMPT #
-##################
 
 autoload colors
 colors
-autoload -U promptinit
-promptinit
+
+# I think this is for adding rimz and a spoiler to your prompt. 
+# autoload -U promptinit
+# promptinit
+
+##################################
+# Version Control Info (rprompt) #
+##################################
+
+# the VCSs that zsh should care about.  not sure why anyone would be using any other than these three.  the order WILL determine precedence
+zstyle ':vcs_info:*' enable svn git hg
+# I keep a lot of my dotfiles in VC, so this prevents zsh from showing branch info for any otherwise uncontrolled directory in my home dir
+zstyle ":vcs_info:hg:*:$LOGNAME" formats "%{%}"
+# I think there is some redundance between the coloring in branchformat and formats.  can't say I care at all, though
+zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%}:%{${fg_bold[yellow]}%}%r"
+zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}|%{${fg_bold[yellow]}%}%s%{${fg_bold[white]}%}]"
+zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${reset_color}%}"
+
+RPROMPT='${vcs_info_msg_0_}'
+
+if [ -z host_nick ]; then
+    host_nick = '%m'
+fi
 
 # render machine name in red for root users
 if [ "x`whoami`" = "xroot" ]; then
@@ -249,37 +265,6 @@ if [ "x`whoami`" = "xroot" ]; then
 else
 	ucolor=$fg_bold[green]
 fi
-
-# precmd () { vcs_info }
-
-zstyle ':vcs_info:*' enable svn git hg
-zstyle ':vcs_info:hg:*:nwilliams' formats "%{%}"
-zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%}:%{${fg_bold[yellow]}%}%r"
-zstyle ':vcs_info:*' actionformats "(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}|%{${fg_bold[yellow]}%}%s%{${fg_bold[white]}%}]"
-zstyle ':vcs_info:*' formats "(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${reset_color}%}"
-
-# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat "%b%{${fg_bold[white]}%}:%{${fg_bold[yellow]}%}%r"
-# PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}%f%# '
-# PS1='%m%(1v.%F{green}%1v%f.)%# '
-
-# RPROMPT='%{${fg_bold[white]}%}[${vcs_info_msg_0_}%{${fg_bold[white]}%}]'
-RPROMPT='${vcs_info_msg_0_}'
-
-
-
-# define host_nick in .zshrc-machine to override
-
-#######  .ZSHRC-MACHINE INCLUDED HERE
-if [[ -a ~/.zshrc-machine ]]; then
-	source ~/.zshrc-machine
-fi
-
-# put as little as possible after the inclusion of .zshrc-machine
-# so things can be overridden
-
-# for some reason, the 'yellow' in the colors hash is darker than the yellow I want
-# I didn't even know there was more than one yellow.  I want 1;33
-# %~ is long, %. is the short pwd
 
 PS1='%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}'
 
