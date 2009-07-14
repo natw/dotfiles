@@ -12,6 +12,7 @@ export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export MANPATH=$MANPATH:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export RUBYOPT=rubygems
 # source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
 
@@ -266,6 +267,6 @@ else
 	ucolor=$fg_bold[green]
 fi
 
-PS1='%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}'
+PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
 
 
