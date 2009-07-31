@@ -241,6 +241,19 @@ colors
 # autoload -U promptinit
 # promptinit
 
+function hg-svn-merge-branch() {
+    local targetrev
+    local striprev
+    targetrev=$(hg id | cut -d ' ' -f 1)
+    hg merge $1
+    hg ci -m "Merging $1"
+    striprev=$(hg id | cut -d ' ' -f 1)
+    hg co $targetrev
+    hg diff -r$targetrev:$striprev | hg import - -m "Merged branch $1."
+    hg strip $striprev
+}
+
+
 ##################################
 # Version Control Info (rprompt) #
 ##################################
