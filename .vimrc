@@ -21,6 +21,8 @@ map  gT
 map  gt
 
 :command W w
+:command Wq wq
+
 
 """"""""" DISPLAY
 
@@ -67,6 +69,10 @@ set fenc=utf-8
 " set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
 set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
+"""""""" pylint
+autocmd FileType python compiler pylint
+let g:pylint_onwrite = 0
+map <Leader>pl :Pylint<CR>
 
 
 """"""""" OTHER
