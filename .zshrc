@@ -10,6 +10,7 @@ export FPATH="/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/fun
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
+export LC_TYPE=$LC_CTYPE
 export MANPATH=$MANPATH:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
