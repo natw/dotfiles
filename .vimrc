@@ -22,6 +22,7 @@ map  gt
 
 :command W w
 :command Wq wq
+:command Q q
 
 
 """"""""" DISPLAY
