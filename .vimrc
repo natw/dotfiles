@@ -1,5 +1,6 @@
 """"""""" UI
 
+
 set nocompatible     " vi is a butt
 set mouse=nv         " let the mouse do stuff
 set bs=2             " make backspace work like it should
