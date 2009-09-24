@@ -6,7 +6,7 @@ fi
 
 
 # path for zsh completion functions
-export FPATH="/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions:~/.zsh/functions"
+export FPATH="~/.zsh/functions:/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions"
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
@@ -58,6 +58,7 @@ alias pgrep='pgrep -fiL'
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
+alias vcsi='vcs_info command; vcs_info_lastmsg'
 
 ################
 # Key Bindings #
@@ -260,10 +261,11 @@ function hg-svn-merge-branch() {
 ##################################
 
 # the VCSs that zsh should care about.  not sure why anyone would be using any other than these three.  the order WILL determine precedence
-zstyle ':vcs_info:*' enable svn git hg
+zstyle ':vcs_info:*' enable svn hg git
 # I keep a lot of my dotfiles in VC, so this prevents zsh from showing branch info for any otherwise uncontrolled directory in my home dir
 zstyle ":vcs_info:hg:*:$LOGNAME" formats "%{%}"
-# I think there is some redundance between the coloring in branchformat and formats.  can't say I care at all, though
+#I think there is some redundance between the coloring in branchformat and formats.  can't say I care at all, though
+zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%}:%{${fg_bold[yellow]}%}%r"
 zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}|%{${fg_bold[yellow]}%}%s%{${fg_bold[white]}%}]"
 zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${reset_color}%}"

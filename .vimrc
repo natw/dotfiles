@@ -1,5 +1,6 @@
 """"""""" UI
 
+
 set nocompatible     " vi is a butt
 set mouse=nv         " let the mouse do stuff
 set bs=2             " make backspace work like it should
@@ -22,6 +23,7 @@ map  gt
 
 :command W w
 :command Wq wq
+:command Q q
 
 
 """"""""" DISPLAY
@@ -69,7 +71,11 @@ set fenc=utf-8
 " set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
 set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
-"""""""" pylint
+au BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
+
+
+""""""""" PYLINT
+
 autocmd FileType python compiler pylint
 let g:pylint_onwrite = 0
 map <Leader>pl :Pylint<CR>
@@ -93,6 +99,7 @@ if &term == "xterm-256color"
 	colorscheme railscasts
 endif
 
+" I never actually use the standalone gui version, but whatever
 if &term == "builtin_gui"
     colorscheme railscasts
 endif
