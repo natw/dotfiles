@@ -51,7 +51,7 @@ alias cdf='cd "`posd`"'
 alias vi='vim'
 alias svns='svn status -u'
 alias ff='open -a /Applications/Firefox.app "$1"'
-
+alias grin='grin --force-color' # grin doesn't recognize xterm-256color
 alias pgrep='pgrep -fiL'
 
 # fancy renaming
