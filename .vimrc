@@ -1,6 +1,5 @@
 """"""""" UI
 
-
 set nocompatible     " vi is a butt
 set mouse=nv         " let the mouse do stuff
 set bs=2             " make backspace work like it should
@@ -26,6 +25,9 @@ map  gt
 :command Wq wq
 :command Q q
 
+set listchars=tab:»·,trail:·
+set list
+
 
 """"""""" DISPLAY
 
@@ -37,10 +39,10 @@ set ruler            " use the ruler.  don't remember exactly what this means
 set laststatus=2     " always show the status line
 set title            " set window title
 set noerrorbells     " DESTROY ALL BELLS
-set novisualbell     " 
+set novisualbell     "
 set t_vb=            " also turns off visual bell?
 set showmatch        " highlight matching brackets
-set hlsearch         " highlight search term 
+set hlsearch         " highlight search term
 set showtabline=1    " only show file tabs when more than one file open
 
 " status line formatting
@@ -97,7 +99,7 @@ let g:py_select_trailing_comments = 1
 
 " use railscast color scheme if using 256 color terminal
 if &term == "xterm-256color"
-	colorscheme railscasts
+    colorscheme railscasts
 endif
 
 " I never actually use the standalone gui version, but whatever
