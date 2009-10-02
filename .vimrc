@@ -6,6 +6,7 @@ set mouse=nv         " let the mouse do stuff
 set bs=2             " make backspace work like it should
 set autoread         " automatically check for changes to the file
 set incsearch        " turn on incremental searching
+set scrolloff=10     " rows on either side of the cursor when scrolling
 
 " F5 toggles search highlighting
 map <F5> :set hls!<bar>set hls?<CR>
