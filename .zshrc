@@ -1,7 +1,7 @@
 
 # machine specific settings
 if [[ -a ~/.zshrc-local ]]; then
-	source ~/.zshrc-local
+    source ~/.zshrc-local
 fi
 
 
@@ -11,11 +11,12 @@ export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
-export MANPATH=$MANPATH:/opt/local/share/man
+export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export RUBYOPT=rubygems
 # source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
+export ARCHFLAGS=""
 
 
 # this is all kind of a mess, but it seems to be working ok
@@ -39,12 +40,12 @@ setopt inc_append_history
 
 # in linux, -G just omits the group from -l listing.  gg apple, or bsd, or whomever
 case $OSTYPE in
-	linux*)
-		alias ls='ls --color=auto -Hh'
-	;;
-	darwin*)
-		alias ls='ls -GHh'
-	;;
+    linux*)
+        alias ls='ls --color=auto -Hh'
+    ;;
+    darwin*)
+        alias ls='ls -GHh'
+    ;;
 esac
 # should be meaningless on other machines, for interacting with Finder
 alias cdf='cd "`posd`"'
@@ -103,8 +104,8 @@ autoload -U compinit
 compinit -C
 
 _force_rehash() {
-	(( CURRENT ==1 )) && rehash
-	return 1
+    (( CURRENT ==1 )) && rehash
+    return 1
 }
 zmodload -i zsh/complist
 
@@ -193,9 +194,9 @@ compdef _gnu_generic nosetests
 posd() {
 thePath="$( osascript<<END
 try
-	tell application "Finder" to set the source_folder to (folder of the front window) as alias
+    tell application "Finder" to set the source_folder to (folder of the front window) as alias
 on error -- no open folder windows
-	set the source_folder to path to desktop folder as alias
+    set the source_folder to path to desktop folder as alias
 end try
 
 set thePath to (POSIX path of the source_folder as string)
@@ -204,22 +205,22 @@ END
 )"
 if [[ -n "${thePath%/*}" ]]; then
 
-	if [[ -d "$thePath" ]]; then
-		echo "${thePath%/}"
-	else 
-		echo "${thePath%/*}"
-	fi
+    if [[ -d "$thePath" ]]; then
+        echo "${thePath%/}"
+    else
+        echo "${thePath%/*}"
+    fi
 
-else 
-	echo "/" 
-fi 
+else
+    echo "/"
+fi
 }
 
 autoload -Uz vcs_info # for pulling info from version control systems
 
 # precmd is a builtin function that is called before every rendering of the command prompt
 precmd() {
-	echo -ne "\033]0;${host_nick}: ${PWD/#$HOME/~}\007"
+    echo -ne "\033]0;${host_nick}: ${PWD/#$HOME/~}\007"
     vcs_info
 }
 # precmd
@@ -232,7 +233,7 @@ function svnurlof() {
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 # use vimdiff for hg diffs (new version on right side)
 hgdiff() {
-	vimdiff <(hg cat "$1") "$1";
+    vimdiff <(hg cat "$1") "$1";
 }
 
 
@@ -278,9 +279,9 @@ fi
 
 # render machine name in red for root users
 if [ "x`whoami`" = "xroot" ]; then
-	ucolor=$fg_bold[red]
+    ucolor=$fg_bold[red]
 else
-	ucolor=$fg_bold[green]
+    ucolor=$fg_bold[green]
 fi
 
 PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
