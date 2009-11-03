@@ -27,8 +27,6 @@ map  gt
 :command Wq wq
 :command Q q
 
-set listchars=tab:»·,trail:·
-set list
 
 """"""""" make the numpad work right in xterm-256color term
 
