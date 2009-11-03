@@ -30,6 +30,20 @@ map  gt
 set listchars=tab:»·,trail:·
 set list
 
+""""""""" make the numpad work right in xterm-256color term
+
+" the ! makes it work in Insert mode as well
+map! Oq 1
+map! Or 2
+map! Os 3
+map! Ot 4
+map! Ou 5
+map! Ov 6
+map! Ow 7
+map! Ox 8
+map! Oy 9
+map! OX =
+
 
 """"""""" DISPLAY
 
@@ -78,6 +92,8 @@ set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
 au BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
 
+au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
+
 
 """"""""" PYLINT
 
@@ -108,6 +124,9 @@ endif
 if &term == "builtin_gui"
     colorscheme railscasts
 endif
+
+" command to remove trailing whitespace
+:command Rmsp %s/\s\+$//
 
 
 " adds python path to vim path, so putting the cursor over an import and
