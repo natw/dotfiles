@@ -14,9 +14,11 @@ export LC_TYPE=$LC_CTYPE
 export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
 export RUBYOPT=rubygems
 # source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
 export ARCHFLAGS=""
+export GRIN_ARGS="--force-color"
 
 
 # this is all kind of a mess, but it seems to be working ok
@@ -52,7 +54,6 @@ alias cdf='cd "`posd`"'
 alias vi='vim'
 alias svns='svn status -u'
 alias ff='open -a /Applications/Firefox.app "$1"'
-alias grin='grin --force-color' # grin doesn't recognize xterm-256color
 alias pgrep='pgrep -fiL'
 
 # fancy renaming
