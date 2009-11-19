@@ -14,6 +14,7 @@ export LC_TYPE=$LC_CTYPE
 export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
 export RUBYOPT=rubygems
 # source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
 export ARCHFLAGS=""
