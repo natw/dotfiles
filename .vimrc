@@ -79,6 +79,10 @@ set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 au BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
 
 
+let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
+let clj_want_gorilla = 1
+
+
 """"""""" PYLINT
 
 autocmd FileType python compiler pylint
