@@ -1,1 +1,2 @@
 RPROMPT="$_OLD_RPROMPT"
+rehash
