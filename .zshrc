@@ -186,6 +186,19 @@ compdef _gnu_generic nosetests
 #    alias run='open -a'
 # fi
 
+# pip zsh completion start
+export COMP_WORDS=""
+function _pip_completion {
+#   print "HELLO"
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS=$words
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+# pip zsh completion end
 
 #############
 # FUNCTIONS #
