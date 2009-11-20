@@ -8,6 +8,7 @@ set incsearch        " turn on incremental searching
 set scrolloff=10     " rows on either side of the cursor when scrolling
 set splitright       " open new vertical splits on the right side
 set splitbelow       " open new horizontal splits on the bottom
+set ignorecase       " case-insensitive searching
 
 " F5 toggles search highlighting
 map <F5> :set hls!<bar>set hls?<CR>
