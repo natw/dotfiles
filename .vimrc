@@ -28,6 +28,9 @@ map  gt
 :command Wq wq
 :command Q q
 
+" python syntax highlighting stuff
+let python_highlight_all = 1
+
 
 """"""""" make the numpad work right in xterm-256color term
 
