@@ -1,0 +1,15 @@
+"2.2 (created: 2009/10/28 19:04:27)
+
+map <C-h> gT
+map <C-l> gt
+map > fnext
+map < fprev
+javascript liberator.beep = function() { return false; }
+set noerrorbells
+set novisualbell
+
+
+set runtimepath=/Users/natw/.vimperator
+source! /Users/natw/.vimperatorrc.local
+
+" vim: set ft=vim:
