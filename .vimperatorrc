@@ -1,5 +1,3 @@
-"2.2 (created: 2009/10/28 19:04:27)
-
 map <C-h> gT
 map <C-l> gt
 map > fnext
@@ -8,8 +6,9 @@ javascript liberator.beep = function() { return false; }
 set noerrorbells
 set novisualbell
 
+:command shorten :javascript content.document.location.href='http://is.gd/create.php?longurl='+escape(content.document.location.href)
 
-set runtimepath=/Users/natw/.vimperator
-source! /Users/natw/.vimperatorrc.local
+set runtimepath=~/.vimperator
+source! ~/.vimperatorrc.local
 
 " vim: set ft=vim:
