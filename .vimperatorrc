@@ -2,6 +2,7 @@ map <C-h> gT
 map <C-l> gt
 map > fnext
 map < fprev
+nmap <C-m> <C-z>
 javascript liberator.beep = function() { return false; }
 set noerrorbells
 set novisualbell
