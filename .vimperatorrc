@@ -1,13 +1,13 @@
-:command shorten :javascript content.document.location.href='http://is.gd/create.php?longurl='+escape(content.document.location.href)
 map <C-h> gT
 map <C-l> gt
 map > fnext
 map < fprev
-nmap <C-m> <C-z>
+nmap <C-m> <C-z> " use ^m for pass-through mode
 javascript liberator.beep = function() { return false; }
 set noerrorbells
 set novisualbell
 
+:command shorten :javascript content.document.location.href='http://is.gd/create.php?longurl='+escape(content.document.location.href)
 
 set runtimepath=~/.vimperator
 source! ~/.vimperatorrc.local

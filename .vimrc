@@ -100,6 +100,7 @@ au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
 let clj_want_gorilla = 1
 
+set diffopt+=iwhite " ignore whitespace in diff mode
 
 """"""""" PYLINT
 
