@@ -100,7 +100,9 @@ au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
 let clj_want_gorilla = 1
 
-set diffopt+=iwhite " ignore whitespace in diff mode
+if &diff
+    set diffopt+=iwhite " ignore whitespace in diff mode
+endif
 
 """"""""" PYLINT
 
@@ -135,6 +137,16 @@ endif
 " command to remove trailing whitespace
 :command Rmsp %s/\s\+$//
 
+" :DiffSaved to see diff of current buffer and version on disk
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
 
 " adds python path to vim path, so putting the cursor over an import and
 " hitting 'gf' should jump to that module
@@ -149,20 +161,3 @@ for p in sys.path:
 EOF
 endif
 
-" function! ReRunMINDError()
-" python << EOF
-" import vim, os, re
-" line = vim.current.line
-" reg = re.compile(r'(\w+)\.(\w+)\(\<Scenario Object: (\S+) \| (\S+) \|.*$')
-" m = reg.search(line)
-" mdl = '%s.py' % m.group(1)
-" fnc = m.group(2)
-" site = m.group(3)
-" exp = m.group(4)
-" cmd = 'nosetests %s:%s --with-csg-site=%s --with-csg-exp=%s' % (mdl, fnc, site, exp)
-" cmd1 = 'echo "%s"' % cmd
-" vim.command(':! clear;%s;%s' % (cmd1, cmd))
-" EOF
-" endfunction
-
-" nmap P :call ReRunMINDError()<CR>
