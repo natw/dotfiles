@@ -35,6 +35,7 @@ let python_highlight_all = 1
 """"""""" make the numpad work right in xterm-256color term
 
 " the ! makes it work in Insert mode as well
+map! Op 0
 map! Oq 1
 map! Or 2
 map! Os 3
