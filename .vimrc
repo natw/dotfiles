@@ -16,9 +16,6 @@ map <F5> :set hls!<bar>set hls?<CR>
 " ^P toggles paste mode (from insert mode)
 map  :set paste!<CR>:set paste?<CR>
 
-" new tab
-map ,t :tabnew
-
 " ctrl-h for previous tab
 map  gT
 " ctrl-L for next tab
@@ -31,6 +28,7 @@ map  gt
 " python syntax highlighting stuff
 let python_highlight_all = 1
 
+map <leader>ff :FufFile<CR>
 
 """"""""" make the numpad work right in xterm-256color term
 
@@ -101,6 +99,10 @@ au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
 let clj_want_gorilla = 1
 
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabnew <C-R>=expand("%:p:h") . "/" <CR>
+
+
 
 """"""""" PYLINT
 
@@ -112,7 +114,7 @@ map <Leader>pl :Pylint<CR>
 """"""""" OTHER
 
 " taglist
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags' " prob don't need this anymore
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Inc_Winwidth=0
 " toggle taglist window with F6
