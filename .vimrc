@@ -11,6 +11,8 @@ set splitbelow       " open new horizontal splits on the bottom
 set ignorecase       " case-insensitive searching
 set winwidth=50      " dumb setting
 set winminwidth=50   " minimum window width.  makes ^W| useful
+set wildmenu         " show menu for tab-completion
+set switchbuf=usetab " consider tabs when switching between buffers
 
 " F5 toggles search highlighting
 map <F5> :set hls!<bar>set hls?<CR>
