@@ -300,4 +300,4 @@ fi
 
 PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
 
-
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
