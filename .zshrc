@@ -1,9 +1,8 @@
+# Nat Williams' .zshrc file
+# http://bitbucket.org/natw/dotfiles/
 
-# machine specific settings
-if [[ -a ~/.zshrc-local ]]; then
-    source ~/.zshrc-local
-fi
 
+#### OPTIONS
 
 # path for zsh completion functions
 export FPATH="~/.zsh/functions:/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions"
@@ -14,31 +13,31 @@ export LC_TYPE=$LC_CTYPE
 export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
-# source /Library/Frameworks/Python.framework/Versions/2.5/bin/virtualenvwrapper_bashrc
 export ARCHFLAGS=""
 export GRIN_ARGS="--force-color"
-
 
 # this is all kind of a mess, but it seems to be working ok
 # for BSD ls (osx)
 export LSCOLORS="Dxgxcxdxcxegedabagacad"
 # for GNU ls (linux)
-LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
-export LS_COLORS
+export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 # for zsh (I hope)
 export ZLS_COLORS=$LS_COLORS
 
-# history stuff
 HISTFILE=~/.zhistory
-setopt histignoredups # ignore duplicates.  I don't think this is a real option
+setopt hist_ignore_dups
 HISTSIZE='10000'
 SAVEHIST='10000'
 WORDCHARS=${WORDCHARS//[\/.]}
 setopt extended_history # append history entries w/ timestamp
-# setopt hist_save_no_dups
 setopt inc_append_history
+setopt share_history
+
+
+
+#### ALIASES
 
 # in linux, -G just omits the group from -l listing.  gg apple, or bsd, or whomever
 case $OSTYPE in
@@ -49,9 +48,7 @@ case $OSTYPE in
         alias ls='ls -GHh'
     ;;
 esac
-# should be meaningless on other machines, for interacting with Finder
-alias cdf='cd "`posd`"'
-alias vi='vim'
+
 alias svns='svn status -u'
 alias ff='open -a /Applications/Firefox.app "$1"'
 alias pgrep='pgrep -fiL'
@@ -60,11 +57,10 @@ alias pgrep='pgrep -fiL'
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
-alias vcsi='vcs_info command; vcs_info_lastmsg'
+alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 
-################
-# Key Bindings #
-################
+
+#### Key Binding / UI stuff
 
 # use vim-style line editing
 bindkey -v
@@ -94,9 +90,12 @@ ulimit -c 0 # no process limit?
 setopt prompt_subst # allow variable substitution in the prompt
 setopt c_bases # output hex and octal in better format.  what the hell?
 
-##############
-# COMPLETION #
-##############
+autoload colors
+colors
+
+
+
+#### COMPLETION
 
 setopt correct # correct commands
 setopt autolist # list completion candidates
@@ -179,13 +178,6 @@ zstyle ':completion:*:*:nosetests:*:*' file-patterns '*.py'
 # commands that have nice --help output and I want to complete arguments for
 compdef _gnu_generic nosetests
 
-# I don't remember commenting this out, I guess it broke something?
-# if [ "`uname`" = "Darwin" ]; then
-#    compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" 
-# #-- open
-#    alias run='open -a'
-# fi
-
 # pip zsh completion start
 export COMP_WORDS=""
 function _pip_completion {
@@ -200,35 +192,9 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
-#############
-# FUNCTIONS #
-#############
 
-# this returns the current directory of the topmost finder window
-posd() {
-thePath="$( osascript<<END
-try
-    tell application "Finder" to set the source_folder to (folder of the front window) as alias
-on error -- no open folder windows
-    set the source_folder to path to desktop folder as alias
-end try
 
-set thePath to (POSIX path of the source_folder as string)
-set result to thePath
-END
-)"
-if [[ -n "${thePath%/*}" ]]; then
-
-    if [[ -d "$thePath" ]]; then
-        echo "${thePath%/}"
-    else
-        echo "${thePath%/*}"
-    fi
-
-else
-    echo "/"
-fi
-}
+#### FUNCTIONS
 
 autoload -Uz vcs_info # for pulling info from version control systems
 
@@ -237,27 +203,13 @@ precmd() {
     echo -ne "\033]0;${host_nick}: ${PWD/#$HOME/~}\007"
     vcs_info
 }
-# precmd
 
-# Function to grab the url of an svn wc
-function svnurlof() {
-    svn info $1 | grep '^URL: ' | sed 's/URL: //'
-}
-
-alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 # use vimdiff for hg diffs (new version on right side)
 hgdiff() {
     vimdiff <(hg cat "$1") "$1";
 }
 
-
-autoload colors
-colors
-
-# I think this is for adding rimz and a spoiler to your prompt. 
-# autoload -U promptinit
-# promptinit
-
+# I hope I never need this again
 function hg-svn-merge-branch() {
     local targetrev
     local striprev
@@ -271,9 +223,8 @@ function hg-svn-merge-branch() {
 }
 
 
-##################################
-# Version Control Info (rprompt) #
-##################################
+
+#### Version Control Info (rprompt)
 
 # the VCSs that zsh should care about.  not sure why anyone would be using any other than these three.  the order WILL determine precedence
 zstyle ':vcs_info:*' enable svn hg git
@@ -298,6 +249,21 @@ else
     ucolor=$fg_bold[green]
 fi
 
-PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
 
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+
+
+local _override_ps1
+_override_ps1=false
+
+# machine specific settings
+if [[ -a ~/.zshrc-local ]]; then
+    source ~/.zshrc-local
+fi
+
+# PS1 depends on info from the local zsh config, but I want the option to
+# override it completely from within there as well
+
+if [[ $_override_ps1 = false ]]; then
+    PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
+fi
+
