@@ -59,6 +59,8 @@ alias mmv='noglob zmv -W'
 
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 
+alias mkv="mkvirtualenv --distribute --no-site-packages"
+
 
 #### Key Binding / UI stuff
 
