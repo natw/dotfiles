@@ -76,6 +76,9 @@ hi StatusLineNC term=reverse cterm=bold ctermfg=8
 hi User9 cterm=reverse ctermfg=8 ctermbg=7
 au BufEnter * hi User9 ctermfg=7
 
+let g:netrw_list_hide = '.*\.pyc$'
+
+
 """"""""" HARDCORE SHIT
 
 syntax on            " syntax highlighting
