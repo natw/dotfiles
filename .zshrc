@@ -33,7 +33,7 @@ SAVEHIST='10000'
 WORDCHARS=${WORDCHARS//[\/.]}
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
-setopt share_history
+# setopt share_history
 
 
 

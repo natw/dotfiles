@@ -1,18 +1,21 @@
 """"""""" UI
 
-set nocompatible     " vi is a butt
-set mouse=nv         " let the mouse do stuff
-set bs=2             " make backspace work like it should
-set autoread         " automatically check for changes to the file
-set incsearch        " turn on incremental searching
-set scrolloff=10     " rows on either side of the cursor when scrolling
-set splitright       " open new vertical splits on the right side
-set splitbelow       " open new horizontal splits on the bottom
-set ignorecase       " case-insensitive searching
-set winwidth=50      " dumb setting
-set winminwidth=50   " minimum window width.  makes ^W| useful
-set wildmenu         " show menu for tab-completion
-set switchbuf=usetab " consider tabs when switching between buffers
+set nocompatible      " vi is a butt
+set mouse=nv          " let the mouse do stuff
+set bs=2              " make backspace work like it should
+set autoread          " automatically check for changes to the file
+set incsearch         " turn on incremental searching
+set scrolloff=10      " rows on either side of the cursor when scrolling
+set splitright        " open new vertical splits on the right side
+set splitbelow        " open new horizontal splits on the bottom
+set ignorecase        " case-insensitive searching
+set winwidth=50       " dumb setting
+set winminwidth=50    " minimum window width.  makes ^W| useful
+set wildmenu          " show menu for tab-completion
+set switchbuf=usetab  " consider tabs when switching between buffers
+set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
+
+let javascript_fold=1
 
 " F5 toggles search highlighting
 map <F5> :set hls!<bar>set hls?<CR>
@@ -131,15 +134,7 @@ noremap <silent> <F6> :TlistToggle<CR>
 let g:py_select_leading_comments = 1
 let g:py_select_trailing_comments = 1
 
-" use railscast color scheme if using 256 color terminal
-if &term == "xterm-256color"
-    colorscheme railscasts
-endif
-
-" I never actually use the standalone gui version, but whatever
-if &term == "builtin_gui"
-    colorscheme railscasts
-endif
+colorscheme railscasts " looks like total ass in non-256 color, but whatevs
 
 " command to remove trailing whitespace
 :command Rmsp %s/\s\+$//
