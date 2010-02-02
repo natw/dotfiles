@@ -2,7 +2,7 @@ map <C-h> gT
 map <C-l> gt
 map > fnext
 map < fprev
-nmap <C-m> <C-z> " use ^m for pass-through mode
+nmap <C-e> <C-z>
 javascript liberator.beep = function() { return false; }
 set noerrorbells
 set novisualbell
