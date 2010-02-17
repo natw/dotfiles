@@ -28,8 +28,8 @@ export ZLS_COLORS=$LS_COLORS
 
 HISTFILE=~/.zhistory
 setopt hist_ignore_dups
-HISTSIZE='10000'
-SAVEHIST='10000'
+HISTSIZE='2000'
+SAVEHIST='2000'
 WORDCHARS=${WORDCHARS//[\/.]}
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
