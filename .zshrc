@@ -5,7 +5,7 @@
 #### OPTIONS
 
 # path for zsh completion functions
-export FPATH="~/.zsh/functions:/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions"
+export FPATH="$HOME/.zsh/functions:/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions"
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
@@ -17,6 +17,7 @@ export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
 export ARCHFLAGS=""
 export GRIN_ARGS="--force-color"
+export PAGER='less'
 
 # this is all kind of a mess, but it seems to be working ok
 # for BSD ls (osx)
