@@ -12,6 +12,7 @@ export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
 export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
 export WORKON_HOME="$HOME/.virtualenvs"
+export VIRTUALENV_USE_DISTRIBUTE=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
@@ -29,8 +30,8 @@ export ZLS_COLORS=$LS_COLORS
 
 HISTFILE=~/.zhistory
 setopt hist_ignore_dups
-HISTSIZE='10000'
-SAVEHIST='10000'
+HISTSIZE='2000'
+SAVEHIST='2000'
 WORDCHARS=${WORDCHARS//[\/.]}
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
