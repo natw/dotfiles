@@ -102,6 +102,7 @@ set fenc=utf-8
 set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
 au BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
+au BufRead,BufNewFile *.json setfiletype json 
 
 au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 

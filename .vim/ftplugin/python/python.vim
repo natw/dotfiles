@@ -6,5 +6,5 @@ setlocal smarttab
 setlocal expandtab
 setlocal smartindent
 
-set listchars=tab:»·,trail:·
-set list
+setlocal listchars=tab:»·,trail:·
+setlocal list
