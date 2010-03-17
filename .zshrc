@@ -18,7 +18,6 @@ export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
 export ARCHFLAGS=""
 export GRIN_ARGS="--force-color"
-export PAGER='less'
 
 # this is all kind of a mess, but it seems to be working ok
 # for BSD ls (osx)
