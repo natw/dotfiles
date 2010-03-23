@@ -11,8 +11,8 @@ set splitbelow        " open new horizontal splits on the bottom
 set ignorecase        " case-insensitive searching
 set winwidth=50       " dumb setting
 set winminwidth=50    " minimum window width.  makes ^W| useful
-set winminheight=12   " minimum window height.  (^W_)
 set winheight=12      " also dumb
+set winminheight=12   " minimum window height.  (^W_)
 set wildmenu          " show menu for tab-completion
 set switchbuf=usetab  " consider tabs when switching between buffers
 set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
