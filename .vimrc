@@ -14,7 +14,7 @@ set winminwidth=50    " minimum window width.  makes ^W| useful
 set winheight=12      " also dumb
 set winminheight=12   " minimum window height.  (^W_)
 set wildmenu          " show menu for tab-completion
-set switchbuf=usetab  " consider tabs when switching between buffers
+" set switchbuf=usetab  " consider tabs when switching between buffers
 set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
 
 let javascript_fold=1
@@ -112,8 +112,10 @@ au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
 let clj_want_gorilla = 1
 
-map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-map ,t :tabnew <C-R>=expand("%:p:h") . "/" <CR>
+map ,re :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
+map ,rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map ,rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 
 
 
