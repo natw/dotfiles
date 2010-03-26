@@ -16,7 +16,6 @@ export VIRTUALENV_USE_DISTRIBUTE=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
-export ARCHFLAGS=""
 export GRIN_ARGS="--force-color"
 
 # this is all kind of a mess, but it seems to be working ok
