@@ -13,9 +13,11 @@ set winwidth=50       " dumb setting
 set winminwidth=50    " minimum window width.  makes ^W| useful
 set winheight=12      " also dumb
 set winminheight=12   " minimum window height.  (^W_)
-set wildmenu          " show menu for tab-completion
+set wildmenu wildmode=longest,list          " show menu for tab-completion
 " set switchbuf=usetab  " consider tabs when switching between buffers
 set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
+set nojoinspaces      " don't use two spaces after a . when joining lines
+set foldenable
 
 let javascript_fold=1
 
@@ -83,6 +85,15 @@ au BufEnter * hi User9 ctermfg=7
 
 let g:netrw_list_hide = '.*\.pyc$'
 
+""""""""" GUI stuff (MacVim)
+
+if has("gui_running")
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    set noanti
+    set guioptions=cegm
+    set fuopt=maxvert,maxhorz
+endif
+
 
 """"""""" HARDCORE SHIT
 
@@ -104,8 +115,8 @@ set fenc=utf-8
 set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
 au BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
-au BufRead,BufNewFile *.json setfiletype json 
-
+au BufRead,BufNewFile *.json set filetype=json
+au BufRead,BufNewFile Capfile set filetype=ruby
 au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 
 
