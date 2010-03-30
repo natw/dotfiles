@@ -1,0 +1,9 @@
+set input-meta on
+set meta-flag on
+set convert-meta off
+set output-meta on
+
+set bell-style none
+
+set editing-mode vi
+set keymap vi
