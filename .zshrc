@@ -52,6 +52,7 @@ esac
 alias svns='svn status -u'
 alias ff='open -a /Applications/Firefox.app "$1"'
 alias pgrep='pgrep -fiL'
+alias hgst='hg st'
 
 # fancy renaming
 autoload -U zmv
