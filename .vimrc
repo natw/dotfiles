@@ -123,10 +123,10 @@ au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
 let clj_want_gorilla = 1
 
-map ,re :e <C-R>=expand("%:p:h") . "/" <CR>
-map ,rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
-map ,rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map ,rs :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 
 
 
