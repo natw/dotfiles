@@ -25,12 +25,12 @@ let javascript_fold=1
 map <F5> :set hls!<bar>set hls?<CR>
 
 " ^P toggles paste mode (from insert mode)
-map  :set paste!<CR>:set paste?<CR>
+map <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
-map  gT
+map <C-h> gT
 " ctrl-L for next tab
-map  gt
+map <C-l> gt
 
 :command W w
 :command Wq wq
@@ -44,18 +44,17 @@ map <leader>ff :FufFile<CR>
 """"""""" make the numpad work right in xterm-256color term
 
 " the ! makes it work in Insert mode as well
-map! Op 0
-map! Oq 1
-map! Or 2
-map! Os 3
-map! Ot 4
-map! Ou 5
-map! Ov 6
-map! Ow 7
-map! Ox 8
-map! Oy 9
-map! OX =
-
+map! <C-[>Op 0
+map! <C-[>Oq 1
+map! <C-[>Or 2
+map! <C-[>Os 3
+map! <C-[>Ot 4
+map! <C-[>Ou 5
+map! <C-[>Ov 6
+map! <C-[>Ow 7
+map! <C-[>Ox 8
+map! <C-[>Oy 9
+map! <C-[>OX =
 
 """"""""" DISPLAY
 
