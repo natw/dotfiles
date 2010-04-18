@@ -18,7 +18,7 @@ set wildmenu wildmode=longest,list          " show menu for tab-completion
 set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
 set nojoinspaces      " don't use two spaces after a . when joining lines
 set foldenable
-
+set grepprg=ack
 let javascript_fold=1
 
 " F5 toggles search highlighting
