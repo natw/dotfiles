@@ -91,6 +91,8 @@ if has("gui_running")
     set noanti
     set guioptions=cegm
     set fuopt=maxvert,maxhorz
+    set columns=133
+    set lines=72
 endif
 
 
