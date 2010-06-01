@@ -16,6 +16,7 @@ set winminheight=12   " minimum window height.  (^W_)
 set wildmenu wildmode=longest,list          " show menu for tab-completion
 " set switchbuf=usetab  " consider tabs when switching between buffers
 set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
+set foldlevelstart=99
 set nojoinspaces      " don't use two spaces after a . when joining lines
 set foldenable
 set grepprg=ack
