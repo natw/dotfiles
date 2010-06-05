@@ -232,12 +232,18 @@ function hg-svn-merge-branch() {
 # the VCSs that zsh should care about.  not sure why anyone would be using any other than these three.  the order WILL determine precedence
 zstyle ':vcs_info:*' enable svn hg git
 # I keep a lot of my dotfiles in VC, so this prevents zsh from showing branch info for any otherwise uncontrolled directory in my home dir
-zstyle ":vcs_info:hg:*:$LOGNAME" formats "%{%}"
+# zstyle ":vcs_info:hg:*:$LOGNAME" formats "%{%}"
 #I think there is some redundance between the coloring in branchformat and formats.  can't say I care at all, though
 zstyle ':vcs_info:*' get-revision true
-zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%}:%{${fg_bold[yellow]}%}%r"
-zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}|%{${fg_bold[yellow]}%}%s%{${fg_bold[white]}%}]"
-zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${reset_color}%}"
+zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
+zstyle ':vcs_info:hg*:*' get-bookmarks true
+# zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%} %{${fg_bold[yellow]}%}%r"
+zstyle ':vcs_info:*' branchformat "%b %r"
+zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%} %{${fg_bold[red]}%}%a%{${fg_bold[white]}%}]"
+zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%u%{${reset_color}%}"
+# zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes
+zstyle ':vcs_info:hg*:*' unstagedstr "+"
+zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local rev.
 
 RPROMPT='${vcs_info_msg_0_}'
 
@@ -269,4 +275,3 @@ fi
 if [[ $_override_ps1 = false ]]; then
     PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
 fi
-
