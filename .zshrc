@@ -229,6 +229,8 @@ function hg-svn-merge-branch() {
 
 #### Version Control Info (rprompt)
 
+# SO DISORGANIZED
+
 # the VCSs that zsh should care about.  not sure why anyone would be using any other than these three.  the order WILL determine precedence
 zstyle ':vcs_info:*' enable svn hg git
 # I keep a lot of my dotfiles in VC, so this prevents zsh from showing branch info for any otherwise uncontrolled directory in my home dir
@@ -237,13 +239,55 @@ zstyle ':vcs_info:*' enable svn hg git
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
 zstyle ':vcs_info:hg*:*' get-bookmarks true
+zstyle ':vcs_info:hg*:*' get-mq true
+zstyle ':vcs_info:hg*:*' get-unapplied true
 # zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%} %{${fg_bold[yellow]}%}%r"
-zstyle ':vcs_info:*' branchformat "%b %r"
-zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%} %{${fg_bold[red]}%}%a%{${fg_bold[white]}%}]"
-zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%u%{${reset_color}%}"
+zstyle ':vcs_info:*' branchformat "%b"
+zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%} %{${fg_bold[red]}%}%a%{${fg_bold[white]}%}]"
+zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%u%{${reset_color}%}"
 # zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes
 zstyle ':vcs_info:hg*:*' unstagedstr "+"
 zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local rev.
+zstyle ':vcs_info:hg*:*' patch-format " mq(%g):%n/%c %p"
+# zstyle ':vcs_info:hg*:*' nopatch-format " mq(%g):%n/%c %p"
+zstyle ':vcs_info:hg*:*' nopatch-format ""
+
+# fix this someday
+zstyle ':vcs_info:git*' formats "(%s)[%12.12i %u %b %m]"
+zstyle ':vcs_info:git*' actionformats "(%s|%a)[%12.12i %u %b %m]"
+
+zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
+zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
+
+### Store the localrev and global hash for use in other hooks
+function +vi-hg-storerev() {
+    user_data[localrev]=${hook_com[localrev]}
+    user_data[hash]=${hook_com[hash]}
+}
+
+### Show marker when the working directory is not on a branch head
+# 'marker' is just coloring the rev red
+# This may indicate that running `hg up` will do something
+function +vi-hg-branchhead() {
+    local branchheadsfile i_tiphash i_branchname
+    local -a branchheads
+
+    local branchheadsfile=${hook_com[base]}/.hg/branchheads.cache
+
+    # Bail out if any mq patches are applied
+    [[ -s ${hook_com[base]}/.hg/patches/status ]] && return 0
+
+    if [[ -r ${branchheadsfile} ]] ; then
+        while read -r i_tiphash i_branchname ; do
+            branchheads+=( $i_tiphash )
+        done < ${branchheadsfile}
+
+        if [[ ! ${branchheads[(i)${user_data[hash]}]} -le ${#branchheads} ]] ; then
+            hook_com[revision]="%{${fg_bold[red]}%}${hook_com[revision]}"
+        fi
+    fi
+}
+
 
 RPROMPT='${vcs_info_msg_0_}'
 
