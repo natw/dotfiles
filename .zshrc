@@ -235,31 +235,34 @@ function hg-svn-merge-branch() {
 
 # the VCSs that zsh should care about.  not sure why anyone would be using any other than these three.  the order WILL determine precedence
 zstyle ':vcs_info:*' enable svn hg git
-# I keep a lot of my dotfiles in VC, so this prevents zsh from showing branch info for any otherwise uncontrolled directory in my home dir
-# zstyle ":vcs_info:hg:*:$LOGNAME" formats "%{%}"
-#I think there is some redundance between the coloring in branchformat and formats.  can't say I care at all, though
+# options
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
 zstyle ':vcs_info:hg*:*' get-bookmarks true
 zstyle ':vcs_info:hg*:*' get-mq true
 zstyle ':vcs_info:hg*:*' get-unapplied true
-# zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%} %{${fg_bold[yellow]}%}%r"
-zstyle ':vcs_info:*' branchformat "%b"
-zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%} %{${fg_bold[red]}%}%a%{${fg_bold[white]}%}]"
-zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%u%{${reset_color}%}"
 # zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes
+
+# zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%u%{${reset_color}%}"
+zstyle ':vcs_info:*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m$FG[015]]$FG[167]%u$FX[reset]"
+# zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%} %{${fg_bold[red]}%}%a%{${fg_bold[white]}%}]"
+zstyle ':vcs_info:*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m $FG[167]$FX[bold]%a$FX[reset]$FG[015]]$FG[167]%u$FX[reset]"
+# zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%} %{${fg_bold[yellow]}%}%r"
+zstyle ':vcs_info:*' branchformat "%b" # don't show rev in branchformat, use %i for that to pick up head marker
+
+# mercurial stuff
 zstyle ':vcs_info:hg*:*' unstagedstr "+"
 zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local rev.
-zstyle ':vcs_info:hg*:*' patch-format " %{${fg_bold[magenta]}%}%n/%c %p"
+zstyle ':vcs_info:hg*:*' patch-format " $FG[103]%n$FX[reset]/$FG[103]%c %p$FX[reset]"
 # zstyle ':vcs_info:hg*:*' nopatch-format " mq(%g):%n/%c %p"
 zstyle ':vcs_info:hg*:*' nopatch-format ""
-
-# fix this someday
-zstyle ':vcs_info:git*' formats "(%s)[%12.12i %u %b %m]"
-zstyle ':vcs_info:git*' actionformats "(%s|%a)[%12.12i %u %b %m]"
-
 zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
 zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
+
+# git stuff
+zstyle ':vcs_info:git*' formats "(%s)[%12.12i %u %b %m]"
+zstyle ':vcs_info:git*' actionformats "(%s|%a)[%12.12i %u%b%m]"
+
 
 ### Store the localrev and global hash for use in other hooks
 function +vi-hg-storerev() {
@@ -285,7 +288,7 @@ function +vi-hg-branchhead() {
         done < ${branchheadsfile}
 
         if [[ ! ${branchheads[(i)${user_data[hash]}]} -le ${#branchheads} ]] ; then
-            hook_com[revision]="%{${fg_bold[red]}%}${hook_com[revision]}"
+            hook_com[revision]="$FX[bold]$FG[124]${hook_com[revision]}$FX[reset]"
         fi
     fi
 }
@@ -319,5 +322,6 @@ fi
 # override it completely from within there as well
 
 if [[ $_override_ps1 = false ]]; then
-    PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
+#     PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
+    PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
 fi
