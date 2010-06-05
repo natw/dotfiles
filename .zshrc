@@ -248,7 +248,7 @@ zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${f
 # zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes
 zstyle ':vcs_info:hg*:*' unstagedstr "+"
 zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local rev.
-zstyle ':vcs_info:hg*:*' patch-format " mq(%g):%n/%c %p"
+zstyle ':vcs_info:hg*:*' patch-format " %{${fg_bold[magenta]}%}%n/%c %p"
 # zstyle ':vcs_info:hg*:*' nopatch-format " mq(%g):%n/%c %p"
 zstyle ':vcs_info:hg*:*' nopatch-format ""
 
