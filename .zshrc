@@ -2,15 +2,15 @@
 # http://bitbucket.org/natw/dotfiles/
 
 
-#### OPTIONS
+### ENVIRONMENT
 
-# path for zsh completion functions
 export FPATH="$HOME/.zsh/functions:/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions"
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
 export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
+
 export WORKON_HOME="$HOME/.virtualenvs"
 export VIRTUALENV_USE_DISTRIBUTE=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
@@ -18,33 +18,38 @@ export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
 export GRIN_ARGS="--force-color"
 
-if (($(tput colors) == 256)) {
-    autoload spectrum && spectrum
-    # this way, if the terminal doesn't support 256 colors,
-    # the spectrum arrays just won't exist, and there won't be any color
-}
+export HISTFILE=~/.zhistory
+export HISTSIZE='2000'
+export SAVEHIST='2000'
+export WORDCHARS=${WORDCHARS//[\/.]}
 
-# this is all kind of a mess, but it seems to be working ok
 # for stupid BSD ls (osx)
 export LSCOLORS="Dxgxcxdxcxegedabagacad"
 # for GNU ls (linux) (I wonder what this looks like)
 export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 
-export HISTFILE=~/.zhistory
+
+### OPTIONS
+
 setopt hist_ignore_dups
-export HISTSIZE='2000'
-export SAVEHIST='2000'
-export WORDCHARS=${WORDCHARS//[\/.]}
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
-setopt hist_fcntl_lock
+setopt hist_fcntl_lock # better locking for history file.  maybe doesn't work everywhere
 
-setopt multibyte
+setopt multibyte # maybe enabled by default
 setopt no_beep # HATE. BEEPS.
+setopt short_loops # they see me loopin', they hatin'
 
-setopt short_loops
+setopt autocd # evaluating a dir name cds to that dir
+setopt auto_pushd # push dirs to the stack
+setopt pushd_ignore_dups
+setopt pushd_silent
 
-#### ALIASES
+ulimit -c 0 # no process limit?
+setopt prompt_subst # allow variable substitution in the prompt
+setopt c_bases # output hex and octal in better format.  what the hell?
+
+### ALIASES
 
 # in linux, -G just omits the group from -l listing.  gg apple, or bsd, or whomever
 case $OSTYPE in
@@ -60,13 +65,12 @@ alias svns='svn status -u'
 alias pgrep='pgrep -fiL'
 alias hgst='hg st'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
-
 # fancy renaming
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
 
-#### Key Binding / UI stuff
+#### Key Bindings
 
 # use vim-style line editing
 bindkey -v
@@ -90,25 +94,14 @@ bindkey "^[[H" beginning-of-line # home
 bindkey "^[[F" end-of-line # end
 bindkey "^[[3~" delete-char # delete
 
-setopt autocd # evaluating a dir name cds to that dir
-setopt auto_pushd # push dirs to the stack
-setopt pushd_ignore_dups
-setopt pushd_silent
 
-ulimit -c 0 # no process limit?
-setopt prompt_subst # allow variable substitution in the prompt
-setopt c_bases # output hex and octal in better format.  what the hell?
-
-autoload colors
-colors
-
-
-
-#### COMPLETION
+### COMPLETION
 
 setopt correct # correct commands
 setopt autolist # list completion candidates
 
+zmodload -i zsh/complist
+autoload -U zstyle+
 autoload -U compinit
 compinit -C
 
@@ -116,9 +109,7 @@ _force_rehash() {
     (( CURRENT ==1 )) && rehash
     return 1
 }
-zmodload -i zsh/complist
 
-autoload -U zstyle+
 zstyle ':completion:*' completer _oldlist _expand _force_rehash _complete _list _oldlist _expand _ignored _match _correct _approximate _prefix
 
 local _myhosts
@@ -203,11 +194,9 @@ compctl -K _pip_completion pip
 # pip zsh completion end
 
 
-
-#### FUNCTIONS
+### FUNCTIONS
 
 autoload -Uz vcs_info # for pulling info from version control systems
-
 # precmd is a builtin function that is called before every rendering of the command prompt
 precmd() {
     echo -ne "\033]0;${host_nick}: ${PWD/#$HOME/~}\007"
@@ -233,8 +222,11 @@ function hg-svn-merge-branch() {
 }
 
 
+### Version Control Info (rprompt)
 
-#### Version Control Info (rprompt)
+if (($(tput colors) == 256)) {
+    autoload spectrum && spectrum # this way, if the terminal doesn't support 256 colors, the spectrum arrays just won't exist, and there won't be any color
+}
 
 zstyle ':vcs_info:*' enable svn hg git bzr cvs darcs
 zstyle ':vcs_info:*' get-revision true
@@ -261,7 +253,6 @@ zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 # zstyle ':vcs_info:git*' stagedstr "S"
 zstyle ':vcs_info:git*' formats "(%s)-[%12.12i %b]"
 zstyle ':vcs_info:git*' actionformats "(%s|%a)-[%12.12i %u%b%m]"
-
 
 ### Store the localrev and global hash for use in other hooks
 function +vi-hg-storerev() {
@@ -294,6 +285,9 @@ function +vi-hg-branchhead() {
 
 
 export RPROMPT='${vcs_info_msg_0_}'
+
+
+### OTHER
 
 if [ -z host_nick ]; then
     host_nick = '%m'
