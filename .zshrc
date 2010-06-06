@@ -18,26 +18,31 @@ export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
 export GRIN_ARGS="--force-color"
 
-autoload spectrum && spectrum
+if (($(tput colors) == 256)) {
+    autoload spectrum && spectrum
+    # this way, if the terminal doesn't support 256 colors,
+    # the spectrum arrays just won't exist, and there won't be any color
+}
 
 # this is all kind of a mess, but it seems to be working ok
-# for BSD ls (osx)
+# for stupid BSD ls (osx)
 export LSCOLORS="Dxgxcxdxcxegedabagacad"
-# for GNU ls (linux)
+# for GNU ls (linux) (I wonder what this looks like)
 export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
-# for zsh (I hope)
-export ZLS_COLORS=$LS_COLORS
 
-HISTFILE=~/.zhistory
+export HISTFILE=~/.zhistory
 setopt hist_ignore_dups
-HISTSIZE='2000'
-SAVEHIST='2000'
-WORDCHARS=${WORDCHARS//[\/.]}
+export HISTSIZE='2000'
+export SAVEHIST='2000'
+export WORDCHARS=${WORDCHARS//[\/.]}
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
-# setopt share_history
+setopt hist_fcntl_lock
 
+setopt multibyte
+setopt no_beep # HATE. BEEPS.
 
+setopt short_loops
 
 #### ALIASES
 
@@ -52,17 +57,13 @@ case $OSTYPE in
 esac
 
 alias svns='svn status -u'
-alias ff='open -a /Applications/Firefox.app "$1"'
 alias pgrep='pgrep -fiL'
 alias hgst='hg st'
+alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 
 # fancy renaming
 autoload -U zmv
 alias mmv='noglob zmv -W'
-
-alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
-
-alias mkv="mkvirtualenv --distribute --no-site-packages"
 
 
 #### Key Binding / UI stuff
@@ -90,6 +91,9 @@ bindkey "^[[F" end-of-line # end
 bindkey "^[[3~" delete-char # delete
 
 setopt autocd # evaluating a dir name cds to that dir
+setopt auto_pushd # push dirs to the stack
+setopt pushd_ignore_dups
+setopt pushd_silent
 
 ulimit -c 0 # no process limit?
 setopt prompt_subst # allow variable substitution in the prompt
@@ -123,6 +127,7 @@ zstyle ':completion:*' hosts $_myhosts
 
 ## formatting and messages
 zstyle ':completion:*' verbose yes
+zstyle ':completion:*' list-colors "${LS_COLORS}" # just setting ZLS_COLORS works too, I guess
 ## describe options presented at completion
 zstyle ':completion:*:descriptions' format $'%{\e[0;31m%}%d%{\e[0m%}'
 zstyle ':completion:*:messages' format $'%{\e[0;31m%}%d%{\e[0m%}'
@@ -244,7 +249,7 @@ zstyle ':vcs_info:hg*:*' get-unapplied true
 # zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes
 
 # zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%u%{${reset_color}%}"
-zstyle ':vcs_info:*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m$FG[015]]$FG[167]%u$FX[reset]"
+zstyle ':vcs_info:*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m$FG[015]]$FG[167]%u%c$FX[reset]"
 # zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%} %{${fg_bold[red]}%}%a%{${fg_bold[white]}%}]"
 zstyle ':vcs_info:*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m $FG[167]$FX[bold]%a$FX[reset]$FG[015]]$FG[167]%u$FX[reset]"
 # zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%} %{${fg_bold[yellow]}%}%r"
@@ -260,8 +265,10 @@ zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
 zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 
 # git stuff
-zstyle ':vcs_info:git*' formats "(%s)[%12.12i %u %b %m]"
-zstyle ':vcs_info:git*' actionformats "(%s|%a)[%12.12i %u%b%m]"
+# zstyle ':vcs_info:git*' unstagedstr "+" # fix these once I learn how git works
+# zstyle ':vcs_info:git*' stagedstr "S"
+zstyle ':vcs_info:git*' formats "(%s)-[%12.12i %b]"
+zstyle ':vcs_info:git*' actionformats "(%s|%a)-[%12.12i %u%b%m]"
 
 
 ### Store the localrev and global hash for use in other hooks
