@@ -236,31 +236,23 @@ function hg-svn-merge-branch() {
 
 #### Version Control Info (rprompt)
 
-# SO DISORGANIZED
-
-# the VCSs that zsh should care about.  not sure why anyone would be using any other than these three.  the order WILL determine precedence
-zstyle ':vcs_info:*' enable svn hg git
-# options
+zstyle ':vcs_info:*' enable svn hg git bzr cvs darcs
 zstyle ':vcs_info:*' get-revision true
+zstyle ':vcs_info:*' get-unapplied true
 zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
-zstyle ':vcs_info:hg*:*' get-bookmarks true
-zstyle ':vcs_info:hg*:*' get-mq true
-zstyle ':vcs_info:hg*:*' get-unapplied true
-# zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes
+# zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes.  maybe only for bzr?
 
-# zstyle ':vcs_info:*' formats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%u%{${reset_color}%}"
 zstyle ':vcs_info:*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m$FG[015]]$FG[167]%u%c$FX[reset]"
-# zstyle ':vcs_info:*' actionformats "%{${fg_bold[white]}%}(%{${fg_bold[green]}%}%s%{${fg_bold[white]}%})-[%{${fg_bold[yellow]}%}%b %i%m%{${fg_bold[white]}%} %{${fg_bold[red]}%}%a%{${fg_bold[white]}%}]"
 zstyle ':vcs_info:*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m $FG[167]$FX[bold]%a$FX[reset]$FG[015]]$FG[167]%u$FX[reset]"
-# zstyle ':vcs_info:*' branchformat "%b%{${fg_bold[white]}%} %{${fg_bold[yellow]}%}%r"
 zstyle ':vcs_info:*' branchformat "%b" # don't show rev in branchformat, use %i for that to pick up head marker
 
-# mercurial stuff
-zstyle ':vcs_info:hg*:*' unstagedstr "+"
-zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local rev.
-zstyle ':vcs_info:hg*:*' patch-format " $FG[103]%n$FX[reset]/$FG[103]%c %p$FX[reset]"
-# zstyle ':vcs_info:hg*:*' nopatch-format " mq(%g):%n/%c %p"
-zstyle ':vcs_info:hg*:*' nopatch-format ""
+# mercurial-specific stuff
+zstyle ':vcs_info:hg*:*' get-bookmarks true
+zstyle ':vcs_info:hg*:*' get-mq true
+zstyle ':vcs_info:hg*:*' unstagedstr "+" # uncommitted changes
+zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local revision
+zstyle ':vcs_info:hg*:*' patch-format " $FG[103]%n$FX[reset]/$FG[103]%c %p$FX[reset]" # applied mq patches
+zstyle ':vcs_info:hg*:*' nopatch-format " $FG[103]%n$FX[reset]/$FG[103]%c$FX[reset]" # mq present, but no applied patches
 zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
 zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 
@@ -301,21 +293,19 @@ function +vi-hg-branchhead() {
 }
 
 
-RPROMPT='${vcs_info_msg_0_}'
+export RPROMPT='${vcs_info_msg_0_}'
 
 if [ -z host_nick ]; then
     host_nick = '%m'
 fi
 
 # render machine name in red for root users
+# this is probably dumb, as it uses root's rc for a root shell, right?
 if [ "x`whoami`" = "xroot" ]; then
     ucolor=$fg_bold[red]
 else
     ucolor=$fg_bold[green]
 fi
-
-
-
 
 local _override_ps1
 _override_ps1=false
@@ -329,6 +319,5 @@ fi
 # override it completely from within there as well
 
 if [[ $_override_ps1 = false ]]; then
-#     PS1="%{${fg_bold[white]}%}[%{${ucolor}%}${host_nick} %{%b${fg_bold[yellow]}%}%~%{${fg_bold[white]}%}]%{${fg_bold[green]}%}%# %{${reset_color}%}"
     PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
 fi
