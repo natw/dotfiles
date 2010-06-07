@@ -8,3 +8,5 @@ setlocal smartindent
 
 setlocal listchars=tab:»·,trail:·
 setlocal list
+
+match ErrorMsg '\%>80v.\+'
