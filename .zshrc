@@ -244,7 +244,7 @@ zstyle ':vcs_info:hg*:*' get-mq true
 zstyle ':vcs_info:hg*:*' unstagedstr "+" # uncommitted changes
 zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local revision
 zstyle ':vcs_info:hg*:*' patch-format " $FG[103]%n$FX[reset]/$FG[103]%c %p$FX[reset]" # applied mq patches
-zstyle ':vcs_info:hg*:*' nopatch-format " $FG[103]%n$FX[reset]/$FG[103]%c$FX[reset]" # mq present, but no applied patches
+zstyle ':vcs_info:hg*:*' nopatch-format " $FG[103]Q$FX[reset]" # mq present, but no applied patches
 zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
 zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 

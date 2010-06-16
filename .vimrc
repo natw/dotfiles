@@ -74,7 +74,7 @@ set hlsearch         " highlight search term
 set showtabline=1    " only show file tabs when more than one file open
 
 " status line formatting
-set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]
+set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [LINE=%04l]\ [COL=%04v]\ [%p%%]
 hi StatusLine term=bold,reverse cterm=bold ctermfg=7 ctermbg=0
 hi StatusLineNC term=reverse cterm=bold ctermfg=8
 
