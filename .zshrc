@@ -72,8 +72,9 @@ alias mmv='noglob zmv -W'
 
 #### Key Bindings
 
-# use vim-style line editing
-bindkey -v
+# use emacs-style line editing
+# vim may be the one true editor, but the emacs bindings are a little more convenient
+bindkey -e
 
 # pushes the current command to a buffer, lets you do something else, then
 # brings you back to what you were doing
@@ -192,6 +193,7 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 # pip zsh completion end
+
 
 
 ### FUNCTIONS

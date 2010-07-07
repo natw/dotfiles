@@ -167,6 +167,7 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+set path+=..
 
 " adds python path to vim path, so putting the cursor over an import and
 " hitting 'gf' should jump to that module

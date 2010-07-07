@@ -13,7 +13,8 @@ endif
 let b:did_indent = 1
 
 setlocal indentexpr=GetJsIndent()
-setlocal indentkeys=0{,0},0),:,!^F,o,O,e,*<Return>,=*/
+" setlocal indentkeys=0{,0},0),:,!^F,o,O,e,*<Return>,=*/
+setlocal indentkeys=0{,0},0),!^F,o,O,e,*<Return>,=*/
 
 " Only define functions once per session
 if exists("*GetJsIndent")
