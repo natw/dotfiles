@@ -68,6 +68,8 @@ alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 # fancy renaming
 autoload -U zmv
 alias mmv='noglob zmv -W'
+alias vims='mvim --servername VIM'
+alias vimr='mvim --remote-tab-silent'
 
 
 #### Key Bindings
