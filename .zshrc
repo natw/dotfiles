@@ -229,14 +229,16 @@ function hg-svn-merge-branch() {
 ### Version Control Info (rprompt)
 
 if (($(tput colors) == 256)) {
-    autoload spectrum && spectrum # this way, if the terminal doesn't support 256 colors, the spectrum arrays just won't exist, and there won't be any color
+    autoload spectrum && spectrum # this way, if the terminal doesn't support 256 colors,
+                                  # the spectrum arrays just won't exist, and there won't be any color
 }
 
 zstyle ':vcs_info:*' enable svn hg git bzr cvs darcs
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' get-unapplied true
 zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
-# zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes.  maybe only for bzr?
+# zstyle ':vcs_info:hg*:*' use-simple true # a little faster, but I like seeing if there are outstanding changes.
+                                           # maybe only for bzr?
 
 zstyle ':vcs_info:*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m$FG[015]]$FG[167]%u%c$FX[reset]"
 zstyle ':vcs_info:*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%m $FG[167]$FX[bold]%a$FX[reset]$FG[015]]$FG[167]%u$FX[reset]"
@@ -255,8 +257,8 @@ zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 # git stuff
 # zstyle ':vcs_info:git*' unstagedstr "+" # fix these once I learn how git works
 # zstyle ':vcs_info:git*' stagedstr "S"
-zstyle ':vcs_info:git*' formats "(%s)-[%12.12i %b]"
-zstyle ':vcs_info:git*' actionformats "(%s|%a)-[%12.12i %u%b%m]"
+zstyle ':vcs_info:git*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %12.12i$FG[015]]$FX[reset]"
+zstyle ':vcs_info:git*' actionformats "$FG[015]($FG[107]%s$FG[015]|$FG[167]%a$FG[015])-[$FG[221]%u%b%m %12.12i$FG[015]]$FX[reset]"
 
 ### Store the localrev and global hash for use in other hooks
 function +vi-hg-storerev() {
