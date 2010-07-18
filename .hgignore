@@ -1,5 +1,7 @@
 syntax: glob
 
 .vim/.netrwhist
-
-
+.vim/ruby/command-t/*.o
+.vim/ruby/command-t/*.log
+.vim/ruby/command-t/*.bundle
+.vim/ruby/command-t/Makefile
