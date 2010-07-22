@@ -33,6 +33,8 @@ map <C-h> gT
 " ctrl-L for next tab
 map <C-l> gt
 
+map <Leader>r :redraw!<CR>
+
 :command W w
 :command Wq wq
 :command Q q
@@ -67,8 +69,7 @@ set ruler            " use the ruler.  don't remember exactly what this means
 set laststatus=2     " always show the status line
 set title            " set window title
 set noerrorbells     " DESTROY ALL BELLS
-set novisualbell     "
-set t_vb=            " also turns off visual bell?
+set vb t_vb=         " HATE BELLS
 set showmatch        " highlight matching brackets
 set hlsearch         " highlight search term
 set showtabline=1    " only show file tabs when more than one file open
