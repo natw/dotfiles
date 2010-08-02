@@ -18,8 +18,10 @@ set wildmenu wildmode=longest,list          " show menu for tab-completion
 set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
 set foldlevelstart=99
 set nojoinspaces      " don't use two spaces after a . when joining lines
-set foldenable
-set grepprg=ack
+set foldenable        " enable fold
+set grepprg=ack       " better than grep
+set showcmd           " show the cmdline.  not sure what it does other than show num of lines in visual mode
+
 let javascript_fold=1
 
 " F5 toggles search highlighting
