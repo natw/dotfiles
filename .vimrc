@@ -14,6 +14,7 @@ set winminwidth=50    " minimum window width.  makes ^W| useful
 set winheight=12      " also dumb
 set winminheight=12   " minimum window height.  (^W_)
 set wildmenu wildmode=longest,list          " show menu for tab-completion
+set wildignore+=*.pyc " don't need dem pyc files
 " set switchbuf=usetab  " consider tabs when switching between buffers
 set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
 set foldlevelstart=99
@@ -23,6 +24,9 @@ set grepprg=ack       " better than grep
 set showcmd           " show the cmdline.  not sure what it does other than show num of lines in visual mode
 
 let javascript_fold=1
+let python_highlight_all = 1 " python syntax highlighting stuff
+let g:CommandTMatchWindowAtTop = 1 " show command-t window at the top of the screen
+
 
 " F5 toggles search highlighting
 map <F5> :set hls!<bar>set hls?<CR>
@@ -41,8 +45,6 @@ map <Leader>r :redraw!<CR>
 :command Wq wq
 :command Q q
 
-" python syntax highlighting stuff
-let python_highlight_all = 1
 
 map <leader>ff :FufFile<CR>
 
