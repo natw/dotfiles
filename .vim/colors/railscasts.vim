@@ -48,7 +48,8 @@ highlight Normal                    guifg=#E6E1DC guibg=#000000
 highlight Cursor                    guifg=#000000 ctermfg=0 guibg=#FFFFFF ctermbg=15	
 highlight CursorLine                guibg=#000000 ctermbg=233 cterm=NONE
 
-highlight Comment                   guifg=#BC9458 ctermfg=180 gui=italic
+"highlight Comment                   guifg=#BC9458 ctermfg=180 gui=italic
+highlight Comment                   guifg=#BC9458 ctermfg=180
 highlight Constant                  guifg=#6D9CBE ctermfg=73
 highlight Define                    guifg=#CC7833 ctermfg=173
 highlight Error                     guifg=#FFC66D ctermfg=221 guibg=#990000 ctermbg=88
@@ -57,9 +58,11 @@ highlight Identifier                guifg=#6D9CBE ctermfg=73 gui=NONE cterm=NONE
 highlight Include                   guifg=#CC7833 ctermfg=173 gui=NONE cterm=NONE
 highlight PreCondit                 guifg=#CC7833 ctermfg=173 gui=NONE cterm=NONE
 highlight Keyword                   guifg=#CC7833 ctermfg=173 cterm=NONE
-highlight LineNr                    guifg=#2B2B2B ctermfg=159 guibg=#C0C0FF
+" highlight LineNr                    guifg=#2B2B2B ctermfg=159 guibg=#C0C0FF
+highlight LineNr                    guifg=#3d3d3d ctermfg=159 guibg=black
 highlight Number                    guifg=#A5C261 ctermfg=107
-highlight PreProc                   guifg=#E6E1DC ctermfg=103
+"highlight PreProc                   guifg=#E6E1DC ctermfg=103
+highlight PreProc                   guifg=#7B68EE ctermfg=103
 highlight Search                    guifg=NONE ctermfg=NONE guibg=#2b2b2b ctermbg=235 gui=italic cterm=underline
 highlight Statement                 guifg=#CC7833 ctermfg=173 gui=NONE cterm=NONE
 highlight String                    guifg=#A5C261 ctermfg=107
@@ -102,3 +105,9 @@ highlight DiffText ctermfg=0 guifg=#000000 cterm=NONE gui=NONE
 " highlight DiffDelete cterm=none ctermfg=bg ctermbg=Red gui=none guifg=bg guibg=Red
 " highlight DiffChange cterm=none ctermfg=bg ctermbg=Yellow gui=none guifg=bg guibg=Yellow
 " highlight DiffText cterm=none ctermfg=bg ctermbg=Magenta gui=none guifg=bg guibg=Magenta 
+
+" taking some color ideas from ir_black
+
+hi VertSplit    guifg=#202020 guibg=#CCCCCC ctermfg=black ctermbg=darkgray
+hi StatusLine   guifg=#CCCCCC guibg=#202020 gui=NONE      ctermfg=white    ctermbg=darkgray cterm=NONE
+hi StatusLineNC guifg=black   guibg=#202020 gui=NONE      ctermfg=blue     ctermbg=darkgray cterm=NONE
