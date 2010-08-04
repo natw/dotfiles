@@ -92,6 +92,7 @@ let g:netrw_list_hide = '.*\.pyc$'
 
 """"""""" GUI stuff (MacVim)
 
+" consider just moving this stuff to a local .gvimrc
 if has("gui_running")
     set guifont=Bitstream\ Vera\ Sans\ Mono:h11
     set noanti
@@ -135,6 +136,9 @@ map <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 
+" here's some nonsense for debugging syntax highlighting
+map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 
 
 """"""""" PYLINT
@@ -171,6 +175,7 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+map <Leader>ds :DiffSaved<CR>
 
 set path+=..
 
