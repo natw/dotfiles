@@ -11,8 +11,8 @@ set splitbelow        " open new horizontal splits on the bottom
 set ignorecase        " case-insensitive searching
 set winwidth=50       " dumb setting
 set winminwidth=50    " minimum window width.  makes ^W| useful
-set winheight=12      " also dumb
-set winminheight=12   " minimum window height.  (^W_)
+set winheight=16      " also dumb
+set winminheight=16   " minimum window height.  (^W_)
 set wildmenu wildmode=longest,list          " show menu for tab-completion
 set wildignore+=*.pyc " don't need dem pyc files
 " set switchbuf=usetab  " consider tabs when switching between buffers
@@ -98,7 +98,7 @@ if has("gui_running")
     set guioptions=cegm
     set fuopt=maxvert,maxhorz
     set columns=133
-    set lines=72
+    set lines=76
 endif
 
 
