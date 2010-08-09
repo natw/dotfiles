@@ -25,6 +25,7 @@ set showcmd           " show the cmdline.  not sure what it does other than show
 
 let javascript_fold=1
 let python_highlight_all = 1 " python syntax highlighting stuff
+let python_slow_sync = 1
 let g:CommandTMatchWindowAtTop = 1 " show command-t window at the top of the screen
 
 
