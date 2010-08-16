@@ -4,6 +4,7 @@ syntax on                 " syntax highlighting
 filetype on               " detect filetypes
 filetype plugin on        " per-filetype plugins
 filetype indent on        " per-filetype indent
+colorscheme railscasts    " looks like total ass in non-256 color, but whatevs
 
 set autoindent            " be smart
 set smarttab              " also smart
@@ -57,6 +58,13 @@ let python_slow_sync = 1
 let g:CommandTMatchWindowAtTop = 1 " show command-t window at the top of the screen
 let g:netrw_list_hide = '.*\.pyc$'
 let g:pylint_onwrite = 0
+" taglist
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags' " prob don't need this anymore
+let Tlist_GainFocus_On_ToggleOpen=1
+let Tlist_Inc_Winwidth=0
+" used for python filetype script when selecting blocks
+let g:py_select_leading_comments = 1
+let g:py_select_trailing_comments = 1
 
 
 """"""""" mappings and commands
@@ -95,7 +103,6 @@ map! <C-[>Ox 8
 map! <C-[>Oy 9
 map! <C-[>OX =
 
-
 " status line formatting
 set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [LINE=%04l]\ [COL=%04v]\ [%p%%]
 " hi StatusLine term=bold,reverse cterm=bold ctermfg=7 ctermbg=0
@@ -114,6 +121,12 @@ map! <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 " here's some nonsense for debugging syntax highlighting
 map! <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+" toggle taglist window with F6
+noremap! <silent> <F6> :TlistToggle<CR>
+
+" command to remove trailing whitespace
+:command! Rmsp %s/\s\+$//
+
 
 """"""""" GUI stuff (MacVim)
 
@@ -128,31 +141,7 @@ if has("gui_running")
 endif
 
 
-
-
-
-
-""""""""" PYLINT
-
-
-
-""""""""" OTHER
-
-" taglist
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags' " prob don't need this anymore
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_Inc_Winwidth=0
-" toggle taglist window with F6
-noremap! <silent> <F6> :TlistToggle<CR>
-
-" used for python filetype script when selecting blocks
-let g:py_select_leading_comments = 1
-let g:py_select_trailing_comments = 1
-
-colorscheme railscasts " looks like total ass in non-256 color, but whatevs
-
-" command to remove trailing whitespace
-:command! Rmsp %s/\s\+$//
+"""""""" other junk
 
 " :DiffSaved to see diff of current buffer and version on disk
 function! s:DiffWithSaved()
@@ -165,7 +154,6 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 map! <Leader>ds :DiffSaved<CR>
 
-set path+=..
 
 " adds python path to vim path, so putting the cursor over an import and
 " hitting 'gf' should jump to that module
