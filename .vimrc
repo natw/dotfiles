@@ -56,6 +56,7 @@ let python_highlight_all = 1 " python syntax highlighting stuff
 let python_slow_sync = 1
 let g:CommandTMatchWindowAtTop = 1 " show command-t window at the top of the screen
 let g:netrw_list_hide = '.*\.pyc$'
+let g:pylint_onwrite = 0
 
 
 """"""""" mappings and commands
@@ -95,42 +96,15 @@ map! <C-[>Oy 9
 map! <C-[>OX =
 
 
-
 " status line formatting
 set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [LINE=%04l]\ [COL=%04v]\ [%p%%]
-hi StatusLine term=bold,reverse cterm=bold ctermfg=7 ctermbg=0
-hi StatusLineNC term=reverse cterm=bold ctermfg=8
+" hi StatusLine term=bold,reverse cterm=bold ctermfg=7 ctermbg=0
+" hi StatusLineNC term=reverse cterm=bold ctermfg=8
 
 " this was something about making the status line dim when it didn't have
 " focus.  I dunno, might not work
 hi User9 cterm=reverse ctermfg=8 ctermbg=7
 au! BufEnter * hi User9 ctermfg=7
-
-
-""""""""" GUI stuff (MacVim)
-
-" consider just moving this stuff to a local .gvimrc
-if has("gui_running")
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
-    set noanti
-    set guioptions=cegm
-    set fuopt=maxvert,maxhorz
-    set columns=133
-    set lines=76
-endif
-
-
-""""""""" HARDCORE SHIT
-
-
-au! BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
-au! BufRead,BufNewFile *.json set filetype=json
-au! BufRead,BufNewFile Capfile set filetype=ruby
-au! BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
-
-
-let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
-let clj_want_gorilla = 1
 
 map! <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
 map! <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
@@ -141,12 +115,25 @@ map! <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 map! <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 
+""""""""" GUI stuff (MacVim)
+
+" override this stuff in a local .gvimrc
+if has("gui_running")
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    set noanti
+    set guioptions=cegm
+    set fuopt=maxvert,maxhorz
+    set columns=133
+    set lines=76
+endif
+
+
+
+
+
 
 """"""""" PYLINT
 
-autocmd! FileType python compiler pylint
-let g:pylint_onwrite = 0
-map! <Leader>pl :Pylint<CR>
 
 
 """"""""" OTHER

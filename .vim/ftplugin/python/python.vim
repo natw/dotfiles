@@ -10,3 +10,6 @@ setlocal listchars=tab:»·,trail:·
 setlocal list
 
 match ErrorMsg '\%>80v.\+'
+
+compiler pylint
+map <Leader>pl :Pylint<CR>
