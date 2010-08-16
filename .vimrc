@@ -1,33 +1,64 @@
-""""""""" UI
+set nocompatible          " vi is a butt.
 
-set nocompatible      " vi is a butt
-set mouse=nv          " let the mouse do stuff
-set bs=2              " make backspace work like it should
-set autoread          " automatically check for changes to the file
-set incsearch         " turn on incremental searching
-set scrolloff=10      " rows on either side of the cursor when scrolling
-set splitright        " open new vertical splits on the right side
-set splitbelow        " open new horizontal splits on the bottom
-set ignorecase        " case-insensitive searching
-set winwidth=50       " dumb setting
-set winminwidth=50    " minimum window width.  makes ^W| useful
-set winheight=16      " also dumb
-set winminheight=16   " minimum window height.  (^W_)
-set wildmenu wildmode=longest,list          " show menu for tab-completion
-set wildignore+=*.pyc " don't need dem pyc files
-" set switchbuf=usetab  " consider tabs when switching between buffers
-set foldmethod=syntax " I dunno, maybe this will set up more folds automatically?
-set foldlevelstart=99
-set nojoinspaces      " don't use two spaces after a . when joining lines
-set foldenable        " enable fold
-set grepprg=ack       " better than grep
-set showcmd           " show the cmdline.  not sure what it does other than show num of lines in visual mode
+syntax on                 " syntax highlighting
+filetype on               " detect filetypes
+filetype plugin on        " per-filetype plugins
+filetype indent on        " per-filetype indent
+
+set autoindent            " be smart
+set smarttab              " also smart
+set shiftwidth=4          " width of line-initial tab, maybe some other stuff
+set softtabstop=4         " 4 space tabs (soft)
+set tabstop=4             " 4 space tabs (hard)
+set expandtab             " use soft tabs
+set enc=utf-8
+set fenc=utf-8
+set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
+set mouse=nv              " let the mouse do stuff
+set bs=2                  " make backspace work like it should
+set autoread              " automatically check for changes to the file
+set incsearch             " turn on incremental searching
+set scrolloff=10          " rows on either side of the cursor when scrolling
+set splitright            " open new vertical splits on the right side
+set splitbelow            " open new horizontal splits on the bottom
+set ignorecase            " case-insensitive searching
+set winwidth=50           " dumb setting
+set winminwidth=50        " minimum window width.  makes ^W| useful
+set winheight=16          " also dumb
+set winminheight=16       " minimum window height.  (^W_)
+set wildmenu              " might do nothing because of wildmode
+set wildmode=longest,list " show menu for tab-completion
+set wildignore+=*.pyc     " don't need dem pyc files
+set foldmethod=syntax     " I dunno, maybe this will set up more folds automatically?
+set foldlevelstart=99     " forces folds open by default
+set nojoinspaces          " don't use two spaces after a . when joining lines
+set foldenable            " enable fold
+set grepprg=ack           " better than grep
+set showcmd               " show the cmdline.  not sure what it does other than show num of lines in visual mode
+set t_Co=256              " use 256 colors
+set background=dark       " dark terminals 4 lyfe
+set ttyfast               " optimize for fast terminals
+set lazyredraw            " don't redraw while executing macros or that sort of thing
+set ruler                 " use the ruler.  don't remember exactly what this means
+set laststatus=2          " always show the status line
+set title                 " set window title
+set noerrorbells          " DESTROY ALL BELLS
+set vb t_vb=              " HATE BELLS
+set showmatch             " highlight matching brackets
+set hlsearch              " highlight search term
+set showtabline=1         " only show file tabs when more than one file open
+
+
+""""""""" Plugin Options
 
 let javascript_fold=1
 let python_highlight_all = 1 " python syntax highlighting stuff
 let python_slow_sync = 1
 let g:CommandTMatchWindowAtTop = 1 " show command-t window at the top of the screen
+let g:netrw_list_hide = '.*\.pyc$'
 
+
+""""""""" mappings and commands
 
 " F5 toggles search highlighting
 map! <F5> :set hls!<bar>set hls?<CR>
@@ -47,14 +78,10 @@ map! <Leader>r :redraw!<CR>
 :command! Wq wq
 :command! Q q
 
+" display the number of occurences of the word under the cursor
+map! <Leader>wc :%s///gn<CR>  
 
-map! <leader>ff :FufFile<CR>
-
-map! <Leader>wc :%s///gn<CR>
-
-""""""""" make the numpad work right in xterm-256color term
-
-" the ! makes it work in Insert mode as well
+" make the numpad work right in xterm-256color term
 map! <C-[>Op 0
 map! <C-[>Oq 1
 map! <C-[>Or 2
@@ -67,20 +94,7 @@ map! <C-[>Ox 8
 map! <C-[>Oy 9
 map! <C-[>OX =
 
-""""""""" DISPLAY
 
-set t_Co=256         " use 256 colors
-set background=dark  " dark terminals 4 lyfe
-set ttyfast          " optimize for fast terminals
-set lazyredraw       " don't redraw while executing macros or that sort of thing
-set ruler            " use the ruler.  don't remember exactly what this means
-set laststatus=2     " always show the status line
-set title            " set window title
-set noerrorbells     " DESTROY ALL BELLS
-set vb t_vb=         " HATE BELLS
-set showmatch        " highlight matching brackets
-set hlsearch         " highlight search term
-set showtabline=1    " only show file tabs when more than one file open
 
 " status line formatting
 set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [LINE=%04l]\ [COL=%04v]\ [%p%%]
@@ -92,7 +106,6 @@ hi StatusLineNC term=reverse cterm=bold ctermfg=8
 hi User9 cterm=reverse ctermfg=8 ctermbg=7
 au! BufEnter * hi User9 ctermfg=7
 
-let g:netrw_list_hide = '.*\.pyc$'
 
 """"""""" GUI stuff (MacVim)
 
@@ -109,22 +122,6 @@ endif
 
 """"""""" HARDCORE SHIT
 
-syntax on            " syntax highlighting
-filetype on          "
-filetype plugin on   "
-filetype indent on   "
-set autoindent       " be smart
-set smarttab         " also smart
-set shiftwidth=4     " width of line-initial tab, maybe some other stuff
-set softtabstop=4    " 4 space tabs (soft)
-set tabstop=4        " 4 space tabs (hard)
-set expandtab        " use soft tabs
-set enc=utf-8
-set fenc=utf-8
-" having utf-16 in fencs seems to hurt more than help
-" who the hell uses utf-16 anyway?
-" set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
-set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
 au! BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
 au! BufRead,BufNewFile *.json set filetype=json
