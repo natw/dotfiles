@@ -30,24 +30,27 @@ let g:CommandTMatchWindowAtTop = 1 " show command-t window at the top of the scr
 
 
 " F5 toggles search highlighting
-map <F5> :set hls!<bar>set hls?<CR>
+map! <F5> :set hls!<bar>set hls?<CR>
 
 " ^P toggles paste mode (from insert mode)
-map <C-p> :set paste!<CR>:set paste?<CR>
+map! <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
-map <C-h> gT
+map! <C-h> gT
 " ctrl-L for next tab
-map <C-l> gt
+map! <C-l> gt
 
-map <Leader>r :redraw!<CR>
+map! <Leader>r :redraw!<CR>
 
-:command W w
-:command Wq wq
-:command Q q
+" I hit these by mistake a lot
+:command! W w
+:command! Wq wq
+:command! Q q
 
 
-map <leader>ff :FufFile<CR>
+map! <leader>ff :FufFile<CR>
+
+map! <Leader>wc :%s///gn<CR>
 
 """"""""" make the numpad work right in xterm-256color term
 
@@ -87,7 +90,7 @@ hi StatusLineNC term=reverse cterm=bold ctermfg=8
 " this was something about making the status line dim when it didn't have
 " focus.  I dunno, might not work
 hi User9 cterm=reverse ctermfg=8 ctermbg=7
-au BufEnter * hi User9 ctermfg=7
+au! BufEnter * hi User9 ctermfg=7
 
 let g:netrw_list_hide = '.*\.pyc$'
 
@@ -123,30 +126,30 @@ set fenc=utf-8
 " set fencs=utf-8,shift-jis,iso-8859-1,utf-16,iso-2022-jp,euc-jp,cp932
 set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
 
-au BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
-au BufRead,BufNewFile *.json set filetype=json
-au BufRead,BufNewFile Capfile set filetype=ruby
-au BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
+au! BufNewFile,BufRead *.wsgi set filetype=python " highlight .wsgi files like python
+au! BufRead,BufNewFile *.json set filetype=json
+au! BufRead,BufNewFile Capfile set filetype=ruby
+au! BufRead,BufNewFile Makefile* set noexpandtab " hard tabs in makefiles
 
 
 let vimclojure#NailgunClient = "/Users/natw/src/vimclojure-2.1.2/ng"
 let clj_want_gorilla = 1
 
-map <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
+map! <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
+map! <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
+map! <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map! <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 
 " here's some nonsense for debugging syntax highlighting
-map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map! <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 
 
 """"""""" PYLINT
 
-autocmd FileType python compiler pylint
+autocmd! FileType python compiler pylint
 let g:pylint_onwrite = 0
-map <Leader>pl :Pylint<CR>
+map! <Leader>pl :Pylint<CR>
 
 
 """"""""" OTHER
@@ -156,7 +159,7 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags' " prob don't need this anymore
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Inc_Winwidth=0
 " toggle taglist window with F6
-noremap <silent> <F6> :TlistToggle<CR>
+noremap! <silent> <F6> :TlistToggle<CR>
 
 " used for python filetype script when selecting blocks
 let g:py_select_leading_comments = 1
@@ -165,7 +168,7 @@ let g:py_select_trailing_comments = 1
 colorscheme railscasts " looks like total ass in non-256 color, but whatevs
 
 " command to remove trailing whitespace
-:command Rmsp %s/\s\+$//
+:command! Rmsp %s/\s\+$//
 
 " :DiffSaved to see diff of current buffer and version on disk
 function! s:DiffWithSaved()
@@ -176,7 +179,7 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
-map <Leader>ds :DiffSaved<CR>
+map! <Leader>ds :DiffSaved<CR>
 
 set path+=..
 
