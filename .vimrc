@@ -70,17 +70,17 @@ let g:py_select_trailing_comments = 1
 """"""""" mappings and commands
 
 " F5 toggles search highlighting
-map! <F5> :set hls!<bar>set hls?<CR>
+map <F5> :set hls!<bar>set hls?<CR>
 
 " ^P toggles paste mode (from insert mode)
-map! <C-p> :set paste!<CR>:set paste?<CR>
+map <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
-map! <C-h> gT
+map <C-h> gT
 " ctrl-L for next tab
-map! <C-l> gt
+map <C-l> gt
 
-map! <Leader>r :redraw!<CR>
+map <Leader>r :redraw!<CR>
 
 " I hit these by mistake a lot
 :command! W w
@@ -88,20 +88,20 @@ map! <Leader>r :redraw!<CR>
 :command! Q q
 
 " display the number of occurences of the word under the cursor
-map! <Leader>wc :%s///gn<CR>  
+map <Leader>wc :%s///gn<CR>
 
 " make the numpad work right in xterm-256color term
-map! <C-[>Op 0
-map! <C-[>Oq 1
-map! <C-[>Or 2
-map! <C-[>Os 3
-map! <C-[>Ot 4
-map! <C-[>Ou 5
-map! <C-[>Ov 6
-map! <C-[>Ow 7
-map! <C-[>Ox 8
-map! <C-[>Oy 9
-map! <C-[>OX =
+map <C-[>Op 0
+map <C-[>Oq 1
+map <C-[>Or 2
+map <C-[>Os 3
+map <C-[>Ot 4
+map <C-[>Ou 5
+map <C-[>Ov 6
+map <C-[>Ow 7
+map <C-[>Ox 8
+map <C-[>Oy 9
+map <C-[>OX =
 
 " status line formatting
 set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [LINE=%04l]\ [COL=%04v]\ [%p%%]
@@ -113,16 +113,16 @@ set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [LINE=%04l]\ [COL=%04v]\ [%p%%]
 hi User9 cterm=reverse ctermfg=8 ctermbg=7
 au! BufEnter * hi User9 ctermfg=7
 
-map! <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
-map! <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
-map! <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map! <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 
 " here's some nonsense for debugging syntax highlighting
-map! <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " toggle taglist window with F6
-noremap! <silent> <F6> :TlistToggle<CR>
+noremap <silent> <F6> :TlistToggle<CR>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
