@@ -152,7 +152,7 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
-map! <Leader>ds :DiffSaved<CR>
+map <Leader>ds :DiffSaved<CR>
 
 
 " adds python path to vim path, so putting the cursor over an import and
