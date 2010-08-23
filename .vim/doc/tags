@@ -97,9 +97,11 @@ Tlist_Get_Tag_Prototype_By_Line()	taglist.txt	/*Tlist_Get_Tag_Prototype_By_Line(
 Tlist_Get_Tagname_By_Line()	taglist.txt	/*Tlist_Get_Tagname_By_Line()*
 Tlist_Set_App()	taglist.txt	/*Tlist_Set_App()*
 Tlist_Update_File_Tags()	taglist.txt	/*Tlist_Update_File_Tags()*
+aI	indent-object.txt	/*aI*
 ack	ack.txt	/*ack*
 ack-author	ack.txt	/*ack-author*
 ack.txt	ack.txt	/*ack.txt*
+ai	indent-object.txt	/*ai*
 bufexplorer	bufexplorer.txt	/*bufexplorer*
 bufexplorer-changelog	bufexplorer.txt	/*bufexplorer-changelog*
 bufexplorer-credits	bufexplorer.txt	/*bufexplorer-credits*
@@ -162,8 +164,15 @@ g:bufExplorerSortBy	bufexplorer.txt	/*g:bufExplorerSortBy*
 g:bufExplorerSplitBelow	bufexplorer.txt	/*g:bufExplorerSplitBelow*
 g:bufExplorerSplitOutPathName	bufexplorer.txt	/*g:bufExplorerSplitOutPathName*
 g:bufExplorerSplitRight	bufexplorer.txt	/*g:bufExplorerSplitRight*
+iI	indent-object.txt	/*iI*
 i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
 i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
+idntobj-about	indent-object.txt	/*idntobj-about*
+idntobj-blanklines	indent-object.txt	/*idntobj-blanklines*
+idntobj-introduction	indent-object.txt	/*idntobj-introduction*
+idntobj-objects	indent-object.txt	/*idntobj-objects*
+ii	indent-object.txt	/*ii*
+indent-object.txt	indent-object.txt	/*indent-object.txt*
 pastie-:Pastie	pastie.txt	/*pastie-:Pastie*
 pastie-author	pastie.txt	/*pastie-author*
 pastie.txt	pastie.txt	/*pastie.txt*
