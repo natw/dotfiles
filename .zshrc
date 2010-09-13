@@ -20,8 +20,8 @@ export GRIN_ARGS="--force-color"
 export ACK_OPTIONS="-a"
 
 export HISTFILE=~/.zhistory
-export HISTSIZE='2000'
-export SAVEHIST='2000'
+export HISTSIZE='10000'
+export SAVEHIST='10000'
 export WORDCHARS=${WORDCHARS//[\/.]}
 
 # for stupid BSD ls (osx)
