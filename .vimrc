@@ -129,6 +129,8 @@ noremap <silent> <F6> :TlistToggle<CR>
 
 imap <C-o> <C-p>
 
+map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
+
 """"""""" GUI stuff (MacVim)
 
 " override this stuff in a local .gvimrc
@@ -137,8 +139,8 @@ if has("gui_running")
     set noanti
     set guioptions=cegm
     set fuopt=maxvert,maxhorz
-    set columns=133
-    set lines=76
+    "set columns=133 % put this in .gvimrc on work imac
+    "set lines=76
 endif
 
 
