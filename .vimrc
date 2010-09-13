@@ -127,6 +127,7 @@ noremap <silent> <F6> :TlistToggle<CR>
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
 
+imap <C-o> <C-p>
 
 """"""""" GUI stuff (MacVim)
 
