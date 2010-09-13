@@ -127,6 +127,8 @@ noremap <silent> <F6> :TlistToggle<CR>
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
 
+map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
+
 
 """"""""" GUI stuff (MacVim)
 
@@ -136,8 +138,8 @@ if has("gui_running")
     set noanti
     set guioptions=cegm
     set fuopt=maxvert,maxhorz
-    set columns=133
-    set lines=76
+    "set columns=133 % put this in .gvimrc on work imac
+    "set lines=76
 endif
 
 
