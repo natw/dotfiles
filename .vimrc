@@ -137,11 +137,11 @@ map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
 
 " override this stuff in a local .gvimrc
 if has("gui_running")
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
-    set noanti
     set guioptions=cegm
     set fuopt=maxvert,maxhorz
-    "set columns=133 % put this in .gvimrc on work imac
+    "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    "set noanti
+    "set columns=133
     "set lines=76
 endif
 
