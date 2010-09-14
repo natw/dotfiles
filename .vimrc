@@ -48,8 +48,9 @@ set vb t_vb=              " HATE BELLS
 set showmatch             " highlight matching brackets
 set hlsearch              " highlight search term
 set showtabline=1         " only show file tabs when more than one file open
-set nobackup              " it's 2010, people
-set noswapfile            " don't think these have ever helped me
+set backupdir=/tmp,/var/tmp,~/tmp
+set directory=/tmp,/var/tmp,~/tmp
+
 
 
 """"""""" Plugin Options
