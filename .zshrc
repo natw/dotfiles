@@ -75,9 +75,7 @@ alias vimr='mvim --remote-tab-silent'
 
 #### Key Bindings
 
-# use emacs-style line editing
-# vim may be the one true editor, but the emacs bindings are a little more convenient
-bindkey -e
+bindkey -v
 
 # pushes the current command to a buffer, lets you do something else, then
 # brings you back to what you were doing
