@@ -134,6 +134,10 @@ imap <C-o> <C-p>
 
 map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
 
+" undo tree visualization
+map <Leader>gu :GundoToggle<CR>
+
+
 """"""""" GUI stuff (MacVim)
 
 " override this stuff in a local .gvimrc
