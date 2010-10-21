@@ -17,7 +17,6 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
 export GRIN_ARGS="--force-color"
-export ACK_OPTIONS="-a"
 
 export HISTFILE=~/.zhistory
 export HISTSIZE='10000'
