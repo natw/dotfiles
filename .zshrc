@@ -69,7 +69,14 @@ alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 autoload -U zmv
 alias mmv='noglob zmv -W'
 alias vims='mvim --servername VIM'
-alias vimr='mvim --remote-tab-silent'
+vimr() {
+    vim_instances=( $(mvim --serverlist) )
+    if (( ${#vim_instances} )); then
+        mvim --servername $vim_instances[-1] --remote-tab-silent $argv
+    else
+        mvim --servername VIM $argv
+    fi
+}
 
 
 #### Key Bindings
