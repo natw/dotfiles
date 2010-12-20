@@ -10,3 +10,4 @@ set editing-mode vi
 
 "": beginning-of-line
 "": end-of-line
+"": history-search-backward

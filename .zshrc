@@ -85,6 +85,7 @@ bindkey -v
 # vim key bindings, but there are a few emacs bindings I like
 bindkey '' beginning-of-line # ^A
 bindkey '' end-of-line # ^E
+bindkey '' history-incremental-search-backward # ^R
 
 # pushes the current command to a buffer, lets you do something else, then
 # brings you back to what you were doing
