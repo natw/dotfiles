@@ -9,4 +9,5 @@ augroup filetypedetect
     au BufNewFile,BufRead Capfile set filetype=ruby
     au BufNewFile,BufRead *.mkd set filetype=mkd
     au BufNewFile,BufRead *.markdown set filetype=mkd
+    au BufNewFile,BufRead */*mind_content*.html set filetype=htmljinja
 augroup END
