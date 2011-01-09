@@ -68,6 +68,7 @@ let Tlist_Inc_Winwidth=0
 " used for python filetype script when selecting blocks
 let g:py_select_leading_comments = 1
 let g:py_select_trailing_comments = 1
+source $VIMRUNTIME/macros/matchit.vim
 
 
 """"""""" mappings and commands
