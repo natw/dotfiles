@@ -50,7 +50,7 @@ set hlsearch              " highlight search term
 set showtabline=1         " only show file tabs when more than one file open
 set backupdir=/tmp,/var/tmp,~/tmp
 set directory=/tmp,/var/tmp,~/tmp
-
+set number                " show line numbers
 
 
 """"""""" Plugin Options
