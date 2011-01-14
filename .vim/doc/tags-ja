@@ -55,6 +55,14 @@ g:sfe_mapKeyRebase	sfe.jax	/*g:sfe_mapKeyRebase*
 g:sfe_mapKeyStatus	sfe.jax	/*g:sfe_mapKeyStatus*
 g:sfe_mapLeader	sfe.jax	/*g:sfe_mapLeader*
 g:sfe_mapLeaderAlternate	sfe.jax	/*g:sfe_mapLeaderAlternate*
+l9	l9.jax	/*l9*
+l9-about	l9.jax	/*l9-about*
+l9-author	l9.jax	/*l9-author*
+l9-contact	l9.jax	/*l9-contact*
+l9-installation	l9.jax	/*l9-installation*
+l9-introduction	l9.jax	/*l9-introduction*
+l9-usage	l9.jax	/*l9-usage*
+l9.txt	l9.jax	/*l9.txt*
 sfe	sfe.jax	/*sfe*
 sfe-about	sfe.jax	/*sfe-about*
 sfe-author	sfe.jax	/*sfe-author*
