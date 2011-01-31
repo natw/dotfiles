@@ -5,3 +5,5 @@ syntax: glob
 .vim/ruby/command-t/*.log
 .vim/ruby/command-t/*.bundle
 .vim/ruby/command-t/Makefile
+.git
+.gitignore
