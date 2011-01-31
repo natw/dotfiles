@@ -56,6 +56,8 @@ set directory=/tmp,/var/tmp,~/tmp
 set number                " show line numbers
 
 
+call pathogen#runtime_append_all_bundles()
+
 """"""""" Plugin Options
 
 let javascript_fold=1
