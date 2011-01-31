@@ -141,6 +141,8 @@ map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
 " undo tree visualization
 map <Leader>gu :GundoToggle<CR>
 
+map <Leader>cf :CommandTFlush
+
 
 """"""""" GUI stuff (MacVim)
 
