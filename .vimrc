@@ -30,6 +30,9 @@ set winminheight=16       " minimum window height.  (^W_)
 set wildmenu              " might do nothing because of wildmode
 set wildmode=longest,list " show menu for tab-completion
 set wildignore+=*.pyc     " don't need dem pyc files
+set wildignore+=eggs/**
+set wildignore+=*.egg-info/**
+set wildignore+=sandbox/**
 set foldmethod=syntax     " I dunno, maybe this will set up more folds automatically?
 set foldlevelstart=99     " forces folds open by default
 set nojoinspaces          " don't use two spaces after a . when joining lines
@@ -50,7 +53,7 @@ set hlsearch              " highlight search term
 set showtabline=1         " only show file tabs when more than one file open
 set backupdir=/tmp,/var/tmp,~/tmp
 set directory=/tmp,/var/tmp,~/tmp
-
+set number                " show line numbers
 
 
 """"""""" Plugin Options
@@ -68,6 +71,7 @@ let Tlist_Inc_Winwidth=0
 " used for python filetype script when selecting blocks
 let g:py_select_leading_comments = 1
 let g:py_select_trailing_comments = 1
+source $VIMRUNTIME/macros/matchit.vim
 
 
 """"""""" mappings and commands
@@ -136,6 +140,8 @@ map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
 
 " undo tree visualization
 map <Leader>gu :GundoToggle<CR>
+
+map <Leader>cf :CommandTFlush
 
 
 """"""""" GUI stuff (MacVim)

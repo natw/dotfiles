@@ -17,7 +17,6 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
 export RUBYOPT=rubygems
 export GRIN_ARGS="--force-color"
-export ACK_OPTIONS="-a"
 
 export HISTFILE=~/.zhistory
 export HISTSIZE='10000'
@@ -70,12 +69,23 @@ alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 autoload -U zmv
 alias mmv='noglob zmv -W'
 alias vims='mvim --servername VIM'
-alias vimr='mvim --remote-tab-silent'
+vimr() {
+    vim_instances=( $(mvim --serverlist) )
+    if (( ${#vim_instances} )); then
+        mvim --servername $vim_instances[-1] --remote-tab-silent $argv
+    else
+        mvim --servername VIM $argv
+    fi
+}
 
 
 #### Key Bindings
 
 bindkey -v
+# vim key bindings, but there are a few emacs bindings I like
+bindkey '' beginning-of-line # ^A
+bindkey '' end-of-line # ^E
+bindkey '' history-incremental-search-backward # ^R
 
 # pushes the current command to a buffer, lets you do something else, then
 # brings you back to what you were doing

@@ -7,3 +7,7 @@ set bell-style none
 
 set editing-mode vi
 # set keymap vi
+
+"": beginning-of-line
+"": end-of-line
+"": history-search-backward
