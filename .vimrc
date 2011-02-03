@@ -1,59 +1,59 @@
-set nocompatible          " vi is a butt.
+set nocompatible                      " vi is a butt.
 
-syntax on                 " syntax highlighting
-filetype on               " detect filetypes
-filetype plugin on        " per-filetype plugins
-filetype indent on        " per-filetype indent
-colorscheme railscasts    " looks like total ass in non-256 color, but whatevs
+syntax on                             " syntax highlighting
+filetype on                           " detect filetypes
+filetype plugin on                    " per-filetype plugins
+filetype indent on                    " per-filetype indent
+colorscheme railscasts                " looks like total ass in non-256 color, but whatevs
 
-set autoindent            " be smart
-set smarttab              " also smart
-set shiftwidth=4          " width of line-initial tab, maybe some other stuff
-set softtabstop=4         " 4 space tabs (soft)
-set tabstop=4             " 4 space tabs (hard)
-set expandtab             " use soft tabs
-set enc=utf-8
-set fenc=utf-8
-set fencs=utf-8,shift-jis,iso-8859-1,iso-2022-jp,euc-jp,cp932
-set mouse=nv              " let the mouse do stuff
-set bs=2                  " make backspace work like it should
-set autoread              " automatically check for changes to the file
-set incsearch             " turn on incremental searching
-set scrolloff=10          " rows on either side of the cursor when scrolling
-set splitright            " open new vertical splits on the right side
-set splitbelow            " open new horizontal splits on the bottom
-set ignorecase            " case-insensitive searching
-set winwidth=50           " dumb setting
-set winminwidth=50        " minimum window width.  makes ^W| useful
-set winheight=16          " also dumb
-set winminheight=16       " minimum window height.  (^W_)
-set wildmenu              " might do nothing because of wildmode
-set wildmode=longest,list " show menu for tab-completion
-set wildignore+=*.pyc     " don't need dem pyc files
-set wildignore+=eggs/**
+set autoindent                        " be smart
+set smarttab                          " also smart
+set shiftwidth=4                      " width of line-initial tab, maybe some other stuff
+set softtabstop=4                     " 4 space tabs (soft)
+set tabstop=4                         " 4 space tabs (hard)
+set expandtab                         " use soft tabs
+set enc=utf-8                         " still don't know, really
+set fenc=utf-8                        " same
+set fencs=utf-8,shift-jis,iso-8859-1  " I guess these are the ones that I ever actually see
+set mouse=nv                          " let the mouse do stuff
+set bs=2                              " make backspace work like it should
+set autoread                          " automatically check for changes to the file
+set incsearch                         " turn on incremental searching
+set scrolloff=10                      " rows on either side of the cursor when scrolling
+set splitright                        " open new vertical splits on the right side
+set splitbelow                        " open new horizontal splits on the bottom
+set ignorecase                        " case-insensitive searching
+set winwidth=50                       " dumb setting
+set winminwidth=50                    " minimum window width.  makes ^W| useful
+set winheight=16                      " also dumb
+set winminheight=16                   " minimum window height.  (^W_)
+set wildmenu                          " might do nothing because of wildmode
+set wildmode=longest,list             " show menu for tab-completion
+set wildignore+=*.pyc                 " don't need dem pyc files
+set wildignore+=eggs/**               " unfortunately, command-t uses wildignore
 set wildignore+=*.egg-info/**
 set wildignore+=sandbox/**
-set foldmethod=syntax     " I dunno, maybe this will set up more folds automatically?
-set foldlevelstart=99     " forces folds open by default
-set nojoinspaces          " don't use two spaces after a . when joining lines
-set foldenable            " enable fold
-set grepprg=ack           " better than grep
-set showcmd               " show the cmdline.  not sure what it does other than show num of lines in visual mode
-set t_Co=256              " use 256 colors
-set background=dark       " dark terminals 4 lyfe
-set ttyfast               " optimize for fast terminals
-set lazyredraw            " don't redraw while executing macros or that sort of thing
-set ruler                 " use the ruler.  don't remember exactly what this means
-set laststatus=2          " always show the status line
-set title                 " set window title
-set noerrorbells          " DESTROY ALL BELLS
-set vb t_vb=              " HATE BELLS
-set showmatch             " highlight matching brackets
-set hlsearch              " highlight search term
-set showtabline=1         " only show file tabs when more than one file open
-set backupdir=/tmp,/var/tmp,~/tmp
+set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
+set foldlevelstart=99                 " forces folds open by default
+set nojoinspaces                      " don't use two spaces after a . when joining lines
+set foldenable                        " enable fold
+set grepprg=ack                       " better than grep
+set showcmd                           " show the cmdline.  not sure what it does other than show num of lines in visual mode
+set t_Co=256                          " use 256 colors
+set background=dark                   " dark terminals 4 lyfe
+set ttyfast                           " optimize for fast terminals
+set lazyredraw                        " don't redraw while executing macros or that sort of thing
+set ruler                             " use the ruler.  don't remember exactly what this means
+set laststatus=2                      " always show the status line
+set title                             " set window title
+set noerrorbells                      " DESTROY ALL BELLS
+set vb t_vb=                          " HATE BELLS
+set showmatch                         " highlight matching brackets
+set hlsearch                          " highlight search term
+set showtabline=1                     " only show file tabs when more than one file open
+set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead of next to the file
 set directory=/tmp,/var/tmp,~/tmp
-set number                " show line numbers
+set number                            " show line numbers
 
 
 call pathogen#runtime_append_all_bundles()
