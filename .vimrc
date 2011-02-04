@@ -54,6 +54,7 @@ set showtabline=1                     " only show file tabs when more than one f
 set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead of next to the file
 set directory=/tmp,/var/tmp,~/tmp
 set number                            " show line numbers
+set clipboard+=unnamed                " use osx clipboard
 
 
 call pathogen#runtime_append_all_bundles()
