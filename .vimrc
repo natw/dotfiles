@@ -76,6 +76,9 @@ let g:py_select_leading_comments = 1
 let g:py_select_trailing_comments = 1
 source $VIMRUNTIME/macros/matchit.vim
 
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
 
 """"""""" mappings and commands
 
