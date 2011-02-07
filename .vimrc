@@ -58,6 +58,7 @@ set clipboard+=unnamed                " use osx clipboard
 
 
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 """"""""" Plugin Options
 
