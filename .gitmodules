@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/Decho"]
 	path = .vim/bundle/Decho
 	url = https://github.com/vim-scripts/Decho.git
+[submodule ".vim/bundle/vim-pythontextobj"]
+	path = .vim/bundle/vim-pythontextobj
+	url = git@github.com:natw/vim-pythontextobj.git
