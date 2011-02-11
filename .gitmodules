@@ -40,5 +40,5 @@
     ignore = untracked
 [submodule ".vim/bundle/vim-pythontextobj"]
 	path = .vim/bundle/vim-pythontextobj
-	url = git@github.com:natw/vim-pythontextobj.git
+    url = https://github.com/natw/vim-pythontextobj.git
     ignore = untracked
