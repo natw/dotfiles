@@ -85,6 +85,8 @@ bindkey -v
 # vim key bindings, but there are a few emacs bindings I like
 bindkey '' beginning-of-line # ^A
 bindkey '' end-of-line # ^E
+
+# somehow I survived for years without this.  They called it living, but I'm not so sure.
 bindkey '' history-incremental-search-backward # ^R
 
 # pushes the current command to a buffer, lets you do something else, then
@@ -101,6 +103,7 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey '\e[A' history-beginning-search-backward-end # up
 bindkey '' history-beginning-search-backward-end # ^O
 bindkey '\e[B' history-beginning-search-forward-end # down
+bindkey '' history-beginning-search-forward-end # ^N
 
 bindkey "^[[H" beginning-of-line # home
 bindkey "^[[F" end-of-line # end
