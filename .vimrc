@@ -31,7 +31,7 @@ set wildmenu                          " might do nothing because of wildmode
 set wildmode=longest,list             " show menu for tab-completion
 set wildignore+=*.pyc                 " don't need dem pyc files
 set wildignore+=eggs/**               " unfortunately, command-t uses wildignore
-set wildignore+=*.egg-info/**
+set wildignore+=*.egg-info/**         " these paths are for work stuff that I don't want cmd-t to look at
 set wildignore+=sandbox/**
 set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
 set foldlevelstart=99                 " forces folds open by default
@@ -43,7 +43,7 @@ set t_Co=256                          " use 256 colors
 set background=dark                   " dark terminals 4 lyfe
 set ttyfast                           " optimize for fast terminals
 set lazyredraw                        " don't redraw while executing macros or that sort of thing
-set ruler                             " use the ruler.  don't remember exactly what this means
+set ruler                             " use the ruler.
 set laststatus=2                      " always show the status line
 set title                             " set window title
 set noerrorbells                      " DESTROY ALL BELLS
@@ -57,30 +57,28 @@ set number                            " show line numbers
 set clipboard+=unnamed                " use osx clipboard
 
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 """"""""" Plugin Options
 
-let javascript_fold=1
-let python_highlight_all = 1 " python syntax highlighting stuff
-let python_slow_sync = 1
-let g:CommandTMatchWindowAtTop = 1 " show command-t window at the top of the screen
+source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
+
+call pathogen#runtime_append_all_bundles() " set up all plugins managed with pathogen
+call pathogen#helptags()                   " regenerate helptags from pathogen plugins
+
+let javascript_fold = 1                    " javascript syntax folding
+
+let python_highlight_all = 1               " be all that you can be, python.vim
+let python_slow_sync = 1                   " slower, but syntax won't break on triple quoted strings
+
+let g:CommandTMatchWindowAtTop = 1         " show command-t window at the top of the screen
+
 let g:netrw_list_hide = '.*\.pyc$'
+
 let g:pylint_onwrite = 0
-" taglist
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags' " prob don't need this anymore
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_Inc_Winwidth=0
-" used for python filetype script when selecting blocks
-let g:py_select_leading_comments = 1
-let g:py_select_trailing_comments = 1
-source $VIMRUNTIME/macros/matchit.vim
 
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-let g:NERDSpaceDelims = 1 " put space after comment delimiter
+let g:NERDSpaceDelims = 1                  " put space after comment delimiter
 
 
 """"""""" mappings and commands
@@ -137,9 +135,6 @@ map <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 " here's some nonsense for debugging syntax highlighting
 map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" toggle taglist window with F6
-noremap <silent> <F6> :TlistToggle<CR>
-
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
 
@@ -150,7 +145,10 @@ map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
 " undo tree visualization
 map <Leader>gu :GundoToggle<CR>
 
-map <Leader>cf :CommandTFlush
+map <Leader>cf :CommandTFlush<CR>
+
+" linewise select previously pasted text
+map <Leader>v V`]
 
 
 """"""""" GUI stuff (MacVim)
@@ -178,6 +176,17 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 map <Leader>ds :DiffSaved<CR>
+
+function! OpenHgChangedFiles()
+  let status = system('hg status -nm')
+  let filenames = split(status, "\n")
+  exec "edit " . filenames[0]
+  for filename in filenames[1:]
+    exec "tabnew " . filename
+  endfor
+endfunction
+command! OpenHgChangedFiles :call OpenHgChangedFiles()
+map <Leader>oc :OpenHgChangedFiles<CR>
 
 
 " adds python path to vim path, so putting the cursor over an import and
