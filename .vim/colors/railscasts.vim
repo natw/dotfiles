@@ -110,6 +110,6 @@ highlight DiffText ctermfg=0 guifg=#000000 cterm=NONE gui=NONE
 " taking some color ideas from ir_black
 
 hi VertSplit    guifg=#202020 guibg=#CCCCCC ctermfg=black ctermbg=darkgray
-hi StatusLine   guifg=#CCCCCC guibg=#202020 gui=NONE      ctermfg=white    ctermbg=darkgray cterm=NONE
-hi StatusLineNC guifg=black   guibg=#202020 gui=NONE      ctermfg=blue     ctermbg=darkgray cterm=NONE
+hi StatusLine   guifg=#CCCCCC guibg=#202020 gui=NONE
+hi StatusLineNC guifg=black   guibg=#202020 gui=NONE
 hi Folded       guifg=#a0a8b0 guibg=#384048 gui=NONE      ctermfg=NONE     ctermbg=NONE     cterm=NONE
