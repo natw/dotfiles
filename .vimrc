@@ -118,14 +118,7 @@ map <C-[>Oy 9
 map <C-[>OX =
 
 " status line formatting
-set statusline=[TYPE=%Y]\ [ENC=%{&fenc}]\ [LINE=%04l]\ [COL=%04v]\ [%p%%]
-" hi StatusLine term=bold,reverse cterm=bold ctermfg=7 ctermbg=0
-" hi StatusLineNC term=reverse cterm=bold ctermfg=8
-
-" this was something about making the status line dim when it didn't have
-" focus.  I dunno, might not work
-hi User9 cterm=reverse ctermfg=8 ctermbg=7
-au! BufEnter * hi User9 ctermfg=7
+set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
 
 map <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
@@ -157,10 +150,8 @@ map <Leader>v V`]
 if has("gui_running")
     set guioptions=cegm
     set fuopt=maxvert,maxhorz
-    "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
-    "set noanti
-    "set columns=133
-    "set lines=76
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    set noanti
 endif
 
 
