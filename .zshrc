@@ -19,8 +19,8 @@ export RUBYOPT=rubygems
 export GRIN_ARGS="--force-color"
 
 export HISTFILE=~/.zhistory
-export HISTSIZE='10000'
-export SAVEHIST='10000'
+export HISTSIZE='100000'
+export SAVEHIST='100000'
 export WORDCHARS=${WORDCHARS//[\/.]}
 
 # for stupid BSD ls (osx)
