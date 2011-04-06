@@ -83,16 +83,16 @@ vimr() {
 
 bindkey -v
 # vim key bindings, but there are a few emacs bindings I like
-bindkey '' beginning-of-line # ^A
-bindkey '' end-of-line # ^E
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
 
 # somehow I survived for years without this.  They called it living, but I'm not so sure.
-bindkey '' history-incremental-search-backward # ^R
+bindkey "^R" history-incremental-search-backward
 
 # pushes the current command to a buffer, lets you do something else, then
 # brings you back to what you were doing
-bindkey '' push-line # ^P
-bindkey '' clear-screen # ^L
+bindkey "^P" push-line
+bindkey "^L" clear-screen
 
 # the magic history, just like tcsh has
 autoload -U history-search-end
@@ -101,9 +101,9 @@ zle -N history-beginning-search-forward-end history-search-end
 # up arrow or ^o will complete the current command based on a history search from most recent back
 # ^o because sometimes that up arrow is just so far away
 bindkey '\e[A' history-beginning-search-backward-end # up
-bindkey '' history-beginning-search-backward-end # ^O
+bindkey "^O" history-beginning-search-backward-end
 bindkey '\e[B' history-beginning-search-forward-end # down
-bindkey '' history-beginning-search-forward-end # ^N
+bindkey "^N" history-beginning-search-forward-end # ^N
 
 bindkey "^[[H" beginning-of-line # home
 bindkey "^[[F" end-of-line # end
