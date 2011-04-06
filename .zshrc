@@ -78,6 +78,11 @@ vimr() {
     fi
 }
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey "^X" edit-command-line
+
+
 
 #### Key Bindings
 
@@ -212,6 +217,7 @@ compctl -K _pip_completion pip
 
 ### FUNCTIONS
 
+
 autoload -Uz vcs_info # for pulling info from version control systems
 # precmd is a builtin function that is called before every rendering of the command prompt
 precmd() {
@@ -219,10 +225,12 @@ precmd() {
     vcs_info
 }
 
+
 # use vimdiff for hg diffs (new version on right side)
 hgdiff() {
     vimdiff <(hg cat "$1") "$1";
 }
+
 
 # I hope I never need this again
 function hg-svn-merge-branch() {
@@ -236,6 +244,7 @@ function hg-svn-merge-branch() {
     hg diff -r$targetrev:$striprev | hg import - -m "Merged branch $1."
     hg strip $striprev
 }
+
 
 
 ### Version Control Info (rprompt)
