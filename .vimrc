@@ -143,6 +143,8 @@ map <Leader>cf :CommandTFlush<CR>
 " linewise select previously pasted text
 map <Leader>v V`]
 
+map ,t :!t %<CR>
+
 
 """"""""" GUI stuff (MacVim)
 
