@@ -4,7 +4,13 @@
 
 ### ENVIRONMENT
 
-export FPATH="$HOME/.zsh/functions:/usr/local/share/zsh/site-functions:/usr/local/share/zsh/4.3.9/functions"
+fpath=("$HOME/.zsh/functions"
+       "/usr/local/share/zsh/site-functions"
+       "/usr/local/share/zsh/4.3.10/functions"
+       "/usr/local/share/zsh/4.3.9/functions"
+)
+typeset -U fpath
+export fpath
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
