@@ -1,11 +1,14 @@
-map <C-h> gT
-map <C-l> gt
-map > fnext
-map < fprev
-nmap <C-e> <C-z>
 javascript dactyl.beep = function() { return false; }
 set noerrorbells
 set novisualbell
+
+map <C-h> gT
+map <C-l> gt
+map > fnex
+map < fprev
+nmap <C-e> <C-z>
+" I hit d  by accent too often, I'm happy using cmd-w
+map d <Nop>
 
 :command shorten :javascript content.document.location.href='http://is.gd/create.php?longurl='+escape(content.document.location.href)
 
