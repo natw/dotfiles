@@ -76,6 +76,7 @@ alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 # fancy renaming
 autoload -U zmv
 alias mmv='noglob zmv -W'
+
 alias vims='mvim --servername VIM'
 vimr() {
     vim_instances=( $(mvim --serverlist) )
@@ -84,6 +85,18 @@ vimr() {
     else
         mvim --servername VIM $argv
     fi
+}
+vimcd() {
+    # change the working directory of the newest macvim instance to the current directory
+    # or, if argument provided, use macvim instance with that name
+    vim_instances=( $(mvim --serverlist) )
+    local inst
+    if [[ -n $argv ]] then
+        inst=$argv
+    else
+        inst=$vim_instances[-1]
+    fi
+    mvim --servername $inst --remote-send ":cd `pwd`<CR>"
 }
 
 autoload edit-command-line
