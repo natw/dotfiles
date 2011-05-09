@@ -20,7 +20,7 @@
     ignore = untracked
 [submodule ".vim/bundle/vim-align"]
 	path = .vim/bundle/vim-align
-	url = https://github.com/tsaleh/vim-align.git
+    url = git@github.com:natw/vim-align.git
     ignore = untracked
 [submodule ".vim/bundle/vim-indentobject"]
 	path = .vim/bundle/vim-indentobject
@@ -58,3 +58,6 @@
 	path = .vim/bundle/vim-textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
     ignore = untracked
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
