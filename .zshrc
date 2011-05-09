@@ -69,6 +69,7 @@ case $OSTYPE in
     ;;
 esac
 
+alias sr='screen -r'
 alias svns='svn status -u'
 alias pgrep='pgrep -fiL'
 alias hgst='hg st'

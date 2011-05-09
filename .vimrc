@@ -55,6 +55,7 @@ set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead o
 set directory=/tmp,/var/tmp,~/tmp
 set number                            " show line numbers
 set clipboard+=unnamed                " use osx clipboard
+setlocal listchars=tab:»·,trail:·     " when 'list' option set, show hard tabs and trailing spaces
 
 
 """"""""" Plugin Options
@@ -146,7 +147,12 @@ map <Leader>cf :CommandTFlush<CR>
 " linewise select previously pasted text
 map <Leader>v V`]
 
+" t is an alias for work stuff
 map ,t :!t %<CR>
+
+" de-uglify json files
+map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
+
 
 
 """"""""" GUI stuff (MacVim)
