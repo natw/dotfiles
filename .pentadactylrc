@@ -12,7 +12,7 @@ map d <Nop>
 
 :command shorten :javascript content.document.location.href='http://is.gd/create.php?longurl='+escape(content.document.location.href)
 
-set runtimepath=~/.vimperator
-source! ~/.vimperatorrc.local
+:com! insta :open instapaper
+
 
 " vim: set ft=vim:
