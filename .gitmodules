@@ -18,10 +18,6 @@
 	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
     ignore = untracked
-[submodule ".vim/bundle/vim-align"]
-	path = .vim/bundle/vim-align
-    url = git@github.com:natw/vim-align.git
-    ignore = untracked
 [submodule ".vim/bundle/vim-indentobject"]
 	path = .vim/bundle/vim-indentobject
 	url = https://github.com/michaeljsmith/vim-indent-object.git
