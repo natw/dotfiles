@@ -55,7 +55,7 @@ set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead o
 set directory=/tmp,/var/tmp,~/tmp
 set number                            " show line numbers
 set clipboard+=unnamed                " use osx clipboard
-setlocal listchars=tab:»·,trail:·     " when 'list' option set, show hard tabs and trailing spaces
+set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
 
 
 """"""""" Plugin Options
