@@ -147,9 +147,6 @@ map <Leader>cf :CommandTFlush<CR>
 " linewise select previously pasted text
 map <Leader>v V`]
 
-" t is an alias for work stuff
-map ,t :!t %<CR>
-
 " de-uglify json files
 map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 

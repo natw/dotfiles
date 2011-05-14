@@ -7,3 +7,5 @@ setlocal smartindent
 
 setlocal listchars=tab:»·,trail:·
 setlocal list
+
+map ,t :!ruby %<cr>

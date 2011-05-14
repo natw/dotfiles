@@ -267,6 +267,19 @@ function hg-svn-merge-branch() {
     hg strip $striprev
 }
 
+# cd to the current git or hg repo root
+rr() {
+    local _old_dir=`pwd`
+    until ([ -d ".hg" ] || [ -d ".git" ]); do
+        cd ..
+        if [ `pwd` == "/" ]; then
+            echo -en "\a"
+            cd $_old_dir
+            return
+        fi
+    done
+}
+
 
 
 ### Version Control Info (rprompt)

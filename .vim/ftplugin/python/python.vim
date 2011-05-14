@@ -13,3 +13,6 @@ match ErrorMsg '\%>80v.\+'
 
 compiler pylint
 map <Leader>pl :Pylint<CR>
+
+" t is an alias for work stuff
+map ,t :!t %<CR>
