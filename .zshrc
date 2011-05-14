@@ -270,9 +270,9 @@ function hg-svn-merge-branch() {
 # cd to the current git or hg repo root
 rr() {
     local _old_dir=`pwd`
-    until ([ -d ".hg" ] || [ -d ".git" ]); do
+    until ( [ -d ".hg" ] || [ -d ".git" ] ); do
         cd ..
-        if [ `pwd` == "/" ]; then
+        if [[ `pwd` -ef / ]]; then
             echo -en "\a"
             cd $_old_dir
             return
