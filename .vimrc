@@ -150,6 +150,7 @@ map <Leader>v V`]
 " de-uglify json files
 map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 
+map <Leader><Leader> <C-^>
 
 
 """"""""" GUI stuff (MacVim)
