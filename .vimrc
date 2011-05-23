@@ -135,6 +135,8 @@ map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
 
+:command! FixTabs %s/<C-I>/  /g
+
 imap <C-o> <C-p>
 
 map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
@@ -152,6 +154,7 @@ map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 
 map <Leader><Leader> <C-^>
 
+map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
 
 """"""""" GUI stuff (MacVim)
 

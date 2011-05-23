@@ -100,6 +100,8 @@ vimcd() {
     mvim --servername $inst --remote-send ":cd `pwd`<CR>"
 }
 
+alias rl="tail -f log/development.log"
+
 autoload edit-command-line
 zle -N edit-command-line
 bindkey "^X" edit-command-line
