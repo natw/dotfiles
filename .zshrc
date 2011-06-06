@@ -101,6 +101,7 @@ vimcd() {
 }
 
 alias rl="tail -f log/development.log"
+alias sc="script/console"
 
 autoload edit-command-line
 zle -N edit-command-line

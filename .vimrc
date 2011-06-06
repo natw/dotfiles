@@ -166,6 +166,10 @@ if has("gui_running")
     set noanti
 endif
 
+if has("gui_macvim")
+    set macmeta
+endif
+
 
 """""""" other junk
 
