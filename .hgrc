@@ -1,0 +1,59 @@
+%include ~/.hgrc.local
+
+# [ui]
+# username = me
+# ignore = a file
+# style = something
+
+[alias]
+# requires hgextendedfilters extension
+lg = glog --template='{rev|red}:{node|short|red} - {tags|parens|trailingspace|yellow}{desc|firstline|strip} {date|age|parens|green} {author|user|anglebrackets|light_blue} {branches|notnone|light_purple}\n'
+
+[extensions]
+hgext.convert=
+hgext.graphlog=
+color=
+transplant=
+hgext.bookmarks=
+hgext.parentrevspec =
+hgext.mq =
+hgext.rebase =
+hgext.extdiff=
+pager=
+mercurial_keyring=
+# reviewboard
+# hgextendedfilters
+
+# [web]
+# cacerts = ~/junk/dummycert.pem
+
+[diff]
+git = True
+showfunc = True
+
+[merge-patterns]
+** = mvimdiff
+
+[merge-tools]
+vimdiff.executable = vimdiff
+vimdiff.args = $local $other
+vimdiff.checkchanged = true
+vimdiff.gui = False
+vimdiff.binary = False
+vimdiff.fixeol = True
+
+mvimdiff.executable = mvim
+mvimdiff.args = -d $local $other
+mvimdiff.checkchanged = True
+mvimdiff.gui = False
+mvimdiff.binary = False
+mvimdiff.fixeol = True
+
+[pager]
+attend = diff, annotate, lg, manifest, glog
+pager = LESS='FSRX' less
+
+[reviewboard]
+# server = local
+# user = local
+launch_webbrowser = true
