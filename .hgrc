@@ -50,7 +50,7 @@ mvimdiff.binary = False
 mvimdiff.fixeol = True
 
 [pager]
-attend = diff, annotate, lg, manifest, glog
+attend = diff, annotate, lg, manifest, glog, help
 pager = LESS='FSRX' less
 
 [reviewboard]
