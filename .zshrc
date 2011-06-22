@@ -16,6 +16,7 @@ export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
 export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
+export LESS="FSRX"
 
 export WORKON_HOME="$HOME/.virtualenvs"
 export VIRTUALENV_USE_DISTRIBUTE=true
@@ -102,6 +103,7 @@ vimcd() {
 
 alias rl="tail -f log/development.log"
 alias sc="script/console"
+alias ss="script/server"
 
 autoload edit-command-line
 zle -N edit-command-line
