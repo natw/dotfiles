@@ -52,7 +52,7 @@ set showmatch                         " highlight matching brackets
 set hlsearch                          " highlight search term
 set showtabline=1                     " only show file tabs when more than one file open
 set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead of next to the file
-set directory=/tmp,/var/tmp,~/tmp
+set directory=/tmp,/var/tmp,~/tmp     " directory to keep swap files in
 set number                            " show line numbers
 set clipboard+=unnamed                " use osx clipboard
 set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
@@ -147,8 +147,6 @@ map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
-
-:command! FixTabs %s/<C-I>/  /g
 
 imap <C-o> <C-p>
 
