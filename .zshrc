@@ -40,7 +40,7 @@ export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 
 ### OPTIONS
 
-setopt extendedglobbing
+setopt extendedglob
 setopt hist_ignore_dups
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
