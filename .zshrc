@@ -45,6 +45,7 @@ setopt hist_ignore_dups
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
 setopt hist_fcntl_lock # better locking for history file.  maybe doesn't work everywhere
+setopt HIST_IGNORE_SPACE # don't write commands starting with space to history
 
 setopt multibyte # maybe enabled by default
 setopt no_beep # HATE. BEEPS.
@@ -105,10 +106,12 @@ vimcd() {
 alias rl="tail -f log/development.log"
 alias sc="script/console"
 alias ss="script/server"
+alias be='bundle exec'
 
 autoload edit-command-line
 zle -N edit-command-line
 bindkey "^X" edit-command-line
+bindkey -M vicmd v edit-command-line
 
 
 

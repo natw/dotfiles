@@ -9,6 +9,7 @@ map < fprev
 nmap <C-e> <C-z>
 " I hit d  by accent too often, I'm happy using cmd-w
 map d <Nop>
+map A <Nop>
 
 :command shorten :javascript content.document.location.href='http://is.gd/create.php?longurl='+escape(content.document.location.href)
 
