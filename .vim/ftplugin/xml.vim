@@ -1,1 +1,1 @@
-set equalprg=xmllint\ --format\ --recover\ -
+setlocal equalprg=xmllint\ --format\ --recover\ -
