@@ -169,7 +169,11 @@ map <Leader><Leader> <C-^>
 map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
 
 function! FTAckCmd()
-    return ":Ack --" . &ft . " "
+    let cmd = ":Ack "
+    if (&ft != "")
+        let cmd .= "--" . &ft . " "
+    endif
+    return cmd
 endfunction
 map <expr> <leader>a FTAckCmd()
 
