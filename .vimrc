@@ -168,6 +168,11 @@ map <Leader><Leader> <C-^>
 
 map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
 
+function! FTAckCmd()
+    return ":Ack --" . &ft . " "
+endfunction
+map <expr> <leader>a FTAckCmd()
+
 """"""""" GUI stuff (MacVim)
 
 " override this stuff in a local .gvimrc
