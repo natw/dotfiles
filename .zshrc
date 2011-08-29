@@ -322,7 +322,7 @@ zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 # git stuff
 zstyle ':vcs_info:git*' unstagedstr "+" # fix these once I learn how git works
 zstyle ':vcs_info:git*' stagedstr "S"
-zstyle ':vcs_info:git*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %12.12i%m$FG[015]]$FG[167]%u%c$FX[reset]"
+zstyle ':vcs_info:git*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %12>>%i%<<%m$FG[015]]$FG[167]%u%c$FX[reset]"
 zstyle ':vcs_info:git*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %12.12i%m $FG[167]$FX[bold]%a$FX[reset]$FG[015]]$FG[167]%u$FX[reset]"
 #zstyle ':vcs_info:git*' actionformats "$FG[015]($FG[107]%s$FG[015]|$FG[167]%a$FG[015])-[$FG[221]%u%b%m %12.12i$FG[015]]$FX[reset]"
 
