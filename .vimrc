@@ -85,7 +85,8 @@ let g:NERDSpaceDelims = 1                  " put space after comment delimiter
 let g:rails_statusline = 1
 let g:rails_modelines = 1
 
-let g:loaded_cecutil=1
+let g:dont_map_cec_commands = 1
+
 function! s:Scratch_toggle()
   if expand("%") == g:scratch_buffer_name
     :ScratchClose
