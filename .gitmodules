@@ -32,7 +32,7 @@
     ignore = untracked
 [submodule ".vim/bundle/Decho"]
 	path = .vim/bundle/Decho
-	url = https://github.com/vim-scripts/Decho.git
+    url = git@github.com:natw/Decho.git
     ignore = untracked
 [submodule ".vim/bundle/vim-pythontextobj"]
 	path = .vim/bundle/vim-pythontextobj
