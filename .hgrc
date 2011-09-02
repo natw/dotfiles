@@ -37,14 +37,14 @@ showfunc = True
 
 [merge-tools]
 vimdiff.executable = vimdiff
-vimdiff.args = $local $other
+vimdiff.args = $local $other -f
 vimdiff.checkchanged = true
 vimdiff.gui = False
 vimdiff.binary = False
 vimdiff.fixeol = True
 
 mvimdiff.executable = mvim
-mvimdiff.args = -d $local $other
+mvimdiff.args = -d $local $other -f
 mvimdiff.checkchanged = True
 mvimdiff.gui = False
 mvimdiff.binary = False

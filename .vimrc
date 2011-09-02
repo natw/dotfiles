@@ -56,6 +56,7 @@ set directory=/tmp,/var/tmp,~/tmp     " directory to keep swap files in
 set number                            " show line numbers
 set clipboard+=unnamed                " use osx clipboard
 set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
+set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
 
 
 """"""""" Plugin Options
@@ -68,7 +69,7 @@ call pathogen#helptags()                   " regenerate helptags from pathogen p
 let javascript_fold = 1                    " javascript syntax folding
 
 let python_highlight_all = 1               " be all that you can be, python.vim
-let python_slow_sync = 1                   " slower, but syntax won't break on triple quoted strings
+" let python_slow_sync = 1                   " slower, but syntax won't break on triple quoted strings
 
 let g:CommandTMatchWindowAtTop = 1         " show command-t window at the top of the screen
 
@@ -96,8 +97,6 @@ function! s:Scratch_toggle()
 endfunction
 com! ScratchToggle call s:Scratch_toggle()
 map <Leader>s :ScratchToggle<cr>
-
-
 
 
 """"""""" mappings and commands
@@ -136,28 +135,23 @@ map <C-[>Ox 8
 map <C-[>Oy 9
 map <C-[>OX =
 
-" status line formatting
-set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
-
+" open files with path relative to current buffer
 map <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
 
 " here's some nonsense for debugging syntax highlighting
-map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
 
+" I like using ^O for scrolling through completion options
 imap <C-o> <C-p>
-
-map <Leader>mp :!markdown % > %.html && open %.html<CR><CR>
 
 " undo tree visualization
 map <Leader>gu :GundoToggle<CR>
-
-map <Leader>cf :CommandTFlush<CR>
 
 " linewise select previously pasted text
 map <Leader>v V`]
@@ -165,10 +159,13 @@ map <Leader>v V`]
 " de-uglify json files
 map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 
+" switch to last file
 map <Leader><Leader> <C-^>
 
+" flush command-t cache on every launch
 map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
 
+" search through files of same type as current file
 function! FTAckCmd()
     let cmd = ":Ack "
     if (&ft != "")
@@ -178,6 +175,7 @@ function! FTAckCmd()
 endfunction
 map <expr> <leader>a FTAckCmd()
 
+
 """"""""" GUI stuff (MacVim)
 
 " override this stuff in a local .gvimrc
@@ -186,6 +184,7 @@ if has("gui_running")
     set fuopt=maxvert,maxhorz
     set guifont=Bitstream\ Vera\ Sans\ Mono:h11
     set noanti
+    set showtabline=2
 endif
 
 if has("gui_macvim")
@@ -196,26 +195,26 @@ endif
 """""""" other junk
 
 " :DiffSaved to see diff of current buffer and version on disk
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
-map <Leader>ds :DiffSaved<CR>
+" function! s:DiffWithSaved()
+  " let filetype=&ft
+  " diffthis
+  " vnew | r # | normal! 1Gdd
+  " diffthis
+  " exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+" endfunction
+" com! DiffSaved call s:DiffWithSaved()
+" map <Leader>ds :DiffSaved<CR>
 
-function! OpenHgChangedFiles()
-  let status = system('hg status -nm')
-  let filenames = split(status, "\n")
-  exec "edit " . filenames[0]
-  for filename in filenames[1:]
-    exec "tabnew " . filename
-  endfor
-endfunction
-command! OpenHgChangedFiles :call OpenHgChangedFiles()
-map <Leader>oc :OpenHgChangedFiles<CR>
+" function! OpenHgChangedFiles()
+  " let status = system('hg status -nm')
+  " let filenames = split(status, "\n")
+  " exec "edit " . filenames[0]
+  " for filename in filenames[1:]
+    " exec "tabnew " . filename
+  " endfor
+" endfunction
+" command! OpenHgChangedFiles :call OpenHgChangedFiles()
+" map <Leader>oc :OpenHgChangedFiles<CR>
 
 
 " adds python path to vim path, so putting the cursor over an import and
