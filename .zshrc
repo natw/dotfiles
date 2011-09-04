@@ -4,13 +4,16 @@
 
 ### ENVIRONMENT
 
-fpath=("$HOME/.zsh/functions"
-       "/usr/local/share/zsh/site-functions"
-       "/usr/local/share/zsh/4.3.10/functions"
-       "/usr/local/share/zsh/4.3.9/functions"
+fpath=(
+    "$HOME/.zsh/zsh-completions"
+    "$HOME/.zsh/functions"
+    "/usr/local/share/zsh/site-functions"
+    "/usr/local/share/zsh/4.3.10/functions"
+    "/usr/local/share/zsh/4.3.9/functions"
 )
 typeset -U fpath
 export fpath
+
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
@@ -24,6 +27,7 @@ export VIRTUALENVWRAPPER_HOOK_DIR="$HOME/.virtualenvs"
 export VIRTUALENVWRAPPER_LOG_DIR="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
+
 export RUBYOPT=rubygems
 export GRIN_ARGS="--force-color"
 
@@ -77,11 +81,13 @@ alias svns='svn status -u'
 alias pgrep='pgrep -fiL'
 alias hgst='hg st'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
+
 # fancy renaming
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
 alias vims='mvim --servername VIM'
+
 vimr() {
     vim_instances=( $(mvim --serverlist) )
     if (( ${#vim_instances} )); then
@@ -90,6 +96,7 @@ vimr() {
         mvim --servername VIM $argv
     fi
 }
+
 vimcd() {
     # change the working directory of the newest macvim instance to the current directory
     # or, if argument provided, use macvim instance with that name

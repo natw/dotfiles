@@ -1,67 +1,71 @@
 [submodule ".vim/bundle/ack.vim"]
-	path = .vim/bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
+    path = .vim/bundle/ack.vim
+    url = https://github.com/mileszs/ack.vim.git
     ignore = untracked
 [submodule ".vim/bundle/command-t"]
-	path = .vim/bundle/command-t
-	url = https://github.com/wincent/Command-T.git
+    path = .vim/bundle/command-t
+    url = https://github.com/wincent/Command-T.git
     ignore = untracked
 [submodule ".vim/bundle/gist-vim"]
-	path = .vim/bundle/gist-vim
-	url = https://github.com/mattn/gist-vim.git
+    path = .vim/bundle/gist-vim
+    url = https://github.com/mattn/gist-vim.git
     ignore = untracked
 [submodule ".vim/bundle/gundo"]
-	path = .vim/bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
+    path = .vim/bundle/gundo
+    url = https://github.com/sjl/gundo.vim.git
     ignore = untracked
 [submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
+    path = .vim/bundle/nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter.git
     ignore = untracked
 [submodule ".vim/bundle/vim-indentobject"]
-	path = .vim/bundle/vim-indentobject
-	url = https://github.com/michaeljsmith/vim-indent-object.git
+    path = .vim/bundle/vim-indentobject
+    url = https://github.com/michaeljsmith/vim-indent-object.git
     ignore = untracked
 [submodule ".vim/bundle/ragtag"]
-	path = .vim/bundle/ragtag
-	url = https://github.com/tpope/vim-ragtag.git
+    path = .vim/bundle/ragtag
+    url = https://github.com/tpope/vim-ragtag.git
     ignore = untracked
 [submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround.git
+    path = .vim/bundle/vim-surround
+    url = https://github.com/tpope/vim-surround.git
     ignore = untracked
 [submodule ".vim/bundle/Decho"]
     path = .vim/bundle/Decho
     url = git@github.com:natw/Decho.git
     ignore = untracked
 [submodule ".vim/bundle/vim-pythontextobj"]
-	path = .vim/bundle/vim-pythontextobj
+    path = .vim/bundle/vim-pythontextobj
     url = https://github.com/natw/vim-pythontextobj.git
     ignore = untracked
 [submodule ".vim/bundle/vim-indent-guides"]
-	path = .vim/bundle/vim-indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides
+    path = .vim/bundle/vim-indent-guides
+    url = https://github.com/nathanaelkane/vim-indent-guides
     ignore = untracked
 [submodule ".vim/bundle/vim-rails"]
-	path = .vim/bundle/vim-rails
-	url = https://github.com/tpope/vim-rails.git
+    path = .vim/bundle/vim-rails
+    url = https://github.com/tpope/vim-rails.git
     ignore = untracked
 [submodule ".vim/bundle/vim-textobj-user"]
-	path = .vim/bundle/vim-textobj-user
-	url = https://github.com/kana/vim-textobj-user.git
+    path = .vim/bundle/vim-textobj-user
+    url = https://github.com/kana/vim-textobj-user.git
     ignore = untracked
 [submodule ".vim/bundle/vim-textobj-rubyblock"]
-	path = .vim/bundle/vim-textobj-rubyblock
-	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+    path = .vim/bundle/vim-textobj-rubyblock
+    url = https://github.com/nelstrom/vim-textobj-rubyblock.git
     ignore = untracked
 [submodule ".vim/bundle/tabular"]
-	path = .vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
+    path = .vim/bundle/tabular
+    url = https://github.com/godlygeek/tabular.git
 [submodule ".vim/bundle/scratch"]
-	path = .vim/bundle/scratch
-	url = https://github.com/kana/vim-scratch.git
+    path = .vim/bundle/scratch
+    url = https://github.com/kana/vim-scratch.git
     ignore = untracked
 [submodule ".vim/bundle/vim-ruby"]
-	path = .vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
+    path = .vim/bundle/vim-ruby
+    url = https://github.com/vim-ruby/vim-ruby.git
+    ignore = untracked
+[submodule ".zsh/zsh-completions"]
+    path = .zsh/zsh-completions
+    url = https://github.com/zsh-users/zsh-completions.git
     ignore = untracked
