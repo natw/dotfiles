@@ -69,3 +69,7 @@
     path = .zsh/zsh-completions
     url = https://github.com/zsh-users/zsh-completions.git
     ignore = untracked
+[submodule ".vim/bundle/vim-speeddating"]
+	path = .vim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+    ignore = untracked
