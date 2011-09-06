@@ -9,6 +9,7 @@ colorscheme railscasts                " looks like total ass in non-256 color, b
 set autoindent                        " be smart
 set smarttab                          " also smart
 set shiftwidth=4                      " width of line-initial tab, maybe some other stuff
+set shiftround
 set softtabstop=4                     " 4 space tabs (soft)
 set tabstop=4                         " 4 space tabs (hard)
 set expandtab                         " use soft tabs
