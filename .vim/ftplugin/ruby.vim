@@ -8,7 +8,6 @@ setlocal smartindent
 setlocal listchars=tab:»·,trail:·
 setlocal list
 
-map ,tt :!ruby %<cr>
 
 function! GetDesc()
   let should_line_num = search("^\\s*\\(should\\|context\\) [\"'].\\+[\"'] do$", "Wbnc")
@@ -20,16 +19,21 @@ function! GetDesc()
   return desc
 endfunction
 
-function! RunCurrentTest()
+function! MakeTestCmd()
   let desc = GetDesc()
-  let cmd = ":!ruby %"
+  let cmd = "ruby -I test "
+  let cmd .= expand('%')
   if (desc != "")
     let cmd .= " -n \"/"
     let cmd .= desc
     let cmd .= "/\""
   endif
-  " let cmd .= "<cr>"
-  execute cmd
+  return cmd
 endfunction
 
-map ,ts :call RunCurrentTest()<cr>
+" run current file
+map ,tt :!ruby -I test %<cr>
+" run test or context under cursor
+map ,ts :execute ":!" . MakeTestCmd()<cr>
+" copy command to run current test to clipboard
+map ,ct :execute "call setreg('*', '" . expand(MakeTestCmd()) . "')"<cr>
