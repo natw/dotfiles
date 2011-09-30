@@ -1,3 +1,4 @@
 --type-set=js=.js,.json
 --type-add=ruby=.feature
 --type-set=log=.log
+--type-add=html=.html.erb
