@@ -1,7 +1,3 @@
-# Nat Williams' .zshrc file
-# http://bitbucket.org/natw/dotfiles/
-
-
 ### ENVIRONMENT
 
 fpath=(
