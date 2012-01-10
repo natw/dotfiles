@@ -73,3 +73,7 @@
     path = .vim/bundle/vim-speeddating
     url = https://github.com/tpope/vim-speeddating.git
     ignore = untracked
+[submodule ".vim/bundle/vim-pep8"]
+	path = .vim/bundle/vim-pep8
+	url = https://github.com/nvie/vim-pep8.git
+    ignore = untracked
