@@ -9,6 +9,7 @@
 # requires hgextendedfilters extension
 lg = glog --template='{rev|red}:{node|short|red} - {tags|parens|trailingspace|yellow}{desc|firstline|strip} {date|age|parens|green} {author|user|anglebrackets|light_blue} {branches|notnone|light_purple}\n'
 lt = lg -l 10
+modified = status --change
 
 [extensions]
 hgext.convert=
@@ -21,7 +22,7 @@ hgext.mq =
 hgext.rebase =
 hgext.extdiff=
 pager=
-mercurial_keyring=
+# mercurial_keyring=
 purge=
 # reviewboard
 # hgextendedfilters
