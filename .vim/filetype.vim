@@ -9,7 +9,7 @@ augroup filetypedetect
     au BufNewFile,BufRead Capfile setlocal filetype=ruby
     au BufNewFile,BufRead Gemfile setlocal filetype=ruby
     au BufNewFile,BufRead *.gemspec setlocal filetype=ruby
-    au BufNewFile,BufRead *.mkd,*.markdown,*.md setlocal filetype=mkd
+    au BufNewFile,BufRead *.mkd,*.markdown,*.md setlocal filetype=markdown
     au BufNewFile,BufRead */*mind_content*.html setlocal filetype=htmljinja
     au BufNewFile,BufRead */*templates*.html setlocal filetype=htmljinja
 augroup END
