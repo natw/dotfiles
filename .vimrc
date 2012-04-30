@@ -23,17 +23,14 @@ set incsearch                         " turn on incremental searching
 set scrolloff=10                      " rows on either side of the cursor when scrolling
 set splitright                        " open new vertical splits on the right side
 set splitbelow                        " open new horizontal splits on the bottom
-set ignorecase                        " case-insensitive searching
+set smartcase                         " case-insensitive searching
 set winwidth=50                       " dumb setting
 set winminwidth=50                    " minimum window width.  makes ^W| useful
 set winheight=16                      " also dumb
-set winminheight=16                   " minimum window height.  (^W_)
+set winminheight=10                   " minimum window height.  (^W_)
 set wildmenu                          " might do nothing because of wildmode
 set wildmode=longest,list             " show menu for tab-completion
 set wildignore+=*.pyc                 " don't need dem pyc files
-set wildignore+=eggs/**               " unfortunately, command-t uses wildignore
-set wildignore+=*.egg-info/**         " these paths are for work stuff that I don't want cmd-t to look at
-set wildignore+=sandbox/**
 set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
 set foldlevelstart=99                 " forces folds open by default
 set nojoinspaces                      " don't use two spaces after a . when joining lines
@@ -176,6 +173,19 @@ function! FTAckCmd()
 endfunction
 map <expr> <leader>a FTAckCmd()
 
+nnoremap <silent> <CR> :nohlsearch<CR><CR>
+
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
 
 """"""""" GUI stuff (MacVim)
 
@@ -194,6 +204,11 @@ endif
 
 
 """""""" other junk
+
+autocmd BufReadPost *[^(.git/COMMIT_EDITMSG)]
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \     exe "normal g`\"" |
+    \ endif
 
 " :DiffSaved to see diff of current buffer and version on disk
 " function! s:DiffWithSaved()
