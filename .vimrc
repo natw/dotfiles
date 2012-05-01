@@ -28,6 +28,7 @@ set winwidth=50                       " dumb setting
 set winminwidth=50                    " minimum window width.  makes ^W| useful
 set winheight=16                      " also dumb
 set winminheight=10                   " minimum window height.  (^W_)
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildmenu                          " might do nothing because of wildmode
 set wildmode=longest,list             " show menu for tab-completion
 set wildignore+=*.pyc                 " don't need dem pyc files
@@ -161,7 +162,7 @@ map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 map <Leader><Leader> <C-^>
 
 " flush command-t cache on every launch
-map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
+" map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
 
 " search through files of same type as current file
 function! FTAckCmd()
@@ -255,3 +256,11 @@ endif
 "if hostname() == "foo"
 "" do something
 "endif
+
+" let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_custom_ignore = {
+    \ 'dir': 'eggs$\|\.git$',
+\}
+" map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
+let g:ctrlp_use_caching = 0
+let g:ctrlp_map = '<leader>t'
