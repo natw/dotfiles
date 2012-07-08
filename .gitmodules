@@ -89,3 +89,7 @@
 	path = .vim/bundle/vim-javascript
 	url = git://github.com/pangloss/vim-javascript.git
     ignore = untracked
+[submodule ".vim/bundle/vim-python-pep8-indent"]
+	path = .vim/bundle/vim-python-pep8-indent
+	url = git://github.com/hynek/vim-python-pep8-indent.git
+    ignore = untracked
