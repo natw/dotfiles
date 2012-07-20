@@ -253,9 +253,9 @@ endif
 
 " just some possibilities for later
 
-"if filereadable(expand("~/.vimrc.local"))
-      "source ~/.vimrc.local
-"endif
+if filereadable(expand("~/.vimrc.local"))
+      source ~/.vimrc.local
+endif
 
 "if hostname() == "foo"
 "" do something
