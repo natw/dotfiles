@@ -189,6 +189,8 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
+map <c-n> :cn<cr>
+
 
 """"""""" GUI stuff (MacVim)
 
