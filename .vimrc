@@ -263,7 +263,7 @@ endif
 
 " let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'eggs$\|\.git$',
+    \ 'dir': 'eggs$\|\.git$\|env/lib$',
 \}
 " map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
 let g:ctrlp_use_caching = 0
