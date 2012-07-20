@@ -53,9 +53,11 @@ set showtabline=1                     " only show file tabs when more than one f
 set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead of next to the file
 set directory=/tmp,/var/tmp,~/tmp     " directory to keep swap files in
 set number                            " show line numbers
-set clipboard+=unnamed                " use osx clipboard
 set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
 set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
+if $TMUX == ''
+    set clipboard+=unnamed            " use osx clipboard
+endif
 
 
 """"""""" Plugin Options
