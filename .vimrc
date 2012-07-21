@@ -99,6 +99,14 @@ endfunction
 com! ScratchToggle call s:Scratch_toggle()
 map <Leader>s :ScratchToggle<cr>
 
+" let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_custom_ignore = {
+    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$',
+\}
+" map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
+let g:ctrlp_use_caching = 0
+let g:ctrlp_map = '<leader>t'
+
 
 """"""""" mappings and commands
 
@@ -261,10 +269,3 @@ endif
 "" do something
 "endif
 
-" let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_custom_ignore = {
-    \ 'dir': 'eggs$\|\.git$\|env/lib$',
-\}
-" map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
-let g:ctrlp_use_caching = 0
-let g:ctrlp_map = '<leader>t'
