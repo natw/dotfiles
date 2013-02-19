@@ -1,11 +1,10 @@
 ### ENVIRONMENT
 
+# path for completion functions
 fpath=(
     "$HOME/.zsh/zsh-completions"
     "$HOME/.zsh/functions"
-    "/usr/local/share/zsh/site-functions"
-    "/usr/local/share/zsh/4.3.10/functions"
-    "/usr/local/share/zsh/4.3.9/functions"
+    "$fpath[@]"
 )
 typeset -U fpath
 export fpath
