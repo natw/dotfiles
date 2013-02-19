@@ -118,6 +118,8 @@ bindkey "^X" edit-command-line
 bindkey -M vicmd v edit-command-line
 
 
+(( $+commands[gsed] )) && alias sed=gsed # use gsed if it's available
+
 
 #### Key Bindings
 
