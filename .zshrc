@@ -151,6 +151,7 @@ bindkey "^[[H" beginning-of-line # home
 bindkey "^[[F" end-of-line # end
 bindkey "^[[3~" delete-char # delete
 
+bindkey -s "^Z" "fg\n" # bind ^Z to fg to switch back and forth easily
 
 ### COMPLETION
 
