@@ -12,4 +12,5 @@ augroup filetypedetect
     au BufNewFile,BufRead *.mkd,*.markdown,*.md setlocal filetype=markdown
     au BufNewFile,BufRead */*mind_content*.html setlocal filetype=htmljinja
     au BufNewFile,BufRead */*templates*.html setlocal filetype=htmljinja
+    au BufNewFile,BufRead *.go setlocal filetype=go
 augroup END
