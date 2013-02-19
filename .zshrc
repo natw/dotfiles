@@ -23,6 +23,7 @@ export VIRTUALENVWRAPPER_HOOK_DIR="$HOME/.virtualenvs"
 export VIRTUALENVWRAPPER_LOG_DIR="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
+export PIP_DOWNLOAD_CACHE="$HOME/.pip-download-cache"
 
 export RUBYOPT=rubygems
 export GRIN_ARGS="--force-color"
