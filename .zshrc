@@ -9,11 +9,17 @@ fpath=(
 typeset -U fpath
 export fpath
 
+MANPATH=(
+  "$MANPATH[@]"
+  "/usr/local/man"
+)
+typeset -U MANPATH
+export MANPATH
+
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
-export MANPATH=$MANPATH:/usr/local/man:/opt/local/share/man
 export LESS="FSRX"
 
 export WORKON_HOME="$HOME/.virtualenvs"
@@ -24,8 +30,7 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
 export PIP_DOWNLOAD_CACHE="$HOME/.pip-download-cache"
 
-export RUBYOPT=rubygems
-export GRIN_ARGS="--force-color"
+export RUBYOPT=rubygems  # lol
 
 export HISTFILE=~/.zhistory
 export HISTSIZE='100000'
