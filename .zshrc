@@ -380,17 +380,9 @@ else
     ucolor=$fg_bold[green]
 fi
 
-local _override_ps1
-_override_ps1=false
-
 # machine specific settings
 if [[ -a ~/.zshrc-local ]]; then
     source ~/.zshrc-local
 fi
 
-# PS1 depends on info from the local zsh config, but I want the option to
-# override it completely from within there as well
-
-if [[ $_override_ps1 = false ]]; then
-    PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
-fi
+PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
