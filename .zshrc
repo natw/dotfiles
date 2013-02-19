@@ -9,12 +9,12 @@ fpath=(
 typeset -U fpath
 export fpath
 
-MANPATH=(
-  "$MANPATH[@]"
+manpath=(
   "/usr/local/man"
+  "$manpath"
 )
-typeset -U MANPATH
-export MANPATH
+typeset -U manpath
+export manpath
 
 export VISUAL="vim"
 export EDITOR="vim"
