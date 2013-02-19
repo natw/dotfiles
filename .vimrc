@@ -106,6 +106,10 @@ let g:ctrlp_custom_ignore = {
 " map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
 let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>t'
+let g:ctrlp_switch_buffer = 0
+
+let g:jedi#popup_on_dot = 0
+
 
 
 """"""""" mappings and commands
