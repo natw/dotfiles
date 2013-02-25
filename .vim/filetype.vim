@@ -13,4 +13,5 @@ augroup filetypedetect
     au BufNewFile,BufRead */*mind_content*.html setlocal filetype=htmljinja
     au BufNewFile,BufRead */*templates*.html setlocal filetype=htmljinja
     au BufNewFile,BufRead *.go setlocal filetype=go
+    au BufNewFile,BufRead *.coffee setlocal filetype=coffee
 augroup END
