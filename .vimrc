@@ -110,6 +110,8 @@ let g:ctrlp_switch_buffer = 0
 
 let g:jedi#popup_on_dot = 0
 
+map <leader>gg :ToggleGitGutter<cr>
+
 
 
 """"""""" mappings and commands
