@@ -103,3 +103,6 @@
 [submodule ".vim/bundle/keyboard_cat"]
 	path = .vim/bundle/keyboard_cat
 	url = git@github.com:natw/keyboard_cat.vim.git
+[submodule ".vim/bundle/vim-puppet"]
+	path = .vim/bundle/vim-puppet
+	url = git://github.com/rodjek/vim-puppet.git
