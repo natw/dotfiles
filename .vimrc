@@ -205,6 +205,7 @@ map <leader>n :call RenameFile()<cr>
 
 map <c-n> :cn<cr>
 
+map ,n :tabnew<cr>
 
 """"""""" GUI stuff (MacVim)
 

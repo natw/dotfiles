@@ -22,7 +22,6 @@ hgext.mq =
 hgext.rebase =
 hgext.extdiff=
 pager=
-# mercurial_keyring=
 purge=
 # reviewboard
 # hgextendedfilters
