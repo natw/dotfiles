@@ -4,3 +4,4 @@
 --type-add=html=.html.erb
 --type-set=rst=.rst
 --page='less'
+--type-set=go=.go
