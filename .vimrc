@@ -1,5 +1,6 @@
 set nocompatible                      " vi is a butt.
 
+set rtp+=$GOROOT/misc/vim
 syntax on                             " syntax highlighting
 filetype on                           " detect filetypes
 filetype plugin on                    " per-filetype plugins
@@ -58,7 +59,7 @@ set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
 if $TMUX == ''
     set clipboard+=unnamed            " use osx clipboard
 endif
-
+set omnifunc=syntaxcomplete#Complete
 
 """"""""" Plugin Options
 
