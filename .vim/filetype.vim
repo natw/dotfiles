@@ -3,7 +3,7 @@ if exists("did_load_filetypes")
 endif
 
 augroup filetypedetect
-    au BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
+    au BufNewFile,BufRead .tmux.conf*,tmux.conf* setlocal filetype=tmux
     au BufNewFile,BufRead *.wsgi setlocal filetype=python
     au BufNewFile,BufRead *.json setlocal filetype=json
     au BufNewFile,BufRead Capfile setlocal filetype=ruby
@@ -15,4 +15,5 @@ augroup filetypedetect
     au BufNewFile,BufRead *.go setlocal filetype=go
     au BufNewFile,BufRead *.coffee setlocal filetype=coffee
     au BufNewFile,BufRead *.pp setlocal filetype=puppet
+    au BufNewFile,BufRead *.ino setlocal filetype=c
 augroup END
