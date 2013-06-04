@@ -11,6 +11,7 @@ elseif exists("b:current_syntax")
   finish
 endif
 
+" syn keyword htmlArg contained farts
 if !exists("main_syntax")
   let main_syntax = 'html'
 endif
@@ -25,3 +26,5 @@ else
 endif
 
 let b:current_syntax = "htmljinja"
+
+

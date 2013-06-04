@@ -5,3 +5,8 @@
 --type-set=rst=.rst
 --page='less'
 --type-set=go=.go
+--type-set=coffee=.coffee
+--type-set=markdown=.md
+--type-add=markdown=.mkd
+--type-add=markdown=.markdown
+--ignore-file=is:.coverage

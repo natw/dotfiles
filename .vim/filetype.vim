@@ -8,6 +8,7 @@ augroup filetypedetect
     au BufNewFile,BufRead *.json setlocal filetype=json
     au BufNewFile,BufRead Capfile setlocal filetype=ruby
     au BufNewFile,BufRead Gemfile setlocal filetype=ruby
+    au BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
     au BufNewFile,BufRead *.gemspec setlocal filetype=ruby
     au BufNewFile,BufRead *.mkd,*.markdown,*.md setlocal filetype=markdown
     au BufNewFile,BufRead */*mind_content*.html setlocal filetype=htmljinja

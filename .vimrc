@@ -109,11 +109,12 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_switch_buffer = 0
 
+let g:jedi#auto_initialization = 0
 let g:jedi#popup_on_dot = 0
 
 map <leader>gg :ToggleGitGutter<cr>
 
-
+" let g:ackprg = 'ag --nogroup --nocolor --column'
 
 """"""""" mappings and commands
 
@@ -207,6 +208,10 @@ map <leader>n :call RenameFile()<cr>
 map <c-n> :cn<cr>
 
 map ,n :tabnew<cr>
+
+map <leader>d :set spell!<cr>
+
+map q: <nop>
 
 """"""""" GUI stuff (MacVim)
 

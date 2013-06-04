@@ -393,3 +393,5 @@ if [[ -a ~/.zshrc-local ]]; then
 fi
 
 PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
