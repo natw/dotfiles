@@ -9,7 +9,7 @@ setlocal smartindent
 setlocal listchars=tab:»·,trail:·
 setlocal list
 
-au! BufEnter <buffer> match ErrorMsg /\%80v.*/
+au! BufEnter <buffer> match ErrorMsg /\%>79v./
 au! BufLeave <buffer> match
 
 compiler pylint
