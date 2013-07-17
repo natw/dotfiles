@@ -17,4 +17,5 @@ augroup filetypedetect
     au BufNewFile,BufRead *.coffee setlocal filetype=coffee
     au BufNewFile,BufRead *.pp setlocal filetype=puppet
     au BufNewFile,BufRead *.ino setlocal filetype=c
+    au BufNewFile,BufRead *.d setlocal filetype=sh
 augroup END
