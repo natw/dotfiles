@@ -369,8 +369,17 @@ function +vi-hg-branchhead() {
     fi
 }
 
+function ruby_version() {
+    ver=''
+    if which rvm-prompt &> /dev/null; then
+        ver=`rvm-prompt v p g`
+    fi
+    white="$FX[reset]$FG[015]$FX[bold]"
+    orange="$FX[reset]$FG[173]"
+    echo "$white($orange$ver$white)$FX[reset] "
+}
 
-export RPROMPT='${vcs_info_msg_0_}'
+export RPROMPT='$(ruby_version) ${vcs_info_msg_0_}'
 
 
 ### OTHER
@@ -394,4 +403,5 @@ fi
 
 PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
 
+[[ -s "/Users/nwilliams/.rvm/scripts/rvm" ]] && source "/Users/nwilliams/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
