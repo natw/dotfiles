@@ -1,2 +1,2 @@
-setlocal equalprg=json_xs\ -f\ json\ -t\ json-pretty
+setlocal equalprg=python\ -m\ json.tool
 setlocal shiftwidth=4
