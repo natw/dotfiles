@@ -37,3 +37,5 @@ map ,tt :!ruby -I test %<cr>
 map ,ts :execute ":!" . MakeTestCmd()<cr>
 " copy command to run current test to clipboard
 map ,ct :execute "call setreg('*', '" . expand(MakeTestCmd()) . "')"<cr>
+
+map ,a :vsp<cr>:A<cr>
