@@ -65,7 +65,7 @@ set omnifunc=syntaxcomplete#Complete
 
 source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
 
-call pathogen#runtime_append_all_bundles() " set up all plugins managed with pathogen
+call pathogen#infect()                     " set up all plugins managed with pathogen
 call pathogen#helptags()                   " regenerate helptags from pathogen plugins
 
 let javascript_fold = 1                    " javascript syntax folding
