@@ -404,5 +404,5 @@ fi
 
 PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
 
-[[ -s "/Users/nwilliams/.rvm/scripts/rvm" ]] && source "/Users/nwilliams/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# [[ -s "/Users/nwilliams/.rvm/scripts/rvm" ]] && source "/Users/nwilliams/.rvm/scripts/rvm"
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
