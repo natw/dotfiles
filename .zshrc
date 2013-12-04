@@ -379,7 +379,8 @@ function ruby_version() {
     echo "$white($orange$ver$white)$FX[reset] "
 }
 
-export RPROMPT='$(ruby_version) ${vcs_info_msg_0_}'
+# export RPROMPT='$(ruby_version) ${vcs_info_msg_0_}'
+export RPROMPT='${vcs_info_msg_0_}'
 
 
 ### OTHER
