@@ -237,25 +237,6 @@ zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.(o|c~|old|pro|zwc|p
 zstyle ':completion:*:*:kill:*:processes' command 'ps -axco pid,user,command'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
-## the only candidates for completion after 'nosetests' will be .py files
-zstyle ':completion:*:*:nosetests:*:*' file-patterns '*.py' 
-
-# commands that have nice --help output and I want to complete arguments for
-compdef _gnu_generic nosetests
-
-# pip zsh completion start
-export COMP_WORDS=""
-function _pip_completion {
-#   print "HELLO"
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS=$words
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-# pip zsh completion end
 
 
 
@@ -267,26 +248,6 @@ autoload -Uz vcs_info # for pulling info from version control systems
 precmd() {
     echo -ne "\033]0;${host_nick}: ${PWD/#$HOME/~}\007"
     vcs_info
-}
-
-
-# use vimdiff for hg diffs (new version on right side)
-hgdiff() {
-    vimdiff <(hg cat "$1") "$1";
-}
-
-
-# I hope I never need this again
-function hg-svn-merge-branch() {
-    local targetrev
-    local striprev
-    targetrev=$(hg id | cut -d ' ' -f 1)
-    hg merge $1
-    hg ci -m "Merging $1"
-    striprev=$(hg id | cut -d ' ' -f 1)
-    hg co $targetrev
-    hg diff -r$targetrev:$striprev | hg import - -m "Merged branch $1."
-    hg strip $striprev
 }
 
 # cd to the current git or hg repo root
@@ -403,6 +364,3 @@ if [[ -a ~/.zshrc-local ]]; then
 fi
 
 PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
-
-# [[ -s "/Users/nwilliams/.rvm/scripts/rvm" ]] && source "/Users/nwilliams/.rvm/scripts/rvm"
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
