@@ -179,9 +179,6 @@ map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 " switch to last file
 map <Leader><Leader> <C-^>
 
-" flush command-t cache on every launch
-" map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
-
 " search through files of same type as current file
 function! FTAckCmd()
     let cmd = ":Ack "
@@ -212,6 +209,8 @@ map ,t :tabnew<cr>
 map <leader>d :set spell!<cr>
 
 map q: <nop>
+
+:command! Only :only | :tabonly
 
 """"""""" GUI stuff (MacVim)
 
