@@ -207,7 +207,7 @@ map <leader>n :call RenameFile()<cr>
 
 map <c-n> :cn<cr>
 
-map ,n :tabnew<cr>
+map ,t :tabnew<cr>
 
 map <leader>d :set spell!<cr>
 

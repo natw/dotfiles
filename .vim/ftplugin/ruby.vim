@@ -32,9 +32,9 @@ function! MakeTestCmd()
 endfunction
 
 " run current file
-map ,tt :!ruby -I test %<cr>
+" map ,tt :!ruby -I test %<cr>
 " run test or context under cursor
-map ,ts :execute ":!" . MakeTestCmd()<cr>
+" map ,ts :execute ":!" . MakeTestCmd()<cr>
 " copy command to run current test to clipboard
 map ,ct :execute "call setreg('*', '" . expand(MakeTestCmd()) . "')"<cr>
 
