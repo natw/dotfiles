@@ -81,7 +81,7 @@ esac
 
 alias sr='screen -r'
 alias svns='svn status -u'
-alias pgrep='pgrep -fiL'
+alias pgrep='pgrep -fil'
 alias hgst='hg st'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 
