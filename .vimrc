@@ -153,10 +153,10 @@ map <C-[>Oy 9
 map <C-[>OX =
 
 " open files with path relative to current buffer
-map <Leader>re :e <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>rt :tabnew <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>rv :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>rs :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>ft :tabnew <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>fv :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>fs :sp <C-R>=expand("%:p:h") . "/" <CR>
 
 " here's some nonsense for debugging syntax highlighting
 map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -178,9 +178,6 @@ map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 
 " switch to last file
 map <Leader><Leader> <C-^>
-
-" flush command-t cache on every launch
-" map <Leader>t :CommandTFlush<cr>\|:CommandT<CR>
 
 " search through files of same type as current file
 function! FTAckCmd()
@@ -207,11 +204,13 @@ map <leader>n :call RenameFile()<cr>
 
 map <c-n> :cn<cr>
 
-map ,n :tabnew<cr>
+map ,t :tabnew<cr>
 
 map <leader>d :set spell!<cr>
 
 map q: <nop>
+
+:command! Only :only | :tabonly
 
 """"""""" GUI stuff (MacVim)
 
