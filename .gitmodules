@@ -121,3 +121,9 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = git@github.com:ervandew/supertab.git
+[submodule ".vim/bundle/tslime.vim"]
+	path = .vim/bundle/tslime.vim
+	url = https://github.com/jgdavey/tslime.vim.git
+[submodule ".vim/bundle/vim-rspec"]
+	path = .vim/bundle/vim-rspec
+	url = https://github.com/thoughtbot/vim-rspec.git
