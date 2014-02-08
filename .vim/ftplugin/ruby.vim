@@ -9,6 +9,9 @@ setlocal listchars=tab:»·,trail:·
 setlocal list
 
 
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
+
 function! GetDesc()
   let should_line_num = search("^\\s*\\(should\\|context\\) [\"'].\\+[\"'] do$", "Wbnc")
   if (should_line_num == 0)
@@ -39,3 +42,27 @@ endfunction
 map ,ct :execute "call setreg('*', '" . expand(MakeTestCmd()) . "')"<cr>
 
 map ,a :vsp<cr>:A<cr>
+
+
+" function! s:TmuxCurrentWindow()
+    " return system('tmux display-message -p "#{window_index}"')
+" endfunction
+
+" function! s:TmuxCurrentPane()
+    " return system('tmux display-message -p "#{pane_index}"')
+" endfunction
+
+" let g:tslime = {}
+" let g:tslime['window'] = <SID>TmuxCurrentWindow()
+
+" let panes = system("tmux list-panes | sed -e 's/:.*$//'")
+" if len(panes) == 2
+
+" endif
+
+
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+map ,rt :call RunCurrentSpecFile()<CR>
+map ,rn :call RunNearestSpec()<CR>
+map ,rl :call RunLastSpec()<CR>
+map ,ra :call RunAllSpecs()<CR>
