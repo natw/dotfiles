@@ -1,0 +1,39 @@
+[alias]
+    st = status
+    lg = log --graph --all --abbrev-commit
+    lt = !git lg -15
+    co = checkout
+    dif = diff
+    dc = diff --cached
+    aa = add --all
+    mom = merge origin/master
+    fe = fetch
+    ci = commit
+    aap = add . -p
+    pom = pull origin master
+    pum = pull upstream master
+    unmerged = branch --no-merge
+    r = remote -v
+    bv = branch -vv
+    pt = !git push && git push --tags
+    pr = pull-request
+
+[format]
+    pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%Creset
+
+[color]
+    diff = true
+    status = true
+    branch = auto
+
+[color "branch"]
+    upstream = bold blue
+
+[merge]
+    tool = vimdiff
+
+[core]
+    pager = less -XFRS -x2
+
+[push]
+    default = simple
