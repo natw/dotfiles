@@ -15,7 +15,4 @@ au! BufLeave <buffer> match
 compiler pylint
 map <buffer> <Leader>pl :Pylint<CR>
 
-" t is an alias for work stuff
-map <buffer> ,t :!t %<CR>
-
 map <buffer> <leader>pe :call Pep8()<cr>
