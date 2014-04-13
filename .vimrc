@@ -55,11 +55,14 @@ set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead o
 set directory=/tmp,/var/tmp,~/tmp     " directory to keep swap files in
 set number                            " show line numbers
 set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
+set omnifunc=syntaxcomplete#Complete  " use omni completion
+set formatoptions=croqlj              " see :h fo-table
+
 set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
+
 if $TMUX == ''
     set clipboard+=unnamed            " use osx clipboard
 endif
-set omnifunc=syntaxcomplete#Complete
 
 """"""""" Plugin Options
 
