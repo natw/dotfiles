@@ -363,4 +363,14 @@ if [[ -a ~/.zshrc-local ]]; then
     source ~/.zshrc-local
 fi
 
-PS1="$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
+function effective_shlvl() {
+    if [[ -n $TMUX ]] ; then
+        echo $(( $SHLVL - 1 ))
+    else
+        echo $SHLVL
+    fi
+}
+
+shlvl_indicator="$FG[015][$FG_BOLD[yellow]$(effective_shlvl)$FG[015]]"
+
+PS1="${shlvl_indicator}$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
