@@ -17,6 +17,7 @@
     bv = branch -vv
     pt = !git push && git push --tags
     pr = pull-request
+    om = !git diff --name-only | uniq | xargs -o vim
 
 [format]
     pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%Creset
