@@ -6,7 +6,6 @@ setlocal smarttab
 setlocal expandtab
 setlocal smartindent
 
-setlocal listchars=tab:»·,trail:·
 setlocal list
 
 au! BufEnter <buffer> match ErrorMsg /\%>79v./
