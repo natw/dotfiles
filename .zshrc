@@ -364,13 +364,17 @@ if [[ -a ~/.zshrc-local ]]; then
 fi
 
 function effective_shlvl() {
+    local lvl
     if [[ -n $TMUX ]] ; then
-        echo $(( $SHLVL - 1 ))
+        lvl=$(( $SHLVL - 1 ))
     else
-        echo $SHLVL
+        lvl=$SHLVL
+    fi
+    if [[ $lvl -gt 1 ]] ; then
+        echo "☭"
     fi
 }
 
-shlvl_indicator="$FG[015][$FG_BOLD[yellow]$(effective_shlvl)$FG[015]]"
+shlvl_indicator="$FX[bold]$FG[160]$(effective_shlvl)"
 
 PS1="${shlvl_indicator}$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
