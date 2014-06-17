@@ -10,3 +10,4 @@
 --type-add=markdown=.mkd
 --type-add=markdown=.markdown
 --ignore-file=is:.coverage
+--nolog
