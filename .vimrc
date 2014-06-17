@@ -120,6 +120,8 @@ map <leader>gg :ToggleGitGutter<cr>
 
 " let g:ackprg = 'ag --nogroup --nocolor --column'
 
+let g:SuperTabDefaultCompletionType = "context"
+
 """"""""" mappings and commands
 
 " F5 toggles search highlighting
