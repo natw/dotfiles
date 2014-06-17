@@ -159,6 +159,9 @@ bindkey "^[[3~" delete-char # delete
 
 bindkey -s "^Z" "fg\n" # bind ^Z to fg to switch back and forth easily
 
+bindkey "^f" forward-char
+bindkey "^b" backward-char
+
 ### COMPLETION
 
 setopt correct # correct commands
@@ -365,12 +368,17 @@ fi
 
 function effective_shlvl() {
     if [[ -n $TMUX ]] ; then
-        echo $(( $SHLVL - 1 ))
+        local lvl=$SHLVL-1
     else
-        echo $SHLVL
+        local lvl=$SHLVL
+    fi
+    if [[ $lvl -gt 1 ]]; then
+        echo "内"
+    else
+        echo ""
     fi
 }
 
-shlvl_indicator="$FG[015][$FG_BOLD[yellow]$(effective_shlvl)$FG[015]]"
+shlvl_indicator="$FG[088]$(effective_shlvl)"
 
 PS1="${shlvl_indicator}$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
