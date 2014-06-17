@@ -105,7 +105,7 @@ map <Leader>s :ScratchToggle<cr>
 
 " let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$',
+    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$',
 \}
 " map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
 let g:ctrlp_use_caching = 0
