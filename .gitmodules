@@ -134,6 +134,9 @@
 	path = .vim/bundle/rust.vim
 	url = https://github.com/wting/rust.vim.git
     ignore = untracked
+[submodule ".vim/bundle/vim-hdevtools"]
+	path = .vim/bundle/vim-hdevtools
+	url = https://github.com/bitc/vim-hdevtools.git
 [submodule ".vim/bundle/vim-scala"]
 	path = .vim/bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git

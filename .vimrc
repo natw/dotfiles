@@ -9,6 +9,7 @@ colorscheme railscasts                " looks like total ass in non-256 color, b
 
 set autoindent                        " be smart
 set smarttab                          " also smart
+set smartindent                       " still smart
 set shiftwidth=4                      " width of line-initial tab, maybe some other stuff
 set shiftround
 set softtabstop=4                     " 4 space tabs (soft)
@@ -118,6 +119,8 @@ let g:jedi#popup_on_dot = 0
 map <leader>gg :ToggleGitGutter<cr>
 
 " let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:SuperTabDefaultCompletionType = "context"
 
 """"""""" mappings and commands
 

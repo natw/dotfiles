@@ -44,6 +44,9 @@ export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/projects/gocode"
+path=("$path[@]" "$GOPATH/bin")
+typeset -U path
+export path
 
 ### OPTIONS
 
@@ -367,15 +370,14 @@ if [[ -a ~/.zshrc-local ]]; then
 fi
 
 function effective_shlvl() {
+    local lvl
     if [[ -n $TMUX ]] ; then
-        local lvl=$SHLVL-1
+        lvl=$SHLVL-1
     else
-        local lvl=$SHLVL
+        lvl=$SHLVL
     fi
-    if [[ $lvl -gt 1 ]]; then
-        echo "内"
-    else
-        echo ""
+    if [[ $lvl -gt 1 ]] ; then
+        echo "☭"
     fi
 }
 
