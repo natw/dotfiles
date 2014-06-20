@@ -33,6 +33,7 @@ set winminheight=10                   " minimum window height.  (^W_)
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildmenu                          " might do nothing because of wildmode
 set wildmode=longest,list             " show menu for tab-completion
+set completeopt=menu                  " and just the menu
 set wildignore+=*.pyc                 " don't need dem pyc files
 set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
 set foldlevelstart=99                 " forces folds open by default
@@ -121,6 +122,7 @@ map <leader>gg :ToggleGitGutter<cr>
 " let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 """"""""" mappings and commands
 
