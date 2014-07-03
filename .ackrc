@@ -11,3 +11,5 @@
 --type-add=markdown=.markdown
 --ignore-file=is:.coverage
 --nolog
+--ignore-dir=coverage
+--ignore-dir=tmp
