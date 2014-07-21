@@ -9,13 +9,6 @@ fpath=(
 typeset -U fpath
 export fpath
 
-manpath=(
-  "/usr/local/man"
-  "$manpath"
-)
-typeset -U manpath
-export manpath
-
 export VISUAL="vim"
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
