@@ -143,3 +143,6 @@
 [submodule "vim/bundle/vimerl"]
 	path = vim/bundle/vimerl
 	url = https://github.com/jimenezrick/vimerl.git
+[submodule "vim/bundle/vim-swift"]
+	path = vim/bundle/vim-swift
+	url = git://github.com/toyamarinyon/vim-swift.git
