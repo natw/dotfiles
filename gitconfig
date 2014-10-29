@@ -18,6 +18,7 @@
     pt = !git push && git push --tags
     pr = pull-request
     om = !git diff --name-only | uniq | xargs -o vim
+    ff = merge --ff-only
 
 [format]
     pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%Creset
@@ -44,3 +45,6 @@
 
 ; [rerere]
 	; enabled = 1
+
+[fetch]
+    prune = true
