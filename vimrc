@@ -10,10 +10,10 @@ colorscheme railscasts                " looks like total ass in non-256 color, b
 set autoindent                        " be smart
 set smarttab                          " also smart
 set smartindent                       " still smart
-set shiftwidth=4                      " width of line-initial tab, maybe some other stuff
+set shiftwidth=2                      " width of line-initial tab, maybe some other stuff
 set shiftround
-set softtabstop=4                     " 4 space tabs (soft)
-set tabstop=4                         " 4 space tabs (hard)
+set softtabstop=2                     " 2 space tabs (soft)
+set tabstop=2                         " 2 space tabs (hard)
 set expandtab                         " use soft tabs
 set enc=utf-8                         " still don't know, really
 set fenc=utf-8                        " same
@@ -62,9 +62,7 @@ set formatoptions=croqlj              " see :h fo-table
 
 set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
 
-if $TMUX == ''
-    set clipboard+=unnamed            " use osx clipboard
-endif
+set clipboard+=unnamed            " use osx clipboard
 
 """"""""" Plugin Options
 
@@ -219,6 +217,9 @@ map <leader>d :set spell!<cr>
 map q: <nop>
 
 :command! Only :only | :tabonly
+
+map <c-w><c-c> <c-[>
+
 
 """"""""" GUI stuff (MacVim)
 
