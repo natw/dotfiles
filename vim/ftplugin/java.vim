@@ -1,2 +1,2 @@
 let g:syntastic_java_checkers = []
-setlocal shiftwidth=2
+setlocal shiftwidth=4

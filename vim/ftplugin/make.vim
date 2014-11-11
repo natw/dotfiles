@@ -1,1 +1,1 @@
-set noexpandtab " hard tabs in makefiles
+setlocal noexpandtab " hard tabs in makefiles
