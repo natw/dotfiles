@@ -17,5 +17,5 @@ files=(
 )
 curdir=`pwd`
 for fname in $files; do
-    ln -s $curdir/$fname $HOME/.$fname
+    rm $HOME/.$fname && ln -s $curdir/$fname $HOME/.$fname
 done
