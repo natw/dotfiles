@@ -220,6 +220,9 @@ map q: <nop>
 
 map <c-w><c-c> <c-[>
 
+map ,m :make<cr><cr><cr>
+
+
 
 """"""""" GUI stuff (MacVim)
 
