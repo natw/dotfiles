@@ -19,4 +19,5 @@ augroup filetypedetect
     au BufNewFile,BufRead *.ino setlocal filetype=c
     au BufNewFile,BufRead *.d setlocal filetype=sh
     au BufNewFile,BufRead *.coffee.erb setlocal filetype=coffee
+    au BufNewFile,BufRead *.scala.html setlocal filetype=scala
 augroup END
