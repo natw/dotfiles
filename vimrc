@@ -1,3 +1,5 @@
+source ~/.vim/vundle.vim
+
 set nocompatible                      " vi is a butt.
 
 set rtp+=$GOROOT/misc/vim
@@ -67,9 +69,6 @@ set clipboard+=unnamed            " use osx clipboard
 """"""""" Plugin Options
 
 source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
-
-call pathogen#infect()                     " set up all plugins managed with pathogen
-call pathogen#helptags()                   " regenerate helptags from pathogen plugins
 
 let javascript_fold = 1                    " javascript syntax folding
 
