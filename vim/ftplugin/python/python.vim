@@ -5,7 +5,7 @@ setlocal textwidth=78
 
 setlocal list
 
-au! BufEnter <buffer> match ErrorMsg /\%>79v./
+au! BufEnter <buffer> match ErrorMsg /\%79v./
 au! BufLeave <buffer> match
 
 compiler pylint
