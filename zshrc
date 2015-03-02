@@ -2,6 +2,7 @@
 
 # path for completion functions
 fpath=(
+    "/usr/local/share/zsh/site-functions"
     "$HOME/.zsh/zsh-completions/src"
     "$HOME/.zsh/functions"
     "$fpath[@]"
@@ -21,7 +22,6 @@ export VIRTUALENVWRAPPER_HOOK_DIR="$HOME/.virtualenvs"
 export VIRTUALENVWRAPPER_LOG_DIR="$HOME/.virtualenvs"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true # best option
-export PIP_DOWNLOAD_CACHE="$HOME/.pip-download-cache"
 
 export RUBYOPT=rubygems  # lol
 
