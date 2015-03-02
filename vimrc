@@ -90,6 +90,7 @@ let g:NERDSpaceDelims = 1                  " put space after comment delimiter
 
 let g:rails_statusline = 1
 let g:rails_modelines = 1
+let g:rails_no_abbreviations = 1
 
 let g:dont_map_cec_commands = 1
 
@@ -104,9 +105,14 @@ com! ScratchToggle call s:Scratch_toggle()
 map <Leader>s :ScratchToggle<cr>
 
 " let g:ctrlp_match_window_bottom = 0
+
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$',
+    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$',
 \}
+" let g:ctrlp_custom_ignore = {
+    " \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$',
+" \}
+
 " map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
 let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>t'
@@ -121,6 +127,10 @@ map <leader>gg :ToggleGitGutter<cr>
 
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabClosePreviewOnPopupClose = 1
+
+let g:sql_type_default = 'pgsql'
+
+
 
 """"""""" mappings and commands
 
@@ -292,4 +302,3 @@ endif
 "if hostname() == "foo"
 "" do something
 "endif
-

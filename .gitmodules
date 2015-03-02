@@ -124,9 +124,6 @@
 [submodule "vim/bundle/tslime.vim"]
 	path = vim/bundle/tslime.vim
 	url = https://github.com/jgdavey/tslime.vim.git
-[submodule "vim/bundle/vim-rspec"]
-	path = vim/bundle/vim-rspec
-	url = https://github.com/thoughtbot/vim-rspec.git
 [submodule "vim/bundle/vim-rubocop"]
 	path = vim/bundle/vim-rubocop
 	url = https://github.com/ngmy/vim-rubocop.git
@@ -146,3 +143,6 @@
 [submodule "vim/bundle/vim-swift"]
 	path = vim/bundle/vim-swift
 	url = git://github.com/toyamarinyon/vim-swift.git
+[submodule "vim/bundle/pgsql.vim"]
+	path = vim/bundle/pgsql.vim
+	url = git@github.com:exu/pgsql.vim.git
