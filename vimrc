@@ -1,4 +1,4 @@
-source ~/.vim/vundle.vim
+source ~/.vim/vundle_setup.vim
 
 set nocompatible                      " vi is a butt.
 
