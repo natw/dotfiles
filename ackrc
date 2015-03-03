@@ -13,3 +13,4 @@
 --nolog
 --ignore-dir=coverage
 --ignore-dir=tmp
+--ignore-dir=env
