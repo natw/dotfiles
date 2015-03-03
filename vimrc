@@ -14,7 +14,7 @@ set smarttab                          " also smart
 set smartindent                       " still smart
 set shiftwidth=2                      " width of line-initial tab, maybe some other stuff
 set shiftround
-set softtabstop=2                     " 2 space tabs (soft)
+set softtabstop=2                     " 2 space tabs (soft)  Tab settings are mostly set in filetype-specfic settings anyway
 set tabstop=2                         " 2 space tabs (hard)
 set expandtab                         " use soft tabs
 set enc=utf-8                         " still don't know, really
@@ -42,7 +42,7 @@ set foldlevelstart=99                 " forces folds open by default
 set nojoinspaces                      " don't use two spaces after a . when joining lines
 set foldenable                        " enable fold
 set grepprg=ack                       " better than grep
-set showcmd                           " show the cmdline.  not sure what it does other than show num of lines in visual mode
+set showcmd                           " show the cmdline. Mostly just useful for showing number of lines in visual mode
 set t_Co=256                          " use 256 colors
 set background=dark                   " dark terminals 4 lyfe
 set ttyfast                           " optimize for fast terminals
@@ -66,6 +66,7 @@ set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
 
 set clipboard+=unnamed            " use osx clipboard
 
+
 """"""""" Plugin Options
 
 source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
@@ -75,55 +76,24 @@ let javascript_fold = 1                    " javascript syntax folding
 let python_highlight_all = 1               " be all that you can be, python.vim
 " let python_slow_sync = 1                   " slower, but syntax won't break on triple quoted strings
 
-let g:CommandTMatchWindowAtTop = 1         " show command-t window at the top of the screen
-
 let g:netrw_list_hide = '.*\.pyc$'
 
 let g:pylint_onwrite = 0
-
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-let g:gist_show_privates = 1               " lol
-
-let g:NERDSpaceDelims = 1                  " put space after comment delimiter
 
 let g:rails_statusline = 1
 let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
 
-let g:dont_map_cec_commands = 1
-
-function! s:Scratch_toggle()
-  if expand("%") == g:scratch_buffer_name
-    :ScratchClose
-  else
-    :ScratchOpen
-  endif
-endfunction
-com! ScratchToggle call s:Scratch_toggle()
-map <Leader>s :ScratchToggle<cr>
-
-" let g:ctrlp_match_window_bottom = 0
-
 let g:ctrlp_custom_ignore = {
     \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$',
 \}
-" let g:ctrlp_custom_ignore = {
-    " \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$',
-" \}
-
-" map <leader>e :call CtrlPClearCache<cr>\|:call CtrlP<cr>
 let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_switch_buffer = 0
 
-let g:jedi#auto_initialization = 0
-let g:jedi#popup_on_dot = 0
+map <leader>gg :GitGutterToggle<cr>
 
-map <leader>gg :ToggleGitGutter<cr>
-
-" let g:ackprg = 'ag --nogroup --nocolor --column'
-
+" TODO: make this actually work. SuperTab never gives me what I want
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabClosePreviewOnPopupClose = 1
 
@@ -132,9 +102,6 @@ let g:sql_type_default = 'pgsql'
 
 
 """"""""" mappings and commands
-
-" F5 toggles search highlighting
-map <F5> :set hls!<bar>set hls?<CR>
 
 " ^P toggles paste mode (from insert mode)
 map <C-p> :set paste!<CR>:set paste?<CR>
@@ -251,34 +218,6 @@ endif
 
 """""""" other junk
 
-autocmd BufReadPost *[^(.git/COMMIT_EDITMSG)]
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \     exe "normal g`\"" |
-    \ endif
-
-" :DiffSaved to see diff of current buffer and version on disk
-" function! s:DiffWithSaved()
-  " let filetype=&ft
-  " diffthis
-  " vnew | r # | normal! 1Gdd
-  " diffthis
-  " exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-" endfunction
-" com! DiffSaved call s:DiffWithSaved()
-" map <Leader>ds :DiffSaved<CR>
-
-" function! OpenHgChangedFiles()
-  " let status = system('hg status -nm')
-  " let filenames = split(status, "\n")
-  " exec "edit " . filenames[0]
-  " for filename in filenames[1:]
-    " exec "tabnew " . filename
-  " endfor
-" endfunction
-" command! OpenHgChangedFiles :call OpenHgChangedFiles()
-" map <Leader>oc :OpenHgChangedFiles<CR>
-
-
 " adds python path to vim path, so putting the cursor over an import and
 " hitting 'gf' should jump to that module
 if has("python")
@@ -291,13 +230,3 @@ for p in sys.path:
         vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
 EOF
 endif
-
-" just some possibilities for later
-
-if filereadable(expand("~/.vimrc.local"))
-      source ~/.vimrc.local
-endif
-
-"if hostname() == "foo"
-"" do something
-"endif
