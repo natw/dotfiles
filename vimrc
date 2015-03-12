@@ -200,6 +200,8 @@ map <c-w><c-c> <c-[>
 
 map ,m :make<cr><cr><cr>
 
+map <leader>gb :Gblame<cr>
+
 
 
 """"""""" GUI stuff (MacVim)

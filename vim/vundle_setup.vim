@@ -34,6 +34,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wting/rust.vim'
+Plugin 'tpope/vim-fugitive'
 
 
 call vundle#end()
