@@ -76,6 +76,8 @@ let javascript_fold = 1                    " javascript syntax folding
 let python_highlight_all = 1               " be all that you can be, python.vim
 " let python_slow_sync = 1                   " slower, but syntax won't break on triple quoted strings
 
+let NERDSpaceDelims = 1                    " space after # in comments
+
 let g:netrw_list_hide = '.*\.pyc$'
 
 let g:pylint_onwrite = 0
