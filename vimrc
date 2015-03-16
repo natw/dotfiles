@@ -119,6 +119,7 @@ map <Leader>r :redraw!<CR>
 :command! W w
 :command! Wq wq
 :command! Q q
+:command! Vsp vsp
 
 " display the number of occurences of the word under the cursor
 map <Leader>wc :%s///gn<CR>
