@@ -2,8 +2,8 @@
 
 # path for completion functions
 fpath=(
+    "/usr/local/share/zsh-completions"
     "/usr/local/share/zsh/site-functions"
-    "$HOME/.zsh/zsh-completions/src"
     "$HOME/.zsh/functions"
     "$fpath[@]"
 )

@@ -49,6 +49,7 @@ install watch
 install wget
 install rbenv
 install ruby-build
+install zsh-completions
 
 cask install adium
 cask install dropbox
