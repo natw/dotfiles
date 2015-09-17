@@ -76,6 +76,16 @@ alias pgrep='pgrep -fil'
 alias hgst='hg st'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 
+# ruby stuff
+alias rc="bundle exec rails console"
+alias rs="bundle exec rails server"
+alias be="bundle exec"
+alias rg="bundle exec rails generate"
+
+gem_cache() {
+  gem environment | grep "GEM PATHS" -A 1 | tail -n 1 | awk '{ print $2"/cache" }'
+}
+
 # fancy renaming
 autoload -U zmv
 alias mmv='noglob zmv -W'
@@ -111,8 +121,6 @@ alias be='bundle exec'
 
 autoload edit-command-line
 zle -N edit-command-line
-bindkey "^X" edit-command-line
-bindkey -M vicmd v edit-command-line
 
 
 (( $+commands[gsed] )) && alias sed=gsed # use gsed if it's available
@@ -120,10 +128,11 @@ bindkey -M vicmd v edit-command-line
 
 #### Key Bindings
 
-bindkey -v
-# vim key bindings, but there are a few emacs bindings I like
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
+# vim bindings in the shell are ridiculous
+bindkey -e
+
+bindkey "^X" edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # somehow I survived for years without this.  They called it living, but I'm not so sure.
 bindkey "^R" history-incremental-search-backward
