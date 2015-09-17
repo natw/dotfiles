@@ -101,6 +101,8 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 
 let g:sql_type_default = 'pgsql'
 
+let g:ansible_options = {'ignore_blank_lines': 0}
+
 
 
 """"""""" mappings and commands
