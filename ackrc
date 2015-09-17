@@ -14,3 +14,5 @@
 --ignore-dir=coverage
 --ignore-dir=tmp
 --ignore-dir=env
+--ignore-dir=eggs
+--type-add=conf=.conf
