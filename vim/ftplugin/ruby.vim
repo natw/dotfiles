@@ -4,7 +4,8 @@ setlocal shiftwidth=2
 setlocal list
 
 
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_ruby_checkers = []
 
 
 function! GetDesc()
