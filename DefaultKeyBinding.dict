@@ -1,0 +1,4 @@
+// copy to ~/Library/KeyBindings/
+{
+  "^w" = (deleteWordBackward:);
+}
