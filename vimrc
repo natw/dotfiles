@@ -1,3 +1,4 @@
+let g:ruby_path = system('rbenv prefix')
 source ~/.vim/vundle_setup.vim
 
 set nocompatible                      " vi is a butt.
@@ -103,6 +104,7 @@ let g:sql_type_default = 'pgsql'
 
 let g:ansible_options = {'ignore_blank_lines': 0}
 
+let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
 
 
 """"""""" mappings and commands

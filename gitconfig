@@ -20,6 +20,10 @@
     om = !git diff --name-only | uniq | xargs -o vim
     ff = merge --ff-only
 
+    gh-url = !echo "https://github.com/$(git remote show -n origin | grep Fetch | cut -d ":" -f 3 | cut -d "." -f 1)"
+    gh = !open $(git gh-url)
+    pr = !open $(git gh-url)/compare/LiveWatch:develop...natw:$(git branch --no-color | grep '*' | cut -d ' ' -f 2)?expand=1
+
 [format]
     pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%Creset
 

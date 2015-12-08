@@ -78,7 +78,7 @@ alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 
 # ruby stuff
 alias rc="bundle exec rails console"
-alias rs="bundle exec rails server"
+alias rs="bundle exec rails server webrick"
 alias be="bundle exec"
 alias rg="bundle exec rails generate"
 
