@@ -2,3 +2,7 @@ vim/.netrwhist
 *.pyc
 vim/spell
 vim/bundle
+
+nvim/.netrwhist
+nvim/spell
+nvim/bundle
