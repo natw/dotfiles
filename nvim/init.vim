@@ -53,7 +53,7 @@ set clipboard+=unnamed                " use osx clipboard
 
 """"""""" Plugin Options
 
-autocmd! BufWritePost * Neomake
+autocmd! BufWritePost * Neomake            " run neomake after saving
 
 source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
 
@@ -82,7 +82,7 @@ let g:ctrlp_switch_buffer = 0
 map <leader>gg :GitGutterToggle<cr>
 
 " TODO: make this actually work. SuperTab never gives me what I want
-let g:SuperTabDefaultCompletionType = "<c-v><c-p>"
+let g:SuperTabDefaultCompletionType = "<c-p>"
 let g:SuperTabClosePreviewOnPopupClose = 1
 
 let g:sql_type_default = 'pgsql'
