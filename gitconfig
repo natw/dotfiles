@@ -52,4 +52,11 @@
 	; enabled = 1
 
 [fetch]
-    prune = true
+  prune = true
+  fsckobjects = true
+
+[transfer]
+  fsckobjects = true
+
+[receive]
+  fsckObjects = true
