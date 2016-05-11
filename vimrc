@@ -108,12 +108,12 @@ let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
 """"""""" mappings and commands
 
 " ^P toggles paste mode (from insert mode)
-map <C-p> :set paste!<CR>:set paste?<CR>
+imap <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
-map <C-h> gT
+nmap <C-h> gT
 " ctrl-L for next tab
-map <C-l> gt
+nmap <C-l> gt
 
 " I hit these by mistake a lot
 :command! W w
@@ -122,14 +122,14 @@ map <C-l> gt
 :command! Vsp vsp
 
 " display the number of occurences of the word under the cursor
-map <Leader>wc :%s///gn<CR>
+nmap <Leader>wc :%s///gn<CR>
 
 
 " open files with path relative to current buffer
-map <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " here's some nonsense for debugging syntax highlighting
-map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nmap <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//

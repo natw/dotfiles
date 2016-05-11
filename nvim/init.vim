@@ -53,6 +53,8 @@ set clipboard+=unnamed                " use osx clipboard
 
 """"""""" Plugin Options
 
+let g:ackprg = 'ag --vimgrep'              " they say silver_searcher is faster
+
 autocmd! BufWritePost * Neomake            " run neomake after saving
 
 source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
@@ -73,7 +75,7 @@ let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$',
+    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$\|deps$\|_build$',
 \}
 let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>t'
@@ -91,16 +93,19 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 
 let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
 
+let g:neomake_error_sign = {'text': '💩'}
+let g:neomake_warning_sign = {'text': '👻'}
+
 
 """"""""" mappings and commands
 
 " ^P toggles paste mode (from insert mode)
-map <C-p> :set paste!<CR>:set paste?<CR>
+imap <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
-map <C-h> gT
+nmap <C-h> gT
 " ctrl-L for next tab
-map <C-l> gt
+nmap <C-l> gt
 
 " I hit these by mistake a lot
 :command! W w
@@ -109,14 +114,14 @@ map <C-l> gt
 :command! Vsp vsp
 
 " display the number of occurences of the word under the cursor
-map <Leader>wc :%s///gn<CR>
+nmap <Leader>wc :%s///gn<CR>
 
 
 " open files with path relative to current buffer
-map <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " here's some nonsense for debugging syntax highlighting
-map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nmap <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
@@ -125,29 +130,44 @@ map <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 imap <C-o> <C-p>
 
 " undo tree visualization
-map <Leader>gu :GundoToggle<CR>
+nmap <Leader>gu :MundoToggle<CR>
 
 " linewise select previously pasted text
-map <Leader>v V`]
+nmap <Leader>v V`]
 
 " de-uglify json files
-map <Leader>jl :%!json_xs -f json -t json-pretty<cr>
+nmap <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 
 " switch to last file
-map <Leader><Leader> <C-^>
+nmap <Leader><Leader> <C-^>
 
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
-map <c-n> :cn<cr>
+nmap <c-n> :cn<cr>
 
-map ,t :tabnew<cr>
+nmap ,t :tabnew<cr>
 
-map <leader>d :set spell!<cr>
+nmap <leader>sp :set spell!<cr>
 
-map q: <nop>
-
+" what?
 :command! Only :only | :tabonly
 
+" I forget what this normally does, but I never want that
 map <c-w><c-c> <c-[>
 
-map ,m :make<cr><cr><cr>
+map <leader>m :Neomake<cr><cr><cr>
+
+" neoterm shortcuts
+map <c-\><c-r> :TREPLSend<cr>
+map <c-\><c-f> :TREPLSendFile<cr>
+" this will probably work in most cases but is bad
+" TODO: find way to get open terminal
+nnoremap <c-\><c-\> <c-w><c-p>a 
+tnoremap <c-\><c-\> <c-\><c-n><c-w><c-p>
+tnoremap <esc> <c-\><c-n>
+
+
+nnoremap <silent> <space>t :call neoterm#test#run('all')<cr>
+nnoremap <silent> <space>tf :call neoterm#test#run('file')<cr>
+nnoremap <silent> <space>tc :call neoterm#test#run('current')<cr>
+nnoremap <silent> <space>tr :call neoterm#test#rerun()<cr>
