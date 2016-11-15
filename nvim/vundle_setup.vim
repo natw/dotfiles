@@ -20,7 +20,7 @@ Plugin 'pearofducks/ansible-vim'
 " Plugin 'chase/vim-ansible-yaml'
 Plugin 'fatih/vim-go'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'lambdatoast/elm.vim'
+"Plugin 'lambdatoast/elm.vim'
 
 " everything else
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -36,6 +36,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'benekastah/neomake'
 Plugin 'kassio/neoterm'
+Plugin 'ElmCast/elm-vim'
+Plugin 'OrangeT/vim-csharp'
 
 
 call vundle#end()

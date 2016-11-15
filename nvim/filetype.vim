@@ -20,4 +20,6 @@ augroup filetypedetect
     au BufNewFile,BufRead *.d setlocal filetype=sh
     au BufNewFile,BufRead *.coffee.erb setlocal filetype=coffee
     au BufNewFile,BufRead *.scala.html setlocal filetype=scala
+
+    au BufNewFile,BufRead ~/work/aws_ansible/**/*.yml setlocal filetype=ansible
 augroup END

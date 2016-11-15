@@ -53,7 +53,9 @@ set clipboard+=unnamed                " use osx clipboard
 
 """"""""" Plugin Options
 
-let g:ackprg = 'ag --vimgrep'              " they say silver_searcher is faster
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case' " they say silver_searcher is faster
+endif
 
 autocmd! BufWritePost * Neomake            " run neomake after saving
 
@@ -75,7 +77,7 @@ let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir': 'eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$\|deps$\|_build$',
+    \ 'dir': 'elm-stuff$\|eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$\|deps$\|_build$',
 \}
 let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>t'
@@ -93,8 +95,10 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 
 let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
 
-let g:neomake_error_sign = {'text': '💩'}
-let g:neomake_warning_sign = {'text': '👻'}
+let g:neomake_error_sign = {'text': '💩  '}
+let g:neomake_warning_sign = {'text': '👻  '}
+" let g:neomake_error_sign = {'text': '☃', 'texthl': 'WarningMsg'}
+" let g:neomake_warning_sign = {'text': '✄', 'texthl': 'ErrorMsg'}
 
 
 """"""""" mappings and commands
@@ -162,7 +166,7 @@ map <c-\><c-r> :TREPLSend<cr>
 map <c-\><c-f> :TREPLSendFile<cr>
 " this will probably work in most cases but is bad
 " TODO: find way to get open terminal
-nnoremap <c-\><c-\> <c-w><c-p>a 
+nnoremap <c-\><c-\> <c-w><c-p>i
 tnoremap <c-\><c-\> <c-\><c-n><c-w><c-p>
 tnoremap <esc> <c-\><c-n>
 

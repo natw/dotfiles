@@ -12,3 +12,5 @@ Control-a: beginning-of-line
 Control-e: end-of-line
 Control-o: history-search-backward
 Control-w: backward-kill-word
+Control-f: forward-word
+Control-b: backward-word

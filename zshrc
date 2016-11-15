@@ -75,6 +75,7 @@ alias svns='svn status -u'
 alias pgrep='pgrep -fil'
 alias hgst='hg st'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
+alias vimrc='vim -c ":e \$MYVIMRC"'
 
 # ruby stuff
 alias rc="bundle exec rails console"
@@ -139,7 +140,7 @@ bindkey "^R" history-incremental-search-backward
 
 # pushes the current command to a buffer, lets you do something else, then
 # brings you back to what you were doing
-bindkey "^P" push-line
+# bindkey "^P" push-line
 bindkey "^L" clear-screen
 
 # the magic history, just like tcsh has
@@ -159,8 +160,8 @@ bindkey "^[[3~" delete-char # delete
 
 bindkey -s "^Z" "fg\n" # bind ^Z to fg to switch back and forth easily
 
-bindkey "^f" forward-char
-bindkey "^b" backward-char
+bindkey "^f" forward-word # or char?
+bindkey "^b" backward-word
 
 ### COMPLETION
 

@@ -5,17 +5,10 @@
     co = checkout
     dif = diff
     dc = diff --cached
-    aa = add --all
-    mom = merge origin/master
-    fe = fetch
     ci = commit
     aap = add . -p
-    pom = pull origin master
-    pum = pull upstream master
     unmerged = branch --no-merge
     r = remote -v
-    bv = branch -vv
-    pt = !git push && git push --tags
     pr = pull-request
     om = !git diff --name-only | uniq | xargs -o vim
     ff = merge --ff-only
@@ -53,10 +46,11 @@
 
 [fetch]
   prune = true
-  fsckobjects = true
 
-[transfer]
-  fsckobjects = true
+;  fsckobjects = true
 
-[receive]
-  fsckObjects = true
+; [transfer]
+;   fsckobjects = true
+
+; [receive]
+;   fsckObjects = true
