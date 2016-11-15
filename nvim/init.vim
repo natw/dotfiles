@@ -1,4 +1,4 @@
-source ~/.config/nvim/vundle_setup.vim
+source ~/.config/nvim/vim-plug.vim
 
 set rtp+=$GOROOT/misc/vim
 syntax on                             " syntax highlighting
