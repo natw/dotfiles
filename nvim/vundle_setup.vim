@@ -38,6 +38,7 @@ Plugin 'benekastah/neomake'
 Plugin 'kassio/neoterm'
 Plugin 'ElmCast/elm-vim'
 Plugin 'OrangeT/vim-csharp'
+Plugin 'elixir-lang/vim-elixir'
 
 
 call vundle#end()
