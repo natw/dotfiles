@@ -166,7 +166,6 @@ map <c-w><c-c> <c-[>
 map ,m :make<cr><cr><cr>
 
 
-
 """"""""" GUI stuff (MacVim)
 
 " override this stuff in a local .gvimrc
