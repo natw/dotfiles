@@ -162,7 +162,7 @@ map <c-w><c-c> <c-[>
 map <leader>m :Neomake<cr><cr><cr>
 
 " neoterm shortcuts
-map <c-\><c-r> :TREPLSend<cr>
+map <c-\><c-r> :TREPLSendSelection<cr>
 map <c-\><c-f> :TREPLSendFile<cr>
 " this will probably work in most cases but is bad
 " TODO: find way to get open terminal

@@ -18,6 +18,8 @@ Plug 'elixir-lang/vim-elixir'
 "Plug 'lambdatoast/elm.vim'
 Plug 'ElmCast/elm-vim'
 Plug 'OrangeT/vim-csharp'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
 
 " everything else
 Plug 'ctrlpvim/ctrlp.vim'
@@ -32,5 +34,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'benekastah/neomake'
 Plug 'kassio/neoterm'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'vim-scripts/paredit.vim'
+Plug 'posva/vim-vue'
 
 call plug#end()
