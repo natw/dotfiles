@@ -3,6 +3,7 @@ let g:neoterm_position = 'vertical'
 nmap <c-\><c-e> :Eval<cr>
 vmap <c-\><c-e> :Eval<cr>
 nmap <c-\><c-\><c-e> vip:Eval<cr>
+nmap ,j (,Wa<space><esc>i
 
 :RainbowParentheses
 let g:rainbow#max_level = 16
