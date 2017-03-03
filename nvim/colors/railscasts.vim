@@ -40,6 +40,9 @@ endif
 
 let g:colors_name = "railscasts"
 
+hi link NeomakeError Error
+hi link NeomakeWarning Error
+
 hi link htmlTag                     xmlTag
 hi link htmlTagName                 xmlTagName
 hi link htmlEndTag                  xmlEndTag
