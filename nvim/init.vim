@@ -169,9 +169,3 @@ map <c-\><c-f> :TREPLSendFile<cr>
 nnoremap <c-\><c-\> <c-w><c-p>i
 tnoremap <c-\><c-\> <c-\><c-n><c-w><c-p>
 tnoremap <esc> <c-\><c-n>
-
-
-nnoremap <silent> <space>t :call neoterm#test#run('all')<cr>
-nnoremap <silent> <space>tf :call neoterm#test#run('file')<cr>
-nnoremap <silent> <space>tc :call neoterm#test#run('current')<cr>
-nnoremap <silent> <space>tr :call neoterm#test#rerun()<cr>
