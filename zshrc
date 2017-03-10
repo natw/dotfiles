@@ -82,6 +82,7 @@ alias rc="bundle exec rails console"
 alias rs="bundle exec rails server webrick"
 alias be="bundle exec"
 alias rg="bundle exec rails generate"
+alias mi="bundle exec rake db:migrate"
 
 gem_cache() {
   gem environment | grep "GEM PATHS" -A 1 | tail -n 1 | awk '{ print $2"/cache" }'
