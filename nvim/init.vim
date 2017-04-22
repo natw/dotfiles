@@ -169,3 +169,5 @@ map <c-\><c-f> :TREPLSendFile<cr>
 nnoremap <c-\><c-\> <c-w><c-p>i
 tnoremap <c-\><c-\> <c-\><c-n><c-w><c-p>
 tnoremap <esc> <c-\><c-n>
+
+nnoremap <c-l><c-n> :lnext<cr>
