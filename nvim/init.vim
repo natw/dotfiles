@@ -5,6 +5,7 @@ syntax on                             " syntax highlighting
 filetype plugin indent on             " per-filetype plugins
 colorscheme railscasts                " looks like total ass in non-256 color, but whatevs
 
+
 set smartindent                       " still smart
 set shiftwidth=2                      " width of line-initial tab, maybe some other stuff
 set shiftround
@@ -171,3 +172,7 @@ tnoremap <c-\><c-\> <c-\><c-n><c-w><c-p>
 tnoremap <esc> <c-\><c-n>
 
 nnoremap <c-l><c-n> :lnext<cr>
+
+" in normal mode, ^H should to to previous tab
+" vim used to know the difference between ^H and <bs>.  whatever
+nmap <bs> gT
