@@ -95,10 +95,10 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 
 let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
 
-let g:neomake_error_sign = {'text': '💩  '}
-let g:neomake_warning_sign = {'text': '👻  '}
-" let g:neomake_error_sign = {'text': '☃', 'texthl': 'WarningMsg'}
-" let g:neomake_warning_sign = {'text': '✄', 'texthl': 'ErrorMsg'}
+" let g:neomake_error_sign = {'text': '💩  '}
+" let g:neomake_warning_sign = {'text': '👻  '}
+let g:neomake_error_sign = {'text': '☃', 'texthl': 'WarningMsg'}
+let g:neomake_warning_sign = {'text': '✄', 'texthl': 'ErrorMsg'}
 
 
 """"""""" mappings and commands
