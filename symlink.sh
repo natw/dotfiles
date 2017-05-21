@@ -14,6 +14,7 @@ files=(
     # virtualenvs
     zsh
     zshrc
+    irbrc
 )
 curdir=`pwd`
 for fname in $files; do
