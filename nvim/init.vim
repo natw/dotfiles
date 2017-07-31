@@ -171,7 +171,7 @@ nnoremap <c-\><c-\> <c-w><c-p>i
 tnoremap <c-\><c-\> <c-\><c-n><c-w><c-p>
 tnoremap <esc> <c-\><c-n>
 
-nnoremap <c-l><c-n> :lnext<cr>
+" nnoremap <c-l><c-n> :lnext<cr>
 
 " in normal mode, ^H should to to previous tab
 " vim used to know the difference between ^H and <bs>.  whatever
