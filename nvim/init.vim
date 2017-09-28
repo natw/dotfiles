@@ -58,7 +58,7 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case' " they say silver_searcher is faster
 endif
 
-autocmd! BufWritePost * Neomake            " run neomake after saving
+" autocmd! BufWritePost * Neomake            " run neomake after saving
 
 source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
 
@@ -77,12 +77,17 @@ let g:rails_statusline = 1
 let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
 
-let g:ctrlp_custom_ignore = {
-    \ 'dir': 'elm-stuff$\|eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$\|deps$\|_build$',
-\}
-let g:ctrlp_use_caching = 0
-let g:ctrlp_map = '<leader>t'
-let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_custom_ignore = {
+    " \ 'dir': 'elm-stuff$\|eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$\|deps$\|_build$',
+" \}
+" let g:ctrlp_use_caching = 0
+" let g:ctrlp_map = '<leader>t'
+" let g:ctrlp_switch_buffer = 0
+
+map <leader>t :FZF<cr>
+" let g:fzf_buffers_jump = 1
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 
 map <leader>gg :GitGutterToggle<cr>
 
@@ -101,6 +106,10 @@ let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
 let g:neomake_error_sign = {'text': '☃', 'texthl': 'WarningMsg'}
 let g:neomake_warning_sign = {'text': '✄', 'texthl': 'ErrorMsg'}
 
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\   'eruby': [],
+\}
 
 """"""""" mappings and commands
 

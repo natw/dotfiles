@@ -32,11 +32,16 @@ Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'benekastah/neomake'
+" Plug 'benekastah/neomake'
 Plug 'kassio/neoterm'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'w0rp/ale'
 
 call plug#end()
