@@ -5,7 +5,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'othree/html5.vim'
-Plug 'rodjek/vim-puppet'
+Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'tpope/vim-markdown'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
@@ -18,6 +18,10 @@ Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 " Plug 'OrangeT/vim-csharp'
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
+Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 
 " everything else
 Plug 'posva/vim-vue'
@@ -34,9 +38,5 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'benekastah/neomake'
 Plug 'kassio/neoterm'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
-Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 
 call plug#end()
