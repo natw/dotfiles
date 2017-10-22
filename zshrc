@@ -35,11 +35,15 @@ export LSCOLORS="Dxgxcxdxcxegedabagacad"
 # for GNU ls (linux) (I wonder what this looks like)
 export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 
+export ecr='183564172372.dkr.ecr.us-east-1.amazonaws.com'
+
 
 ### OPTIONS
 
 setopt extendedglob
 setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt HIST_FIND_NO_DUPS
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
 setopt hist_fcntl_lock # better locking for history file.  maybe doesn't work everywhere
@@ -76,10 +80,11 @@ alias pgrep='pgrep -fil'
 alias hgst='hg st'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 alias vimrc='vim -c ":e \$MYVIMRC"'
+alias tf='terraform'
 
 # ruby stuff
 alias rc="bundle exec rails console"
-alias rs="bundle exec rails server webrick"
+alias rs="bundle exec rails server"
 alias be="bundle exec"
 alias rg="bundle exec rails generate"
 alias mi="bundle exec rake db:migrate"
@@ -390,3 +395,5 @@ PS1="${shlvl_indicator}$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/natw/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/natw/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
