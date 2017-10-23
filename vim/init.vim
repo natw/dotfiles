@@ -1,4 +1,4 @@
-source ~/.config/nvim/vim-plug.vim
+source ~/.vim/vim-plug.vim
 
 set rtp+=$GOROOT/misc/vim
 syntax on                             " syntax highlighting
@@ -58,36 +58,17 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case' " they say silver_searcher is faster
 endif
 
-" autocmd! BufWritePost * Neomake            " run neomake after saving
-
 source $VIMRUNTIME/macros/matchit.vim      " not on by default for some reason
 
-let javascript_fold = 1                    " javascript syntax folding
-
-let python_highlight_all = 1               " be all that you can be, python.vim
-" let python_slow_sync = 1                   " slower, but syntax won't break on triple quoted strings
-
 let NERDSpaceDelims = 1                    " space after # in comments
-
-let g:netrw_list_hide = '.*\.pyc$'
-
-let g:pylint_onwrite = 0
 
 let g:rails_statusline = 1
 let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
 
-" let g:ctrlp_custom_ignore = {
-    " \ 'dir': 'elm-stuff$\|eggs$\|\.git$\|env/lib$\|node_modules$\|tmp/cache$\|coverage$\|target$\|env$\|deps$\|_build$',
-" \}
-" let g:ctrlp_use_caching = 0
-" let g:ctrlp_map = '<leader>t'
-" let g:ctrlp_switch_buffer = 0
-
 map <leader>t :FZF<cr>
 " let g:fzf_buffers_jump = 1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
 
 map <leader>gg :GitGutterToggle<cr>
 
@@ -100,11 +81,6 @@ let g:sql_type_default = 'pgsql'
 let g:ansible_options = {'ignore_blank_lines': 0}
 
 let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
-
-" let g:neomake_error_sign = {'text': '💩  '}
-" let g:neomake_warning_sign = {'text': '👻  '}
-let g:neomake_error_sign = {'text': '☃', 'texthl': 'WarningMsg'}
-let g:neomake_warning_sign = {'text': '✄', 'texthl': 'ErrorMsg'}
 
 let g:ale_linters = {
 \   'javascript': ['standard'],
@@ -170,19 +146,7 @@ nmap <leader>sp :set spell!<cr>
 " I forget what this normally does, but I never want that
 map <c-w><c-c> <c-[>
 
-map <leader>m :Neomake<cr><cr><cr>
-
-" neoterm shortcuts
-map <c-\><c-r> :TREPLSendSelection<cr>
-map <c-\><c-f> :TREPLSendFile<cr>
-" this will probably work in most cases but is bad
-" TODO: find way to get open terminal
-nnoremap <c-\><c-\> <c-w><c-p>i
-tnoremap <c-\><c-\> <c-\><c-n><c-w><c-p>
-tnoremap <esc> <c-\><c-n>
-
-" nnoremap <c-l><c-n> :lnext<cr>
-
 " in normal mode, ^H should to to previous tab
 " vim used to know the difference between ^H and <bs>.  whatever
+" I probably just messed up iTerm somehow
 nmap <bs> gT
