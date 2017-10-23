@@ -108,6 +108,7 @@ let g:neomake_warning_sign = {'text': '✄', 'texthl': 'ErrorMsg'}
 
 let g:ale_linters = {
 \   'javascript': ['standard'],
+\   'go': ['gofmt', 'golint', 'gosimple', 'go vet', 'staticcheck'],
 \   'eruby': [],
 \}
 
