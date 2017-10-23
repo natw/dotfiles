@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/bundle')
+call plug#begin('~/.vim/bundle')
 
 " filetypes
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -26,8 +26,8 @@ Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 " everything else
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
@@ -36,12 +36,12 @@ Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'kassio/neoterm'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-repeat'
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'

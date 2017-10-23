@@ -54,6 +54,8 @@ set clipboard+=unnamed                " use osx clipboard
 
 """"""""" Plugin Options
 
+map <leader>c<space> gcc
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case' " they say silver_searcher is faster
 endif

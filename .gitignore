@@ -6,3 +6,4 @@ vim/bundle
 nvim/.netrwhist
 nvim/spell
 nvim/bundle
+plug.vim.old
