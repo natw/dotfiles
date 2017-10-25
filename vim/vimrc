@@ -6,6 +6,8 @@ filetype plugin indent on             " per-filetype plugins
 colorscheme railscasts                " looks like total ass in non-256 color, but whatevs
 
 
+set conceallevel=0
+
 set smartindent                       " still smart
 set shiftwidth=2                      " width of line-initial tab, maybe some other stuff
 set shiftround
@@ -46,6 +48,8 @@ set number                            " show line numbers
 set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
 set omnifunc=syntaxcomplete#Complete  " use omni completion
 set formatoptions=croqlj              " see :h fo-table
+set hlsearch
+set incsearch
 
 set statusline=%f%m\ %y\ [%{&fenc}]\ (%04l/%04L,\ %02v)\ %p%%
 
@@ -89,6 +93,8 @@ let g:ale_linters = {
 \   'go': ['gofmt', 'golint', 'gosimple', 'go vet', 'staticcheck'],
 \   'eruby': [],
 \}
+
+let g:terraform_fmt_on_save = 1
 
 """"""""" mappings and commands
 

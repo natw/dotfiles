@@ -46,6 +46,8 @@ Plug 'tpope/vim-repeat'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'junegunn/vader.vim'
+
 Plug 'w0rp/ale'
 
 call plug#end()
