@@ -22,6 +22,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+Plug 'vim-airline/vim-airline'
 
 " everything else
 Plug 'posva/vim-vue'
