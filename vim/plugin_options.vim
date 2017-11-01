@@ -8,9 +8,12 @@ let g:rails_statusline = 1
 let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
 
-map <leader>t :FZF<cr>
+function! GitFZF()
+  let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
+  call fzf#vim#files(substitute(l:git_root, "\n$", '' ,''))
+endfunction
+map <leader>t :call GitFZF()<cr>
 " let g:fzf_buffers_jump = 1
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 map <leader>gg :GitGutterToggle<cr>
 
@@ -22,7 +25,7 @@ let g:sql_type_default = 'pgsql'
 
 let g:ansible_options = {'ignore_blank_lines': 0}
 
-let g:vimrubocop_rubocop_cmd = "bundle exec rubocop"
+let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 
 let g:ale_linters = {
 \   'javascript': ['standard'],
