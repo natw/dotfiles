@@ -37,7 +37,8 @@ export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 
 export ecr='183564172372.dkr.ecr.us-east-1.amazonaws.com'
 
-export FZF_DEFAULT_COMMAND='(git ls-tree -r --full-tree --name-only HEAD || ag -g "") 2> /dev/null'
+# export FZF_DEFAULT_COMMAND='(git ls-tree -r --full-tree --name-only HEAD || ag -g "") 2> /dev/null'
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
 
