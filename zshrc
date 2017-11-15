@@ -16,13 +16,6 @@ export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
 export LESS="FSRX"
 
-export WORKON_HOME="$HOME/.virtualenvs"
-export VIRTUALENV_USE_DISTRIBUTE=true
-export VIRTUALENVWRAPPER_HOOK_DIR="$HOME/.virtualenvs"
-export VIRTUALENVWRAPPER_LOG_DIR="$HOME/.virtualenvs"
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true # best option
-
 export RUBYOPT=rubygems  # lol
 
 export HISTFILE=~/.zhistory
@@ -37,7 +30,6 @@ export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
 
 export ecr='183564172372.dkr.ecr.us-east-1.amazonaws.com'
 
-# export FZF_DEFAULT_COMMAND='(git ls-tree -r --full-tree --name-only HEAD || ag -g "") 2> /dev/null'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
@@ -51,7 +43,7 @@ setopt HIST_FIND_NO_DUPS
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
 setopt hist_fcntl_lock # better locking for history file.  maybe doesn't work everywhere
-setopt HIST_IGNORE_SPACE # don't write commands starting with space to history
+# setopt HIST_IGNORE_SPACE # don't write commands starting with space to history
 
 setopt multibyte # maybe enabled by default
 setopt no_beep # HATE. BEEPS.
@@ -78,10 +70,7 @@ case $OSTYPE in
     ;;
 esac
 
-alias sr='screen -r'
-alias svns='svn status -u'
 alias pgrep='pgrep -fil'
-alias hgst='hg st'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 alias vimrc='vim -c ":e \$MYVIMRC"'
 alias tf='terraform'
@@ -101,38 +90,12 @@ gem_cache() {
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
-alias vims='mvim --servername VIM'
-
-vimr() {
-    vim_instances=( $(mvim --serverlist) )
-    if (( ${#vim_instances} )); then
-        mvim --servername $vim_instances[-1] --remote-tab-silent $argv
-    else
-        mvim --servername VIM $argv
-    fi
-}
-
-vimcd() {
-    # change the working directory of the newest macvim instance to the current directory
-    # or, if argument provided, use macvim instance with that name
-    vim_instances=( $(mvim --serverlist) )
-    local inst
-    if [[ -n $argv ]] then
-        inst=$argv
-    else
-        inst=$vim_instances[-1]
-    fi
-    mvim --servername $inst --remote-send ":cd `pwd`<CR>"
-}
-
-alias rl="tail -f log/development.log"
 alias sc="script/console"
 alias ss="script/server"
 alias be='bundle exec'
 
 autoload edit-command-line
 zle -N edit-command-line
-
 
 (( $+commands[gsed] )) && alias sed=gsed # use gsed if it's available
 
@@ -143,14 +106,10 @@ zle -N edit-command-line
 bindkey -e
 
 bindkey "^X" edit-command-line
-bindkey -M vicmd v edit-command-line
 
 # somehow I survived for years without this.  They called it living, but I'm not so sure.
 bindkey "^R" history-incremental-search-backward
 
-# pushes the current command to a buffer, lets you do something else, then
-# brings you back to what you were doing
-# bindkey "^P" push-line
 bindkey "^L" clear-screen
 
 # the magic history, just like tcsh has
@@ -344,17 +303,6 @@ function +vi-hg-branchhead() {
     fi
 }
 
-function ruby_version() {
-    ver=''
-    if which rvm-prompt &> /dev/null; then
-        ver=`rvm-prompt v p g`
-    fi
-    white="$FX[reset]$FG[015]$FX[bold]"
-    orange="$FX[reset]$FG[173]"
-    echo "$white($orange$ver$white)$FX[reset] "
-}
-
-# export RPROMPT='$(ruby_version) ${vcs_info_msg_0_}'
 export RPROMPT='${vcs_info_msg_0_}'
 
 
