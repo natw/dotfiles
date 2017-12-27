@@ -58,3 +58,5 @@ map <c-w><c-c> <c-[>
 " vim used to know the difference between ^H and <bs>.  whatever
 " I probably just messed up iTerm somehow
 nmap <bs> gT
+
+map ,m :make<cr>
