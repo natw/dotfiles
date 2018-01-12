@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-source ~/.vim/vim-plug.vim
+source ~/.vim/plugins.vim
 
 set runtimepath+=$GOROOT/misc/vim
 syntax on
