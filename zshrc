@@ -1,3 +1,5 @@
+
+
 ### ENVIRONMENT
 
 # path for completion functions
@@ -15,9 +17,7 @@ export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
 export LESS="FSRX"
-
 export RUBYOPT=rubygems  # lol
-
 export HISTFILE=~/.zhistory
 export HISTSIZE='100000'
 export SAVEHIST='100000'
@@ -33,6 +33,13 @@ export ecr='183564172372.dkr.ecr.us-east-1.amazonaws.com'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 
+### MODULES
+
+if (($(tput colors) == 256)) {
+    autoload spectrum && spectrum # this way, if the terminal doesn't support 256 colors,
+                                  # the spectrum arrays just won't exist, and there won't be any color
+}
+
 
 ### OPTIONS
 
@@ -43,7 +50,7 @@ setopt HIST_FIND_NO_DUPS
 setopt extended_history # append history entries w/ timestamp
 setopt inc_append_history
 setopt hist_fcntl_lock # better locking for history file.  maybe doesn't work everywhere
-# setopt HIST_IGNORE_SPACE # don't write commands starting with space to history
+setopt HIST_IGNORE_SPACE # don't write commands starting with space to history
 
 setopt multibyte # maybe enabled by default
 setopt no_beep # HATE. BEEPS.
@@ -57,6 +64,7 @@ setopt pushd_silent
 ulimit -c 0 # no process limit?
 setopt prompt_subst # allow variable substitution in the prompt
 setopt c_bases # output hex and octal in better format.  what the hell?
+
 
 ### ALIASES
 
@@ -239,10 +247,6 @@ rr() {
 
 ### Version Control Info (rprompt)
 
-if (($(tput colors) == 256)) {
-    autoload spectrum && spectrum # this way, if the terminal doesn't support 256 colors,
-                                  # the spectrum arrays just won't exist, and there won't be any color
-}
 
 zstyle ':vcs_info:*' enable svn hg git bzr cvs darcs
 zstyle ':vcs_info:*' get-revision true
@@ -267,41 +271,11 @@ zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
 zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 
 # git stuff
-zstyle ':vcs_info:git*' unstagedstr "+" # fix these once I learn how git works
+zstyle ':vcs_info:git*' unstagedstr "+"
 zstyle ':vcs_info:git*' stagedstr "S"
 zstyle ':vcs_info:git*' formats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %8>>%i%<<%m$FG[015]]$FG[167]%u%c$FX[reset]"
 zstyle ':vcs_info:git*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %8.8i%m $FG[167]$FX[bold]%a$FX[reset]$FG[015]]$FG[167]%u$FX[reset]"
-#zstyle ':vcs_info:git*' actionformats "$FG[015]($FG[107]%s$FG[015]|$FG[167]%a$FG[015])-[$FG[221]%u%b%m %12.12i$FG[015]]$FX[reset]"
 
-
-### Store the localrev and global hash for use in other hooks
-function +vi-hg-storerev() {
-    user_data[localrev]=${hook_com[localrev]}
-    user_data[hash]=${hook_com[hash]}
-}
-
-### Show marker when the working directory is not on a branch head
-# 'marker' is just coloring the rev red
-# This may indicate that running `hg up` will do something
-function +vi-hg-branchhead() {
-    local branchheadsfile i_tiphash i_branchname
-    local -a branchheads
-
-    local branchheadsfile=${hook_com[base]}/.hg/branchheads.cache
-
-    # Bail out if any mq patches are applied
-    [[ -s ${hook_com[base]}/.hg/patches/status ]] && return 0
-
-    if [[ -r ${branchheadsfile} ]] ; then
-        while read -r i_tiphash i_branchname ; do
-            branchheads+=( $i_tiphash )
-        done < ${branchheadsfile}
-
-        if [[ ! ${branchheads[(i)${user_data[hash]}]} -le ${#branchheads} ]] ; then
-            hook_com[revision]="$FX[bold]$FG[124]${hook_com[revision]}$FX[reset]"
-        fi
-    fi
-}
 
 export RPROMPT='${vcs_info_msg_0_}'
 
@@ -312,40 +286,11 @@ if [ -z host_nick ]; then
     host_nick = '%m'
 fi
 
-# render machine name in red for root users
-# this is probably dumb, as it uses root's rc for a root shell, right?
-if [ "x`whoami`" = "xroot" ]; then
-    ucolor=$fg_bold[red]
-else
-    ucolor=$fg_bold[green]
-fi
-
 # machine specific settings
 if [[ -a ~/.zshrc-local ]]; then
     source ~/.zshrc-local
 fi
 
-function effective_shlvl() {
-    local lvl
-    if [[ -n $TMUX ]] ; then
-        lvl=$SHLVL-1
-    else
-        lvl=$SHLVL
-    fi
-    if [[ $lvl -gt 1 ]] ; then
-        echo "☭"
-    fi
-}
-
-shlvl_indicator="$FG[088]$(effective_shlvl)"
-
-PS1="${shlvl_indicator}$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%# $FX[reset]"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/natw/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/natw/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/natw/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/natw/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+PS1="${shlvl_indicator}$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset]"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
