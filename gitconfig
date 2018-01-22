@@ -19,7 +19,7 @@
     pr = !open $(git gh-url)/compare/LiveWatch:master...LiveWatch:$(git branch --no-color | grep '*' | cut -d ' ' -f 2)?expand=1
 
 [format]
-    pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%Creset
+    pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
 
 [color]
     diff = true
