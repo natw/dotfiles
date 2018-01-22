@@ -33,7 +33,8 @@ let g:ale_linters = {
 \   'eruby': [],
 \}
 
+map <leader>ar :ALEResetBuffer<cr>
+
 let g:terraform_fmt_on_save = 1
 
 let g:vim_json_syntax_conceal = 0
-
