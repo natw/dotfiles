@@ -38,3 +38,6 @@ map <leader>ar :ALEResetBuffer<cr>
 let g:terraform_fmt_on_save = 1
 
 let g:vim_json_syntax_conceal = 0
+
+" only check on save
+let g:ale_lint_on_text_changed = 'never'
