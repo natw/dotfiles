@@ -1,6 +1,7 @@
 vim/.netrwhist
 *.pyc
 vim/spell
+vim/view
 vim/bundle
 
 nvim/.netrwhist
