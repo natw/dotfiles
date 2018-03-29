@@ -89,6 +89,7 @@ alias rs="bundle exec rails server"
 alias be="bundle exec"
 alias rg="bundle exec rails generate"
 alias mi="bundle exec rake db:migrate"
+alias ta="tmux attach"
 
 gem_cache() {
   gem environment | grep "GEM PATHS" -A 1 | tail -n 1 | awk '{ print $2"/cache" }'
