@@ -295,3 +295,4 @@ fi
 PS1="${shlvl_indicator}$FG[015][$FG[107]${host_nick} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zsh/fzf.zsh ] && source ~/.zsh/fzf.zsh

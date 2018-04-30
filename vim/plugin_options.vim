@@ -41,3 +41,7 @@ let g:vim_json_syntax_conceal = 0
 
 " only check on save
 let g:ale_lint_on_text_changed = 'never'
+
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#virtualenv#enabled = 0
