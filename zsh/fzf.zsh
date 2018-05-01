@@ -1,3 +1,7 @@
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 cmd-aware-fzf-file-widget() {
   local cmd
   case "$LBUFFER" in
