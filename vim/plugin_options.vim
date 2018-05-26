@@ -8,6 +8,14 @@ let g:rails_statusline = 1
 let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
 
+set completeopt-=longest
+set completeopt+=menu
+set completeopt+=noinsert
+set completeopt+=noselect
+let g:deoplete#enable_at_startup = 0
+let g:deoplete#sources#go#gocode_binary = $GOPATH."/bin/code"
+let g:deoplete#sources#go#pointer = 1
+
 function! GitFZF()
   let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
   call fzf#vim#files(substitute(l:git_root, "\n$", '' ,''))
@@ -18,8 +26,8 @@ map <leader>t :call GitFZF()<cr>
 map <leader>gg :GitGutterToggle<cr>
 
 " TODO: make this actually work. SuperTab never gives me what I want
-let g:SuperTabDefaultCompletionType = '<c-p>'
-let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabDefaultCompletionType = '<c-n>'
+" let g:SuperTabClosePreviewOnPopupClose = 1
 
 let g:sql_type_default = 'pgsql'
 

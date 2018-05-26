@@ -12,7 +12,8 @@ Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'pearofducks/ansible-vim'
 " Plug 'chase/vim-ansible-yaml'
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 "Plug 'lambdatoast/elm.vim'
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
@@ -46,6 +47,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-apathy'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
