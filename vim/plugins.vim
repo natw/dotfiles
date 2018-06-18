@@ -14,7 +14,7 @@ Plug 'pearofducks/ansible-vim'
 " Plug 'chase/vim-ansible-yaml'
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'Shougo/neco-vim', { 'for': 'python' }
 "Plug 'lambdatoast/elm.vim'
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 " Plug 'OrangeT/vim-csharp'
@@ -33,6 +33,8 @@ Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+" Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 
 " everything else
 Plug 'vim-airline/vim-airline'
@@ -48,6 +50,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-apathy'
+Plug 'kassio/neoterm'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
