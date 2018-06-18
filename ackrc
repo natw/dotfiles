@@ -18,3 +18,4 @@
 --ignore-dir=eggs
 --type-add=conf=.conf
 --ignore-file=match:/bundle\.js$/
+--ignore-dir=.terraform
