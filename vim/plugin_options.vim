@@ -39,7 +39,13 @@ let g:ale_linters = {
 \   'javascript': ['standard'],
 \   'go': ['gofmt', 'golint', 'gosimple', 'go vet', 'staticcheck'],
 \   'eruby': [],
+\   'python': ['pylint'],
 \}
+
+let g:ale_fixers = {
+\   'python': ['black'],
+\}
+let g:ale_fix_on_save = 1
 
 map <leader>ar :ALEResetBuffer<cr>
 
