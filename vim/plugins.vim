@@ -35,6 +35,7 @@ Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 " Plug 'elixir-lang/vim-elixir'
 Plug 'elixir-editors/vim-elixir'
+Plug 'leafgarland/typescript-vim'
 
 " everything else
 Plug 'vim-airline/vim-airline'
