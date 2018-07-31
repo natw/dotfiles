@@ -25,6 +25,7 @@ Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 " Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'baabelfish/nvim-nim', { 'for': 'nim' }
 Plug 'vim-airline/vim-airline'
+" Plug 'lervag/vimtex'
 
 " everything else
 Plug 'posva/vim-vue'
