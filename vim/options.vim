@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+set regexpengine=2                    " use new regex engine.  maybe slower sometimes?
 set conceallevel=0
 set smartindent                       " still smart
 set shiftwidth=2                      " width of line-initial tab, maybe some other stuff
@@ -18,12 +19,12 @@ set winminwidth=50                    " minimum window width.  makes ^W| useful
 set winheight=16                      " also dumb
 " set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildmode=longest,list             " show menu for tab-completion
-set completeopt=menu                  " and just the menu
+set completeopt=menuone                  " and just the menu
 set wildignore+=*.pyc                 " don't need dem pyc files
-set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
-set foldlevelstart=99                 " forces folds open by default
-set nojoinspaces                      " don't use two spaces after a . when joining lines
+" set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
+" set foldlevelstart=99                 " forces folds open by default
 set foldenable                        " enable fold
+set nojoinspaces                      " don't use two spaces after a . when joining lines
 set grepprg=ack                       " better than grep
 set showcmd                           " show the cmdline. Mostly just useful for showing number of lines in visual mode
 set t_Co=256                          " use 256 colors

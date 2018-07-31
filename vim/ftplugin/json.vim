@@ -1,2 +1,3 @@
-setlocal equalprg=python\ -m\ json.tool
-setlocal shiftwidth=4
+" setlocal equalprg=python\ -m\ json.tool
+setlocal equalprg=jq\ -rM\ '.'
+setlocal shiftwidth=2

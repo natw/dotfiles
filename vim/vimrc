@@ -8,5 +8,5 @@ filetype plugin indent on
 colorscheme railscasts
 
 runtime options.vim
-runtime plugin_options.vim
 runtime mappings.vim
+runtime plugin_options.vim

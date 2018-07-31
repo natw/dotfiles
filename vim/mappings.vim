@@ -1,5 +1,5 @@
 " ^P toggles paste mode (from insert mode)
-imap <C-p> :set paste!<CR>:set paste?<CR>
+nmap <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
 nmap <C-h> gT
@@ -24,9 +24,6 @@ nmap <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
-
-" I like using ^O for scrolling through completion options
-imap <C-o> <C-p>
 
 " undo tree visualization
 nmap <Leader>gu :MundoToggle<CR>
