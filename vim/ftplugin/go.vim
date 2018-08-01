@@ -8,3 +8,5 @@ setlocal updatetime=200
 call deoplete#enable()
 
 :command! A GoAlternate
+
+nnoremap tt :GoInfo<cr>

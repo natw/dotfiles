@@ -50,6 +50,7 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 map <leader>ar :ALEResetBuffer<cr>
+map ,n :ALENext<cr>
 
 let g:terraform_fmt_on_save = 1
 
