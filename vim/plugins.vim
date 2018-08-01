@@ -26,6 +26,8 @@ Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 " Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'baabelfish/nvim-nim', { 'for': 'nim' }
+" Plug 'lervag/vimtex'
+Plug 'vim-airline/vim-airline'
 Plug 'posva/vim-vue' " can't limit these to vue ft for some reason
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
