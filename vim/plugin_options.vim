@@ -85,4 +85,4 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
 " let g:go_def_mode = 'godef'
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
