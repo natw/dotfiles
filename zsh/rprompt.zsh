@@ -1,3 +1,6 @@
+# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+# then add $(kube_ps1)
+
 autoload -Uz vcs_info # for pulling info from version control systems
 # precmd is a builtin function that is called before every rendering of the command prompt
 precmd() {

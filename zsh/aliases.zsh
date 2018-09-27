@@ -21,6 +21,13 @@ alias rg="bundle exec rails generate"
 alias mi="bundle exec rake db:migrate"
 alias ta="tmux attach"
 
+alias kc=kubectl
+alias kt=kubectx
+alias kn=kubens
+alias kk="kubectl config get-contexts | awk '/\*/ { print \$2 \"/\" \$5 }'"
+
+alias urldecode="python -c \"import sys, urllib as ul; print ul.unquote(sys.stdin.read());\""
+
 gem_cache() {
   gem environment | grep "GEM PATHS" -A 1 | tail -n 1 | awk '{ print $2"/cache" }'
 }

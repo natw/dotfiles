@@ -14,3 +14,15 @@ export WORDCHARS=${WORDCHARS//[\/.]}
 export LSCOLORS="Dxgxcxdxcxegedabagacad"
 # for GNU ls (linux) (I wonder what this looks like)
 export LS_COLORS='di=93:fi=0:ln=96:pi=5:so=5:bd=5:cd=5:or=31:mi=31:ex=32'
+
+kcfg=(
+  "$HOME/.kube/config"
+  $HOME/.kube/config.d/*
+)
+typeset -U kcf
+# the 'j' parameter expansion flag joins arrays.  see `man zshexpn`
+
+expand_kubeconfig() {
+  export KUBECONFIG=${(j,:,)kcfg}
+}
+expand_kubeconfig
