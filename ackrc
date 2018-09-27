@@ -19,3 +19,4 @@
 --type-add=conf=.conf
 --ignore-file=match:/bundle\.js$/
 --ignore-dir=.terraform
+--ignore-dir=vendor
