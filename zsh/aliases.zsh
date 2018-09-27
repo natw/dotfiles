@@ -53,3 +53,8 @@ rr() {
     done
     cd $dir
 }
+
+gl() {
+  local target=${1:-./...}
+  gometalinter --vendor --tests --fast --enable-gc -Dgotype --aggregate ${target}
+}
