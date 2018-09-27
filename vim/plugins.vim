@@ -1,5 +1,13 @@
 call plug#begin('~/.vim/bundle')
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 " filetypes
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
@@ -17,6 +25,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 Plug 'Shougo/neco-vim', { 'for': 'python' }
 "Plug 'lambdatoast/elm.vim'
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
+Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
 " Plug 'OrangeT/vim-csharp'
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
@@ -38,6 +47,7 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 " Plug 'elixir-lang/vim-elixir'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
+Plug 'reasonml-editor/vim-reason-plus'
 
 " everything else
 Plug 'vim-airline/vim-airline'
@@ -54,14 +64,13 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-apathy'
 Plug 'kassio/neoterm'
+Plug 'junegunn/vim-easy-align'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'

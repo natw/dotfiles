@@ -10,3 +10,7 @@ call deoplete#enable()
 :command! A GoAlternate
 
 nnoremap tt :GoInfo<cr>
+
+nnoremap <leader>gt :GoDeclsDir<cr>
+
+nnoremap <buffer> <silent> <c-t><c-]> :<C-u>call go#def#Jump("tab")<cr>
