@@ -20,7 +20,13 @@ nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
 nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " here's some nonsense for debugging syntax highlighting
-nmap <Leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+function! <sid>DebugSyntax()
+  let l:hi = synIDattr(synID(line("."), col("."), 1), "name")
+  let l:trans = synIDattr(synID(line("."), col("."), 0), "name")
+  let l:lo = synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")
+  return "hi<" . l:hi . '> trans<' . l:trans . "> lo<" . l:lo . ">"
+endfunction
+nmap <Leader>hi :echo <sid>DebugSyntax()<cr>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//

@@ -8,6 +8,8 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+Plug 'natw/vim-railscasts'
+
 " filetypes
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
@@ -75,6 +77,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " Plug 'junegunn/vader.vim'
+
+Plug 'chrisbra/Colorizer'
 
 Plug 'w0rp/ale'
 

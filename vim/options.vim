@@ -27,7 +27,6 @@ set foldenable                        " enable fold
 set nojoinspaces                      " don't use two spaces after a . when joining lines
 set grepprg=ack                       " better than grep
 set showcmd                           " show the cmdline. Mostly just useful for showing number of lines in visual mode
-set t_Co=256                          " use 256 colors
 set background=dark                   " dark terminals 4 lyfe
 set lazyredraw                        " don't redraw while executing macros or that sort of thing
 set ruler                             " use the ruler.
@@ -46,3 +45,9 @@ set hlsearch
 set incsearch
 source $VIMRUNTIME/macros/matchit.vim " not on by default for some reason
 set clipboard+=unnamed                " use osx clipboard
+
+if $COLORTERM == "truecolor"
+  set termguicolors
+else
+  set t_Co=256
+endif
