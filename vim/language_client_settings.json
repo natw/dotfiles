@@ -1,0 +1,6 @@
+{
+  "initializationOptions": {
+    "cacheDirectory": "/tmp/cquery",
+    "resourceDir": "/usr/local/Cellar/llvm/7.0.0/lib/clang/7.0.0"
+  }
+}

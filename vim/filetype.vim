@@ -27,4 +27,6 @@ augroup filetypedetect
   au BufRead,BufNewFile nginx.conf                  setlocal filetype=nginx
   au BufRead,BufNewFile ~/.kube/config              setlocal filetype=yaml
   au BufRead,BufNewFile *.hcl                       setlocal filetype=terraform
+  au BufRead,BufNewFile *.yaml.gotmpl               setlocal filetype=yaml
+  au BufRead,BufNewFile _helpers.tpl                setlocal filetype=gotexttmpl
 augroup END

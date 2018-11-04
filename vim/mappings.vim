@@ -19,14 +19,7 @@ nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
 " open files with path relative to current buffer
 nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" here's some nonsense for debugging syntax highlighting
-function! <sid>DebugSyntax()
-  let l:hi = synIDattr(synID(line("."), col("."), 1), "name")
-  let l:trans = synIDattr(synID(line("."), col("."), 0), "name")
-  let l:lo = synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")
-  return "hi<" . l:hi . '> trans<' . l:trans . "> lo<" . l:lo . ">"
-endfunction
-nmap <Leader>hi :echo <sid>DebugSyntax()<cr>
+nmap <Leader>hi :echo syndebug#Names()<cr>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//

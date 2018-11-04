@@ -52,8 +52,26 @@ let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'sh': ['shfmt'],
+\   'json': ['fixjson'],
 \}
 let g:ale_fix_on_save = 1
+
+
+" let g:LanguageClient_serverCommands = {
+"     \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
+"     \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
+"     \ }
+
+" let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
+" let g:LanguageClient_settingsPath = expand('~') . "/.config/nvim/language_client_settings.json"
+
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
+" let g:LanguageClient_windowLogMessageLevel = "Log"
+" let g:LanguageClient_loggingFile = "/tmp/lc.log"
+" let g:LanguageClient_loggingLevel = "DEBUG"
+
 
 map <leader>ar :ALEResetBuffer<cr>
 map ,n :ALENext<cr>

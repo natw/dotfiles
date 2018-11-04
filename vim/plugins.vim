@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/bundle')
 
+Plug '~/projects/vim-syntax-debugging-tools'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -22,7 +24,7 @@ Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'pearofducks/ansible-vim'
 " Plug 'chase/vim-ansible-yaml'
-Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 Plug 'Shougo/neco-vim', { 'for': 'python' }
 "Plug 'lambdatoast/elm.vim'

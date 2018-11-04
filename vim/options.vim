@@ -46,8 +46,8 @@ set incsearch
 source $VIMRUNTIME/macros/matchit.vim " not on by default for some reason
 set clipboard+=unnamed                " use osx clipboard
 
-if $COLORTERM == "truecolor"
-  set termguicolors
-else
+" if $COLORTERM == "truecolor"
+"   set termguicolors
+" else
   set t_Co=256
-endif
+" endif

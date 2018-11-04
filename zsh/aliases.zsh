@@ -25,6 +25,7 @@ alias kc=kubectl
 alias kt=kubectx
 alias kn=kubens
 alias kk="kubectl config get-contexts | awk '/\*/ { print \$2 \"/\" \$5 }'"
+alias hf=helmfile
 
 alias urldecode="python -c \"import sys, urllib as ul; print ul.unquote(sys.stdin.read());\""
 
@@ -58,3 +59,5 @@ gl() {
   local target=${1:-./...}
   gometalinter --vendor --tests --fast --enable-gc -Dgotype --aggregate ${target}
 }
+
+alias pglog="tail -f \"$PGDATA/postgres.log\""
