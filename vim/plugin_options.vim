@@ -56,7 +56,6 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
-
 " let g:LanguageClient_serverCommands = {
 "     \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
 "     \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
