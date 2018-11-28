@@ -12,7 +12,7 @@ files=(
     irbrc
 )
 for fname in $files; do
-  ln -s $(pwd)/$fname $HOME/.$fname || true
+  ln -sh $(pwd)/$fname $HOME/.$fname || true
 done
 
-ln -s $(pwd)/alacritty $HOME/.config/alactritty
+ln -sh $(pwd)/alacritty $HOME/.config/alactritty
