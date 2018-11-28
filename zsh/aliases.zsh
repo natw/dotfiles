@@ -61,3 +61,7 @@ gl() {
 }
 
 alias pglog="tail -f \"$PGDATA/postgres.log\""
+
+perms() {
+  stat -f '%A %a %N' $1
+}
