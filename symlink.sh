@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -e
+set -euo pipefail
 
 files=(
     ackrc
@@ -11,7 +11,8 @@ files=(
     zshrc
     irbrc
 )
-curdir=`pwd`
 for fname in $files; do
-    ln -s $curdir/$fname $HOME/.$fname
+  ln -s $(pwd)/$fname $HOME/.$fname || true
 done
+
+ln -s $(pwd)/alacritty $HOME/.config/alactritty
