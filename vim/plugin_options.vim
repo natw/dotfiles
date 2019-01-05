@@ -12,7 +12,21 @@ set completeopt-=longest
 set completeopt+=menu
 set completeopt+=noinsert
 set completeopt+=noselect
-let g:deoplete#enable_at_startup = 0
+
+let g:deoplete#enable_at_startup = 1
+" let g:deoplete#disable_auto_complete = 1
+call deoplete#custom#option({
+\ 'auto_complete': v:true,
+\ 'smart_case': v:true,
+\ })
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+if !exists('g:deoplete#keyword_patterns')
+  let g:deoplete#keyword_patterns = {}
+endif
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:deoplete#sources#go#gocode_binary = $GOPATH."/bin/code"
 let g:deoplete#sources#go#pointer = 1
 
@@ -25,7 +39,6 @@ map <leader>t :call GitFZF()<cr>
 
 map <leader>gg :GitGutterToggle<cr>
 
-" TODO: make this actually work. SuperTab never gives me what I want
 let g:SuperTabDefaultCompletionType = '<c-n>'
 " let g:SuperTabClosePreviewOnPopupClose = 1
 

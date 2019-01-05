@@ -17,7 +17,7 @@ nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
 
 
 " open files with path relative to current buffer
-nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <cr>
 
 nmap <Leader>hi :echo syndebug#Names()<cr>
 

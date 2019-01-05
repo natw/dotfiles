@@ -10,6 +10,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+
 Plug 'natw/vim-railscasts'
 
 " filetypes
@@ -27,10 +28,11 @@ Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-" Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
-" Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+Plug 'clojure-vim/async-clj-omni'
 
 "Plug 'lambdatoast/elm.vim'
 " Plug 'ElmCast/elm-vim', { 'for': 'elm' }
