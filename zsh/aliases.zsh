@@ -25,7 +25,8 @@ alias kc=kubectl
 alias kt=kubectx
 alias kn=kubens
 alias kk="kubectl config get-contexts | awk '/\*/ { print \$2 \"/\" \$5 }'"
-alias hf=helmfile
+# alias hf=helmfile
+alias hf='helmfile -e $(kubectl config current-context)'
 
 alias urldecode="python -c \"import sys, urllib as ul; print ul.unquote(sys.stdin.read());\""
 
