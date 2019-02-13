@@ -13,9 +13,7 @@
     om = !git diff --name-only | uniq | xargs -o vim
     ff = merge --ff-only
     yesterday = log --graph --all --abbrev-commit --since=yesterday --before=0am
-
-    gh-url = !echo "https://github.com/$(git remote show -n origin | grep Fetch | cut -d ":" -f 3 | cut -d "." -f 1)"
-    gh = !open $(git gh-url)
+    pr = !open "https://github.com/$(git remote get-url origin | sed -n 's/^.*:\\(.*\\)\\.git$/\\1/p')/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"
 
 [format]
     pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
