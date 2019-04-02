@@ -10,3 +10,9 @@ nmap ,m :ElmMake<cr>
 let g:deoplete#enable_at_startup = 1
 
 nnoremap tt :ElmShowDocs<cr>
+
+function! FixExposing()
+  execute ":1s/exposing (.*/exposing (..)/|''"
+endfunction
+
+autocmd BufWritePre <buffer> call FixExposing()
