@@ -1,12 +1,11 @@
+" commenting
 map <leader>c gc
-
-" if executable('ag')
-"   let g:ackprg = 'ag --vimgrep --smart-case' " they say silver_searcher is faster
-" endif
 
 let g:rails_statusline = 1
 let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
+
+let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 
 set completeopt-=longest
 set completeopt+=menu

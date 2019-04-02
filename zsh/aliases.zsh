@@ -30,6 +30,8 @@ alias hf='helmfile -e $(kubectl config current-context)'
 
 alias urldecode="python -c \"import sys, urllib as ul; print ul.unquote(sys.stdin.read());\""
 
+alias vd="VAULT_ADDR=https://vault.dev.amount.com vault"
+
 gem_cache() {
   gem environment | grep "GEM PATHS" -A 1 | tail -n 1 | awk '{ print $2"/cache" }'
 }
