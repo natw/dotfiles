@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/bundle')
 
 Plug '~/projects/vim-syntax-debugging-tools'
+Plug 'natw/vim-railscasts'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -10,9 +11,6 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-
-Plug 'natw/vim-railscasts'
-
 " filetypes
 Plug 'othree/html5.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -20,29 +18,21 @@ Plug 'pangloss/vim-javascript'
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
 Plug 'tpope/vim-markdown'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'ngmy/vim-rubocop', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
-
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
-
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 Plug 'clojure-vim/async-clj-omni'
-
-"Plug 'lambdatoast/elm.vim'
-" Plug 'ElmCast/elm-vim', { 'for': 'elm' }
+Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 " Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
-
 Plug 'Shougo/neco-vim', { 'for': 'python' }
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' }
-
-" other langs
 Plug 'pearofducks/ansible-vim'
 " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
@@ -75,16 +65,9 @@ Plug 'tpope/vim-apathy'
 Plug 'junegunn/vim-easy-align'
 Plug 'chrisbra/Colorizer'
 
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-
-
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " Plug 'junegunn/vader.vim'
-
 
 Plug 'w0rp/ale'
 
