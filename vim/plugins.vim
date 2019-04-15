@@ -13,7 +13,7 @@ endif
 
 " filetypes
 Plug 'othree/html5.vim'
-Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
 Plug 'tpope/vim-markdown'

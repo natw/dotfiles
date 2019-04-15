@@ -54,6 +54,7 @@ let g:ale_linters = {
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': ['pylint'],
+\   'terraform': ['tflint'],
 \   'sh': ['shellcheck'],
 \}
 " let g:ale_go_gometalinter_options = "--fast"
@@ -63,7 +64,10 @@ let g:ale_fixers = {
 \   'python': ['black'],
 \   'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
+\   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
 \   'sh': ['shfmt'],
+\   'terraform': ['terraform'],
 \   'json': ['fixjson'],
 \}
 let g:ale_fix_on_save = 1
@@ -87,7 +91,7 @@ let g:ale_fix_on_save = 1
 map <leader>ar :ALEResetBuffer<cr>
 map ,n :ALENext<cr>
 
-let g:terraform_fmt_on_save = 1
+let g:terraform_fmt_on_save = 0
 
 let g:vim_json_syntax_conceal = 0
 
