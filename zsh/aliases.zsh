@@ -12,6 +12,7 @@ alias pgrep='pgrep -fil'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 alias vimrc='vim -c ":e \$MYVIMRC"'
 alias tf='terraform'
+alias ao='aws-okta'
 
 # ruby stuff
 alias rc="bundle exec rails console"
