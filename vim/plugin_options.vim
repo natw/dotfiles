@@ -62,7 +62,7 @@ let g:ale_cpp_clangtidy_checks = []
 
 let g:ale_fixers = {
 \   'python': ['black'],
-\   'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
 \   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
@@ -107,11 +107,10 @@ let g:neoterm_autoinsert = 1
 let g:neoterm_default_mod = ":vert"
 vmap <c-\><c-e> :TREPLSend<cr>
 
-" let g:go_fmt_command = "goimports"
-" let g:go_fmt_experimental = 1
-" let g:go_fmt_fail_silently = 1
-" use ALE for fixing
-let g:go_fmt_autosave = 0
+let g:go_fmt_command = "goimports"
+let g:go_fmt_experimental = 1
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_autosave = 1
 
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_enabled = []
