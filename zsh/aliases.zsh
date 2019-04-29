@@ -8,11 +8,14 @@ case $OSTYPE in
     ;;
 esac
 
+alias w="cd ~/work"
+
 alias pgrep='pgrep -fil'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 alias vimrc='vim -c ":e \$MYVIMRC"'
 alias tf='terraform'
 alias ao='aws-okta'
+alias aop='ap ~/bin/aws_set_credentials.sh'
 
 # ruby stuff
 alias rc="bundle exec rails console"

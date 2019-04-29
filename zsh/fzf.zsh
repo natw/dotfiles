@@ -13,7 +13,7 @@ cmd-aware-fzf-file-widget() {
       ;;
   esac
 
-  local dir="$(eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS" $(__fzfcmd) +m)"
+  local dir="$(eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS" $(__fzfcmd_complete) +m)"
 
   if [[ -z "$dir" ]]; then
     zle redisplay
