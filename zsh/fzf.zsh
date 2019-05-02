@@ -4,9 +4,16 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 cmd-aware-fzf-file-widget() {
   local cmd
+  local root
   case "$LBUFFER" in
     "cd ")
-      cmd="${FZF_ALT_C_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune -o -type d -print 2> /dev/null | cut -b3-"}"
+      project_root=$(git rev-parse --show-toplevel 2> /dev/null)
+      cmd="${FZF_ALT_C_COMMAND:-"command find -L '${project_root:-.}' -mindepth 1 \
+        \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) \
+        -prune -o -type d -print \
+        2> /dev/null |
+        cut -b1- |
+        perl -MFile::Spec -ne 'print File::Spec->abs2rel(\$_)'"}"
       ;;
     *)
       cmd="${FZF_DEFAULT_COMMAND}"
