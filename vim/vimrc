@@ -10,3 +10,8 @@ colorscheme railscasts
 runtime options.vim
 runtime mappings.vim
 runtime plugin_options.vim
+
+
+map <leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

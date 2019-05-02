@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/bundle')
 
-Plug '~/projects/vim-syntax-debugging-tools'
 Plug 'natw/vim-railscasts'
 
 if has('nvim')
