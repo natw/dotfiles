@@ -22,12 +22,14 @@ call deoplete#custom#option({
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
+
 if !exists('g:deoplete#keyword_patterns')
   let g:deoplete#keyword_patterns = {}
 endif
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:deoplete#sources#go#gocode_binary = $GOPATH."/bin/code"
 let g:deoplete#sources#go#pointer = 1
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 function! GitFZF()
   let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
@@ -47,18 +49,19 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 
 let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 
-   " 'go': ['gofmt', 'golint', 'gosimple', 'go vet', 'staticcheck',
 let g:ale_linters = {
 \   'javascript': ['standard'],
-\   'go': ['gotype', 'govet'],
+\   'go': ['golangci-lint'],
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': ['pylint'],
 \   'terraform': ['tflint'],
 \   'sh': ['shellcheck'],
 \}
-" let g:ale_go_gometalinter_options = "--fast"
 let g:ale_cpp_clangtidy_checks = []
+
+let g:ale_go_golangci_lint_options = "--fast --exclude-use-default"
+let g:ale_go_golangci_lint_package = 1
 
 let g:ale_fixers = {
 \   'python': ['black'],
@@ -71,22 +74,8 @@ let g:ale_fixers = {
 \   'json': ['fixjson'],
 \}
 let g:ale_fix_on_save = 1
-
-" let g:LanguageClient_serverCommands = {
-"     \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
-"     \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
-"     \ }
-
-" let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-" let g:LanguageClient_settingsPath = expand('~') . "/.config/nvim/language_client_settings.json"
-
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-
-" let g:LanguageClient_windowLogMessageLevel = "Log"
-" let g:LanguageClient_loggingFile = "/tmp/lc.log"
-" let g:LanguageClient_loggingLevel = "DEBUG"
-
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
 map <leader>ar :ALEResetBuffer<cr>
 map ,n :ALENext<cr>
@@ -95,7 +84,6 @@ let g:terraform_fmt_on_save = 0
 
 let g:vim_json_syntax_conceal = 0
 
-" only check on save
 let g:ale_lint_on_text_changed = 'always'
 
 let g:airline#extensions#hunks#enabled = 0
@@ -111,10 +99,11 @@ let g:go_fmt_command = "goimports"
 let g:go_fmt_experimental = 1
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_autosave = 1
+let g:go_fmt_options = {
+  \ 'goimports': '-local github.com/avantcredit,github.com/amount',
+  \ }
 
-let g:go_metalinter_command='golangci-lint'
 let g:go_metalinter_autosave = 0
-" let g:go_metalinter_enabled = []
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -125,8 +114,11 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 0
+let g:go_highlight_variable_assignments = 0
 
-" let g:go_def_mode = 'godef'
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_auto_sameids = 0
