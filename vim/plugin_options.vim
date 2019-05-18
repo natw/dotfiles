@@ -1,6 +1,10 @@
 " commenting
 map <leader>c gc
 
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 let g:rails_statusline = 1
 let g:rails_modelines = 1
 let g:rails_no_abbreviations = 1
@@ -50,6 +54,7 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 
 let g:ale_linters = {
+\   'ruby': ['ruby', 'rubocop'],
 \   'javascript': ['standard'],
 \   'go': ['golangci-lint'],
 \   'eruby': [],
@@ -65,6 +70,7 @@ let g:ale_go_golangci_lint_package = 1
 
 let g:ale_fixers = {
 \   'python': ['black'],
+\   'clojure': ['remove_trailing_lines', 'trim_whitespace'],
 \   'go': ['remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
@@ -74,8 +80,8 @@ let g:ale_fixers = {
 \   'json': ['fixjson'],
 \}
 let g:ale_fix_on_save = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix = 1
 
 map <leader>ar :ALEResetBuffer<cr>
 map ,n :ALENext<cr>

@@ -25,7 +25,7 @@ set wildignore+=*.pyc                 " don't need dem pyc files
 " set foldlevelstart=99                 " forces folds open by default
 set foldenable                        " enable fold
 set nojoinspaces                      " don't use two spaces after a . when joining lines
-set grepprg=ack                       " better than grep
+set grepprg=ag                        " better than grep
 set showcmd                           " show the cmdline. Mostly just useful for showing number of lines in visual mode
 set background=dark                   " dark terminals 4 lyfe
 set lazyredraw                        " don't redraw while executing macros or that sort of thing

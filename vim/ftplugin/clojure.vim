@@ -10,3 +10,5 @@ let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+
+:call fireplace#register_port_file(expand('~/.lein/repl-port'), '/')
