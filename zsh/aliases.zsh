@@ -18,6 +18,11 @@ alias gs='cd $GOPATH/src/github.com'
 
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
+alias ack=ag  # ag is faster, but I have so much muscle memory around ack
+
+[ -x '/usr/local/opt/openssl/bin/openssl' ] && alias openssl=/usr/local/opt/openssl/bin/openssl
+[ -x '/usr/local/opt/curl/bin/curl' ] && alias curl=/usr/local/opt/curl/bin/curl
+
 # ruby stuff
 alias rc="bundle exec rails console"
 alias rs="bundle exec rails server"
