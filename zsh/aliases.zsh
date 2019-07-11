@@ -38,7 +38,7 @@ alias kk="kubectl config get-contexts | awk '/\*/ { print \$2 \"/\" \$5 }'"
 # alias hf=helmfile
 alias hf='helmfile -e $(kubectl config current-context)'
 
-alias urldecode="python -c \"import sys, urllib as ul; print ul.unquote(sys.stdin.read());\""
+alias urldecode="python -c \"import sys, urllib as ul; print ul.unquote_plus(sys.stdin.read());\""
 
 alias vd="VAULT_ADDR=https://vault.dev.amount.com vault"
 
@@ -59,7 +59,7 @@ alias be='bundle exec'
 # cd to the current git or hg repo root
 rr() {
     local dir="."
-    until ( [[ -a "$dir/.git" ]] || [[ -a "$dir/.hg" ]] ); do
+    until ( [[ -d "$dir/.git" ]] || [[ -d "$dir/.hg" ]] ); do
         dir="../$dir"
         if [[ $dir -ef / ]]; then
             return 1

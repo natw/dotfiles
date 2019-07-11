@@ -29,7 +29,6 @@ window:
     y: 2
 
   decorations: full
-  start_maximized: false
 
 scrolling:
   history: 10000
@@ -85,7 +84,8 @@ font:
   use_thin_strokes: true
 
 # Should display the render timer
-render_timer: false
+debug:
+  render_timer: false
 
 
 # XTerm's default colors

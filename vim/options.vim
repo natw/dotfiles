@@ -45,6 +45,8 @@ set hlsearch
 set incsearch
 source $VIMRUNTIME/macros/matchit.vim " not on by default for some reason
 set clipboard+=unnamed                " use osx clipboard
+set undodir=/tmp
+set undofile
 
 " if $COLORTERM == "truecolor"
 "   set termguicolors
