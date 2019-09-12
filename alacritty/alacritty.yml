@@ -24,11 +24,14 @@ window:
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
-  padding:
-    x: 2
-    y: 2
+  dynamic_padding: true
+  # padding:
+  #   x: 2
+  #   y: 2
 
   decorations: full
+
+  startup_mode: Maximized
 
 scrolling:
   history: 10000
@@ -39,8 +42,6 @@ scrolling:
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
 
-# When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 font:
@@ -82,6 +83,9 @@ font:
   # for retina displays, but for non-retina you probably want this set to
   # false.
   use_thin_strokes: true
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: true
 
 # Should display the render timer
 debug:
@@ -242,7 +246,7 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 dynamic_title: true
 
