@@ -16,7 +16,7 @@ augroup filetypedetect
   au BufNewFile,BufRead *.go                        setlocal filetype=go
   au BufNewFile,BufRead *.nim                       setlocal filetype=nim
   au BufNewFile,BufRead *.pp                        setlocal filetype=puppet
-  au BufNewFile,BufRead *.ino                       setlocal filetype=c
+  " au BufNewFile,BufRead *.ino                       setlocal filetype=c
   au BufNewFile,BufRead *.d                         setlocal filetype=sh
   au BufNewFile,BufRead *.coffee.erb                setlocal filetype=coffee
   au BufNewFile,BufRead *.scala.html                setlocal filetype=scala

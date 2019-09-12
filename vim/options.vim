@@ -39,7 +39,7 @@ set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead o
 set directory=/tmp,/var/tmp,~/tmp     " directory to keep swap files in
 set number                            " show line numbers
 set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
-set omnifunc=syntaxcomplete#Complete  " use omni completion
+" set omnifunc=syntaxcomplete#Complete  " use omni completion
 set formatoptions=croqlj              " see :h fo-table
 set hlsearch
 set incsearch
@@ -47,6 +47,7 @@ source $VIMRUNTIME/macros/matchit.vim " not on by default for some reason
 set clipboard+=unnamed                " use osx clipboard
 set undodir=/tmp
 set undofile
+set shortmess+=c
 
 " if $COLORTERM == "truecolor"
 "   set termguicolors

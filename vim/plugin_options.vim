@@ -17,23 +17,25 @@ set completeopt+=noinsert
 set completeopt+=noselect
 
 let g:deoplete#enable_at_startup = 1
-" let g:deoplete#disable_auto_complete = 1
+
+" setting refresh_always to false eliminates cursor flicker with menu open
 call deoplete#custom#option({
-\ 'auto_complete': v:true,
-\ 'smart_case': v:true,
-\ })
+      \ 'auto_complete': v:true,
+      \ 'smart_case': v:true,
+      \ 'omni_patterns': { 'go': '[^. *\t]\.\w*' },
+      \ 'refresh_always': v:false,
+      \ })
 
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-
-if !exists('g:deoplete#keyword_patterns')
-  let g:deoplete#keyword_patterns = {}
-endif
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-let g:deoplete#sources#go#gocode_binary = $GOPATH."/bin/code"
 let g:deoplete#sources#go#pointer = 1
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
+" remaps some keys in the case that the completion menu is visible
+" tab and ctrl-j should cycle through the completions
+" ctrl-k should cycle backwards
+" and enter should confirm the selected completion without inserting a newline
+inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr> <cr>  pumvisible() ? "\<C-y>" : "\<cr>"
+inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
+inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
 
 function! GitFZF()
   let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
@@ -44,8 +46,6 @@ map <leader>t :call GitFZF()<cr>
 
 map <leader>gg :GitGutterToggle<cr>
 
-let g:SuperTabDefaultCompletionType = '<c-n>'
-" let g:SuperTabClosePreviewOnPopupClose = 1
 
 let g:sql_type_default = 'pgsql'
 
@@ -78,10 +78,9 @@ let g:ale_fixers = {
 \   'sh': ['shfmt'],
 \   'terraform': ['terraform'],
 \   'json': ['fixjson'],
+\   'vim': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 let g:ale_fix_on_save = 1
-" let g:ale_set_loclist = 0
-" let g:ale_set_quickfix = 1
 
 map <leader>ar :ALEResetBuffer<cr>
 map ,n :ALENext<cr>
@@ -106,7 +105,7 @@ let g:go_fmt_experimental = 1
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_autosave = 1
 let g:go_fmt_options = {
-  \ 'goimports': '-local github.com/avantcredit,github.com/amount',
+  \ 'goimports': '-local github.com/amount',
   \ }
 
 let g:go_metalinter_autosave = 0
@@ -128,3 +127,5 @@ let g:go_highlight_variable_assignments = 0
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_auto_sameids = 0
+let g:go_echo_go_info = 0
+let g:go_echo_command_info = 0
