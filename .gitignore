@@ -1,10 +1,8 @@
-vim/.netrwhist
 *.pyc
+
+plug.vim.old
+vim/.netrwhist
 vim/spell
 vim/view
 vim/bundle
-
-nvim/.netrwhist
-nvim/spell
-nvim/bundle
-plug.vim.old
+vim/bundle-nvim

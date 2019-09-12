@@ -9,7 +9,7 @@ case $OSTYPE in
 esac
 
 alias w="cd ~/work"
-
+alias ex=exercism
 alias pgrep='pgrep -fil'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 alias vimrc='vim -c ":e \$MYVIMRC"'
@@ -73,8 +73,18 @@ gl() {
   gometalinter --vendor --tests --fast --enable-gc -Dgotype --aggregate ${target}
 }
 
+alias gt='go test -v ./... | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'''
+
+
 alias pglog="tail -f \"$PGDATA/postgres.log\""
 
 perms() {
   stat -f '%A %a %N' $1
+}
+
+test_cf_sni() {
+  domain=$1
+  cmd="curl --resolve ${domain}:443:\$(dig +short ${domain}.cdn.cloudflare.net | head -1) https://${domain}/ -I"
+  echo ${cmd}
+  eval ${cmd}
 }
