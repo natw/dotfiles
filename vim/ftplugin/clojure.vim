@@ -11,4 +11,4 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 
-:call fireplace#register_port_file(expand('~/.lein/repl-port'), '/')
+" :call fireplace#register_port_file(expand('~/.lein/repl-port'), '/')

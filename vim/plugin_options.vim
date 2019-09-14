@@ -26,6 +26,10 @@ call deoplete#custom#option({
       \ 'refresh_always': v:false,
       \ })
 
+if !exists('g:deoplete#keyword_patterns')
+  let g:deoplete#keyword_patterns = {}
+endif
+
 let g:deoplete#sources#go#pointer = 1
 
 " remaps some keys in the case that the completion menu is visible
@@ -33,7 +37,6 @@ let g:deoplete#sources#go#pointer = 1
 " ctrl-k should cycle backwards
 " and enter should confirm the selected completion without inserting a newline
 inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <cr>  pumvisible() ? "\<C-y>" : "\<cr>"
 inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
 inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
 

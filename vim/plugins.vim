@@ -30,7 +30,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'scheme'] }
-Plug 'clojure-vim/async-clj-omni'
+" Plug 'clojure-vim/async-clj-omni'
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 " Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
 Plug 'Shougo/neco-vim', { 'for': 'python' }
