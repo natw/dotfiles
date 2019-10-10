@@ -11,7 +11,7 @@ precmd() {
 ### Version Control Info (rprompt)
 
 
-zstyle ':vcs_info:*' enable svn hg git bzr cvs darcs
+zstyle ':vcs_info:*' enable svn hg git
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' get-unapplied true
 zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
@@ -23,15 +23,15 @@ zstyle ':vcs_info:*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b %i%
 zstyle ':vcs_info:*' branchformat "%b" # don't show rev in branchformat, use %i for that to pick up head marker
 
 # mercurial-specific stuff
-zstyle ':vcs_info:hg*:*' get-mq true
-zstyle ':vcs_info:hg*:*' get-unapplied true
-zstyle ':vcs_info:hg*:*' get-bookmarks true
-zstyle ':vcs_info:hg*:*' unstagedstr "+" # uncommitted changes
-zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local revision
-zstyle ':vcs_info:hg*:*' patch-format " $FG[103]%n$FX[reset]/$FG[103]%c %p$FX[reset]" # this should show when patches are applied, but it doesn't
-zstyle ':vcs_info:hg*:*' nopatch-format " $FG[103]Q$FX[reset]" # mq present, but no applied patches
-zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
-zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
+# zstyle ':vcs_info:hg*:*' get-mq true
+# zstyle ':vcs_info:hg*:*' get-unapplied true
+# zstyle ':vcs_info:hg*:*' get-bookmarks true
+# zstyle ':vcs_info:hg*:*' unstagedstr "+" # uncommitted changes
+# zstyle ':vcs_info:hg*:*' hgrevformat "%r" # only show local revision
+# zstyle ':vcs_info:hg*:*' patch-format " $FG[103]%n$FX[reset]/$FG[103]%c %p$FX[reset]" # this should show when patches are applied, but it doesn't
+# zstyle ':vcs_info:hg*:*' nopatch-format " $FG[103]Q$FX[reset]" # mq present, but no applied patches
+# zstyle ':vcs_info:hg*+set-hgrev-format:*' hooks hg-storerev hg-hashfallback
+# zstyle ':vcs_info:hg*+set-message:*' hooks mq-vcs hg-branchhead
 
 # git stuff
 zstyle ':vcs_info:git*' unstagedstr "+"
@@ -41,4 +41,3 @@ zstyle ':vcs_info:git*' actionformats "$FG[015]($FG[107]%s$FG[015])-[$FG[221]%b 
 
 
 export RPROMPT='${vcs_info_msg_0_}'
-
