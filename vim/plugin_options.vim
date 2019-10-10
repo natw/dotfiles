@@ -24,14 +24,16 @@ call deoplete#custom#option({
       \ 'smart_case': v:true,
       \ 'omni_patterns': { 'go': '[^. *\t]\.\w*' },
       \ 'refresh_always': v:false,
+      \ 'sources': { 'elm': ['LanguageClient'] },
       \ })
+
+let deoplete#tag#cache_limit_size = 5000000
 
 if !exists('g:deoplete#keyword_patterns')
   let g:deoplete#keyword_patterns = {}
 endif
 
 let g:deoplete#sources#go#pointer = 1
-
 " remaps some keys in the case that the completion menu is visible
 " tab and ctrl-j should cycle through the completions
 " ctrl-k should cycle backwards
@@ -63,17 +65,20 @@ let g:ale_linters = {
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': ['pylint'],
-\   'terraform': ['tflint'],
+\   'terraform': [],
+\   'elm': [],
 \   'sh': ['shellcheck'],
 \}
+
 let g:ale_cpp_clangtidy_checks = []
 
-let g:ale_go_golangci_lint_options = "--fast --exclude-use-default"
+let g:ale_go_golangci_lint_options = "--exclude-use-default"
 let g:ale_go_golangci_lint_package = 1
 
 let g:ale_fixers = {
 \   'python': ['black'],
 \   'clojure': ['remove_trailing_lines', 'trim_whitespace'],
+\   'elm': ['elm-format'],
 \   'go': ['remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
@@ -83,6 +88,7 @@ let g:ale_fixers = {
 \   'json': ['fixjson'],
 \   'vim': ['remove_trailing_lines', 'trim_whitespace'],
 \}
+
 let g:ale_fix_on_save = 1
 
 map <leader>ar :ALEResetBuffer<cr>
@@ -132,3 +138,21 @@ let g:go_info_mode='gopls'
 let g:go_auto_sameids = 0
 let g:go_echo_go_info = 0
 let g:go_echo_command_info = 0
+
+" let g:go_debug = ['lsp']
+
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'help'
+      \]
+
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_diagnosticsList = "Quickfix"
+let g:LanguageClient_rootMarkers = {
+      \ 'elm': ['elm.json'],
+      \ }
+
+let g:LanguageClient_serverCommands = {
+      \ 'vim': ['vim-language-server', '--stdio'],
+      \ 'elm': ['elm-language-server', '--stdio'],
+      \ }

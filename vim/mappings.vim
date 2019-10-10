@@ -38,6 +38,8 @@ nmap <Leader><Leader> <C-^>
 
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
+nmap ,f :cfirst<cr>
+nmap ,c :cc<cr>
 nmap <c-n> :cn<cr>
 
 nmap ,t :tabnew<cr>
