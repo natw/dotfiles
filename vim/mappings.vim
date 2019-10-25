@@ -17,7 +17,9 @@ nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
 
 
 " open files with path relative to current buffer
-nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <cr>
+" nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <cr>
+:command! -nargs=1 -complete=file EditOrMkFileWithDir :call EditOrMkFileWithDir(<q-args>)
+nmap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:p:h") . "/" <cr>
 
 nmap <Leader>hi :echo syndebug#Names()<cr>
 
@@ -64,3 +66,7 @@ map ,m :make<cr>
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+map <leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

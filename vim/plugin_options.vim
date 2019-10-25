@@ -42,10 +42,6 @@ inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
 inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
 
-function! GitFZF()
-  let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
-  call fzf#vim#files(substitute(l:git_root, "\n$", '' ,''))
-endfunction
 map <leader>t :call GitFZF()<cr>
 " let g:fzf_buffers_jump = 1
 
