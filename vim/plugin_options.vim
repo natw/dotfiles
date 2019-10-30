@@ -57,7 +57,7 @@ let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 let g:ale_linters = {
 \   'ruby': ['ruby', 'rubocop'],
 \   'javascript': ['standard'],
-\   'go': ['golangci-lint'],
+\   'go': ['golangci-lint', 'gopls'],
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': ['pylint'],

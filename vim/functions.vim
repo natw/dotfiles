@@ -4,7 +4,6 @@ function! GitFZF()
 endfunction
 
 function! EditOrMkFileWithDir(path) abort
-  :echo a:path
   if !filereadable(a:path)
     let l:basename = fnamemodify(a:path, ":p:h")
     call mkdir(l:basename, "p")

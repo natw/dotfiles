@@ -11,6 +11,7 @@ nmap <C-l> gt
 :command! Wq wq
 :command! Q q
 :command! Vsp vsp
+:command! Wa wa
 
 " display the number of occurences of the word under the cursor
 nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
