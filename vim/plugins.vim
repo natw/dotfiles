@@ -48,6 +48,7 @@ Plug 'pearofducks/ansible-vim'
 " Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 " Plug 'reasonml-editor/vim-reason-plus'
+Plug 'sudar/vim-arduino-syntax'
 
 
 " everything else

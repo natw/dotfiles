@@ -72,17 +72,18 @@ let g:ale_go_golangci_lint_options = "--exclude-use-default"
 let g:ale_go_golangci_lint_package = 1
 
 let g:ale_fixers = {
-\   'python': ['black'],
+\   'arduino': ['remove_trailing_lines', 'trim_whitespace'],
 \   'clojure': ['remove_trailing_lines', 'trim_whitespace'],
+\   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'elm': ['elm-format'],
 \   'go': ['remove_trailing_lines', 'trim_whitespace'],
-\   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
-\   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
-\   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
+\   'json': ['fixjson'],
+\   'python': ['black'],
 \   'sh': ['shfmt'],
 \   'terraform': ['terraform'],
-\   'json': ['fixjson'],
 \   'vim': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
 let g:ale_fix_on_save = 1
