@@ -11,7 +11,7 @@ precmd() {
 ### Version Control Info (rprompt)
 
 
-zstyle ':vcs_info:*' enable svn hg git
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' get-unapplied true
 zstyle ':vcs_info:(hg*|git*):*' check-for-changes true
