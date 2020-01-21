@@ -1,5 +1,9 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_COMPLETION_TRIGGER=',,'
+
+
+
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 cmd-aware-fzf-file-widget() {
@@ -44,3 +48,21 @@ cmd-aware-fzf-file-widget() {
 }
 zle -N cmd-aware-fzf-file-widget
 bindkey '^T' cmd-aware-fzf-file-widget
+
+_fzf_complete_git() {
+    ARGS="$@"
+    local branches
+    branches=$(git branch -vv --all)
+    if [[ $ARGS == 'git co'* ]]; then
+        _fzf_complete "--reverse --multi" "$@" < <(
+            echo $branches
+        )
+    else
+        eval "zle ${fzf_default_completion:-expand-or-complete}"
+    fi
+}
+
+_fzf_complete_git_post() {
+    awk '{print $1}'
+}
+

@@ -72,7 +72,7 @@ let g:ale_go_golangci_lint_options = "--exclude-use-default"
 let g:ale_go_golangci_lint_package = 1
 
 let g:ale_fixers = {
-\   'arduino': ['remove_trailing_lines', 'trim_whitespace'],
+\   'arduino': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'clojure': ['remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'elm': ['elm-format'],

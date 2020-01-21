@@ -32,3 +32,9 @@ eval "$(fnm env --multi)"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # zprof
+# The following lines were added by compinstall
+# zstyle :compinstall filename '/Users/natwilliams/.zshrc'
+
+# autoload -Uz compinit
+# compinit
+# End of lines added by compinstall
