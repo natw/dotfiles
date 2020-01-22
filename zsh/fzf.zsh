@@ -2,9 +2,8 @@
 
 export FZF_COMPLETION_TRIGGER=',,'
 
-
-
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
 
 cmd-aware-fzf-file-widget() {
   local cmd
