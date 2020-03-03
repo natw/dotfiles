@@ -9,9 +9,9 @@ Plug 'natw/vim-railscasts'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  " Plug 'Shougo/deoplete.nvim'
+  " Plug 'roxma/nvim-yarp'
+  " Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 " filetypes
@@ -80,5 +80,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 
 Plug '~/src/vim-fuzzy-emoji'
+
+Plug 'aklt/plantuml-syntax'
 
 call plug#end()

@@ -19,13 +19,15 @@ set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
 
 " setting refresh_always to false eliminates cursor flicker with menu open
-call deoplete#custom#option({
-      \ 'auto_complete': v:true,
-      \ 'smart_case': v:true,
-      \ 'omni_patterns': { 'go': '[^. *\t]\.\w*' },
-      \ 'refresh_always': v:false,
-      \ 'sources': { 'elm': ['LanguageClient'] },
-      \ })
+if exists("*deoplete#custom#option")
+  call deoplete#custom#option({
+        \ 'auto_complete': v:true,
+        \ 'smart_case': v:true,
+        \ 'omni_patterns': { 'go': '[^. *\t]\.\w*' },
+        \ 'refresh_always': v:false,
+        \ 'sources': { 'elm': ['LanguageClient'] },
+        \ })
+endif
 
 let deoplete#tag#cache_limit_size = 5000000
 
