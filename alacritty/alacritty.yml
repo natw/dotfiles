@@ -14,6 +14,12 @@ env:
   TERM: xterm-256color
   COLORTERM: truecolor
 
+# debug:
+#   persistent_logging: true
+#   log_level: Info
+#   print_events: true
+#   ref_test: true
+
 window:
   # Window dimensions in character columns and lines
   # (changes require restart)
@@ -85,10 +91,6 @@ font:
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
-
-# Should display the render timer
-debug:
-  render_timer: false
 
 
 # XTerm's default colors
