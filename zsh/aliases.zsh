@@ -14,6 +14,7 @@ alias pgrep='pgrep -fil'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
 alias vimrc='vim -c ":e \$MYVIMRC"'
 alias tf='terraform'
+alias tiu='terraform init -upgrade'
 alias gs='cd $GOPATH/src/github.com'
 
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
@@ -22,6 +23,13 @@ alias ack=ag  # ag is faster, but I have so much muscle memory around ack
 
 [ -x '/usr/local/opt/openssl/bin/openssl' ] && alias openssl=/usr/local/opt/openssl/bin/openssl
 [ -x '/usr/local/opt/curl/bin/curl' ] && alias curl=/usr/local/opt/curl/bin/curl
+
+fix() {
+  for file in "$@"; do
+    [ -n "$(tail -c1 ${file})" ] && echo >> ${file}   # add trailing newline to last line if missing
+    sed -i 's/\r$//' $file                            # convert dos line endings to unix
+  done
+}
 
 # ruby stuff
 alias rc="bundle exec rails console"
