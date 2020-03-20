@@ -96,3 +96,5 @@ test_cf_sni() {
   echo ${cmd}
   eval ${cmd}
 }
+
+function t() { echo | openssl s_client -connect $1:443 -servername ${2:-$1} | openssl x509 -noout -dates }
