@@ -1,8 +1,6 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 export FZF_DEFAULT_COMMAND='ag -g ""'
-
 
 # I don't care for the default fzf style of completion, with a trigger sequence + <tab>
 # I'd rather just use an explicit ^T
@@ -47,6 +45,18 @@ _fzf_complete_git() {
         _fzf_complete "--reverse --multi" "$@" < <(
             echo $branches
         )
+    elif [[ $ARGS == 'git add '* ]]; then
+      _fzf_complete "--reverse" "$@" < <(
+        git status --porcelain=1 |
+          grep -v "^A  " |
+          grep -v "^R  " |
+          awk '{print $NF}'
+        # project_root=$(git rev-parse --show-toplevel 2> /dev/null);
+        # command find -L "${project_root:-.}" -mindepth 1 \
+        #   \( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \) \
+        #   -prune -o -print |
+        #   perl -MFile::Spec -ne 'print File::Spec->abs2rel($_)'
+      )
     else
         eval "zle ${fzf_default_completion:-expand-or-complete}"
     fi
