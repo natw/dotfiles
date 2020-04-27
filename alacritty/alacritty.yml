@@ -42,11 +42,6 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-  auto_scroll: false
-
-# Display tabs using this many cells (changes require restart)
-tabspaces: 8
-
 
 # Font configuration (changes require restart)
 font:
