@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 set regexpengine=2                    " use new regex engine.  maybe slower sometimes?
-set conceallevel=0
+set conceallevel=0                    " show text normally
 set smartindent                       " still smart
 set shiftwidth=2                      " width of line-initial tab, maybe some other stuff
 set shiftround
@@ -17,19 +17,17 @@ set smartcase                         " case-insensitive searching
 set winwidth=50                       " dumb setting
 set winminwidth=50                    " minimum window width.  makes ^W| useful
 set winheight=16                      " also dumb
-" set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildmode=longest,list             " show menu for tab-completion
-set completeopt=menuone                  " and just the menu
+set completeopt=menuone               " and just the menu
 set wildignore+=*.pyc                 " don't need dem pyc files
 " set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
 " set foldlevelstart=99                 " forces folds open by default
 set foldenable                        " enable fold
 set nojoinspaces                      " don't use two spaces after a . when joining lines
 set grepprg=ag                        " better than grep
-set showcmd                           " show the cmdline. Mostly just useful for showing number of lines in visual mode
 set background=dark                   " dark terminals 4 lyfe
 set lazyredraw                        " don't redraw while executing macros or that sort of thing
-set ruler                             " use the ruler.
+" set ruler                             " use the ruler.
 set title                             " set window title
 set noerrorbells                      " DESTROY ALL BELLS
 set visualbell t_vb=                  " HATE BELLS
@@ -39,7 +37,6 @@ set backupdir=/tmp,/var/tmp,~/tmp     " keep backup files in one place instead o
 set directory=/tmp,/var/tmp,~/tmp     " directory to keep swap files in
 set number                            " show line numbers
 set listchars=tab:»·,trail:·          " when 'list' option set, show hard tabs and trailing spaces
-" set omnifunc=syntaxcomplete#Complete  " use omni completion
 set formatoptions=croqlj              " see :h fo-table
 set hlsearch
 set incsearch
@@ -47,10 +44,4 @@ source $VIMRUNTIME/macros/matchit.vim " not on by default for some reason
 set clipboard+=unnamed                " use osx clipboard
 set undodir=/tmp
 set undofile
-set shortmess+=c
-
-" if $COLORTERM == "truecolor"
-"   set termguicolors
-" else
-  set t_Co=256
-" endif
+set t_Co=256
