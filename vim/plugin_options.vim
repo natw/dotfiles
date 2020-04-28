@@ -22,6 +22,7 @@ let g:deoplete#enable_at_startup = 1
 if exists("*deoplete#custom#option")
   call deoplete#custom#option({
         \ 'auto_complete': v:true,
+        \ 'auto_complete_popup': 'manual',
         \ 'smart_case': v:true,
         \ 'omni_patterns': { 'go': '[^. *\t]\.\w*' },
         \ 'refresh_always': v:false,
