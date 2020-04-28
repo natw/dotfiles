@@ -31,9 +31,9 @@ endif
 
 let deoplete#tag#cache_limit_size = 5000000
 
-if !exists('g:deoplete#keyword_patterns')
-  let g:deoplete#keyword_patterns = {}
-endif
+" if !exists('g:deoplete#keyword_patterns')
+"   let g:deoplete#keyword_patterns = {}
+" endif
 
 let g:deoplete#sources#go#pointer = 1
 " remaps some keys in the case that the completion menu is visible
