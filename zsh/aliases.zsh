@@ -17,6 +17,10 @@ alias tf='terraform'
 alias tiu='terraform init -upgrade'
 alias gs='cd $GOPATH/src/github.com'
 
+alias tpo='terraform workspace select opslab && terraform plan -var-file=opslab.tfvars'
+alias tps='terraform workspace select stg && terraform plan -var-file=stg.tfvars'
+alias tpp='terraform workspace select prd && terraform plan -var-file=prd.tfvars'
+
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
 alias ack=ag  # ag is faster, but I have so much muscle memory around ack
@@ -24,10 +28,18 @@ alias ack=ag  # ag is faster, but I have so much muscle memory around ack
 [ -x '/usr/local/opt/openssl/bin/openssl' ] && alias openssl=/usr/local/opt/openssl/bin/openssl
 [ -x '/usr/local/opt/curl/bin/curl' ] && alias curl=/usr/local/opt/curl/bin/curl
 
+add_missing_newline() {
+  [ -n "$(tail -c1 $1)" ] && echo >> $1    # add trailing newline to last line if missing
+}
+
+dos2unix() {
+  gsed -i'' 's/\r$//' "$@"
+}
+
 fix() {
   for file in "$@"; do
-    [ -n "$(tail -c1 ${file})" ] && echo >> ${file}   # add trailing newline to last line if missing
-    sed -i 's/\r$//' $file                            # convert dos line endings to unix
+    [ -n "$(tail -c1 ${file})" ] && echo >> ${file}    # add trailing newline to last line if missing
+    # gsed -i'' 's/\r$//' $file                          # convert dos line endings to unix
   done
 }
 
@@ -62,7 +74,7 @@ alias sc="script/console"
 alias ss="script/server"
 alias be='bundle exec'
 
-(( $+commands[gsed] )) && alias sed=gsed # use gsed if it's available
+# (( $+commands[gsed] )) && alias sed=gsed # use gsed if it's available
 
 # cd to the current git or hg repo root
 rr() {

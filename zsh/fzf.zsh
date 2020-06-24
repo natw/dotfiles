@@ -19,9 +19,9 @@ _fzf_complete_cd() {
   _fzf_complete +m -- "$@" < <(
     project_root=$(git rev-parse --show-toplevel 2> /dev/null);
     command find -L "${project_root:-.}" -mindepth 1 \
-      \( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \) \
-      -prune -o -type d -print |
-      perl -MFile::Spec -ne 'print File::Spec->abs2rel($_)'
+      \( -name '.*' -o -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \) \
+      -prune -o -type d -print # |
+      # perl -MFile::Spec -ne 'print File::Spec->abs2rel($_)'
   )
 }
 
@@ -47,15 +47,12 @@ _fzf_complete_git() {
         )
     elif [[ $ARGS == 'git add '* ]]; then
       _fzf_complete "--reverse" "$@" < <(
+        project_root=$(git rev-parse --show-toplevel 2> /dev/null);
         git status --porcelain=1 |
           grep -v "^A  " |
           grep -v "^R  " |
-          awk '{print $NF}'
-        # project_root=$(git rev-parse --show-toplevel 2> /dev/null);
-        # command find -L "${project_root:-.}" -mindepth 1 \
-        #   \( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \) \
-        #   -prune -o -print |
-        #   perl -MFile::Spec -ne 'print File::Spec->abs2rel($_)'
+          awk -v root="$project_root" '{print root"/"$NF}' |
+          perl -MFile::Spec -ne 'print File::Spec->abs2rel($_)'
       )
     else
         eval "zle ${fzf_default_completion:-expand-or-complete}"
