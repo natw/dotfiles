@@ -1,3 +1,6 @@
+" my muscle memory for ctrl-c is strong, but I want the InsertLeave autocmd
+inoremap <c-c> <esc>
+
 " ^P toggles paste mode (from insert mode)
 nmap <C-p> :set paste!<CR>:set paste?<CR>
 
@@ -5,6 +8,8 @@ nmap <C-p> :set paste!<CR>:set paste?<CR>
 nmap <C-h> gT
 " ctrl-L for next tab
 nmap <C-l> gt
+
+nmap <leader>q 0f=lli"${<esc>$a}"<esc>
 
 " I hit these by mistake a lot
 :command! W w

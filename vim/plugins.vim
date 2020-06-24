@@ -18,6 +18,7 @@ endif
 Plug 'othree/html5.vim'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
+Plug 'ternjs/tern_for_vim'
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
 Plug 'tpope/vim-markdown'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
@@ -47,7 +48,7 @@ Plug 'pearofducks/ansible-vim'
 " Plug 'elixir-lang/vim-elixir'
 " Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
-" Plug 'reasonml-editor/vim-reason-plus'
+Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sudar/vim-arduino-syntax'
 
 

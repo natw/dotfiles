@@ -59,15 +59,18 @@ let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 
 let g:ale_linters = {
 \   'ruby': ['ruby', 'rubocop'],
-\   'javascript': ['standard'],
+\   'javascript': [],
 \   'go': ['golangci-lint', 'gopls'],
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': ['pylint'],
-\   'terraform': [],
+\   'terraform': ['terraform', 'tflint'],
 \   'elm': [],
+\   'reason': ['ols'],
 \   'sh': ['shellcheck'],
 \}
+
+let g:ale_use_global_executables = 1
 
 let g:ale_cpp_clangtidy_checks = []
 
@@ -83,8 +86,10 @@ let g:ale_fixers = {
 \   'json': ['fixjson'],
 \   'python': ['black'],
 \   'sh': ['shfmt'],
+\   'javascript': ['prettier-standard', 'remove_trailing_lines', 'trim_whitespace'],
 \   'terraform': ['terraform'],
 \   'vim': ['remove_trailing_lines', 'trim_whitespace'],
+\   'reason': ['refmt', 'remove_trailing_lines', 'trim_whitespace'],
 \   'yaml': ['remove_trailing_lines', 'trim_whitespace'],
 \   'yaml.ansible': ['remove_trailing_lines', 'trim_whitespace'],
 \}
@@ -92,8 +97,23 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 map <leader>ar :ALEResetBuffer<cr>
+
+function! s:IsQFOpen() abort
+  return !empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"'))
+endfunction
+
+function! NextThing()
+  if s:IsQFOpen()
+    :cn
+  else
+    :ALENextWrap
+  endif
+endfunction
+
+nmap <c-n> :call NextThing()<cr>
+
 " map ,n :ALENext<cr>
-nmap <c-n> <Plug>(ale_next_wrap)
+" nmap <c-n> <Plug>(ale_next_wrap)
 
 
 let g:terraform_fmt_on_save = 0
@@ -148,13 +168,30 @@ let g:markdown_fenced_languages = [
       \ 'help'
       \]
 
+function LC_maps()
+  if has_key(g:LanguageClient_serverCommands, &filetype)
+    nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  endif
+endfunction
+
+autocmd FileType * call LC_maps()
+
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_diagnosticsList = "Quickfix"
 let g:LanguageClient_rootMarkers = {
       \ 'elm': ['elm.json'],
+      \ 'javascript': ['.flowconfig', 'package.json', 'jsconfig.json'],
+      \ 'typescript': ['tsconfig.json']
       \ }
 
+      " \ 'javascript': ['flow', 'lsp'],
+      " \ 'javascript.jsx': ['flow', 'lsp'],
 let g:LanguageClient_serverCommands = {
       \ 'vim': ['vim-language-server', '--stdio'],
       \ 'elm': ['elm-language-server', '--stdio'],
+      \ 'reason': ['ocaml-language-server', '--stdio'],
+      \ 'typescript': ['javascript-typescript-stdio'],
       \ }
+
+let tern#is_show_argument_hints_enabled = 1
