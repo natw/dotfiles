@@ -155,8 +155,9 @@ let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 0
 let g:go_highlight_variable_assignments = 0
 
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
+let g:go_doc_popup_window = 0
+let g:go_def_mode=''
+let g:go_info_mode=''
 let g:go_auto_sameids = 0
 let g:go_echo_go_info = 0
 let g:go_echo_command_info = 0
@@ -165,33 +166,49 @@ let g:go_echo_command_info = 0
 
 let g:markdown_fenced_languages = [
       \ 'vim',
+      \ 'go',
       \ 'help'
       \]
 
 function LC_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
-    nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
+    nmap <buffer> <silent> K <Plug>(lcn-hover)
+    nmap <buffer> <silent> gd <Plug>(lcn-definition)
+
+    nmap <buffer> <silent> ,,h <Plug>(lcn-hover)
+    nmap <buffer> <silent> ,,d <Plug>(lcn-definition)
+    nmap <buffer> <silent> ,,r <Plug>(lcn-references)
+    nmap <buffer> <silent> ,,i <Plug>(lcn-implementation)
+    nmap <buffer> <silent> ,,t <Plug>(lcn-type-definition)
   endif
 endfunction
 
 autocmd FileType * call LC_maps()
 
+" let g:LanguageClient_loggingLevel = "DEBUG"
+" let g:LanguageClient_loggingFile = "/tmp/lsp.txt"
+
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_diagnosticsList = "Quickfix"
+let g:LanguageClient_completionPreferTextEdit = 1 " experimental
+let g:LanguageClient_preferredMarkupKind = ['markdown']
+let g:LanguageClient_hideVirtualTextsOnInsert = 1 " don't show errors while I'm still typing
 let g:LanguageClient_rootMarkers = {
       \ 'elm': ['elm.json'],
       \ 'javascript': ['.flowconfig', 'package.json', 'jsconfig.json'],
+      \ 'go': ['go.mod'],
       \ 'typescript': ['tsconfig.json']
       \ }
 
       " \ 'javascript': ['flow', 'lsp'],
       " \ 'javascript.jsx': ['flow', 'lsp'],
 let g:LanguageClient_serverCommands = {
-      \ 'vim': ['vim-language-server', '--stdio'],
       \ 'elm': ['elm-language-server', '--stdio'],
+      \ 'go': ['gopls'],
       \ 'reason': ['ocaml-language-server', '--stdio'],
+      \ 'terraform': ['terraform-lsp'],
       \ 'typescript': ['javascript-typescript-stdio'],
+      \ 'vim': ['vim-language-server', '--stdio'],
       \ }
 
 let tern#is_show_argument_hints_enabled = 1

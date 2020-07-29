@@ -45,3 +45,16 @@ runtime plugin_options.vim
 " endfor
 " " ## end of OPAM user-setup addition for vim / base ## keep this line
 "
+
+augroup markdown_language_client_commands
+  autocmd!
+  autocmd WinLeave __LanguageClient__ ++nested call <SID>fixLanguageClientHover()
+augroup END
+
+function! s:fixLanguageClientHover()
+  setlocal modifiable
+  setlocal conceallevel=2
+  normal i
+  setlocal nonu nornu
+  setlocal nomodifiable
+endfunction

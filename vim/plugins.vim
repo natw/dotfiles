@@ -50,6 +50,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sudar/vim-arduino-syntax'
+Plug 'keith/swift.vim', { 'for': 'swift' }
 
 
 " everything else
