@@ -73,3 +73,6 @@ zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.(o|c~|old|pro|zwc|p
 ## add colors to processes for kill completion
 zstyle ':completion:*:*:kill:*:processes' command 'ps -axco pid,user,command'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
