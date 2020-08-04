@@ -179,6 +179,7 @@ function LC_maps()
     nmap <buffer> <silent> ,,d <Plug>(lcn-definition)
     nmap <buffer> <silent> ,,r <Plug>(lcn-references)
     nmap <buffer> <silent> ,,i <Plug>(lcn-implementation)
+    nmap <buffer> <silent> ,,f <Plug>(lcn-implementation)
     nmap <buffer> <silent> ,,t <Plug>(lcn-type-definition)
   endif
 endfunction
@@ -189,7 +190,7 @@ autocmd FileType * call LC_maps()
 " let g:LanguageClient_loggingFile = "/tmp/lsp.txt"
 
 let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsList = "Quickfix"
+let g:LanguageClient_diagnosticsList = "Location"
 let g:LanguageClient_completionPreferTextEdit = 1 " experimental
 let g:LanguageClient_preferredMarkupKind = ['markdown']
 let g:LanguageClient_hideVirtualTextsOnInsert = 1 " don't show errors while I'm still typing
