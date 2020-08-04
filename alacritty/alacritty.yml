@@ -39,6 +39,8 @@ window:
 
   startup_mode: Maximized
 
+  dynamic_title: true
+
 scrolling:
   history: 10000
   multiplier: 3
@@ -196,7 +198,7 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -244,7 +246,6 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
   save_to_clipboard: true
 
-dynamic_title: true
 
 cursor:
   # Cursor style
