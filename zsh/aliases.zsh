@@ -23,7 +23,7 @@ alias tpp='terraform workspace select prd && terraform plan -var-file=prd.tfvars
 
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
-alias ack=ag  # ag is faster, but I have so much muscle memory around ack
+[ -x /usr/local/bin/ag ] && alias ack=ag  # ag is faster, but I have so much muscle memory around ack
 
 [ -x '/usr/local/opt/openssl/bin/openssl' ] && alias openssl=/usr/local/opt/openssl/bin/openssl
 [ -x '/usr/local/opt/curl/bin/curl' ] && alias curl=/usr/local/opt/curl/bin/curl
@@ -36,12 +36,12 @@ dos2unix() {
   gsed -i'' 's/\r$//' "$@"
 }
 
-fix() {
-  for file in "$@"; do
-    [ -n "$(tail -c1 ${file})" ] && echo >> ${file}    # add trailing newline to last line if missing
-    # gsed -i'' 's/\r$//' $file                          # convert dos line endings to unix
-  done
-}
+# fix() {    # moved to ~/bin
+#   for file in "$@"; do
+#     [ -n "$(tail -c1 ${file})" ] && echo >> ${file}    # add trailing newline to last line if missing
+#     gsed -i'' 's/\r$//' $file                          # convert dos line endings to unix
+#   done
+# }
 
 # ruby stuff
 alias rc="bundle exec rails console"
@@ -110,3 +110,5 @@ test_cf_sni() {
 }
 
 function t() { echo | openssl s_client -connect $1:443 -servername ${2:-$1} | openssl x509 -noout -dates }
+
+alias accounts="aws organizations list-accounts --query 'Accounts[].[Name,Id]' --output text | column -t"
