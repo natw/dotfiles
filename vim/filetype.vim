@@ -29,4 +29,7 @@ augroup filetypedetect
   au BufRead,BufNewFile *.hcl                       setlocal filetype=terraform
   au BufRead,BufNewFile *.yaml.gotmpl               setlocal filetype=yaml
   au BufRead,BufNewFile _helpers.tpl                setlocal filetype=gotexttmpl
+  au BufRead,BufNewFile *.avsc                      setlocal filetype=json
+  au BufRead,BufNewFile go.mod                      setlocal filetype=gomod
+  au BufRead,BufNewFile go.sum                      setlocal filetype=gomod
 augroup END
