@@ -1,4 +1,5 @@
 aopts="-a 8h -t 8h --mfa-provider GOOGLE --mfa-factor-type token:software:totp"
+aopts2="-a 1h -t 1h --mfa-provider GOOGLE --mfa-factor-type token:software:totp"
 
 ar () {
   local cmd=${argv:-$SHELL}
@@ -7,7 +8,7 @@ ar () {
 
 ap () {
   local cmd=${argv:-$SHELL}
-  eval "aws-okta ${aopts} exec prod -- ${SHELL} -c \"${cmd}\""
+  eval "aws-okta ${aopts2} exec prod -- ${SHELL} -c \"${cmd}\""
 }
 
 ad () {
