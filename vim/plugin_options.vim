@@ -60,7 +60,7 @@ let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
 let g:ale_linters = {
 \   'ruby': ['ruby', 'rubocop'],
 \   'javascript': [],
-\   'go': ['golangci-lint', 'gopls'],
+\   'go': ['golangci-lint'],
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': ['pylint'],
@@ -158,6 +158,11 @@ let g:go_highlight_variable_assignments = 0
 let g:go_doc_popup_window = 0
 let g:go_def_mode=''
 let g:go_info_mode=''
+let g:go_referrers_mode=''
+let g:go_implements_mode=''
+let g:go_rename_command=''
+let g:go_gopls_enabled = 0
+
 let g:go_auto_sameids = 0
 let g:go_echo_go_info = 0
 let g:go_echo_command_info = 0
@@ -203,13 +208,21 @@ let g:LanguageClient_rootMarkers = {
 
       " \ 'javascript': ['flow', 'lsp'],
       " \ 'javascript.jsx': ['flow', 'lsp'],
+      " \ 'go': ['nice', '-n', '18', 'gopls'],
 let g:LanguageClient_serverCommands = {
-      \ 'elm': ['elm-language-server', '--stdio'],
       \ 'go': ['gopls'],
+      \ 'elm': ['elm-language-server', '--stdio'],
       \ 'reason': ['ocaml-language-server', '--stdio'],
       \ 'terraform': ['terraform-lsp'],
       \ 'typescript': ['javascript-typescript-stdio'],
       \ 'vim': ['vim-language-server', '--stdio'],
       \ }
+
+augroup LanguageClient_config
+  autocmd!
+  autocmd User LanguageClientStarted setlocal signcolumn=yes
+  autocmd User LanguageClientStopped setlocal signcolumn=auto
+augroup END
+
 
 let tern#is_show_argument_hints_enabled = 1
