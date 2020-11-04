@@ -112,3 +112,4 @@ test_cf_sni() {
 function t() { echo | openssl s_client -connect $1:443 -servername ${2:-$1} | openssl x509 -noout -dates }
 
 alias accounts="aws organizations list-accounts --query 'Accounts[].[Name,Id]' --output text | column -t"
+alias dev="sudo /usr/sbin/DevToolsSecurity -enable"
