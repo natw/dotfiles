@@ -31,7 +31,7 @@ fi
 PS1="$FG[015][$FG[107]${ps1part} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 
 # fnm
-eval "$(fnm env --multi)"
+eval "$(fnm env)"
 
 
 # zprof
