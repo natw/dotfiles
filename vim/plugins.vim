@@ -18,6 +18,7 @@ endif
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-markdown'
 " Plug 'aklt/plantuml-syntax'
+Plug 'cespare/vim-toml'
 
 """ config
 Plug 'elzr/vim-json'
@@ -81,8 +82,8 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-apathy'
 " Plug 'kassio/neoterm'
 Plug 'junegunn/vim-easy-align'
-Plug 'chrisbra/Colorizer'
 Plug 'ervandew/supertab'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',

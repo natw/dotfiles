@@ -31,4 +31,5 @@ augroup filetypedetect
   au BufRead,BufNewFile _helpers.tpl                setlocal filetype=gotexttmpl
   au BufRead,BufNewFile *.avsc                      setlocal filetype=json
   au BufRead,BufNewFile go.mod                      setlocal filetype=gomod
+  au BufRead,BufNewFile jenkinsfile-*               setlocal filetype=groovy
 augroup END

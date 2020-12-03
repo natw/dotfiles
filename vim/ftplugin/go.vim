@@ -14,7 +14,3 @@ nnoremap tt :GoInfo<cr>
 nnoremap tT :GoDefType<cr>
 
 nnoremap <leader>gt :GoDeclsDir<cr>
-
-
-
-" let g:go_debug = ['lsp']

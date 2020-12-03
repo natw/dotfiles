@@ -27,7 +27,6 @@ nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
 :command! -nargs=1 -complete=file EditOrMkFileWithDir :call EditOrMkFileWithDir(<q-args>)
 nmap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:p:h") . "/" <cr>
 
-nmap <Leader>hi :echo syndebug#Names()<cr>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
@@ -74,6 +73,29 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-map <leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <leader>hi :call HighlightingInfo()<cr>
+" map <leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+" \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+" \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+""""""""""""
+" is the quickfix window open?
+function! s:IsQFOpen() abort
+  return !empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"'))
+endfunction
+
+" don't make me think or care. If the quickfix window is open, ^n should go to
+" the next thing there. Else, show me the next error as reported by
+" LanguageClient (LSP)
+function! NextThing()
+  if s:IsQFOpen()
+    :cnext
+  else
+    " :lnext
+    " :ALENextWrap
+    :call LanguageClient#diagnosticsNext()
+  endif
+endfunction
+
+nmap <silent> <c-n> :silent! call NextThing()<cr>
+""""""""""""

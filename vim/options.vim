@@ -44,4 +44,5 @@ source $VIMRUNTIME/macros/matchit.vim " not on by default for some reason
 set clipboard+=unnamed                " use osx clipboard
 set undodir=/tmp
 set undofile
-set t_Co=256
+" set t_Co=256
+set termguicolors

@@ -66,11 +66,29 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \   'terraform': ['terraform', 'tflint'],
 \   'elm': [],
+\   'clojure': ['clj-kondo'],
 \   'reason': ['ols'],
 \   'sh': ['shellcheck'],
 \}
 
 let g:ale_use_global_executables = 1
+
+highlight ReverseLineNr ctermbg=159 ctermfg=black
+hi link ALEErrorSignLineNr ReverseLineNr
+hi link ALEStyleErrorSignLineNr ReverseLineNr
+hi link ALEWarningSignLineNr ReverseLineNr
+hi link ALEStyleWarningSignLineNr ReverseLineNr
+hi link ALEInfoSignLineNr ReverseLineNr
+
+let g:ale_set_signs = 1
+let g:ale_sign_column_always = 0
+let g:ale_sign_warning = '>'
+let g:ale_sign_info = '>'
+let g:ale_sign_error = '>'
+let g:ale_sign_style_error = '>'
+let g:ale_sign_style_warning = '>'
+let g:ale_virtualtext_cursor = 1
+" let g:ale_virtualtext_delay = 100
 
 let g:ale_cpp_clangtidy_checks = []
 
@@ -98,19 +116,6 @@ let g:ale_fix_on_save = 1
 
 map <leader>ar :ALEResetBuffer<cr>
 
-function! s:IsQFOpen() abort
-  return !empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"'))
-endfunction
-
-function! NextThing()
-  if s:IsQFOpen()
-    :cn
-  else
-    :ALENextWrap
-  endif
-endfunction
-
-nmap <c-n> :call NextThing()<cr>
 
 " map ,n :ALENext<cr>
 " nmap <c-n> <Plug>(ale_next_wrap)
@@ -195,7 +200,7 @@ autocmd FileType * call LC_maps()
 " let g:LanguageClient_loggingFile = "/tmp/lsp.txt"
 
 let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsList = "Location"
+let g:LanguageClient_diagnosticsList = "Quickfix"
 let g:LanguageClient_completionPreferTextEdit = 1 " experimental
 let g:LanguageClient_preferredMarkupKind = ['markdown']
 let g:LanguageClient_hideVirtualTextsOnInsert = 1 " don't show errors while I'm still typing
@@ -224,5 +229,7 @@ augroup LanguageClient_config
   autocmd User LanguageClientStopped setlocal signcolumn=auto
 augroup END
 
-
 let tern#is_show_argument_hints_enabled = 1
+
+let g:Hexokinase_highlighters = ['backgroundfull']
+let g:Hexokinase_palettes = [expand($HOME).'/.vim/colorscheme_palette.json']
