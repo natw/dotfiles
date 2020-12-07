@@ -2,8 +2,8 @@ export AWS_REGION=us-east-2
 export GOPATH=$HOME/go
 
 
-export VISUAL="vim"
-export EDITOR="vim"
+export VISUAL="nvim"
+export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
 export LESS="FSRX"
