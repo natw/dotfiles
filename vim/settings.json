@@ -1,0 +1,18 @@
+{
+  "pyls": {
+    "configurationSources": [
+      "pycodestyle"
+    ],
+    "plugins": {
+      "pyflakes": {
+        "enabled": false
+      }
+    },
+    "plugins": {
+      "pyls_mypy": {
+        "enabled": true,
+        "live_mode": false
+      }
+    }
+  }
+}

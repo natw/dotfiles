@@ -19,6 +19,7 @@ Plug 'othree/html5.vim'
 Plug 'tpope/vim-markdown'
 " Plug 'aklt/plantuml-syntax'
 Plug 'cespare/vim-toml'
+Plug 'jparise/vim-graphql'
 
 """ config
 Plug 'elzr/vim-json'
@@ -28,8 +29,9 @@ Plug 'pearofducks/ansible-vim'
 
 """ javascript et al
 Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " Plug 'reasonml-editor/vim-reason-plus'
+Plug 'rescript-lang/vim-rescript'
 " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " Plug 'posva/vim-vue'
 
@@ -42,6 +44,7 @@ Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'scheme'] }
 
 """ python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+Plug 'vim-python/python-syntax', { 'for': 'python' }
 " Plug 'Shougo/neco-vim', { 'for': 'python' }
 " Plug 'nvie/vim-flake8', { 'for': 'python' }
 
@@ -82,7 +85,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-apathy'
 " Plug 'kassio/neoterm'
 Plug 'junegunn/vim-easy-align'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plug 'autozimu/LanguageClient-neovim', {

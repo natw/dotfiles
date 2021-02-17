@@ -43,7 +43,7 @@ nmap <Leader>jl :%!json_xs -f json -t json-pretty<cr>
 " switch to last file
 nmap <Leader><Leader> <C-^>
 
-nnoremap <silent> <CR> :nohlsearch<CR><CR>
+" nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 nmap ,f :cfirst<cr>
 nmap ,c :cc<cr>
@@ -85,15 +85,14 @@ function! s:IsQFOpen() abort
 endfunction
 
 " don't make me think or care. If the quickfix window is open, ^n should go to
-" the next thing there. Else, show me the next error as reported by
-" LanguageClient (LSP)
+" the next thing there. Else, show me the next error
 function! NextThing()
   if s:IsQFOpen()
     :cnext
-  else
-    " :lnext
-    " :ALENextWrap
+  elseif len(getqflist()) > 0
     :call LanguageClient#diagnosticsNext()
+  else
+    :ALENextWrap
   endif
 endfunction
 
