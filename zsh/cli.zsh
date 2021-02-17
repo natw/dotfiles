@@ -25,7 +25,18 @@ bindkey "^[[H" beginning-of-line # home
 bindkey "^[[F" end-of-line # end
 bindkey "^[[3~" delete-char # delete
 
-bindkey -s "^Z" "^Ufg\n" # bind ^Z to fg to switch back and forth easily
+bindkey -s "^Z" "^a^kfg\n" # bind ^Z to fg to switch back and forth easily
 
 bindkey "^f" forward-word # or char?
 bindkey "^b" backward-word
+
+pb-kill-whole-line () {
+  zle kill-whole-line
+  echo -n $CUTBUFFER | pbcopy
+}
+
+copy-whole-line() {
+  echo -n $BUFFER | pbcopy
+}
+zle -N copy-whole-line
+bindkey "^u" copy-whole-line
