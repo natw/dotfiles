@@ -33,5 +33,12 @@ PS1="$FG[015][$FG[107]${ps1part} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 # fnm
 eval "$(fnm env)"
 
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 # zprof
+
+# The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/natwilliams/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/natwilliams/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+# if [ -f '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
