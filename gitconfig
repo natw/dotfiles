@@ -12,7 +12,7 @@
     unmerged = branch --no-merge
     r = remote -v
     pr = pull-request
-    om = !git diff --name-only | uniq | xargs -o vim
+    om = !git diff --name-only | uniq | xargs -o nvim
     ff = merge --ff-only
     yesterday = log --graph --all --abbrev-commit --since=yesterday --before=0am
     pr = !open "https://github.com/$(git remote get-url origin | sed -n 's/^.*:\\(.*\\)\\.git$/\\1/p')/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"
@@ -37,11 +37,11 @@
 [push]
     default = current
 
-[merge]
-  conflictstyle = diff3
+; [merge]
+;   conflictstyle = diff3
 
-; [rerere]
-  ; enabled = 1
+[rerere]
+  enabled = 1
 
 [fetch]
   prune = true
