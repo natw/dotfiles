@@ -1,166 +1,41 @@
-ack
-ansible
-arduino-mk
-argocd
-autoconf
-automake
-avr-binutils
-avr-gcc
-avrdude
-aws-okta
-awscli
-bdw-gc
-bear
-c-ares
-ccache
-clang-format
-cmake
-consul
-coreutils
-cquery
-curl
-dcraw
-dep
-docker-machine
-docker-machine-driver-hyperkit
-docker-machine-driver-xhyve
-dos2unix
-elixir
-elm
-erlang
-flac
-flake8
-fontconfig
-freetds@0.91
-freetype
-fzf
-gcc
-gd
-gdbm
-gettext
-git
-glib
-glide
-gmp
-gnutls
-go
-graphviz
-haskell-stack
-helmfile
-htop
-icu4c
-ilmbase
-imagemagick
-intltool
-ipcalc
-iproute2mac
-isl
-jasper
-jemalloc
-joker
-jpeg
-jq
-kube-ps1
-kubectx
-kubernetes-cli
-kubernetes-helm
-kustomize
-leiningen
-libao
-libde265
-libelf
-libev
-libevent
-libffi
-libftdi0
-libgcrypt
-libgpg-error
-libheif
-libhid
-libidn2
-libmpc
-libogg
-libomp
-libpng
-libssh2
-libtasn1
-libtermkey
-libtiff
-libtool
-libunistring
-libusb
-libusb-compat
-libuv
-libvorbis
-libvterm
-libxmlsec1
-libyaml
-little-cms2
-llvm
-lua
-luajit
-markdown
-mpfr
-msgpack
-ncurses
-neovim
-nethack
-nettle
-nim
-oath-toolkit
-oniguruma
-openexr
-openjpeg
-openssl
-p11-kit
-packer
-pcre
-pcre2
-perl
-pipenv
-pixman
-pkg-config
-pngcrush
-pyenv
-pyenv-virtualenv
-python
-python@2
-qemu
-r
-rbenv
-readline
-reattach-to-user-namespace
-redis
-ruby
-ruby-build
-rust
-rustup-init
-shared-mime-info
-shellcheck
-shfmt
-sphinx-doc
-sqlite
-terraform
-terraform_landscape
-tflint
-the_silver_searcher
-tmux
-tree
-ufraw
-unbound
-unibilium
-unixodbc
-vde
-vim
-vorbis-tools
-watch
-webp
-wget
-wxmac
-x265
-xhyve
-xz
-yq
-zbar
-zsh
-zsh-completions
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "hashicorp/tap"
+tap "argoproj/tap"
+
+brew "argocd"
+brew "argoproj/tap/kubectl-argo-rollouts"
+brew "aws-okta"
+brew "awscli"
+brew "curl"
+brew "fzf"
+brew "git"
+brew "go"
+brew "hashicorp/tap/packer"
+brew "hashicorp/tap/terraform-ls"
+brew "helm"
+brew "helm@2"
+brew "htop"
+brew "ipcalc"
+brew "jq"
+brew "kind"
+# brew "kubectx"
+brew "neovim"
+brew "pipenv"
+brew "rbenv"
+brew "reattach-to-user-namespace"
+brew "ruby-build"
+# brew "shellcheck"
+brew "shfmt"
+brew "stow"
+brew "tfenv"
+brew "tflint"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tree"
+brew "zsh"
+brew "zsh-completions"
+
+cask "alacritty"
+cask "keepassxc"
