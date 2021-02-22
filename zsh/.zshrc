@@ -31,7 +31,7 @@ fi
 PS1="$FG[015][$FG[107]${ps1part} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 
 # fnm
-eval "$(fnm env)"
+# eval "$(fnm env)"
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
@@ -42,3 +42,7 @@ eval "$(fnm env)"
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

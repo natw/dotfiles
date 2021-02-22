@@ -8,6 +8,8 @@ case $OSTYPE in
     ;;
 esac
 
+alias vim=nvim
+
 alias w="cd ~/work"
 alias ex=exercism
 alias pgrep='pgrep -fil'
@@ -16,6 +18,7 @@ alias vimrc='vim -c ":e \$MYVIMRC"'
 alias tf='terraform'
 alias tiu='terraform init -upgrade'
 alias gs='cd $GOPATH/src/github.com'
+alias bb='brew bundle --file ~/projects/dotfiles/Brewfile'
 
 alias tpo='terraform workspace select opslab && terraform plan -var-file=opslab.tfvars'
 alias tps='terraform workspace select stg && terraform plan -var-file=stg.tfvars'

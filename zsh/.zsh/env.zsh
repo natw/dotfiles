@@ -1,7 +1,6 @@
 export AWS_REGION=us-east-2
 export GOPATH=$HOME/go
 
-
 export VISUAL="nvim"
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
@@ -12,6 +11,8 @@ export HISTFILE=~/.zhistory
 export HISTSIZE='100000'
 export SAVEHIST='100000'
 export WORDCHARS=${WORDCHARS//[\/.]}
+
+export DOCKER_BUILDKIT=1
 
 
 # for stupid BSD ls (osx)
