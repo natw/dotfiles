@@ -1,4 +1,0 @@
-:RainbowParentheses
-let g:rainbow#max_level = 16
-let g:rainbow#pairs = [['(', ')'], ['[', ']']]
-nmap ,j (,Wa<space><esc>i
