@@ -1,8 +1,5 @@
-# zmodload zsh/zprof
 
 fpath=(
-    "/usr/local/share/zsh-completions"
-    "/usr/local/share/zsh/site-functions"
     "$HOME/.zsh/functions"
     "$fpath[@]"
 )
@@ -33,9 +30,12 @@ PS1="$FG[015][$FG[107]${ps1part} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 # fnm
 # eval "$(fnm env)"
 
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+[[ $commands[rbenv] ]] && eval "$(rbenv init -)"
 
-# zprof
+# this is super slow.
+# reconsider once https://github.com/kubernetes/kubernetes/pull/96087 is merged
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
 
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f '/Users/natwilliams/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/natwilliams/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -46,3 +46,6 @@ PS1="$FG[015][$FG[107]${ps1part} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# to profile, uncomment `zmodload zsh/prof` at the top of .zshenv
+# zprof

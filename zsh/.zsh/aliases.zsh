@@ -26,10 +26,10 @@ alias tpp='terraform workspace select prd && terraform plan -var-file=prd.tfvars
 
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
-[ -x /usr/local/bin/ag ] && alias ack=ag  # ag is faster, but I have so much muscle memory around ack
+[[ $commands[ag] ]] && alias ack=ag  # ag is faster, but I have so much muscle memory around ack
 
-[ -x '/usr/local/opt/openssl/bin/openssl' ] && alias openssl=/usr/local/opt/openssl/bin/openssl
-[ -x '/usr/local/opt/curl/bin/curl' ] && alias curl=/usr/local/opt/curl/bin/curl
+# [[ $(brew --prefix openssl 2>/dev/null) ]] && alias openssl=$(brew --prefix openssl)/bin/openssl
+# [[ $(brew --prefix curl 2>/dev/null) ]] && alias curl=$(brew --prefix curl)/bin/curl
 
 add_missing_newline() {
   [ -n "$(tail -c1 $1)" ] && echo >> $1    # add trailing newline to last line if missing
@@ -116,3 +116,13 @@ function t() { echo | openssl s_client -connect $1:443 -servername ${2:-$1} | op
 
 alias accounts="aws organizations list-accounts --query 'Accounts[].[Name,Id]' --output text | column -t"
 alias dev="sudo /usr/sbin/DevToolsSecurity -enable"
+
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
