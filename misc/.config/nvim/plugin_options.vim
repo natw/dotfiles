@@ -192,6 +192,7 @@ let g:go_gopls_enabled = 0
 let g:go_auto_sameids = 0
 let g:go_echo_go_info = 0
 let g:go_echo_command_info = 0
+let g:go_template_use_pkg = 1
 
 " let g:go_debug = ['lsp']
 

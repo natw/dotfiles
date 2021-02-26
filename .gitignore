@@ -3,7 +3,7 @@ node_modules/
 yarn.lock
 
 plug.vim.old
-vim/.netrwhist
+.netrwhist
 vim/spell
 vim/view
 vim/bundle
