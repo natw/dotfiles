@@ -231,6 +231,7 @@ let g:LanguageClient_rootMarkers = {
       \ 'javascript': ['.flowconfig', 'package.json', 'jsconfig.json'],
       \ 'go': ['go.mod'],
       \ 'rescript': ['package.json', 'bsconfig.json'],
+      \ 'python': ['Pipfile', 'setup.cfg'],
       \ 'typescript': ['tsconfig.json']
       \ }
 

@@ -20,6 +20,9 @@
 [format]
     pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
 
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
 [color]
     diff = true
     status = true
