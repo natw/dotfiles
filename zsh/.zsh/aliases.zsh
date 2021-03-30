@@ -24,6 +24,8 @@ alias tpo='terraform workspace select opslab && terraform plan -var-file=opslab.
 alias tps='terraform workspace select stg && terraform plan -var-file=stg.tfvars'
 alias tpp='terraform workspace select prd && terraform plan -var-file=prd.tfvars'
 
+alias vpo='vim ~/.config/nvim/plugin_options.vim'
+
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
 [[ $commands[ag] ]] && alias ack=ag  # ag is faster, but I have so much muscle memory around ack

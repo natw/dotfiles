@@ -1,6 +1,8 @@
 
 fpath=(
     "$HOME/.zsh/functions"
+    "/opt/homebrew/share/zsh/functions"
+    "/opt/homebrew/share/zsh-completions"
     "$fpath[@]"
 )
 typeset -U fpath
