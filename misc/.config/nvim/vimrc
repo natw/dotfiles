@@ -26,3 +26,5 @@ function! s:fixLanguageClientHover()
   setlocal nonu nornu
   setlocal nomodifiable
 endfunction
+
+let $VIMHOME=expand('<sfile>:p:h')

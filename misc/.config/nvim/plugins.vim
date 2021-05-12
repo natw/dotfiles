@@ -59,6 +59,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 """ other
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
+Plug 'towolf/vim-helm'
 " Plug 'keith/swift.vim', { 'for': 'swift' }
 " Plug 'OrangeT/vim-csharp'
 " Plug 'zah/nim.vim', { 'for': 'nim' }

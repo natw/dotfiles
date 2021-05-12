@@ -151,6 +151,7 @@ let g:airline_theme = "railscasts"
 let g:airline#extensions#hunks#enabled = 0
 " let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#virtualenv#enabled = 0
+let g:airline#extensions#scrollbar#enabled = 0
 
 let g:neoterm_direct_open_repl = 1
 let g:neoterm_autoinsert = 1
@@ -208,11 +209,13 @@ function LC_maps()
     nmap <buffer> <silent> gd <Plug>(lcn-definition)
 
     nmap <buffer> <silent> ,,h <Plug>(lcn-hover)
-    nmap <buffer> <silent> ,,d <Plug>(lcn-definition)
+    " nmap <buffer> <silent> ,,d <Plug>(lcn-definition)
+    " nmap <buffer> <silent> ,,d :call LanguageClient#workspace_symbol('.')<cr>
     nmap <buffer> <silent> ,,r <Plug>(lcn-references)
     nmap <buffer> <silent> ,,i <Plug>(lcn-implementation)
     nmap <buffer> <silent> ,,f <Plug>(lcn-implementation)
     nmap <buffer> <silent> ,,t <Plug>(lcn-type-definition)
+    nmap <buffer> <silent>
   endif
 endfunction
 
@@ -226,6 +229,8 @@ let g:LanguageClient_diagnosticsList = "Quickfix"
 let g:LanguageClient_completionPreferTextEdit = 1 " experimental
 let g:LanguageClient_preferredMarkupKind = ['markdown']
 let g:LanguageClient_hideVirtualTextsOnInsert = 1 " don't show errors while I'm still typing
+
+let g:LanguageClient_fzfOptions = '--preview "echo {1}"'
 let g:LanguageClient_rootMarkers = {
       \ 'elm': ['elm.json'],
       \ 'javascript': ['.flowconfig', 'package.json', 'jsconfig.json'],
@@ -235,11 +240,12 @@ let g:LanguageClient_rootMarkers = {
       \ 'typescript': ['tsconfig.json']
       \ }
 
-let g:LanguageClient_settingsPath = ["~/.vim/settings.json", ".vim/settings.json"]
+let g:LanguageClient_settingsPath = [expand($VIMHOME)."/settings.json"]
 
       " \ 'javascript': ['flow', 'lsp'],
       " \ 'javascript.jsx': ['flow', 'lsp'],
       " \ 'go': ['nice', '-n', '18', 'gopls'],
+      " \ 'go': ['gopls', "-vv", "-rpc.trace", "--debug=localhost:6060", "--logfile=/tmp/gopls.log"],
       " \   'name': 'pyls',
       " \   'command': ['pyls', '--check-parent-process', '-vv', '--log-file', '/tmp/pyls.log'],
       " \ 'typescript': ['typescript-language-server', '--stdio'],
@@ -263,4 +269,4 @@ augroup END
 let tern#is_show_argument_hints_enabled = 1
 
 let g:Hexokinase_highlighters = ['backgroundfull']
-let g:Hexokinase_palettes = [expand($HOME).'/.vim/colorscheme_palette.json']
+let g:Hexokinase_palettes = [expand($VIMHOME).'/colorscheme_palette.json']

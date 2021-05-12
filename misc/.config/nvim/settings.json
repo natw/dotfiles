@@ -1,4 +1,28 @@
 {
+  "vimls": {
+    "command": "vim-language-server",
+    "args": ["--stdio"],
+    "initializationOptions": {
+      "isNeovim": true,
+      "indexes": {
+        "runtimepath": true
+      },
+      "diagnostic": {
+        "enable": true
+      }
+    }
+  },
+  "gopls": {
+    "semanticTokens": true,
+    "usePlaceholders": true,
+    "analyses": {
+      "nilness": true
+    },
+    "codelens": {
+      "test": true,
+      "gc_details": true
+    }
+  },
   "pyls": {
     "configurationSources": [
       "pycodestyle"

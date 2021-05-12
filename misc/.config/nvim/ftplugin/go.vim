@@ -10,9 +10,8 @@ setlocal updatetime=200
 
 :command! A GoAlternate
 
-nnoremap tt :GoInfo<cr>
-nnoremap tT :GoDefType<cr>
-
-nnoremap <leader>gt :GoDeclsDir<cr>
+" nnoremap tt :GoInfo<cr>
+" nnoremap tT :GoDefType<cr>
+nnoremap ,,d :GoDeclsDir<cr>
 
 nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
