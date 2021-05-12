@@ -46,3 +46,7 @@ set undodir=/tmp
 set undofile
 " set t_Co=256
 set termguicolors
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif

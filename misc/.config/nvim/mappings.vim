@@ -1,3 +1,5 @@
+" note: look in autoload/ for function definitions
+
 " my muscle memory for ctrl-c is strong, but I want the InsertLeave autocmd
 inoremap <c-c> <esc>
 
@@ -9,6 +11,11 @@ nmap <C-h> gT
 " ctrl-L for next tab
 nmap <C-l> gt
 
+" commenting
+" gc is powered by the vim-commentary plugin
+map <leader>c gc
+
+" boy. sure wish I had commented what this did
 nmap <leader>q 0f=lli"${<esc>$a}"<esc>
 
 " I hit these by mistake a lot
@@ -24,7 +31,7 @@ nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
 
 " open files with path relative to current buffer
 " nmap <Leader>fe :e <C-R>=expand("%:p:h") . "/" <cr>
-:command! -nargs=1 -complete=file EditOrMkFileWithDir :call EditOrMkFileWithDir(<q-args>)
+:command! -nargs=1 -complete=file EditOrMkFileWithDir :call nat#EditOrMkFileWithDir(<q-args>)
 nmap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:p:h") . "/" <cr>
 
 
@@ -37,18 +44,13 @@ nmap <Leader>gu :MundoToggle<CR>
 " linewise select previously pasted text
 nmap <Leader>v V`]
 
-" de-uglify json files
-nmap <Leader>jl :%!json_xs -f json -t json-pretty<cr>
-
-" switch to last file
+" switch to previous file
 nmap <Leader><Leader> <C-^>
 
 " nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 nmap ,f :cfirst<cr>
 nmap ,c :cc<cr>
-
-" nmap <c-n> :cn<cr>
 
 nmap ,t :tabnew<cr>
 
@@ -67,34 +69,11 @@ nmap <bs> gT
 
 map ,m :make<cr>
 
+map <leader>hi :call nat#HighlightingInfo()<cr>
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nmap <silent> <c-n> :silent! call diagnostics#NextThing()<cr>
 
-map <leader>hi :call HighlightingInfo()<cr>
-" map <leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-" \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-" \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <leader>t :call nat#GitFZF()<cr>
+" let g:fzf_buffers_jump = 1
 
-""""""""""""
-" is the quickfix window open?
-function! s:IsQFOpen() abort
-  return !empty(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"'))
-endfunction
-
-" don't make me think or care. If the quickfix window is open, ^n should go to
-" the next thing there. Else, show me the next error
-function! NextThing()
-  if s:IsQFOpen()
-    :cnext
-  elseif len(getqflist()) > 0
-    :call LanguageClient#diagnosticsNext()
-  else
-    :ALENextWrap
-  endif
-endfunction
-
-nmap <silent> <c-n> :silent! call NextThing()<cr>
-""""""""""""
+map <leader>gg :GitGutterToggle<cr>

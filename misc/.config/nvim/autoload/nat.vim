@@ -1,9 +1,7 @@
-function! GitFZF()
-  let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
-  call fzf#vim#files(substitute(l:git_root, "\n$", '' ,''))
-endfunction
-
-function! EditOrMkFileWithDir(path) abort
+" I want to be able to just switch to a file without worrying about whether it
+" already exists
+" <leader>fe
+function! nat#EditOrMkFileWithDir(path) abort
   if !filereadable(a:path)
     let l:basename = fnamemodify(a:path, ":p:h")
     call mkdir(l:basename, "p")
@@ -11,7 +9,14 @@ function! EditOrMkFileWithDir(path) abort
   execute 'edit' a:path
 endfunction
 
-function! HighlightingInfo() abort
+function! nat#GitFZF()
+  let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
+  call fzf#vim#files(substitute(l:git_root, "\n$", '' ,''))
+endfunction
+
+" show some debug info for syntax highlighting.
+" currently mapped to <leader>hi
+function! nat#HighlightingInfo() abort
   let l:itemSynID = synID(line('.'), col('.'), v:true)
   let l:transparencySynID = synID(line('.'), col('.'), v:false)
   let l:linkedSynID = synIDtrans(l:itemSynID)
@@ -31,5 +36,4 @@ function! HighlightingInfo() abort
         \ l:guifg, l:guibg,
         \ l:ctermfg, l:ctermbg
         \)
-
 endfunction

@@ -12,6 +12,7 @@ runtime functions.vim
 runtime options.vim
 runtime mappings.vim
 runtime plugin_options.vim
+runtime! plugins/*.vim
 
 
 augroup markdown_language_client_commands
