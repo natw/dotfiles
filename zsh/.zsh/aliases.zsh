@@ -19,6 +19,7 @@ alias tf='terraform'
 alias tiu='terraform init -upgrade'
 alias gs='cd $GOPATH/src/github.com'
 alias bb='brew bundle --file ~/projects/dotfiles/Brewfile'
+alias vimp="vim -R --noplugin -c 'runtime! macros/less.vim'"
 
 alias tpo='terraform workspace select opslab && terraform plan -var-file=opslab.tfvars'
 alias tps='terraform workspace select stg && terraform plan -var-file=stg.tfvars'
@@ -127,4 +128,22 @@ listening() {
     else
         echo "Usage: listening [pattern]"
     fi
+}
+
+findip() {
+  aws --profile $1 ec2 describe-subnets --subnet-ids $(aws --profile $1 ec2 describe-network-interfaces --filters "Name=addresses.private-ip-address,Values=$2" | jq '.NetworkInterfaces[0].SubnetId' -r) | jq '.Subnets[0].Tags[] | select(.Key | contains("Name")) | .Value' -r
+}
+
+pk() {
+  name=$1
+  part1=${name:0:1}
+  part2=${name:1:2}
+  keydir=${NKEYS_PATH:-$HOME/.nkeys}
+  cat "${keydir}/keys/${part1}/${part2}/${name}.nk"
+}
+
+gk() {
+  env=$1
+  keyid=$2
+  vault kv get -field "${keyid}" "credentials/nats/${env}/signing_keys"
 }
