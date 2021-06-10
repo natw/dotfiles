@@ -1,5 +1,5 @@
 let g:ale_linters = {
-\   'ruby': ['ruby', 'rubocop'],
+\   'ruby': ['ruby'],
 \   'javascript': [],
 \   'go': ['golangci-lint'],
 \   'eruby': [],
@@ -55,6 +55,7 @@ let g:ale_fixers = {
 \   'go': ['remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['fixjson'],
 \   'python': ['isort', 'black'],
+\   'ruby': ['standardrb', 'remove_trailing_lines', 'trim_whitespace'],
 \   'sh': ['shfmt'],
 \   'javascript': ['prettier-standard', 'remove_trailing_lines', 'trim_whitespace'],
 \   'terraform': ['terraform'],
@@ -78,3 +79,4 @@ let g:ale_lint_delay = 200
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_insert_leave = 0
+

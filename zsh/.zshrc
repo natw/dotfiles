@@ -46,7 +46,9 @@ eval "$(fnm env)"
 # if [ -f '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
 fi
 
 # to profile, uncomment `zmodload zsh/prof` at the top of .zshenv
