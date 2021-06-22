@@ -28,4 +28,6 @@ function! s:fixLanguageClientHover()
   setlocal nomodifiable
 endfunction
 
+let g:python3_host_prog=$HOME . "/.local/vim-venv/bin/python"
+
 let $VIMHOME=expand('<sfile>:p:h')
