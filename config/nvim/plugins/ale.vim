@@ -15,8 +15,6 @@ let g:ale_linters = {
 
 let g:ale_typescript_prettier_use_local_config = 1
 
-" let g:ale_use_global_executables = 0
-
 highlight ReverseLineNr ctermbg=159 ctermfg=black
 hi link ALEErrorSignLineNr ReverseLineNr
 hi link ALEStyleErrorSignLineNr ReverseLineNr
@@ -39,13 +37,6 @@ let g:ale_cpp_clangtidy_checks = []
 
 let g:ale_go_golangci_lint_options = "--exclude-use-default"
 let g:ale_go_golangci_lint_package = 1
-
-" let g:ale_python_pyls_auto_pipenv = 1
-" let g:ale_python_pyls_config = {
-"       \ 'pyls': {
-"       \   'configurationSources': ['flake8'],
-"       \ }
-"       \}
 
 let g:ale_fixers = {
 \   'arduino': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
@@ -79,4 +70,3 @@ let g:ale_lint_delay = 200
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_insert_leave = 0
-

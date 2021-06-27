@@ -23,6 +23,9 @@ let deoplete#tag#cache_limit_size = 5000000
 " endif
 
 let g:deoplete#sources#go#pointer = 1
+
+" let g:deoplete#lsp#use_icons_for_candidates = 1
+
 " remaps some keys in the case that the completion menu is visible
 " tab and ctrl-j should cycle through the completions
 " ctrl-k should cycle backwards

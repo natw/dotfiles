@@ -10,6 +10,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
+Plug 'ojroques/nvim-lspfuzzy'
+
 """ markup languages
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-markdown'

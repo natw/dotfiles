@@ -12,6 +12,6 @@ setlocal updatetime=200
 
 " nnoremap tt :GoInfo<cr>
 " nnoremap tT :GoDefType<cr>
-nnoremap ,,d :GoDeclsDir<cr>
+" nnoremap ,,d :GoDeclsDir<cr>
 
 nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
