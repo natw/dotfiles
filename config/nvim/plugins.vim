@@ -1,18 +1,14 @@
-if has('nvim')
-  call plug#begin('~/.config/nvim/bundle-nvim')
-else
-  call plug#begin('~/.vim/bundle')
-endif
+call plug#begin('~/.config/nvim/bundle')
 
 Plug 'natw/vim-railscasts'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  " Plug 'Shougo/deoplete.nvim'
-  " Plug 'roxma/nvim-yarp'
-  " Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete-lsp'
+
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 """ markup languages
 Plug 'othree/html5.vim'
@@ -54,7 +50,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " Plug 'tpope/vim-rails', { 'for': 'ruby' }
 
 """ go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go' " , { 'do': ':GoUpdateBinaries' }
 " Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
 
 """ other
@@ -89,16 +85,16 @@ Plug 'junegunn/vim-easy-align'
 " Plug 'ervandew/supertab'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " Plug 'junegunn/vader.vim'
 Plug 'dense-analysis/ale'
 
-Plug '~/src/vim-fuzzy-emoji'
+" Plug '~/src/vim-fuzzy-emoji'
 
 call plug#end()
