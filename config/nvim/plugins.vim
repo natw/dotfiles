@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/bundle')
+call plug#begin(stdpath('config') . '/bundle')
 
 Plug 'natw/vim-railscasts'
 

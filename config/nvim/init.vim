@@ -1,19 +1,21 @@
 scriptencoding utf-8
 
+syntax enable
+filetype plugin indent on
+
 let g:ale_sign_highlight_linenrs = 1
 runtime plugins.vim
 
 set runtimepath+=$GOROOT/misc/vim
-syntax on
-filetype plugin indent on
+
 colorscheme railscasts
 
 runtime functions.vim
 runtime options.vim
 runtime mappings.vim
 runtime plugin_options.vim
-runtime! plugins/*.vim
-runtime! plugins/*.lua
+runtime! other/*.vim
+runtime! other/*.lua
 
 
 augroup markdown_language_client_commands
