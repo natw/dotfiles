@@ -6,6 +6,8 @@
 # osx's /etc/zprofile tries to be helpful and sort out your path, but I can do that myself
 # alias /usr/libexec/path_helper=true
 
+eval $(/opt/homebrew/bin/brew shellenv)
+
 path=(
   "$HOME/bin"
   "/usr/local/opt/llvm/bin"
