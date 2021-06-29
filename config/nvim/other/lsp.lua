@@ -1,5 +1,16 @@
 local lsp = require('lspconfig')
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = 
+  vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      underline = false,
+      virtual_text = {
+        spacing = 8,
+      }
+    }
+  )
+
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

@@ -6,7 +6,7 @@ tsc.setup {
 
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
   },
 
   incremental_selection = {
@@ -22,4 +22,14 @@ tsc.setup {
   indent = {
     enable = true
   }
+}
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.hcl = {
+  install_info = {
+    url = vim.fn.expand("~/src/tree-sitter-hcl"), -- local path or git repo
+    files = {"src/parser.c"}
+  },
+  filetype = "hcl", -- if filetype does not agrees with parser name
+  used_by = {"terraform"} -- additional filetypes that use this parser
 }

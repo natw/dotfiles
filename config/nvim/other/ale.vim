@@ -1,7 +1,8 @@
+" \   'go': ['golangci-lint'],
 let g:ale_linters = {
 \   'ruby': ['ruby'],
+\   'go': [],
 \   'javascript': [],
-\   'go': ['golangci-lint'],
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': [],
@@ -49,7 +50,7 @@ let g:ale_fixers = {
 \   'ruby': ['standardrb', 'remove_trailing_lines', 'trim_whitespace'],
 \   'sh': ['shfmt'],
 \   'javascript': ['prettier-standard', 'remove_trailing_lines', 'trim_whitespace'],
-\   'terraform': ['terraform'],
+\   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],
 \   'typescript': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'typescriptreact': ['prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'vim': ['remove_trailing_lines', 'trim_whitespace'],
