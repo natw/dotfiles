@@ -1,6 +1,8 @@
 local lsp = require('lspconfig')
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = 
+vim.lsp.set_log_level("debug")
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,
     {
@@ -42,10 +44,83 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 
-lsp.pyls.setup { on_attach = on_attach }
-lsp.vimls.setup { on_attach = on_attach }
-lsp.terraformls.setup { on_attach = on_attach }
-lsp.gopls.setup { on_attach = on_attach }
+  -- cmd = {"pyls", "-v", "--log-file", "/tmp/pyls.log"},
+lsp.pyls.setup {
+  on_attach = on_attach,
+  settings = {
+    pyls = {
+      configurationSources = {
+        "pycodestyle"
+      },
+      plugins = {
+        pyflakes = {
+          enabled = false,
+        },
+        pyls_mypy = {
+          enabled = true,
+          live_mode = false,
+        }
+      }
+    }
+  }
+}
 
+lsp.vimls.setup {
+  on_attach = on_attach,
+  init_options = {
+    isNeovim = true,
+    indexes = {
+      runtimepath = true,
+    },
+    diagnostic = {
+      enable = true,
+    },
+  },
+}
+
+lsp.terraformls.setup { on_attach = on_attach }
+
+lsp.gopls.setup {
+  on_attach = on_attach,
+  settings = {
+    semanticTokens = true,
+    usePlaceholders = true,
+    analyses = {
+      nillness = true,
+    },
+    codelens = {
+      test = true,
+      gc_details = true,
+    },
+  },
+}
+
+local rpath = vim.split(package.path, ";")
+table.insert(rpath, "lua/?.lua")
+table.insert(rpath, "lua/?/init.lua")
+
+local lualspRoot = vim.env.HOME .. "/src/lua-language-server"
+
+lsp.sumneko_lua.setup {
+  on_attach = on_attach,
+  cmd = {lualspRoot .. "/bin/macOS/lua-language-server", "-E", lualspRoot .. "/main.lua"},
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+        path = rpath,
+      },
+      diagnostics = {
+        globals = {'vim'},
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
 
 require('lspfuzzy').setup {}
