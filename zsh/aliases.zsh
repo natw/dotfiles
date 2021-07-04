@@ -20,6 +20,7 @@ alias tiu='terraform init -upgrade'
 alias gs='cd $GOPATH/src/github.com'
 alias bb='brew bundle --file ~/projects/dotfiles/Brewfile'
 alias vimp="vim -R --noplugin -c 'runtime! macros/less.vim'"
+alias cdv="cd ~/.config/nvim"
 
 alias tpo='terraform workspace select opslab && terraform plan -var-file=opslab.tfvars'
 alias tps='terraform workspace select stg && terraform plan -var-file=stg.tfvars'
