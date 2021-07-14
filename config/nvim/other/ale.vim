@@ -3,6 +3,7 @@ let g:ale_linters = {
 \   'ruby': ['ruby'],
 \   'go': [],
 \   'javascript': [],
+\   'tex': [],
 \   'eruby': [],
 \   'cpp': ['clangtidy'],
 \   'python': [],

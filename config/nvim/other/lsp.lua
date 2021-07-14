@@ -123,4 +123,25 @@ lsp.sumneko_lua.setup {
   },
 }
 
+lsp.texlab.setup{
+  settings = {
+    texlab = {
+      build = {
+        args = { "-pdf", "-xelatex", "-interaction=nonstopmode", "-synctex=1", "%f" },
+        executable = "latexmk",
+        forwardSearchAfter = false,
+        onSave = true,
+      },
+      chktex = {
+        onEdit = true,
+        onOpenAndSave = true
+      },
+      latexFormatter = "latexindent",
+      latexindent = {
+        modifyLineBreaks = true,
+      },
+    },
+  },
+}
+
 require('lspfuzzy').setup {}
