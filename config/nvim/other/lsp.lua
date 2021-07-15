@@ -45,7 +45,7 @@ local on_attach = function(client, bufnr)
 end
 
   -- cmd = {"pyls", "-v", "--log-file", "/tmp/pyls.log"},
-lsp.pyls.setup {
+lsp.pylsp.setup {
   on_attach = on_attach,
   settings = {
     pyls = {
