@@ -35,3 +35,4 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 
 export AWS_DEFAULT_REGION=us-east-2
+. "$HOME/.cargo/env"
