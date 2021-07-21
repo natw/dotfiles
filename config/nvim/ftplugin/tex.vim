@@ -1,6 +1,6 @@
 map ,m :make<cr><cr><cr>
-let g:tex_flavor='latex'
+
 setlocal softtabstop=2
-" setlocal indentkeys=''
-setlocal indentkeys-='{'
-setlocal indentkeys-='\item'
+
+let g:tex_flavor='latex'
+let g:tex_indent_items = 0
