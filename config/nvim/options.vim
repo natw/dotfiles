@@ -46,6 +46,7 @@ set undodir=/tmp
 set undofile
 " set t_Co=256
 set termguicolors
+set signcolumn=yes                    " don't collapse sign column. To prevent annoying flicker of text moving side to side
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

@@ -20,7 +20,7 @@ tsc.setup {
   },
 
   indent = {
-    enable = true
+    enable = false
   },
 
   playground = {

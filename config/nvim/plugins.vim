@@ -5,6 +5,7 @@ Plug 'natw/vim-railscasts'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-lsp'
 
+Plug 'seblj/nvim-echo-diagnostics'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

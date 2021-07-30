@@ -1,9 +1,43 @@
+-- TODO: diagnostics disappearing on save
+
 local lsp = require('lspconfig')
 
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
+
+--local log = require('vim.lsp.log')
+--function diagnostics_handler(_, _, params, client_id, _, config)
+--  local uri = params.uri
+--  local bufnr = vim.uri_to_bufnr(uri)
+
+--  if not bufnr then
+--    return
+--  end
+
+--  local diagnostics = params.diagnostics
+
+--  -- Always save the diagnostics, even if the buf is not loaded.
+--  -- Language servers may report compile or build errors via diagnostics
+--  -- Users should be able to find these, even if they're in files which
+--  -- are not loaded.
+--  vim.lsp.diagnostic.save(diagnostics, bufnr, client_id)
+
+--  -- Unloaded buffers should not handle diagnostics.
+--  --    When the buffer is loaded, we'll call on_attach, which sends textDocument/didOpen.
+--  --    This should trigger another publish of the diagnostics.
+--  --
+--  -- In particular, this stops a ton of spam when first starting a server for current
+--  -- unloaded buffers.
+--  if not vim.api.nvim_buf_is_loaded(bufnr) then
+--    return
+--  end
+
+--  vim.lsp.diagnostic.display(diagnostics, bufnr, client_id, config)
+--end
+
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
+    -- diagnostics_handler,
     vim.lsp.diagnostic.on_publish_diagnostics,
     {
       underline = false,
@@ -16,7 +50,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 
 local on_attach = function(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -42,6 +76,8 @@ local on_attach = function(_, bufnr)
 
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+
+  vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
   -- cmd = {"pyls", "-v", "--log-file", "/tmp/pyls.log"},
@@ -144,6 +180,10 @@ lsp.texlab.setup{
       },
     },
   },
+}
+
+lsp.solargraph.setup{
+  on_attach = on_attach,
 }
 
 require('lspfuzzy').setup {}

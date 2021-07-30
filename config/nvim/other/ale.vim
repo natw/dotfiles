@@ -1,7 +1,7 @@
 " \   'go': ['golangci-lint'],
 let g:ale_linters = {
-\   'ruby': ['ruby'],
 \   'go': [],
+\   'ruby': ['ruby'],
 \   'javascript': [],
 \   'tex': [],
 \   'eruby': [],
@@ -32,6 +32,7 @@ let g:ale_sign_error = '>'
 let g:ale_sign_style_error = '>'
 let g:ale_sign_style_warning = '>'
 let g:ale_virtualtext_cursor = 1
+let g:ale_echo_cursor = 1
 let g:ale_virtualtext_prefix = '   > '
 " let g:ale_virtualtext_delay = 100
 
