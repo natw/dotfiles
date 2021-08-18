@@ -48,6 +48,8 @@ set undofile
 set termguicolors
 set signcolumn=yes                    " don't collapse sign column. To prevent annoying flicker of text moving side to side
 
+let g:netrw_browsex_viewer= "open"
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif

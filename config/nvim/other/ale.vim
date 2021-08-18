@@ -1,6 +1,5 @@
-" \   'go': ['golangci-lint'],
 let g:ale_linters = {
-\   'go': [],
+\   'go': ['golangci-lint'],
 \   'ruby': ['ruby'],
 \   'javascript': [],
 \   'tex': [],

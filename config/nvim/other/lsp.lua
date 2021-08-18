@@ -41,6 +41,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.diagnostic.on_publish_diagnostics,
     {
       underline = false,
+      update_in_insert = false,
       virtual_text = {
         spacing = 8,
       }
@@ -80,7 +81,6 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
-  -- cmd = {"pyls", "-v", "--log-file", "/tmp/pyls.log"},
 lsp.pylsp.setup {
   on_attach = on_attach,
   settings = {
@@ -119,14 +119,22 @@ lsp.terraformls.setup { on_attach = on_attach }
 lsp.gopls.setup {
   on_attach = on_attach,
   settings = {
-    semanticTokens = true,
-    usePlaceholders = true,
-    analyses = {
-      nillness = true,
-    },
-    codelens = {
-      test = true,
-      gc_details = true,
+    gopls = {
+      semanticTokens = true,
+      usePlaceholders = true,
+      -- verboseOutput = true,
+      gofumpt = true,
+      staticcheck = true,
+      analyses = {
+        nillness = true,
+        fieldalignment = true,
+        unusedparams = true,
+        unusedwrite = true,
+      },
+      codelenses = {
+        test = true,
+        gc_details = true,
+      },
     },
   },
 }

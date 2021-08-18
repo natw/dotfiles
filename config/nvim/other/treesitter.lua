@@ -9,6 +9,10 @@ tsc.setup {
     -- disable = { "c", "rust" },  -- list of language that will be disabled
   },
 
+  textobjects = {
+    enable = true,
+  },
+
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -20,7 +24,7 @@ tsc.setup {
   },
 
   indent = {
-    enable = false
+    enable = { "yaml" }
   },
 
   playground = {
