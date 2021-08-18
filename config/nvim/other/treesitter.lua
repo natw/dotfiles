@@ -24,7 +24,7 @@ tsc.setup {
   },
 
   indent = {
-    enable = { "yaml" }
+    enable = {}
   },
 
   playground = {
