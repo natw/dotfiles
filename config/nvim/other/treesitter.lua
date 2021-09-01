@@ -23,10 +23,6 @@ tsc.setup {
     },
   },
 
-  indent = {
-    enable = {}
-  },
-
   playground = {
     enable = true,
     disable = {},
