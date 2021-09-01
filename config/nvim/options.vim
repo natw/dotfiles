@@ -21,7 +21,7 @@ set wildmode=longest,list             " show menu for tab-completion
 set completeopt=menuone               " and just the menu
 set wildignore+=*.pyc                 " don't need dem pyc files
 " set foldmethod=syntax                 " I dunno, maybe this will set up more folds automatically?
-" set foldlevelstart=99                 " forces folds open by default
+set foldlevelstart=99                 " forces folds open by default
 set foldenable                        " enable fold
 set nojoinspaces                      " don't use two spaces after a . when joining lines
 set grepprg=ag                        " better than grep
