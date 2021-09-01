@@ -19,4 +19,7 @@ nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
 lua require('hover_doc_link')
 nnoremap <silent> gx :call v:lua.hover_doc_link('pkg.go.dev')<cr>
 
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
+" autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
+
+setlocal foldmethod=expr
+setlocal foldexpr=nvim_treesitter#foldexpr()
