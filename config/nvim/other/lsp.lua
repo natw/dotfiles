@@ -48,7 +48,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
     }
   )
 
-
 local on_attach = function(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -123,7 +122,7 @@ lsp.gopls.setup {
       semanticTokens = true,
       usePlaceholders = true,
       -- verboseOutput = true,
-      gofumpt = true,
+      -- gofumpt = true,
       staticcheck = true,
       analyses = {
         nillness = true,
