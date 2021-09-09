@@ -1,21 +1,22 @@
 ; vim: ft=gitconfig
 
 [alias]
-    st = status
-    lg = log --graph --all --abbrev-commit
-    lt = !git lg -15
-    co = checkout
-    dif = diff
-    dc = diff --cached
-    ci = commit
-    aap = add . -p
-    unmerged = branch --no-merge
-    r = remote -v
-    pr = pull-request
-    om = !git diff --name-only | uniq | xargs -o nvim
-    ff = merge --ff-only
-    yesterday = log --graph --all --abbrev-commit --since=yesterday --before=0am
-    pr = !open "https://github.com/$(git remote get-url origin | sed -n 's/^.*:\\(.*\\)\\.git$/\\1/p')/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"
+  st = status
+  lg = log --graph --all --abbrev-commit
+  lt = !git lg -15
+  co = checkout
+  dif = diff
+  dc = diff --cached
+  ci = commit
+  aap = add . -p
+  unmerged = branch --no-merge
+  r = remote -v
+  pr = pull-request
+  om = !git diff --name-only | uniq | xargs -o nvim
+  ff = merge --ff-only
+  yesterday = log --graph --all --abbrev-commit --since=yesterday --before=0am
+  pr = !open "https://github.com/$(git remote get-url origin | sed -n 's/^.*:\\(.*\\)\\.git$/\\1/p')/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"
+  burn = restore --staged --worktree
 
 [format]
     pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
