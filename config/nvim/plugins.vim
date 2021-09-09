@@ -1,23 +1,32 @@
 call plug#begin(stdpath('config') . '/bundle')
 
+" colorscheme
 Plug 'natw/vim-railscasts'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete-lsp'
+Plug '/Users/NatWilliams/projects/nvim-sig-hint'
+
+" completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
 
 Plug 'seblj/nvim-echo-diagnostics'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 Plug 'ojroques/nvim-lspfuzzy'
+Plug 'folke/lsp-colors.nvim'
+Plug 'folke/trouble.nvim'
 
 """ markup languages
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-markdown'
 " Plug 'aklt/plantuml-syntax'
-Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 
 """ config

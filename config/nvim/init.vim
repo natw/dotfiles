@@ -34,3 +34,10 @@ endfunction
 let g:python3_host_prog=$HOME . "/.local/vim-venv/bin/python"
 
 let $VIMHOME=expand('<sfile>:p:h')
+
+function! s:queries()
+  lua package.loaded["queries"] = nil
+  lua require("queries").queries()
+endfunction
+
+nnoremap <silent> <leader>e :call <SID>queries()<cr>
