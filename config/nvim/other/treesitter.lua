@@ -10,7 +10,18 @@ tsc.setup {
   },
 
   textobjects = {
-    enable = true,
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["if"] = "@function.inner",
+        ["af"] = "@function.outer",
+        ["ib"] = "@block.inner",
+        ["ab"] = "@block.outer",
+        ["ic"] = "@class.inner",
+        ["ac"] = "@class.outer",
+      },
+    },
   },
 
   incremental_selection = {
