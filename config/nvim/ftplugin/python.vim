@@ -1,4 +1,5 @@
 let g:pylint_onwrite = 0
+let g:python3_host_prog=$HOME . "/.local/vim-venv/bin/python"
 
 setlocal tabstop=4
 setlocal softtabstop=4
