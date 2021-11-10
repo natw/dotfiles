@@ -90,7 +90,8 @@ lsp.gopls.setup {
       semanticTokens = true,
       usePlaceholders = true,
       -- verboseOutput = true,
-      -- gofumpt = true,
+      gofumpt = true,
+      ["local"] = "github.com/amount,github.com/natw",
       staticcheck = true,
       analyses = {
         nillness = true,
