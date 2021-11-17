@@ -6,12 +6,12 @@
 inoremap <c-c> <esc>
 
 " ^P toggles paste mode (from insert mode)
-nmap <C-p> :set paste!<CR>:set paste?<CR>
+nnoremap <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
-nmap <C-h> gT
+nnoremap <C-h> gT
 " ctrl-L for next tab
-nmap <C-l> gt
+nnoremap <C-l> gt
 
 " commenting
 " gc is powered by the vim-commentary plugin
@@ -25,35 +25,35 @@ map <leader>c gc
 :command! Wa wa
 
 " display the number of occurences of the word under the cursor
-nmap <Leader>wc :%s/<c-r><c-w>//gn<CR>
+nnoremap <Leader>wc :%s/<c-r><c-w>//gn<CR>
 
 " open (or create) files with pre-filled path relative to current buffer
 :command! -nargs=1 -complete=file EditOrMkFileWithDir :call nat#EditOrMkFileWithDir(<q-args>)
-nmap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:p:h") . "/" <cr>
+nnoremap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:p:h") . "/" <cr>
 
 " command to remove trailing whitespace
 :command! Rmsp %s/\s\+$//
 
 " linewise select previously pasted text
-nmap <Leader>v V`]
+nnoremap <Leader>v V`]
 
 " switch to previous file
-nmap <Leader><Leader> <C-^>
+nnoremap <Leader><Leader> <C-^>
 
 " nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 " quickfix navigation
-nmap ,f :cfirst<cr>
-nmap ,c :cc<cr>
+nnoremap ,f :cfirst<cr>
+nnoremap ,c :cc<cr>
 
-nmap ,t :tabnew<cr>
+nnoremap ,t :tabnew<cr>
 
 " ctrl-w ctrl-c closes the current window, but I often hit it intending to
 " abort the window action
-map <c-w><c-c> <c-[>
+noremap <c-w><c-c> <c-[>
 
-map <leader>hi :call nat#HighlightingInfo()<cr>
+noremap <leader>hi :call nat#HighlightingInfo()<cr>
 
-nmap <silent> <c-n> :silent! call diagnostics#NextThing()<cr>
+nnoremap <silent> <c-n> :silent! call diagnostics#NextThing()<cr>
 
-map <leader>t :call nat#GitFZF()<cr>
+nnoremap <leader>t :call nat#GitFZF()<cr>
