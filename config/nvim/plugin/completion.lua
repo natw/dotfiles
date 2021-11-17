@@ -32,6 +32,7 @@ cmp.setup {
     ghost_text = true,
   },
 }
+
 cmp.setup.cmdline(':', {
   sources = {
     { name = 'cmdline' },

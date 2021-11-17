@@ -34,6 +34,7 @@ alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
 # [[ $(brew --prefix openssl 2>/dev/null) ]] && alias openssl=$(brew --prefix openssl)/bin/openssl
 # [[ $(brew --prefix curl 2>/dev/null) ]] && alias curl=$(brew --prefix curl)/bin/curl
+[[ -x /opt/homebrew/bin/git ]] && alias git=/opt/homebrew/bin/git
 
 add_missing_newline() {
   [ -n "$(tail -c1 $1)" ] && echo >> $1    # add trailing newline to last line if missing
@@ -147,4 +148,11 @@ gk() {
   env=$1
   keyid=$2
   vault kv get -field "${keyid}" "credentials/nats/${env}/signing_keys"
+}
+
+j() {
+  local name=$1
+  local target="${HOME}/junk/${name}"
+  mkdir -p "${target}"
+  cd "${target}"
 }
