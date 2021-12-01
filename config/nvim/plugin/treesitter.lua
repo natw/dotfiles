@@ -9,6 +9,10 @@ tsc.setup {
     -- disable = { "c", "rust" },  -- list of language that will be disabled
   },
 
+  indent = {
+    enable = false,
+  },
+
   textobjects = {
     select = {
       enable = true,
@@ -27,10 +31,10 @@ tsc.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      init_selection = '<cr>',
+      scope_incremental = '<tab>',
+      node_incremental = '<cr>',
+      node_decremental = '<s-cr>',
     },
   },
 

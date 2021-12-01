@@ -42,7 +42,7 @@ set hlsearch
 set incsearch
 source $VIMRUNTIME/macros/matchit.vim " not on by default for some reason
 set clipboard+=unnamed                " use osx clipboard
-set undodir=/tmp
+set undodir=/tmp/vim-undo
 set undofile
 " set t_Co=256
 set termguicolors
