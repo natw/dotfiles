@@ -1,4 +1,3 @@
-
 fpath=(
     "$HOME/.zsh/functions"
     "/opt/homebrew/share/zsh/site-functions"

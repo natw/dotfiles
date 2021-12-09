@@ -4,14 +4,13 @@
 # zmodload zsh/zprof
 
 # osx's /etc/zprofile tries to be helpful and sort out your path, but I can do that myself
-# alias /usr/libexec/path_helper=true
+alias /usr/libexec/path_helper=true
 
 eval $(/opt/homebrew/bin/brew shellenv)
 
 path=(
   "$HOME/bin"
   "/usr/local/opt/llvm/bin"
-  # "$(brew --prefix llvm)/bin"
   "/opt/homebrew/bin"
   "/opt/homebrew/sbin"
   "/usr/local/bin"
@@ -24,7 +23,6 @@ path=(
   "$HOME/.config/yarn/global/node_modules/.bin"
   "$HOME/.npm-packages/bin"
   "/Applications/Postgres.app/Contents/Versions/latest/bin"
-  "$HOME/Library/Python/3.9/bin"
   "$path[@]"
 )
 
