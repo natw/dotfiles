@@ -3,7 +3,8 @@ call plug#begin(stdpath('config') . '/bundle')
 " colorscheme
 Plug 'natw/vim-railscasts'
 
-Plug '/Users/NatWilliams/projects/nvim-sig-hint'
+" Plug '/Users/NatWilliams/projects/nvim-sig-hint'
+
 
 " completion
 " Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
@@ -50,11 +51,12 @@ Plug 'rescript-lang/vim-rescript'
 " Plug 'posva/vim-vue'
 
 """ clojure
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'scheme'] }
+Plug 'vim-scripts/paredit.vim'
 " Plug 'clojure-vim/async-clj-omni'
+" Plug 'Olical/conjure'
 
 """ python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }

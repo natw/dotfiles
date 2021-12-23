@@ -36,11 +36,17 @@ lua <<EOF
       end
     end
   end
+
+  function format()
+    vim.lsp.buf.formatting_sync(nil, 1000)
+  end
 EOF
 
 augroup GO_LSP
 	autocmd!
-  autocmd BufWritePre <buffer> :silent! lua vim.lsp.buf.formatting_sync(nil, 1000)
+  " autocmd BufWritePre <buffer> :silent! lua vim.lsp.buf.formatting_sync(nil, 1000)
+  autocmd BufWritePre <buffer> :silent! lua format()
+
   autocmd BufWritePre <buffer> :silent! lua org_imports(3000)
 augroup END
 

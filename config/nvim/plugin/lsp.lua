@@ -107,6 +107,10 @@ lsp.gopls.setup {
   },
 }
 
+lsp.clojure_lsp.setup{
+  on_attach = on_attach,
+}
+
 local rpath = vim.split(package.path, ";")
 table.insert(rpath, "lua/?.lua")
 table.insert(rpath, "lua/?/init.lua")
@@ -161,6 +165,7 @@ lsp.texlab.setup{
 lsp.solargraph.setup{
   on_attach = on_attach,
 }
+
 
 require('lspfuzzy').setup {}
 

@@ -6,6 +6,7 @@ augroup filetypedetect
   au BufNewFile,BufRead .tmux.conf*,tmux.conf*      setlocal filetype=tmux
   au BufNewFile,BufRead *.wsgi                      setlocal filetype=python
   au BufNewFile,BufRead *.json                      setlocal filetype=json
+  au BufNewFile,BufRead *.clj                       setlocal filetype=clojure
   au BufNewFile,BufRead Capfile                     setlocal filetype=ruby
   au BufNewFile,BufRead Gemfile                     setlocal filetype=ruby
   au BufNewFile,BufRead Vagrantfile                 setlocal filetype=ruby
