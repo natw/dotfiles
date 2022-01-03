@@ -3,6 +3,7 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal softtabstop=4
 setlocal updatetime=200
+setlocal foldmethod=indent
 
 :command! A GoAlternate
 
@@ -50,6 +51,4 @@ augroup GO_LSP
   autocmd BufWritePre <buffer> :silent! lua org_imports(3000)
 augroup END
 
-
-" setlocal foldmethod=expr
 " setlocal foldexpr=nvim_treesitter#foldexpr()
