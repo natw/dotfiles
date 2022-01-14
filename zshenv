@@ -23,6 +23,7 @@ path=(
   "$HOME/.config/yarn/global/node_modules/.bin"
   "$HOME/.npm-packages/bin"
   "/Applications/Postgres.app/Contents/Versions/latest/bin"
+  "/usr/local/texlive/2021/bin/universal-darwin"
   "$path[@]"
 )
 
