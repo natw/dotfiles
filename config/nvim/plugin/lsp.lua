@@ -2,7 +2,10 @@
 
 local lsp = require('lspconfig')
 
--- vim.lsp.set_log_level("debug")
+local trues = {"true", "TRUE", "1"}
+if trues[vim.env.LSP_DEBUG] ~= nil then
+  vim.lsp.set_log_level("debug")
+end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
@@ -87,7 +90,7 @@ lsp.gopls.setup {
   on_attach = on_attach,
   settings = {
     gopls = {
-      semanticTokens = true,
+      semanticTokens = false,
       usePlaceholders = true,
       -- verboseOutput = true,
       gofumpt = true,
