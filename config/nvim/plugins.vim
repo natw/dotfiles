@@ -70,8 +70,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " Plug 'tpope/vim-rails', { 'for': 'ruby' }
 
 """ go
-Plug 'fatih/vim-go' " , { 'do': ':GoUpdateBinaries' }
-" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+" Plug 'fatih/vim-go' " , { 'do': ':GoUpdateBinaries' }
 
 """ other
 Plug 'exu/pgsql.vim', { 'for': 'sql' }
