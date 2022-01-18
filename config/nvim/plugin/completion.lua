@@ -33,12 +33,16 @@ cmp.setup {
   },
 }
 
-cmp.setup.cmdline(':', {
-  sources = {
-    { name = 'cmdline' },
-    { name = 'path' },
-  }
-})
+-- cmp.setup.cmdline(':', {
+--   sources = {
+--     { name = 'cmdline' },
+--     { name = 'path' },
+--   }
+-- })
+
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 
 -- cmp.setup.cmdline('/', {
 --   sources = cmp.config.sources({
