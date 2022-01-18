@@ -1,6 +1,8 @@
 local vim = vim
 local util = require 'vim.lsp.util'
 
+local M = {}
+
 local function handleHover(patt)
   local h = function (err, method, result, client_id, bufnr, config)
     local body = result['contents']['value']
@@ -19,8 +21,10 @@ local function handleHover(patt)
   return h
 end
 
-function _G.hover_doc_link(patt)
+function M.hover_doc_link(patt)
   local params = util.make_position_params()
   vim.lsp.buf_request(0, 'textDocument/hover', params, handleHover(patt))
 end
+
+return M
 
