@@ -1,9 +1,5 @@
 local M = {}
 
-function M.alternate()
-  print("hi!")
-end
-
 -- I grabbed this from some github issue somewhere
 -- For some reason, golsp made the reorganization of imports
 -- (which includes adding missing ones)
@@ -27,6 +23,27 @@ end
 
 function M.format()
   vim.lsp.buf.formatting_sync(nil, 1000)
+end
+
+function M.alternate()
+  local fname = vim.api.nvim_buf_get_name(0)
+  if fname:match("^$") then
+    print("empty?")
+    return
+  end
+  local altfname = ""
+  if vim.endswith(fname, "_test.go") then
+    local parts = vim.split(fname, "_test.go")
+    altfname = parts[1] .. ".go"
+  elseif vim.endswith(fname, ".go") then
+    local parts = vim.split(fname, ".go$")
+    altfname = parts[1] .. "_test.go"
+  else
+    print("weird file name")
+    return
+  end
+
+  vim.api.nvim_command("edit " .. altfname)
 end
 
 return M
