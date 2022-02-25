@@ -22,6 +22,8 @@ alias bb='brew bundle --file ~/projects/dotfiles/Brewfile'
 alias vimp="vim -R --noplugin -c 'runtime! macros/less.vim'"
 alias cdv="cd ~/.config/nvim"
 
+[[ $commands[ggrep] ]] && alias grep=ggrep
+
 alias tpo='terraform workspace select opslab && terraform plan -var-file=opslab.tfvars'
 alias tps='terraform workspace select stg && terraform plan -var-file=stg.tfvars'
 alias tpp='terraform workspace select prd && terraform plan -var-file=prd.tfvars'

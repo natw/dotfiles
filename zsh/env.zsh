@@ -6,7 +6,6 @@ export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
 export LC_TYPE=$LC_CTYPE
 export LESS="FSRX"
-export RUBYOPT=rubygems  # lol
 export HISTFILE=~/.zhistory
 export HISTSIZE='100000'
 export SAVEHIST='100000'
