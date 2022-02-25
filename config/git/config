@@ -26,6 +26,7 @@
 
 [pull]
   ff = only
+  rebase = false
 
 [color]
     diff = true
@@ -34,6 +35,13 @@
 
 [color "branch"]
     upstream = bold blue
+
+[diff]
+  algorithm = histogram
+  colorMoved = default
+
+[init]
+	defaultBranch = main
 
 [merge]
     tool = vimdiff
@@ -44,8 +52,8 @@
 [push]
     default = current
 
-; [merge]
-;   conflictstyle = diff3
+[merge]
+  conflictstyle = zdiff3
 
 [rerere]
   enabled = 1
