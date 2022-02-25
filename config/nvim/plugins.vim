@@ -18,10 +18,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'seblj/nvim-echo-diagnostics'
 Plug 'neovim/nvim-lspconfig'
 
-" Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
-" Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': '0.5-compat'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 

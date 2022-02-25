@@ -28,6 +28,9 @@ cmp.setup {
     ['<c-j>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
     ['<c-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'}),
   },
+  view = {
+    entries = "native",
+  },
   experimental = {
     ghost_text = true,
   },

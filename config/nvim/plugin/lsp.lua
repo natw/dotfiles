@@ -2,10 +2,7 @@
 
 local lsp = require('lspconfig')
 
-local trues = {"true", "TRUE", "1"}
-if trues[vim.env.LSP_DEBUG] ~= nil then
-  vim.lsp.set_log_level("debug")
-end
+  -- vim.lsp.set_log_level("debug")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
@@ -41,7 +38,8 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', ',,re', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', ',,ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', ',,q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', ',,d', '<cmd>lua vim.lsp.buf.workspace_symbol(".")<CR>', opts)
+  buf_set_keymap('n', ',,sd', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
+  buf_set_keymap('n', ',,sw', '<cmd>lua vim.lsp.buf.workspace_symbol(".")<CR>', opts)
   buf_set_keymap('n', ',,ci', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
   buf_set_keymap('n', ',,co', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
 
@@ -51,8 +49,20 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
+
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- The following example advertise capabilities to `clangd`.
+require'lspconfig'.clangd.setup {
+  capabilities = capabilities,
+}
+
+
 lsp.pylsp.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     pyls = {
       configurationSources = {
@@ -73,6 +83,7 @@ lsp.pylsp.setup {
 
 lsp.vimls.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   init_options = {
     isNeovim = true,
     indexes = {
@@ -84,10 +95,14 @@ lsp.vimls.setup {
   },
 }
 
-lsp.terraformls.setup { on_attach = on_attach }
+lsp.terraformls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 lsp.gopls.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     gopls = {
       semanticTokens = false,
@@ -112,6 +127,7 @@ lsp.gopls.setup {
 
 lsp.clojure_lsp.setup{
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 local rpath = vim.split(package.path, ";")
@@ -122,6 +138,7 @@ local lualspRoot = vim.env.HOME .. "/src/lua-language-server"
 
 lsp.sumneko_lua.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   cmd = {lualspRoot .. "/bin/macOS/lua-language-server", "-E", lualspRoot .. "/main.lua"},
   settings = {
     Lua = {
@@ -144,6 +161,7 @@ lsp.sumneko_lua.setup {
 
 lsp.texlab.setup{
   on_attach = on_attach,
+  capabilities = capabilities,
   cmd = {"texlab"},
   settings = {
     texlab = {
@@ -167,6 +185,7 @@ lsp.texlab.setup{
 
 lsp.solargraph.setup{
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 
