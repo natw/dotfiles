@@ -14,6 +14,18 @@ tsc.setup {
   },
 
   textobjects = {
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_previous_start = {
+        ["[["] = "@function.outer",
+      },
+      goto_next_start = {
+        ["]]"] = "@function.outer",
+      },
+
+    },
+
     select = {
       enable = true,
       lookahead = true,
