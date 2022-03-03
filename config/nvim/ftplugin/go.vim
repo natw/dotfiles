@@ -7,6 +7,8 @@ setlocal foldmethod=indent
 
 :command! A lua require('go_funcs').alternate()
 
+nnoremap gx :OpenHoverDocURL<cr>
+
 " :command! A GoAlternate
 
 " nnoremap tt :GoInfo<cr>
@@ -14,8 +16,6 @@ setlocal foldmethod=indent
 " nnoremap ,,d :GoDeclsDir<cr>
 
 nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
-
-nnoremap <silent> gx :lua require('hover_doc_link').hover_doc_link('pkg.go.dev')<cr>
 
 augroup GO_LSP
 	autocmd! * <buffer=abuf>

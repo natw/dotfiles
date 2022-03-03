@@ -5,6 +5,7 @@ Plug 'natw/vim-railscasts'
 
 " Plug '/Users/NatWilliams/projects/nvim-sig-hint'
 
+Plug 'natw/nvim-hover-doc-url'
 
 " completion
 " Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
