@@ -10,7 +10,8 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 path=(
   "$HOME/bin"
-  "/usr/local/opt/llvm/bin"
+  "/Applications/Postgres.app/Contents/Versions/latest/bin"
+  "/opt/homebrew/opt/llvm/bin"
   "/opt/homebrew/bin"
   "/opt/homebrew/sbin"
   "/usr/local/bin"
@@ -22,7 +23,7 @@ path=(
   "$HOME/.yarn/bin"
   "$HOME/.config/yarn/global/node_modules/.bin"
   "$HOME/.npm-packages/bin"
-  "/Applications/Postgres.app/Contents/Versions/latest/bin"
+  "$HOME/.local/bin"
   "/usr/local/texlive/2021/bin/universal-darwin"
   "$path[@]"
 )
