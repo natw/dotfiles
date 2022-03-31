@@ -2,7 +2,7 @@
 
 local lsp = require('lspconfig')
 
-  -- vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
@@ -56,6 +56,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- The following example advertise capabilities to `clangd`.
 require'lspconfig'.clangd.setup {
+  on_attach = on_attach,
   capabilities = capabilities,
 }
 
@@ -188,6 +189,13 @@ lsp.solargraph.setup{
   capabilities = capabilities,
 }
 
+-- lsp.clangd.setup{
+--   cmd = {"clangd", "--log=verbose", "--enable-config"},
+-- }
+
+-- lsp.yamlls.setup {
+--   on_attach = on_attach,
+-- }
 
 require('lspfuzzy').setup {}
 

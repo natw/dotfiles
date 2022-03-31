@@ -58,7 +58,8 @@ Plug 'vim-scripts/paredit.vim'
 " Plug 'Olical/conjure'
 
 """ python
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+" Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 " Plug 'Shougo/neco-vim', { 'for': 'python' }
 " Plug 'nvie/vim-flake8', { 'for': 'python' }
