@@ -42,9 +42,9 @@ let g:ale_go_golangci_lint_package = 1
 
 let g:ale_go_goimports_options = "-local github.com/amount,github.com/natw"
 
-" \   'go': ['goimports', 'remove_trailing_lines', 'trim_whitespace'],
 let g:ale_fixers = {
 \   'arduino': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['goimports', 'remove_trailing_lines', 'trim_whitespace'],
 \   'clojure': ['remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'elm': ['elm-format'],

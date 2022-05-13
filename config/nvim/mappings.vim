@@ -57,3 +57,5 @@ noremap <leader>hi :call nat#HighlightingInfo()<cr>
 nnoremap <silent> <c-n> :silent! call diagnostics#NextThing()<cr>
 
 nnoremap <leader>t :call nat#GitFZF()<cr>
+
+tnoremap <Esc> <C-\><C-n>

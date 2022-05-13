@@ -104,6 +104,8 @@ Plug 'junegunn/vim-easy-align'
 " Plug 'ervandew/supertab'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
+Plug 'hkupty/iron.nvim'
+
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
 "     \ 'do': 'bash install.sh',
