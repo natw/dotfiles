@@ -45,7 +45,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 " Plug 'reasonml-editor/vim-reason-plus'
-Plug 'rescript-lang/vim-rescript'
+" Plug 'rescript-lang/vim-rescript'
 " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " Plug 'posva/vim-vue'
 

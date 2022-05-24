@@ -38,7 +38,7 @@ let g:ale_virtualtext_prefix = '   > '
 let g:ale_cpp_clangtidy_checks = []
 
 let g:ale_go_golangci_lint_options = "--exclude-use-default"
-let g:ale_go_golangci_lint_package = 1
+" let g:ale_go_golangci_lint_package = 1
 
 let g:ale_go_goimports_options = "-local github.com/amount,github.com/natw"
 
