@@ -184,10 +184,10 @@ lsp.texlab.setup{
   },
 }
 
-lsp.solargraph.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- lsp.solargraph.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 
 -- lsp.clangd.setup{
 --   cmd = {"clangd", "--log=verbose", "--enable-config"},

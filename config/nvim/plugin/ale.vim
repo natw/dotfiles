@@ -50,7 +50,7 @@ let g:ale_fixers = {
 \   'elm': ['elm-format'],
 \   'json': ['fixjson'],
 \   'python': ['isort', 'black'],
-\   'ruby': ['remove_trailing_lines', 'trim_whitespace'],
+\   'ruby': ['standardrb', 'remove_trailing_lines', 'trim_whitespace'],
 \   'sh': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['remove_trailing_lines', 'trim_whitespace'],
 \   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],
