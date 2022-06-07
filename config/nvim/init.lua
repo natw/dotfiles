@@ -7,6 +7,7 @@ vim.g.did_load_filetypes = 0
 vim.cmd("runtime options.vim")
 vim.cmd("runtime plugins.vim")
 vim.cmd("runtime mappings.vim")
+require("options")
 
 vim.o.runtimepath = vim.o.runtimepath .. "$GOROOT/misc/vim"
 
