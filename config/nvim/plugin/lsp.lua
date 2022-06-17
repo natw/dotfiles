@@ -2,7 +2,7 @@
 
 local lsp = require('lspconfig')
 
--- vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("debug")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
@@ -47,6 +47,8 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
   vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
+
+  buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>', opts)
 end
 
 

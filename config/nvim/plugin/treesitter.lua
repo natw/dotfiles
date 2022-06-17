@@ -10,7 +10,7 @@ tsc.setup {
   },
 
   indent = {
-    enable = false,
+    enable = true,
   },
 
   textobjects = {

@@ -1,6 +1,7 @@
+" \   'go': ['golangci-lint'],
+" \   'ruby': ['ruby'],
+" \   'sh': ['shellcheck'],
 let g:ale_linters = {
-\   'go': ['golangci-lint'],
-\   'ruby': ['ruby'],
 \   'javascript': [],
 \   'tex': [],
 \   'eruby': [],
@@ -11,7 +12,6 @@ let g:ale_linters = {
 \   'typescriptreact': ['tsserver'],
 \   'elm': [],
 \   'clojure': ['clj-kondo'],
-\   'sh': ['shellcheck'],
 \}
 
 let g:ale_typescript_prettier_use_local_config = 1
@@ -44,13 +44,13 @@ let g:ale_go_goimports_options = "-local github.com/amount,github.com/natw"
 
 let g:ale_fixers = {
 \   'arduino': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
-\   'go': ['goimports', 'remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['remove_trailing_lines', 'trim_whitespace'],
 \   'clojure': ['remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format', 'remove_trailing_lines', 'trim_whitespace'],
 \   'elm': ['elm-format'],
 \   'json': ['fixjson'],
-\   'python': ['isort', 'black'],
-\   'ruby': ['standardrb', 'remove_trailing_lines', 'trim_whitespace'],
+\   'python': [],
+\   'ruby': [],
 \   'sh': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['remove_trailing_lines', 'trim_whitespace'],
 \   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],

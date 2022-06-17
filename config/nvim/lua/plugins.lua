@@ -1,7 +1,7 @@
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -15,6 +15,7 @@ end
 return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim'
 
   -- colorscheme
   use 'natw/vim-railscasts'
@@ -34,6 +35,7 @@ return require('packer').startup(function(use)
 
   use 'seblj/nvim-echo-diagnostics'
   use 'neovim/nvim-lspconfig'
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   use {
     'nvim-treesitter/nvim-treesitter',
