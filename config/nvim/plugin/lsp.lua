@@ -1,8 +1,7 @@
--- TODO: diagnostics disappearing on save
-
 local lsp = require('lspconfig')
 
-vim.lsp.set_log_level("debug")
+-- require('vim.lsp.log').set_format_func(vim.inspect)
+-- vim.lsp.set_log_level("debug")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
