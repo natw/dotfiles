@@ -1,10 +1,10 @@
 " \   'go': ['golangci-lint'],
-" \   'ruby': ['ruby'],
 " \   'sh': ['shellcheck'],
 let g:ale_linters = {
 \   'javascript': [],
 \   'tex': [],
 \   'eruby': [],
+\   'ruby': ['ruby'],
 \   'cpp': ['clangtidy'],
 \   'python': [],
 \   'terraform': ['terraform', 'tflint'],

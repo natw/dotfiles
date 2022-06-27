@@ -1,4 +1,4 @@
-vim.cmd("set debug=throw")
+-- vim.cmd("set debug=throw")
 vim.api.nvim_set_var('ale_sign_highlight_linenrs', true)
 
 vim.g.do_filetype_lua = 1

@@ -47,8 +47,8 @@ nls.setup({
 
     nls.builtins.diagnostics.golangci_lint,
 
-    nls.builtins.diagnostics.standardrb,
-    nls.builtins.formatting.standardrb,
+    -- nls.builtins.diagnostics.standardrb,
+    -- nls.builtins.formatting.standardrb,
 
     nls.builtins.formatting.latexindent,
   }
