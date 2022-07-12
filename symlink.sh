@@ -19,7 +19,7 @@ homeFiles=(
 for fname in $homeFiles; do
   symlinkName="${HOME}/.${fname}"
   target="${SCRIPT_DIR}/${fname}"
-  if [ -f "${symlinkName}" ]; then
+  if [ -f "${symlinkName}" ] && ! [ -h "${symlinkName}" ]; then
     echo "${symlinkName} is a real file and already exists, skipping"
   elif [ -L "${symlinkName}" ]; then
     echo "'${symlinkName}' is an existing symlink. removing"
