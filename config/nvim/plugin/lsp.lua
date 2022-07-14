@@ -55,12 +55,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- The following example advertise capabilities to `clangd`.
 require'lspconfig'.clangd.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-
 
 lsp.pylsp.setup {
   on_attach = on_attach,
@@ -107,7 +105,7 @@ lsp.gopls.setup {
   capabilities = capabilities,
   settings = {
     gopls = {
-      semanticTokens = false,
+      semanticTokens = true,
       usePlaceholders = true,
       -- verboseOutput = true,
       gofumpt = true,
@@ -141,7 +139,7 @@ local lualspRoot = vim.env.HOME .. "/src/lua-language-server"
 lsp.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = {lualspRoot .. "/bin/macOS/lua-language-server", "-E", lualspRoot .. "/main.lua"},
+  -- cmd = {lualspRoot .. "/bin/macOS/lua-language-server", "-E", lualspRoot .. "/main.lua"},
   settings = {
     Lua = {
       runtime = {
@@ -185,10 +183,10 @@ lsp.texlab.setup{
   },
 }
 
--- lsp.solargraph.setup{
---   on_attach = on_attach,
---   capabilities = capabilities,
--- }
+lsp.solargraph.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 -- lsp.clangd.setup{
 --   cmd = {"clangd", "--log=verbose", "--enable-config"},

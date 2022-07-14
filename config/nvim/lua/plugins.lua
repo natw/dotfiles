@@ -20,8 +20,6 @@ return require('packer').startup(function(use)
   -- colorscheme
   use 'natw/vim-railscasts'
 
-  use '/Users/NatWilliams/projects/nvim-sig-hint'
-
   use 'natw/nvim-hover-doc-url'
 
   -- completion
@@ -120,7 +118,9 @@ return require('packer').startup(function(use)
 
 
   -- everything else
-  use 'vim-airline/vim-airline'
+
+  -- use 'vim-airline/vim-airline'
+  use 'nvim-lualine/lualine.nvim'
   use 'tpope/vim-commentary'
   use 'mileszs/ack.vim'
   use 'airblade/vim-gitgutter'

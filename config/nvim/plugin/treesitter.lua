@@ -2,7 +2,7 @@ local tsc = require('nvim-treesitter.configs')
 
 tsc.setup {
   ensure_installed = "all",
-  ignore_install = {}, -- List of parsers to ignore installing
+  ignore_install = {"phpdoc"}, -- List of parsers to ignore installing
 
   highlight = {
     enable = true,              -- false will disable the whole extension
