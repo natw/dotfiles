@@ -47,7 +47,7 @@ local on_attach = function(_, bufnr)
 
   vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 
-  buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>', opts)
+  buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 3000)<cr>', opts)
 end
 
 
@@ -186,6 +186,15 @@ lsp.texlab.setup{
 lsp.solargraph.setup{
   on_attach = on_attach,
   capabilities = capabilities,
+  -- cmd = {"bundle", "exec", "solargraph", "stdio"},
+  init_options = {
+    formatting = false,
+  },
+  settings = {
+    solargraph = {
+      diagnostics = false,
+    },
+  },
 }
 
 -- lsp.clangd.setup{

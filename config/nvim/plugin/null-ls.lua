@@ -31,7 +31,7 @@ local on_attach = function(_, bufnr)
 
   vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 
-  buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>', opts)
+  buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 10000)<cr>', opts)
 
 end
 nls.setup({
@@ -47,8 +47,10 @@ nls.setup({
 
     nls.builtins.diagnostics.golangci_lint,
 
-    -- nls.builtins.diagnostics.standardrb,
-    -- nls.builtins.formatting.standardrb,
+    nls.builtins.diagnostics.standardrb,
+    nls.builtins.formatting.standardrb.with({
+      timeout = 10000,
+    }),
 
     nls.builtins.formatting.latexindent,
   }
