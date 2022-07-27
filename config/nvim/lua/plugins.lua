@@ -95,7 +95,7 @@ return require('packer').startup(function(use)
     ft = {'ruby'},
   }
   -- use 'ngmy/vim-rubocop', { 'for': 'ruby' }
-  -- use 'tpope/vim-rails', { 'for': 'ruby' }
+  use 'tpope/vim-rails'
 
   -- go
   -- use 'fatih/vim-go' " , { 'do': ':GoUpdateBinaries' }
@@ -116,6 +116,7 @@ return require('packer').startup(function(use)
   -- use 'sudar/vim-arduino-syntax'
 
 
+  use 'vim-test/vim-test'
 
   -- everything else
 
