@@ -40,3 +40,5 @@ vim.o.undodir        = "/tmp/vim-undo"
 vim.o.undofile       = true
 vim.o.termguicolors  = true
 vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To prevent annoying flicker of text moving side to side
+
+vim.o.commentstring = "# %s"

@@ -11,7 +11,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
       underline = false,
       update_in_insert = false,
       virtual_text = {
-        spacing = 8,
+        spacing = 4,
       }
     }
   )
@@ -183,19 +183,26 @@ lsp.texlab.setup{
   },
 }
 
-lsp.solargraph.setup{
+lsp.sorbet.setup{
   on_attach = on_attach,
   capabilities = capabilities,
-  -- cmd = {"bundle", "exec", "solargraph", "stdio"},
-  init_options = {
-    formatting = false,
-  },
-  settings = {
-    solargraph = {
-      diagnostics = false,
-    },
-  },
+  cmd = {"bundle", "exec", "srb", "t", "--lsp"},
+  -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
 }
+
+-- lsp.solargraph.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   -- cmd = {"bundle", "exec", "solargraph", "stdio"},
+--   init_options = {
+--     formatting = false,
+--   },
+--   settings = {
+--     solargraph = {
+--       diagnostics = false,
+--     },
+--   },
+-- }
 
 -- lsp.clangd.setup{
 --   cmd = {"clangd", "--log=verbose", "--enable-config"},
@@ -212,3 +219,5 @@ require('nvim-treesitter.configs').setup {
     enable = true
   }
 }
+
+vim.api.nvim_set_keymap('n', 'g?', '<cmd>lua vim.diagnostic.open_float()<cr>', {noremap=true, silent=true})

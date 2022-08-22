@@ -34,8 +34,9 @@ local on_attach = function(_, bufnr)
   buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 10000)<cr>', opts)
 
 end
+
 nls.setup({
-  debug = true,
+  -- debug = true,
   on_attach = on_attach,
   sources = {
     nls.builtins.diagnostics.shellcheck,
@@ -47,9 +48,13 @@ nls.setup({
 
     nls.builtins.diagnostics.golangci_lint,
 
-    nls.builtins.diagnostics.standardrb,
+    -- nls.builtins.diagnostics.standardrb.with({
+    --   timeout = 10000,
+    --   extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
+    -- }),
     nls.builtins.formatting.standardrb.with({
-      timeout = 10000,
+      -- timeout = 10000,
+      -- extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
     }),
 
     nls.builtins.formatting.latexindent,
