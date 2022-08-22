@@ -10,7 +10,8 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 path=(
   "$HOME/bin"
-  "/Applications/Postgres.app/Contents/Versions/latest/bin"
+  "/Applications/Postgres.app/Contents/Versions/12/bin"
+  "/Users/nat/Library/Python/3.10/bin"
   "/opt/homebrew/opt/llvm/bin"
   "/opt/homebrew/bin"
   "/opt/homebrew/sbin"
@@ -37,5 +38,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 export AWS_DEFAULT_REGION=us-east-2
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
+[[ $commands[rbenv] ]] && eval "$(rbenv init -)"
 
 export LANG=en_US.UTF-8
