@@ -1,5 +1,8 @@
 ; vim: ft=gitconfig
 
+[include]
+  path = ~/.gitconfig.local
+
 [alias]
   st = status
   lg = log --graph --all --abbrev-commit
@@ -19,9 +22,8 @@
   burn = restore --staged --worktree
   merged = "!git branch -l --format='%(refname:short)' | grep -v -e '^master$' -e '^main$' | while read branch; do [ -z \"$(git diff origin/HEAD...${branch})\" ] && echo \"${branch}\"; done"
 
-
 [format]
-    pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
+  pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
 
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
@@ -31,31 +33,31 @@
   rebase = false
 
 [color]
-    diff = true
-    status = true
-    branch = auto
+  diff = true
+  status = true
+  branch = auto
 
 [color "branch"]
-    upstream = bold blue
+  upstream = bold blue
+
+[init]
+  defaultBranch = main
 
 [diff]
+  external = difft
   algorithm = histogram
   colorMoved = default
 
-[init]
-	defaultBranch = main
-
 [merge]
-    tool = vimdiff
+  tool = vimdiff
+  ; conflictstyle = zdiff3
 
 [core]
-    pager = less -XFRS -x2
+  pager = less -XFRS -x2
+  excludesFile = "~/.gitignore"
 
 [push]
-    default = current
-
-[merge]
-  conflictstyle = zdiff3
+  default = current
 
 [rerere]
   enabled = 1
@@ -71,16 +73,5 @@
 ; [receive]
 ;   fsckObjects = true
 
-[include]
-  path = ~/.gitconfig.local
-
-; [merge "railsschema"]
-;   name = newer Rails schema version
-;   driver = "ruby -e '\n\
-;     system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
-;     b = File.read(%(%A))\n\
-;     b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
-;     %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
-;     end\n\
-;     File.open(%(%A), %(w)) {|f| f.write(b)}\n\
-;     exit 1 if b.include?(%(<)*%L)'"
+[net]
+  git-fetch-with-cli = true
