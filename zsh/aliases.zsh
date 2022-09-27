@@ -54,8 +54,8 @@ dos2unix() {
 # }
 
 # ruby stuff
-alias rc="bundle exec rails console"
-alias rs="bundle exec rails server"
+alias rc="bin/rails console"
+alias rs="bin/rails server"
 alias be="bundle exec"
 alias rg="bundle exec rails generate"
 alias mi="bundle exec rake db:migrate"
