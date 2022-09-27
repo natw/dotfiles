@@ -2,12 +2,13 @@ local nls = require("null-ls")
 
 local on_attach = function(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
   -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -38,6 +39,7 @@ end
 nls.setup({
   -- debug = true,
   on_attach = on_attach,
+  root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git", ".standard.yml"),
   sources = {
     nls.builtins.diagnostics.shellcheck,
     nls.builtins.formatting.shfmt,
@@ -48,12 +50,16 @@ nls.setup({
 
     nls.builtins.diagnostics.golangci_lint,
 
-    -- nls.builtins.diagnostics.standardrb.with({
-    --   timeout = 10000,
-    --   extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
-    -- }),
+    nls.builtins.diagnostics.standardrb.with({
+      timeout = 10000,
+      root_dir = function(_)
+        return nil
+      end,
+
+      --   extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
+    }),
     nls.builtins.formatting.standardrb.with({
-      -- timeout = 10000,
+      timeout = 10000,
       -- extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
     }),
 

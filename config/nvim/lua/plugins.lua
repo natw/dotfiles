@@ -75,9 +75,14 @@ return require('packer').startup(function(use)
   -- use 'tpope/vim-fireplace', { 'for': 'clojure' }
   use 'guns/vim-clojure-static'
   use 'junegunn/rainbow_parentheses.vim'
-  use 'vim-scripts/paredit.vim'
+  -- use 'vim-scripts/paredit.vim'
   -- use 'clojure-vim/async-clj-omni'
   -- use 'Olical/conjure'
+
+  use {
+    'eraserhd/parinfer-rust',
+    run = 'cargo build --release',
+  }
 
   -- python
   -- use 'vim-scripts/indentpython.vim', { 'for': 'python' }
@@ -141,7 +146,8 @@ return require('packer').startup(function(use)
     run = 'make hexokinase',
   }
 
-  use 'hkupty/iron.nvim'
+  -- use 'hkupty/iron.nvim'
+  use 'mtikekar/nvim-send-to-term'
 
   use '/opt/homebrew/opt/fzf'
   use 'junegunn/fzf.vim'

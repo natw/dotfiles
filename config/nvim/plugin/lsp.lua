@@ -183,12 +183,12 @@ lsp.texlab.setup{
   },
 }
 
-lsp.sorbet.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {"bundle", "exec", "srb", "t", "--lsp"},
-  -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
-}
+-- lsp.sorbet.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = {"bundle", "exec", "srb", "t", "--lsp"},
+--   -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
+-- }
 
 -- lsp.solargraph.setup{
 --   on_attach = on_attach,
