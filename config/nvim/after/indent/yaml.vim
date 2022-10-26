@@ -1,1 +1,1 @@
-setlocal indentkeys-=<:>
+" setlocal indentkeys-=<:>
