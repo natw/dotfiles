@@ -52,6 +52,7 @@ nls.setup({
 
     nls.builtins.diagnostics.standardrb.with({
       timeout = 10000,
+      ignore_stderr = true,
       root_dir = function(_)
         return nil
       end,
@@ -60,6 +61,7 @@ nls.setup({
     }),
     nls.builtins.formatting.standardrb.with({
       timeout = 10000,
+      ignore_stderr = true,
       -- extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
     }),
 
