@@ -6,6 +6,7 @@ let g:ale_linters = {
 \   'sh': [],
 \   'eruby': [],
 \   'ruby': ['ruby'],
+\   'rust': [],
 \   'cpp': ['clangtidy'],
 \   'python': [],
 \   'terraform': ['terraform', 'tflint'],

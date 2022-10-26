@@ -53,7 +53,7 @@ end
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 require'lspconfig'.clangd.setup {
   on_attach = on_attach,
@@ -79,6 +79,10 @@ lsp.pylsp.setup {
       }
     }
   }
+}
+
+lsp.tsserver.setup {
+  on_attach = on_attach,
 }
 
 lsp.vimls.setup {
@@ -159,6 +163,34 @@ lsp.sumneko_lua.setup {
   },
 }
 
+lsp.rust_analyzer.setup({
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
+
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+      },
+
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
+})
+
 lsp.texlab.setup{
   on_attach = on_attach,
   capabilities = capabilities,
@@ -183,12 +215,12 @@ lsp.texlab.setup{
   },
 }
 
--- lsp.sorbet.setup{
---   on_attach = on_attach,
---   capabilities = capabilities,
---   cmd = {"bundle", "exec", "srb", "t", "--lsp"},
---   -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
--- }
+lsp.sorbet.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"bundle", "exec", "srb", "t", "--lsp"},
+  -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
+}
 
 -- lsp.solargraph.setup{
 --   on_attach = on_attach,
