@@ -25,6 +25,7 @@ path=(
   "$HOME/.yarn/bin"
   "$HOME/.config/yarn/global/node_modules/.bin"
   "$HOME/.npm-packages/bin"
+  "$HOME/.cargo/bin"
   "$HOME/.local/bin"
   "/usr/local/texlive/2022/bin/universal-darwin"
   "$path[@]"
