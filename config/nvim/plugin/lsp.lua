@@ -3,49 +3,43 @@ local lsp = require('lspconfig')
 -- require('vim.lsp.log').set_format_func(vim.inspect)
 -- vim.lsp.set_log_level("debug")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(
-    -- diagnostics_handler,
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-      underline = false,
-      update_in_insert = false,
-      virtual_text = {
-        spacing = 4,
-      }
-    }
-  )
+vim.diagnostic.config({
+  underline = false,
+  update_in_insert = false,
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})
 
 local on_attach = function(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  --Enable completion triggered by <c-x><c-o>
-  -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   local opts = { noremap=true, silent=true }
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'K',  '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'g?', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
 
-  buf_set_keymap('n', ',,r', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', ',,i', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', ',,t', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', ',,h', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', ',,r',  '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', ',,i',  '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', ',,t',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', ',,h',  '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', ',,re', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', ',,ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', ',,q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', ',,q',  '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', ',,sd', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
   buf_set_keymap('n', ',,sw', '<cmd>lua vim.lsp.buf.workspace_symbol(".")<CR>', opts)
   buf_set_keymap('n', ',,ci', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
   buf_set_keymap('n', ',,co', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
 
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-
-  vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
   buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 3000)<cr>', opts)
 end
@@ -83,6 +77,7 @@ lsp.pylsp.setup {
 
 lsp.tsserver.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 lsp.vimls.setup {
@@ -165,6 +160,7 @@ lsp.sumneko_lua.setup {
 
 lsp.rust_analyzer.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
       checkOnSave = {
@@ -237,10 +233,14 @@ lsp.sorbet.setup{
 -- }
 
 -- lsp.clangd.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
 --   cmd = {"clangd", "--log=verbose", "--enable-config"},
 -- }
 
 -- lsp.yamlls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
 --   on_attach = on_attach,
 -- }
 
@@ -252,4 +252,3 @@ require('nvim-treesitter.configs').setup {
   }
 }
 
-vim.api.nvim_set_keymap('n', 'g?', '<cmd>lua vim.diagnostic.open_float()<cr>', {noremap=true, silent=true})

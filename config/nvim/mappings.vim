@@ -6,7 +6,7 @@
 inoremap <c-c> <esc>
 
 " ^P toggles paste mode (from insert mode)
-nnoremap <C-p> :set paste!<CR>:set paste?<CR>
+" inoremap <silent> <C-p> :set paste!<CR>:set paste?<CR>
 
 " ctrl-h for previous tab
 nnoremap <C-h> gT
@@ -54,7 +54,12 @@ noremap <c-w><c-c> <c-[>
 
 noremap <leader>hi :call nat#HighlightingInfo()<cr>
 
-nnoremap <silent> <c-n> :silent! call diagnostics#NextThing()<cr>
+" nnoremap <silent> <c-n> :silent! call diagnostics#NextThing()<cr>
+
+lua <<EOF
+  vim.api.nvim_set_keymap("n", "<c-n>", "<cmd> lua require('diagnostics').next_thing()<cr>", {noremap=true, silent=true})
+  vim.api.nvim_set_keymap("n", "<c-p>", "<cmd> lua require('diagnostics').prev_thing()<cr>", {noremap=true, silent=true})
+EOF
 
 nnoremap <leader>t :call nat#GitFZF()<cr>
 
