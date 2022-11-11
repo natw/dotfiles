@@ -42,3 +42,7 @@ vim.o.termguicolors  = true
 vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To prevent annoying flicker of text moving side to side
 
 vim.o.commentstring = "# %s"
+
+vim.o.foldmethod="expr"
+vim.o.foldexpr="nvim_treesitter#foldexpr()"
+vim.o.nofoldenable = true

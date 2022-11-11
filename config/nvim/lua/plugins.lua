@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
 
   use 'ojroques/nvim-lspfuzzy'
   use 'folke/lsp-colors.nvim'
+  use 'nvim-tree/nvim-web-devicons'
   use 'folke/trouble.nvim'
 
   -- markup languages

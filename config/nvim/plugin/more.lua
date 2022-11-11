@@ -8,8 +8,3 @@ function _G.put(...)
   print(table.concat(objects, '\n'))
   return ...
 end
-
-require("trouble").setup {
-  icons = false
-}
-
