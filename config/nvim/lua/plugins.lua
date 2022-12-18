@@ -72,13 +72,19 @@ return require('packer').startup(function(use)
   -- use 'kchmck/vim-coffee-script', { 'for': 'coffee' }
   -- use 'posva/vim-vue'
 
+
+
+  use 'mfussenegger/nvim-dap'
+
+
+
   -- clojure
-  -- use 'tpope/vim-fireplace', { 'for': 'clojure' }
-  use 'guns/vim-clojure-static'
+  -- use 'tpope/vim-fireplace'
+  use 'guns/vim-clojure-static' -- dunno if this is actually good, or even has an effect
   use 'junegunn/rainbow_parentheses.vim'
   -- use 'vim-scripts/paredit.vim'
   -- use 'clojure-vim/async-clj-omni'
-  -- use 'Olical/conjure'
+  use 'Olical/conjure'
 
   use {
     'eraserhd/parinfer-rust',
@@ -92,19 +98,19 @@ return require('packer').startup(function(use)
     'vim-python/python-syntax',
     ft = {'python'},
   }
-  -- use 'Shougo/neco-vim', { 'for': 'python' }
-  -- use 'nvie/vim-flake8', { 'for': 'python' }
 
   -- ruby
   use {
     'vim-ruby/vim-ruby',
     ft = {'ruby'},
   }
-  -- use 'ngmy/vim-rubocop', { 'for': 'ruby' }
   use 'tpope/vim-rails'
 
   -- go
-  -- use 'fatih/vim-go' " , { 'do': ':GoUpdateBinaries' }
+  -- use {
+  --   'fatih/vim-go',
+  --   cmd = 'GoUpdateBinaries'
+  -- }
 
   -- other
   use {

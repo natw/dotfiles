@@ -22,7 +22,7 @@ function M.org_imports(wait_ms)
 end
 
 function M.format()
-  vim.lsp.buf.formatting_sync(nil, 1000)
+  vim.lsp.buf.format(nil, 1000)
 end
 
 function M.alternate()

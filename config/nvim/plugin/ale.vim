@@ -14,7 +14,7 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \   'typescriptreact': ['tsserver'],
 \   'elm': [],
-\   'clojure': ['clj-kondo'],
+\   'clojure': [],
 \}
 
 let g:ale_typescript_prettier_use_local_config = 1

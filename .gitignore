@@ -10,3 +10,4 @@ vim/bundle
 bundle-nvim
 bundle/
 config/tmux/plugins
+.luarc.json
