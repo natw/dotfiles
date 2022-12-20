@@ -84,7 +84,10 @@ return require('packer').startup(function(use)
   use 'junegunn/rainbow_parentheses.vim'
   -- use 'vim-scripts/paredit.vim'
   -- use 'clojure-vim/async-clj-omni'
-  use 'Olical/conjure'
+  use {
+    'Olical/conjure',
+    ft = {'clojure'},
+  }
 
   use {
     'eraserhd/parinfer-rust',
