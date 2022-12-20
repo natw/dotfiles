@@ -6,7 +6,7 @@ function M.prev_thing()
   elseif require("windows").is_filetype_open("Trouble") then
     require("trouble").previous({skip_groups = true, jump = true})
   else
-    vim .diagnostic.goto_prev()
+    vim.diagnostic.goto_prev()
   end
 end
 
