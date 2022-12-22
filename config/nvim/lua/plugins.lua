@@ -139,7 +139,7 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'tpope/vim-commentary'
   use 'mileszs/ack.vim'
-  use 'airblade/vim-gitgutter'
+  use { 'lewis6991/gitsigns.nvim' }
   use 'nathanaelkane/vim-indent-guides'
   use 'simnalamburt/vim-mundo'
   use 'tpope/vim-fugitive'
