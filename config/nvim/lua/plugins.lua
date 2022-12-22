@@ -15,7 +15,7 @@ end
 return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/plenary.nvim' -- common utils a lot of things use
 
   -- colorscheme
   use 'natw/vim-railscasts'
@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   use 'ojroques/nvim-lspfuzzy'
-  use 'folke/lsp-colors.nvim'
+  -- use 'folke/lsp-colors.nvim' -- dunno if I actually need this atm
   use 'nvim-tree/nvim-web-devicons'
   use 'folke/trouble.nvim'
 
@@ -130,7 +130,6 @@ return require('packer').startup(function(use)
   -- use 'elixir-editors/vim-elixir'
   -- use 'sudar/vim-arduino-syntax'
 
-
   use 'vim-test/vim-test'
 
   -- everything else
@@ -142,27 +141,27 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim' }
   use 'nathanaelkane/vim-indent-guides'
   use 'simnalamburt/vim-mundo'
+
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  -- use 'jceb/vim-orgmode'
   use 'tpope/vim-speeddating'
   use 'tpope/vim-apathy'
-  -- use 'kassio/neoterm'
   use 'junegunn/vim-easy-align'
-  -- use 'ervandew/supertab'
+
   use {
     'rrethy/vim-hexokinase',
     run = 'make hexokinase',
   }
 
   -- use 'hkupty/iron.nvim'
-  use 'mtikekar/nvim-send-to-term'
+  -- use 'mtikekar/nvim-send-to-term'
 
   use '/opt/homebrew/opt/fzf'
   use 'junegunn/fzf.vim'
   -- use 'junegunn/vader.vim'
-  use 'dense-analysis/ale'
+
+  use 'dense-analysis/ale' -- I guess this still has some uses?
 
   -- use '~/src/vim-fuzzy-emoji'
 
