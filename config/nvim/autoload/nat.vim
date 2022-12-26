@@ -16,6 +16,7 @@ endfunction
 
 " show some debug info for syntax highlighting.
 " currently mapped to <leader>hi
+" defunct in neovim? at least with treesitter?
 function! nat#HighlightingInfo() abort
   let l:itemSynID = synID(line('.'), col('.'), v:true)
   let l:transparencySynID = synID(line('.'), col('.'), v:false)

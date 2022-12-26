@@ -10,4 +10,4 @@ function _G.toggle_diagnostics()
   end
 end
 
-vim.api.nvim_set_keymap('n', '<leader>d', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
+require('utils').map('n', '<leader>d', '<cmd>lua toggle_diagnostics()<cr>')

@@ -1,7 +1,11 @@
+-- config for both regular lsp stuff and null-lsp
 local lsp = require('lspconfig')
+local nls = require("null-ls")
 
--- require('vim.lsp.log').set_format_func(vim.inspect)
--- vim.lsp.set_log_level("debug")
+if vim.env.DEBUG_LSP == "true" then
+  require('vim.lsp.log').set_format_func(vim.inspect)
+  vim.lsp.set_log_level("debug")
+end
 
 vim.diagnostic.config({
   underline = false,
@@ -16,32 +20,31 @@ vim.diagnostic.config({
 })
 
 local on_attach = function(_, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
   local opts = { noremap=true, silent=true }
+  local bm = function(lhs, rhs) require('utils').bufmap(bufnr, 'n', lhs, rhs, opts) end
 
-  buf_set_keymap('n', 'K',  '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'g?', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+  bm('K',  '<cmd>lua vim.lsp.buf.hover()<cr>')
+  bm('gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+  bm('gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+  bm('g?', '<cmd>lua vim.diagnostic.open_float()<cr>')
 
-  buf_set_keymap('n', ',,r',  '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', ',,i',  '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', ',,t',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', ',,h',  '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', ',,re', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', ',,ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', ',,q',  '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  buf_set_keymap('n', ',,sd', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
-  buf_set_keymap('n', ',,sw', '<cmd>lua vim.lsp.buf.workspace_symbol(".")<CR>', opts)
-  buf_set_keymap('n', ',,ci', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
-  buf_set_keymap('n', ',,co', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>', opts)
+  bm(',,r',  '<cmd>lua vim.lsp.buf.references()<cr>')
+  bm(',,i',  '<cmd>lua vim.lsp.buf.implementation()<cr>')
+  bm(',,t',  '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+  bm(',,h',  '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+  bm(',,re', '<cmd>lua vim.lsp.buf.rename()<cr>')
+  bm(',,ca', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+  bm(',,q',  '<cmd>lua vim.diagnostic.setloclist()<cr>')
+  bm(',,sd', '<cmd>lua vim.lsp.buf.document_symbol()<cr>')
+  bm(',,sw', '<cmd>lua vim.lsp.buf.workspace_symbol(".")<cr>')
+  bm(',,ci', '<cmd>lua vim.lsp.buf.incoming_calls()<cr>')
+  bm(',,co', '<cmd>lua vim.lsp.buf.outgoing_calls()<cr>')
 
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  bm('[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+  bm(']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 
-  buf_set_keymap('n', '==', '<cmd>lua vim.lsp.buf.format(nil, 10000)<cr>', opts)
+  bm('==', '<cmd>lua vim.lsp.buf.format(nil, 10000)<cr>')
+  -- vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
 
@@ -49,7 +52,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-require'lspconfig'.clangd.setup {
+require('lspconfig').clangd.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   -- cmd = { "clangd", "--log=verbose" },
@@ -253,3 +256,40 @@ require('nvim-treesitter.configs').setup {
   }
 }
 
+nls.setup({
+  debug = (vim.env.DEBUG_LSP == "true"),
+  on_attach = on_attach,
+  root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git", ".standard.yml"),
+  sources = {
+    nls.builtins.diagnostics.shellcheck,
+    nls.builtins.formatting.shfmt,
+
+    nls.builtins.formatting.black,
+    nls.builtins.formatting.isort,
+    nls.builtins.diagnostics.mypy,
+
+    nls.builtins.diagnostics.golangci_lint,
+
+    nls.builtins.diagnostics.standardrb.with({
+      timeout = 10000,
+      -- ignore_stderr = true,
+      root_dir = function(_)
+        return nil
+      end,
+
+      --   extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
+    }),
+    nls.builtins.formatting.standardrb.with({
+      timeout = 10000,
+      -- ignore_stderr = true,
+      -- extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
+    }),
+
+    nls.builtins.formatting.latexindent,
+  }
+})
+
+vim.cmd('sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=')
+vim.cmd('sign define LspDiagnosticsSignWarning text=> texthl=LspDiagnosticsSignWarning linehl= numhl=')
+vim.cmd('sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsSignInformation linehl= numhl=')
+vim.cmd('sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint linehl= numhl=')

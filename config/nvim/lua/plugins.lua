@@ -136,18 +136,16 @@ return require('packer').startup(function(use)
 
   -- use 'vim-airline/vim-airline'
   use 'nvim-lualine/lualine.nvim'
-  use 'tpope/vim-commentary'
   use 'mileszs/ack.vim'
   use { 'lewis6991/gitsigns.nvim' }
   use 'nathanaelkane/vim-indent-guides'
-  use 'simnalamburt/vim-mundo'
 
+  use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-speeddating'
   use 'tpope/vim-apathy'
-  use 'junegunn/vim-easy-align'
 
   use {
     'rrethy/vim-hexokinase',
@@ -157,11 +155,13 @@ return require('packer').startup(function(use)
   -- use 'hkupty/iron.nvim'
   -- use 'mtikekar/nvim-send-to-term'
 
+  use 'junegunn/vim-easy-align'
+
   use '/opt/homebrew/opt/fzf'
   use 'junegunn/fzf.vim'
   -- use 'junegunn/vader.vim'
 
-  use 'dense-analysis/ale' -- I guess this still has some uses?
+  -- use 'dense-analysis/ale' -- I guess this still has some uses?
 
   -- use '~/src/vim-fuzzy-emoji'
 

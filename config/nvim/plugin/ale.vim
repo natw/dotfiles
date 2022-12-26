@@ -2,8 +2,6 @@
 " \   'sh': ['shellcheck'],
 let g:ale_linters = {
 \   'javascript': [],
-\   'tex': [],
-\   'sh': [],
 \   'eruby': [],
 \   'ruby': ['ruby'],
 \   'rust': [],

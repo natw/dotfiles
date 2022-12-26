@@ -52,9 +52,7 @@ nnoremap ,t :tabnew<cr>
 " abort the window action
 noremap <c-w><c-c> <c-[>
 
-noremap <leader>hi :call nat#HighlightingInfo()<cr>
-
-" nnoremap <silent> <c-n> :silent! call diagnostics#NextThing()<cr>
+noremap <leader>hi :TSHighlightCapturesUnderCursor<cr>
 
 lua <<EOF
   vim.api.nvim_set_keymap("n", "<c-n>", "<cmd> lua require('diagnostics').next_thing()<cr>", {noremap=true, silent=true})

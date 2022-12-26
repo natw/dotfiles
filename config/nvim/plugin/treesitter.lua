@@ -7,6 +7,7 @@ tsc.setup {
   highlight = {
     enable = true,              -- false will disable the whole extension
     -- disable = { "c", "rust" },  -- list of language that will be disabled
+    additional_vim_regex_highlighting = false,
   },
 
   indent = {
@@ -69,6 +70,8 @@ tsc.setup {
     },
   }
 }
+
+require('utils').map('n', '_', '<cmd>lua require("ts").statusline()<cr>')
 
 -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 -- parser_config.hcl = {

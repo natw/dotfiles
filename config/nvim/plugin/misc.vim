@@ -12,6 +12,6 @@ let g:markdown_fenced_languages = [
 let g:Hexokinase_highlighters = ['backgroundfull']
 let g:Hexokinase_palettes = [globpath(&rtp, 'plugin/vim_colorscheme_palette.json')]
 
-nmap <Leader>gu :MundoToggle<CR>
+" nmap <Leader>gu :MundoToggle<CR>
 
-nmap <leader>gg :GitGutterToggle<cr>
+" nmap <leader>gg :GitGutterToggle<cr>
