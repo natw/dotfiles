@@ -55,13 +55,15 @@ local railscasts = {
   },
 }
 
-require("lualine").setup {
-  options = {
-    icons_enabled = false,
-    theme = railscasts,
-    component_separators = { left = '|', right = '|' },
-    section_separators = { left = '', right = '' },
+return {
+  'nvim-lualine/lualine.nvim',
+  config = {
+    options = {
+      icons_enabled = false,
+      theme = railscasts,
+      component_separators = { left = '|', right = '|' },
+      section_separators = { left = '', right = '' },
+    },
   },
 }
-
 

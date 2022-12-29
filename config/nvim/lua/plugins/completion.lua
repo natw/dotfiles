@@ -1,0 +1,67 @@
+vim.api.nvim_set_option("completeopt", "menu,menuone,noselect")
+
+local function cmp_setup()
+  local cmp = require('cmp')
+
+  local if_cmp_visible = function(actionFn)
+    return function(fallback)
+      if cmp.visible() then
+        actionFn()
+      else
+        fallback()
+      end
+    end
+  end
+
+  cmp.setup {
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'nvim_lua' },
+      { name = 'path' },
+      -- { name = 'buffer' },
+    },
+    preselect = cmp.PreselectMode.None,
+    mapping = {
+      ['<Tab>'] = if_cmp_visible(cmp.select_next_item),
+      ['<s-Tab>'] = if_cmp_visible(cmp.select_prev_item),
+      ['<c-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'}),
+      ['<c-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
+      ['<c-j>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
+      ['<c-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'}),
+    },
+    view = {
+      entries = "native",
+    },
+    experimental = {
+      ghost_text = true,
+    },
+  }
+end
+
+-- cmp.setup.cmdline(':', {
+--   sources = {
+--     { name = 'cmdline' },
+--     { name = 'path' },
+--   }
+-- })
+
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+
+-- cmp.setup.cmdline('/', {
+--   sources = cmp.config.sources({
+--     { name = 'nvim_lsp_document_symbol' }
+--   }, {
+--     { name = 'buffer' }
+--   })
+-- })
+
+return {
+  'hrsh7th/cmp-nvim-lua',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/cmp-path',
+  { 'hrsh7th/nvim-cmp', config = cmp_setup, }
+}

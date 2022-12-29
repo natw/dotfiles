@@ -21,7 +21,7 @@ vim.o.completeopt    = "menuone"             -- and just the menu
 vim.o.foldlevelstart = 99                    -- forces folds open by default
 vim.o.foldenable     = true                  -- enable fold
 vim.o.joinspaces     = false                 -- don't use two spaces after a . when joining lines
-vim.o.grepprg        = "ag"                  -- better than grep
+vim.o.grepprg        = "ag --vimgrep"        -- better than grep
 vim.o.background     = "dark"                -- dark terminals 4 lyfe
 vim.o.lazyredraw     = true                  -- don't redraw while executing macros or that sort of thing
 vim.o.title          = true                  -- set window title
@@ -46,3 +46,5 @@ vim.o.commentstring = "# %s"
 vim.o.foldmethod="expr"
 vim.o.foldexpr="nvim_treesitter#foldexpr()"
 vim.o.nofoldenable = true
+
+vim.g.python_highlight_all = 1

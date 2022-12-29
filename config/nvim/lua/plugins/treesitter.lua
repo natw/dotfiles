@@ -1,6 +1,5 @@
-local tsc = require('nvim-treesitter.configs')
 
-tsc.setup {
+local ts_config = {
   ensure_installed = "all",
   ignore_install = {"phpdoc"}, -- List of parsers to ignore installing
 
@@ -68,17 +67,29 @@ tsc.setup {
       goto_node = '<cr>',
       show_help = '?',
     },
-  }
+  },
+
+  context_commentstring = {
+    enable = true
+  },
 }
 
-require('utils').map('n', '_', '<cmd>lua require("ts").statusline()<cr>')
-
--- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
--- parser_config.hcl = {
---   install_info = {
---     url = vim.fn.expand("~/src/tree-sitter-hcl"), -- local path or git repo
---     files = {"src/parser.c"}
---   },
---   filetype = "hcl", -- if filetype does not agrees with parser name
---   used_by = {"terraform"} -- additional filetypes that use this parser
--- }
+return {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.install').update()
+      require('nvim-treesitter.configs').setup(ts_config)
+      require('utils').map('n', '_', '<cmd>lua require("ts").statusline()<cr>')
+    end,
+  },
+  {
+    'nvim-treesitter/playground',
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+  },
+}

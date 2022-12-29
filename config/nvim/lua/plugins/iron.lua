@@ -26,3 +26,4 @@
 
 -- vim.api.nvim_buf_set_keymap(0, 'v', '<leader>ss', '<cmd>lua require("iron.core").visual_send()<cr>', { noremap=true, silent=true })
 -- vim.api.nvim_buf_set_keymap(0, 'n', '<leader>ss', '<cmd>lua require("iron.core").send_motion("ip")<cr>', { noremap=true, silent=true })
+return {}

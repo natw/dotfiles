@@ -1,4 +1,4 @@
-function _G.put(...)
+function _G.puts(...)
   local objects = {}
   for i = 1, select('#', ...) do
     local v = select(i, ...)
