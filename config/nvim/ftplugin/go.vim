@@ -7,7 +7,6 @@ setlocal foldmethod=indent
 
 :command! A lua require('go_funcs').alternate()
 
-nnoremap gx :OpenHoverDocURL<cr>
 
 " :command! A GoAlternate
 

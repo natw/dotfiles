@@ -151,6 +151,7 @@ local function lspconfig_config()
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file("", true),
+          checkThirdParty = false, -- this is what got sumneko to stop asking to change settings or something
         },
         telemetry = {
           enable = false,
