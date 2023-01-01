@@ -1,3 +1,4 @@
+" redirect something? I forget
 function! Redir(cmd, rng, start, end)
 	for win in range(1, winnr('$'))
 		if getwinvar(win, 'scratch')

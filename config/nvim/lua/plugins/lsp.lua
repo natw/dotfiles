@@ -18,21 +18,21 @@ vim.diagnostic.config({
 })
 
 local on_attach = function(_, bufnr)
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
   local bm = function(lhs, rhs) require('utils').bufmap(bufnr, 'n', lhs, rhs, opts) end
 
-  bm('K',  '<cmd>lua vim.lsp.buf.hover()<cr>')
+  bm('K', '<cmd>lua vim.lsp.buf.hover()<cr>')
   bm('gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
   bm('gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
   bm('g?', '<cmd>lua vim.diagnostic.open_float()<cr>')
 
-  bm(',,r',  '<cmd>lua vim.lsp.buf.references()<cr>')
-  bm(',,i',  '<cmd>lua vim.lsp.buf.implementation()<cr>')
-  bm(',,t',  '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-  bm(',,h',  '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+  bm(',,r', '<cmd>lua vim.lsp.buf.references()<cr>')
+  bm(',,i', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+  bm(',,t', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+  bm(',,h', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
   bm(',,re', '<cmd>lua vim.lsp.buf.rename()<cr>')
   bm(',,ca', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-  bm(',,q',  '<cmd>lua vim.diagnostic.setloclist()<cr>')
+  bm(',,q', '<cmd>lua vim.diagnostic.setloclist()<cr>')
   bm(',,sd', '<cmd>lua vim.lsp.buf.document_symbol()<cr>')
   bm(',,sw', '<cmd>lua vim.lsp.buf.workspace_symbol(".")<cr>')
   bm(',,ci', '<cmd>lua vim.lsp.buf.incoming_calls()<cr>')
@@ -125,7 +125,7 @@ local function lspconfig_config()
     },
   }
 
-  lsp.clojure_lsp.setup{
+  lsp.clojure_lsp.setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
@@ -145,8 +145,15 @@ local function lspconfig_config()
           version = "LuaJIT",
           path = rpath,
         },
+        format = {
+          enabled = true,
+          defaultConfig = {
+            indent_style = 'space',
+            indent_size = '2',
+          },
+        },
         diagnostics = {
-          globals = {'vim'},
+          globals = { 'vim' },
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file("", true),
@@ -188,10 +195,10 @@ local function lspconfig_config()
     },
   })
 
-  lsp.texlab.setup{
+  lsp.texlab.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = {"texlab"},
+    cmd = { "texlab" },
     settings = {
       texlab = {
         build = {
@@ -212,10 +219,10 @@ local function lspconfig_config()
     },
   }
 
-  lsp.sorbet.setup{
+  lsp.sorbet.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = {"bundle", "exec", "srb", "t", "--lsp"},
+    cmd = { "bundle", "exec", "srb", "t", "--lsp" },
     -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
   }
 
@@ -245,8 +252,6 @@ local function lspconfig_config()
   --   on_attach = on_attach,
   -- }
 end
-
-
 
 local function nls_config()
   local nls = require("null-ls")

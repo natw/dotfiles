@@ -28,7 +28,6 @@ return {
   { 'pangloss/vim-javascript', ft = { "javascript" } },
   { 'leafgarland/typescript-vim', ft = { "typescript" } },
   { 'guns/vim-clojure-static', ft = { "clojure" } },
-  { 'junegunn/rainbow_parentheses.vim', ft = { "clojure", "lisp", "sexplib" } },
   { 'Olical/conjure', ft = {'clojure'} },
   { 'eraserhd/parinfer-rust', build = 'cargo build --release', ft = { "clojure", "lisp" } },
   { 'vim-python/python-syntax', ft = {'python'} },

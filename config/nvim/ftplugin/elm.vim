@@ -7,8 +7,6 @@ setlocal shiftwidth=4
 
 nmap ,m :!elm make %<cr>
 
-let g:deoplete#enable_at_startup = 1
-
 nnoremap tt :ElmShowDocs<cr>
 
 " function! FixExposing()

@@ -4,9 +4,20 @@ return {
   { 'natw/nvim-hover-doc-url', keys = { "gx", "<cmd>lua require('hover-doc').visit()", "n" } },
   { 'seblj/nvim-echo-diagnostics' },
   { 'mfussenegger/nvim-dap' }, -- debug adapter protocol
-  { 'mileszs/ack.vim', cmd = "Ack" },
   { dir = '/opt/homebrew/opt/fzf', lazy = false },
   { 'junegunn/fzf.vim', lazy = false },
+  { 'junegunn/rainbow_parentheses.vim', cmd = { "RainbowParentheses" } },
+
+  { 'mileszs/ack.vim',
+    cmd = "Ack",
+    init = function()
+      vim.cmd([[
+        if executable('ag')
+          let g:ackprg = 'ag --vimgrep'
+        endif
+      ]])
+    end,
+  },
 
   {
     'rrethy/vim-hexokinase',
