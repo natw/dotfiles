@@ -47,8 +47,7 @@ end
 
 local function lspconfig_config()
   local lsp = require('lspconfig')
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   lsp.clangd.setup {
     on_attach = on_attach,
@@ -292,7 +291,8 @@ vim.cmd('sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsS
 vim.cmd('sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint linehl= numhl=')
 
 return {
-  { 'neovim/nvim-lspconfig', config = lspconfig_config },
-  { 'ojroques/nvim-lspfuzzy', config = {} }, -- 'folke/lsp-colors.nvim' -- dunno if I actually need this atm
-  { 'jose-elias-alvarez/null-ls.nvim', config = nls_config },
+  { 'neovim/nvim-lspconfig', lazy = false, config = lspconfig_config },
+  { 'ojroques/nvim-lspfuzzy', lazy = false, config = {} },
+  -- 'folke/lsp-colors.nvim' -- dunno if I actually need this atm. TODO: actually compare documents with this on and off
+  { 'jose-elias-alvarez/null-ls.nvim', lazy = false, config = nls_config },
 }

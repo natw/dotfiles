@@ -17,6 +17,7 @@ local function cmp_setup()
     sources = {
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
+      { name = 'nvim_lsp_signature_help' },
       { name = 'path' },
       -- { name = 'buffer' },
     },
@@ -38,30 +39,16 @@ local function cmp_setup()
   }
 end
 
--- cmp.setup.cmdline(':', {
---   sources = {
---     { name = 'cmdline' },
---     { name = 'path' },
---   }
--- })
-
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-
--- cmp.setup.cmdline('/', {
---   sources = cmp.config.sources({
---     { name = 'nvim_lsp_document_symbol' }
---   }, {
---     { name = 'buffer' }
---   })
--- })
-
 return {
-  'hrsh7th/cmp-nvim-lua',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-cmdline',
-  'hrsh7th/cmp-path',
-  { 'hrsh7th/nvim-cmp', config = cmp_setup, }
+  {
+    'hrsh7th/nvim-cmp',
+    lazy = false,
+    config = cmp_setup,
+    dependencies = {
+      { 'hrsh7th/cmp-path', lazy = false },
+      { 'hrsh7th/cmp-nvim-lua', lazy = false },
+      { 'hrsh7th/cmp-nvim-lsp', lazy = false },
+      { 'hrsh7th/cmp-nvim-lsp-signature-help', lazy = false },
+    },
+  }
 }

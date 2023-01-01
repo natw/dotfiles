@@ -77,19 +77,19 @@ local ts_config = {
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     config = function()
       require('nvim-treesitter.install').update()
       require('nvim-treesitter.configs').setup(ts_config)
       require('utils').map('n', '_', '<cmd>lua require("ts").statusline()<cr>')
     end,
+    dependencies = {
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+      { 'JoosepAlviste/nvim-ts-context-commentstring' },
+    },
   },
   {
     'nvim-treesitter/playground',
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-  },
-  {
-    'JoosepAlviste/nvim-ts-context-commentstring',
+    cmd = "TSPlaygroundToggle",
   },
 }

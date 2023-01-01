@@ -1,5 +1,6 @@
 return {
   'vim-test/vim-test',
+  cmd = { "TestNearest", "TestLast", "TestFile", "TestClass", "TestSuite", "TestVisit" },
   config = function()
     local r = require("utils")
     r.map("n", ",r", ":TestNearest<cr>")

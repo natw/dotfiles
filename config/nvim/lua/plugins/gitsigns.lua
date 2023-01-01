@@ -1,8 +1,10 @@
 return {
   'lewis6991/gitsigns.nvim',
+  lazy = false,
+  cmd = "Gitsigns",
   config = {
     on_attach = function(bufnr)
-      local gs = package.loaded.gitsigns
+      local gs = require('gitsigns')
 
       -- get blame info for that line
       vim.keymap.set('n', '<leader>gb', function()

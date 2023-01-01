@@ -11,9 +11,12 @@ return {
   {
     'rrethy/vim-hexokinase',
     build = 'make hexokinase',
-    config = function()
-      vim.g.Hexokinase_highlighters = {'backgroundfull'}
-      vim.g.Hexokinase_palettes = {'plugin/vim_colorscheme_palette.json'}
+    init = function()
+      vim.g.Hexokinase_v2 = true
+      vim.g.Hexokinase_palettes = { vim.fn.expand('<script>:p:h') .. '/lua/plugins/hexokinase_colorscheme_palette.json'}
+      -- vim.g.Hexokinase_palettes = { '/Users/nat/projects/dotfiles/config/nvim/lua/plugins/hexokinase_colorscheme_palette.json' }
+      vim.g.Hexokinase_highlighters = { 'backgroundfull' }
+
     end,
     lazy = false,
   },
