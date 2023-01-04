@@ -10,7 +10,7 @@ local ts_config = {
   },
 
   indent = {
-    enable = false,
+    enable = true,
   },
 
   textobjects = {
