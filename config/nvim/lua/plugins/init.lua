@@ -8,6 +8,10 @@ return {
   { 'junegunn/fzf.vim', lazy = false },
   { 'junegunn/rainbow_parentheses.vim', cmd = { "RainbowParentheses" } },
 
+  { 'AbstractMachinesLab/tree-sitter-sexp',
+    build = "tree-sitter generate && tree-sitter test",
+  },
+
   { 'mileszs/ack.vim',
     cmd = "Ack",
     init = function()

@@ -41,7 +41,7 @@ local on_attach = function(_, bufnr)
   bm('[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
   bm(']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 
-  bm('==', '<cmd>lua vim.lsp.buf.format(nil, 10000)<cr>')
+  bm('==', '<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>')
   -- vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
@@ -223,6 +223,7 @@ local function lspconfig_config()
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "bundle", "exec", "srb", "t", "--lsp" },
+    -- cmd = { "bundle", "exec", "srb", "t", "--lsp", "--enable-experimental-lsp-document-formatting-rubyfmt", "--enable-experimental-lsp-signature-help" },
     -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
   }
 
@@ -272,17 +273,13 @@ local function nls_config()
 
       nls.builtins.diagnostics.standardrb.with({
         timeout = 10000,
-        -- ignore_stderr = true,
-        root_dir = function(_)
-          return nil
-        end,
-
-        --   extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
+        -- root_dir = function(_) -- what was this for?
+        --   return nil
+        -- end,
       }),
       nls.builtins.formatting.standardrb.with({
         timeout = 10000,
-        -- ignore_stderr = true,
-        -- extra_args = { "--require", "rubocop-rails", "--require", "rubocop-rspec" },
+        extra_args = { "--no-parallel" },
       }),
 
       nls.builtins.formatting.latexindent,

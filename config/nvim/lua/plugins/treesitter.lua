@@ -74,6 +74,7 @@ local ts_config = {
   },
 }
 
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -82,6 +83,19 @@ return {
       require('nvim-treesitter.install').update()
       require('nvim-treesitter.configs').setup(ts_config)
       require('utils').map('n', '_', '<cmd>lua require("ts").statusline()<cr>')
+
+      local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+      parser_config.sexp = {
+        install_info = {
+          url = "~/.local/share/nvim/lazy/tree-sitter-sexp",
+          -- url = "git@github.com:AbstractMachinesLab/tree-sitter-sexp.git",
+          files = {"src/parser.c"},
+          -- branch = "main",
+          generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+          requires_generate_from_grammar = true,
+        },
+        -- filetype = "zu", -- if filetype does not match the parser name
+      }
     end,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
@@ -90,6 +104,6 @@ return {
   },
   {
     'nvim-treesitter/playground',
-    cmd = "TSPlaygroundToggle",
+    cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
   },
 }
