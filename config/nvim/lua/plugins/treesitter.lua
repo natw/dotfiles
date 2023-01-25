@@ -94,7 +94,6 @@ return {
           generate_requires_npm = false, -- if stand-alone parser without npm dependencies
           requires_generate_from_grammar = true,
         },
-        -- filetype = "zu", -- if filetype does not match the parser name
       }
     end,
     dependencies = {

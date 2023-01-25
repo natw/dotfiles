@@ -19,7 +19,7 @@ local function cmp_setup()
       { name = 'nvim_lua' },
       { name = 'nvim_lsp_signature_help' },
       { name = 'path' },
-      -- { name = 'buffer' },
+      { name = 'buffer' },
     },
     preselect = cmp.PreselectMode.None,
     mapping = {
@@ -46,6 +46,7 @@ return {
     config = cmp_setup,
     dependencies = {
       { 'hrsh7th/cmp-path', lazy = false },
+      { 'hrsh7th/cmp-buffer', lazy = false },
       { 'hrsh7th/cmp-nvim-lua', lazy = false },
       { 'hrsh7th/cmp-nvim-lsp', lazy = false },
       { 'hrsh7th/cmp-nvim-lsp-signature-help', lazy = false },
