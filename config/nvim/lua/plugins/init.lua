@@ -23,6 +23,8 @@ return {
     end,
   },
 
+  -- { 'folke/lsp-colors.nvim', lazy = false },
+
   {
     'rrethy/vim-hexokinase',
     build = 'make hexokinase',

@@ -1,16 +1,15 @@
 
 local ts_config = {
   ensure_installed = "all",
-  ignore_install = {"phpdoc"}, -- List of parsers to ignore installing
+  ignore_install = {"phpdoc"},
 
   highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- disable = { "c", "rust" },  -- list of language that will be disabled
-    additional_vim_regex_highlighting = false,
+    enable = true,
+    additional_vim_regex_highlighting = { "ruby" },
   },
 
   indent = {
-    enable = true,
+    enable = false,
   },
 
   textobjects = {

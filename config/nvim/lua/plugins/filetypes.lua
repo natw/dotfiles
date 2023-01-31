@@ -34,4 +34,5 @@ return {
   { 'exu/pgsql.vim', ft = {'sql'} },
   { 'lervag/vimtex', ft = { 'tex', 'latex' } },
   { 'othree/html5.vim', ft = 'html' },
+  { 'vim-ruby/vim-ruby', ft = 'ruby' },
 }
