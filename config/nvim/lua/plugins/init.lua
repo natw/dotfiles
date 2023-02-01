@@ -38,6 +38,13 @@ return {
     lazy = false,
   },
 
+  {
+    'natw/altfiles.nvim',
+    dev = true,
+    lazy = false,
+    dir = '~/projects/altfiles.nvim',
+  },
+
   -- now entering the Tim Pope Zone
   { 'tpope/vim-commentary', lazy = false },
   { 'tpope/vim-fugitive', cmd = "Git" },

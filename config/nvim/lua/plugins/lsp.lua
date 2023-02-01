@@ -152,8 +152,17 @@ local function lspconfig_config()
             indent_size = '2',
           },
         },
+        completion = {
+          enable = true,
+          displayContext = 1,
+          showWord = "Enable", -- "Fallback"
+          workspaceWord = true,
+        },
         diagnostics = {
           globals = { 'vim' },
+          neededFileStatus = {
+            ["codestyle-check"] = "Any",
+          },
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file("", true),
@@ -247,11 +256,27 @@ local function lspconfig_config()
   --   cmd = {"clangd", "--log=verbose", "--enable-config"},
   -- }
 
-  -- lsp.yamlls.setup {
-  --   on_attach = on_attach,
-  --   capabilities = capabilities,
-  --   on_attach = on_attach,
-  -- }
+  lsp.yamlls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      redhat = {
+        telemetry = {
+          enabled = false,
+        },
+      },
+      yaml = {
+        yamlVersion = "1.1",
+        format = {
+          enable = true,
+        },
+        validate = true,
+        hover = true,
+        completion = true,
+      },
+    },
+    single_file_support = true,
+  }
 end
 
 local function nls_config()
