@@ -27,17 +27,17 @@ local colors = {
 local railscasts = {
   normal = {
     a = { fg = colors.oxford_blue, bg = colors.yellow, gui = 'bold' },
-    b = { fg = colors.white,     bg = colors.onyx },
-    c = { fg = colors.teal,      bg = colors.dark_grey },
+    b = { fg = colors.white, bg = colors.onyx },
+    c = { fg = colors.teal, bg = colors.dark_grey },
   },
   insert = {
     a = { fg = colors.navy_blue, bg = colors.light_slate, gui = "bold" },
     c = function(_)
-          return {
-            fg = vim.bo.modified and colors.white or colors.teal,
-            bg = vim.bo.modified and colors.purple or colors.dark_grey,
-          }
-        end
+      return {
+        fg = vim.bo.modified and colors.white or colors.teal,
+        bg = vim.bo.modified and colors.purple or colors.dark_grey,
+      }
+    end
   },
   visual = {
   },
@@ -50,13 +50,14 @@ local railscasts = {
     a = { fg = colors.davys_grey, bg = colors.eerie_black },
     b = { fg = colors.davys_grey, bg = colors.black2 },
     c = function(_)
-          return { fg = vim.bo.modified and colors.royal_purple or colors.davys_grey, bg = colors.jet }
-        end
+      return { fg = vim.bo.modified and colors.royal_purple or colors.davys_grey, bg = colors.jet }
+    end
   },
 }
 
 return {
   'nvim-lualine/lualine.nvim',
+  lazy = false,
   config = {
     options = {
       icons_enabled = false,
@@ -66,4 +67,3 @@ return {
     },
   },
 }
-

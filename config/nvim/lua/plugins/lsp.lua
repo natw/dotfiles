@@ -18,8 +18,8 @@ vim.diagnostic.config({
 })
 
 local on_attach = function(_, bufnr)
-  local opts = { noremap = true, silent = true }
-  local bm = function(lhs, rhs) require('utils').bufmap(bufnr, 'n', lhs, rhs, opts) end
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  local bm = function(lhs, rhs) require('utils').bufmap('n', lhs, rhs, opts) end
 
   bm('K', '<cmd>lua vim.lsp.buf.hover()<cr>')
   bm('gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
@@ -228,27 +228,13 @@ local function lspconfig_config()
     },
   }
 
+  lsp.ruby_ls.setup {}
+
   lsp.sorbet.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "bundle", "exec", "srb", "t", "--lsp" },
-    -- cmd = { "bundle", "exec", "srb", "t", "--lsp", "--enable-experimental-lsp-document-formatting-rubyfmt", "--enable-experimental-lsp-signature-help" },
-    -- cmd = {"bundle", "exec", "srb", "t", "--lsp", "--enable-all-beta-lsp-features", "--enable-all-experimental-lsp-features"},
   }
-
-  -- lsp.solargraph.setup{
-  --   on_attach = on_attach,
-  --   capabilities = capabilities,
-  --   -- cmd = {"bundle", "exec", "solargraph", "stdio"},
-  --   init_options = {
-  --     formatting = false,
-  --   },
-  --   settings = {
-  --     solargraph = {
-  --       diagnostics = false,
-  --     },
-  --   },
-  -- }
 
   -- lsp.clangd.setup{
   --   on_attach = on_attach,
@@ -266,7 +252,7 @@ local function lspconfig_config()
         },
       },
       yaml = {
-        yamlVersion = "1.1",
+        yamlVersion = "1.2",
         format = {
           enable = true,
         },

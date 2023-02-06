@@ -25,10 +25,10 @@ local function cmp_setup()
     mapping = {
       ['<Tab>'] = if_cmp_visible(cmp.select_next_item),
       ['<s-Tab>'] = if_cmp_visible(cmp.select_prev_item),
-      ['<c-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'}),
-      ['<c-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
-      ['<c-j>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
-      ['<c-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'}),
+      ['<c-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+      ['<c-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+      ['<c-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+      ['<c-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
     },
     view = {
       entries = "native",

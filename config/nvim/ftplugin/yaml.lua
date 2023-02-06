@@ -21,11 +21,13 @@ local transform_line = function(_, node)
     end
   end
 end
+
 local function yaml_statusline()
   local sl = require('nvim-treesitter.statusline').statusline({
     separator = "",
     type_patterns = { "block_mapping_pair", "block_sequence_item" },
     transform_fn = transform_line,
+    allow_duplicates = true,
   })
   if vim.startswith(sl, ".") then
     print(sl:sub(2, 123))
@@ -34,4 +36,5 @@ local function yaml_statusline()
   end
 end
 
+-- vim.keymap.set('n', '_', require('ts-yamlpath').path_at_cursor)
 vim.keymap.set('n', '_', yaml_statusline)

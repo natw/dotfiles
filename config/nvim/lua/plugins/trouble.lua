@@ -6,18 +6,19 @@ return {
     dependencies = {
       { 'nvim-tree/nvim-web-devicons' },
     },
+    keys = {
+      { "<leader>r", "<cmd>TroubleToggle<cr>" },
+      { "<leader>rr", "<cmd>TroubleToggle<cr>" },
+      { "<leader>rw", "<cmd>Trouble workspace_diagnostics<cr>" },
+      { "<leader>rd", "<cmd>Trouble document_diagnostics<cr>" },
+      { "<leader>ll", "<cmd>Trouble loclist<cr>" },
+      { "<leader>qq", "<cmd>Trouble quickfix<cr>" },
+      { "gR", "<cmd>Trouble lsp_references<cr>" },
+    },
     config = function()
       require("trouble").setup {
         icons = true,
       }
-      local u = require("utils")
-      u.map("n", "<leader>r", "<cmd>TroubleToggle<cr>")
-      u.map("n", "<leader>rr", "<cmd>TroubleToggle<cr>")
-      u.map("n", "<leader>rw", "<cmd>Trouble workspace_diagnostics<cr>")
-      u.map("n", "<leader>rd", "<cmd>Trouble document_diagnostics<cr>")
-      u.map("n", "<leader>ll", "<cmd>Trouble loclist<cr>")
-      u.map("n", "<leader>qq", "<cmd>Trouble quickfix<cr>")
-      u.map("n", "gR", "<cmd>Trouble lsp_references<cr>")
     end
   },
 }
