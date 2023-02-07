@@ -35,7 +35,9 @@ alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 [[ $commands[ag] ]] && alias ack=ag  # ag is faster, but I have so much muscle memory around ack
 
 # [[ $(brew --prefix openssl 2>/dev/null) ]] && alias openssl=$(brew --prefix openssl)/bin/openssl
+[[ -x /opt/homebrew/opt/openssl@3/bin/openssl ]] && alias openssl=/opt/homebrew/opt/openssl@3/bin/openssl
 # [[ $(brew --prefix curl 2>/dev/null) ]] && alias curl=$(brew --prefix curl)/bin/curl
+[[ -x /opt/homebrew/opt/curl/bin/curl ]] && alias curl=/opt/homebrew/opt/curl/bin/curl
 [[ -x /opt/homebrew/bin/git ]] && alias git=/opt/homebrew/bin/git
 
 add_missing_newline() {
