@@ -12,6 +12,8 @@ path=(
   "$HOME/bin"
   "/Applications/Postgres.app/Contents/Versions/12/bin"
   "/Users/nat/Library/Python/3.10/bin"
+  "/opt/homebrew/opt/openssl@3/bin"
+  "/opt/homebrew/opt/curl/bin"
   "/opt/homebrew/opt/openjdk/bin"
   "/opt/homebrew/opt/llvm/bin"
   "/opt/homebrew/bin"
