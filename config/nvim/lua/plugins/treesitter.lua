@@ -75,8 +75,13 @@ local ts_config = {
 
 return {
   {
+    'natw/ts-yamlpath.nvim',
+    dev = true,
+  },
+
+  {
     'natw/nvim-treesitter', -- https://github.com/nvim-treesitter/nvim-treesitter/pull/4263
-    branch = "statusline-transform-fn-node",
+    -- branch = "statusline-transform-fn-node",
     lazy = false,
     config = function()
       require('nvim-treesitter.install').update()
