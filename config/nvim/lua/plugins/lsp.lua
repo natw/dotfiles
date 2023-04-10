@@ -135,7 +135,7 @@ local function lspconfig_config()
   table.insert(rpath, "lua/?/init.lua")
   -- local lualspRoot = vim.env.HOME .. "/src/lua-language-server"
 
-  lsp.sumneko_lua.setup {
+  lsp.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     -- cmd = {lualspRoot .. "/bin/macOS/lua-language-server", "-E", lualspRoot .. "/main.lua"},
@@ -259,6 +259,10 @@ local function lspconfig_config()
         validate = true,
         hover = true,
         completion = true,
+
+        schemas = {
+          ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.yaml",
+        },
       },
     },
     single_file_support = true,
