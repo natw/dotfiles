@@ -73,5 +73,8 @@
 ; [receive]
 ;   fsckObjects = true
 
-[net]
-  git-fetch-with-cli = true
+; [net]
+;   git-fetch-with-cli = true
+
+[tag]
+  sort = version:refname
