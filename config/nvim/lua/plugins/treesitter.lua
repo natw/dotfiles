@@ -80,8 +80,7 @@ return {
   },
 
   {
-    'natw/nvim-treesitter', -- https://github.com/nvim-treesitter/nvim-treesitter/pull/4263
-    -- branch = "statusline-transform-fn-node",
+    'nvim-treesitter/nvim-treesitter',
     lazy = false,
     config = function()
       require('nvim-treesitter.install').update()
