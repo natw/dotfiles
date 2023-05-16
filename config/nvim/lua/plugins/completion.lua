@@ -34,7 +34,7 @@ local function cmp_setup()
       entries = "native",
     },
     experimental = {
-      ghost_text = true,
+      ghost_text = {},
     },
   }
 end

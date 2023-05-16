@@ -20,7 +20,7 @@ function M.st()
 
   local n = current_node
   while n do
-    local t = vim.treesitter.query.get_node_text(n, 0)
+    local t = vim.treesitter.get_node_text(n, 0)
     -- print(n:type(), "  -  ", vim.split(t,"\n")[1]:sub(1, 50))
     print("***", n:type(), "  -  ", t)
     n = n:parent()

@@ -261,7 +261,7 @@ local function lspconfig_config()
         completion = true,
 
         schemas = {
-          ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.yaml",
+          ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/deploy.yaml",
         },
       },
     },
