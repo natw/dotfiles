@@ -100,6 +100,12 @@ local function lspconfig_config()
     capabilities = capabilities,
   }
 
+  lsp.tflint.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+
+
   lsp.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -109,7 +115,7 @@ local function lspconfig_config()
         usePlaceholders = true,
         -- verboseOutput = true,
         gofumpt = true,
-        ["local"] = "github.com/amount,github.com/natw",
+        ["local"] = "github.com/amount,github.com/kin,github.com/natw",
         staticcheck = true,
         analyses = {
           nillness = true,
