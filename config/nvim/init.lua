@@ -1,5 +1,5 @@
 -- vim.cmd("set debug=throw")
-
+vim.loader.enable() -- experimental?
 require("lazy-nvim")
 
 vim.cmd("runtime mappings.vim")

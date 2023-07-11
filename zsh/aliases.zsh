@@ -154,3 +154,7 @@ j() {
   mkdir -p "${target}"
   cd "${target}"
 }
+
+in() {
+  aws ec2 describe-instances --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value | [0], InstanceId, InstanceType, PrivateIpAddress]' --output text | fzf
+}
