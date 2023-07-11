@@ -43,8 +43,7 @@ vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To p
 vim.o.editorconfig   = false
 vim.o.commentstring  = "# %s"
 
-vim.o.foldmethod="expr"
-vim.o.foldexpr="nvim_treesitter#foldexpr()"
-vim.o.nofoldenable = true
-
+vim.o.foldmethod           = "expr"
+vim.o.foldexpr             = "nvim_treesitter#foldexpr()"
+vim.o.nofoldenable         = true
 vim.g.python_highlight_all = 1

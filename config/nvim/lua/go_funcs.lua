@@ -1,5 +1,7 @@
 local M = {}
 
+-- these get used in ftplugin/go, I think
+
 -- I grabbed this from some github issue somewhere
 -- For some reason, golsp made the reorganization of imports
 -- (which includes adding missing ones)
@@ -8,7 +10,7 @@ local M = {}
 -- but I haven't really looked too deeply into it.
 function M.org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
-  params.context = {only = {"source.organizeImports"}}
+  params.context = { only = { "source.organizeImports" } }
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
   for _, res in pairs(result or {}) do
     for _, r in pairs(res.result or {}) do

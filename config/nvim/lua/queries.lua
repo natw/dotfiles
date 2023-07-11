@@ -1,4 +1,3 @@
-
 local u = require 'nvim-treesitter.ts_utils'
 
 local M = {}
@@ -28,6 +27,5 @@ function M.queries()
   -- end
   print(vim.inspect(has_parent_type(node, "argument_list")))
 end
-
 
 return M

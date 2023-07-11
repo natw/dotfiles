@@ -1,4 +1,5 @@
 " redirect something? I forget
+" I think it lets you paste the output of a vim command to a file
 function! Redir(cmd, rng, start, end)
 	for win in range(1, winnr('$'))
 		if getwinvar(win, 'scratch')

@@ -10,4 +10,4 @@ function _G.toggle_diagnostics()
   end
 end
 
-require('utils').map('n', '<leader>d', '<cmd>lua toggle_diagnostics()<cr>')
+require("utils").map("n", "<leader>d", toggle_diagnostics)

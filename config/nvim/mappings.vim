@@ -62,3 +62,5 @@ EOF
 nnoremap <leader>t :call nat#GitFZF()<cr>
 
 tnoremap <Esc> <C-\><C-n>
+
+nnoremap <leader>i :Inspect<cr>
