@@ -2,6 +2,7 @@
 vim.loader.enable() -- experimental?
 require("lazy-nvim")
 
+require("mappings")
 vim.cmd("runtime mappings.vim")
 require("options")
 
