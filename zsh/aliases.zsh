@@ -10,25 +10,14 @@ esac
 
 alias vim=nvim
 
-alias w="cd ~/work"
 alias ex=exercism
 alias pgrep='pgrep -fil'
 alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
-alias vimrc='vim -c ":e \$MYVIMRC"'
 alias tf='terraform'
-alias tiu='terraform init -upgrade'
-alias gs='cd $GOPATH/src/github.com'
-alias bb='brew bundle --file ~/projects/dotfiles/Brewfile'
-alias vimp="vim -R --noplugin -c 'runtime! macros/less.vim'"
-alias cdv="cd ~/.config/nvim"
 
 [[ $commands[ggrep] ]] && alias grep=ggrep
 
-alias tpo='terraform workspace select opslab && terraform plan -var-file=opslab.tfvars'
-alias tps='terraform workspace select stg && terraform plan -var-file=stg.tfvars'
-alias tpp='terraform workspace select prd && terraform plan -var-file=prd.tfvars'
 alias ksl='kubectl get pods --show-labels'
-alias vpo='vim ~/.config/nvim/plugin_options.vim'
 
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
@@ -42,7 +31,7 @@ dos2unix() {
   gsed -i'' 's/\r$//' "$@"
 }
 
-# fix() {    # moved to ~/bin
+# fix() {    # put in ~/bin for scripting reasons
 #   for file in "$@"; do
 #     [ -n "$(tail -c1 ${file})" ] && echo >> ${file}    # add trailing newline to last line if missing
 #     gsed -i'' 's/\r$//' $file                          # convert dos line endings to unix
@@ -65,8 +54,6 @@ alias kk="kubectl config get-contexts | awk '/\*/ { print \$2 \"/\" \$5 }'"
 alias hf='helmfile -e $(kubectl config current-context)'
 
 alias urldecode="python -c \"import sys, urllib as ul; print ul.unquote_plus(sys.stdin.read());\""
-
-alias vd="VAULT_ADDR=https://vault.dev.amount.com vault"
 
 gem_cache() {
   gem environment | grep "GEM PATHS" -A 1 | tail -n 1 | awk '{ print $2"/cache" }'
@@ -118,17 +105,9 @@ test_cf_sni() {
 function t() { echo | openssl s_client -connect $1:443 -servername ${2:-$1} | openssl x509 -noout -dates }
 
 alias accounts="aws organizations list-accounts --query 'Accounts[].[Name,Id]' --output text | column -t"
-alias dev="sudo /usr/sbin/DevToolsSecurity -enable"
+# alias dev="sudo /usr/sbin/DevToolsSecurity -enable"
 
-listening() {
-    if [ $# -eq 0 ]; then
-        sudo lsof -iTCP -sTCP:LISTEN -n -P
-    elif [ $# -eq 1 ]; then
-        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
-    else
-        echo "Usage: listening [pattern]"
-    fi
-}
+alias listening='sudo lsof -iTCP -sTCP:LISTEN -n -P'
 
 findip() {
   aws --profile $1 ec2 describe-subnets --subnet-ids $(aws --profile $1 ec2 describe-network-interfaces --filters "Name=addresses.private-ip-address,Values=$2" | jq '.NetworkInterfaces[0].SubnetId' -r) | jq '.Subnets[0].Tags[] | select(.Key | contains("Name")) | .Value' -r
@@ -156,5 +135,9 @@ j() {
 }
 
 in() {
-  aws ec2 describe-instances --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value | [0], InstanceId, InstanceType, PrivateIpAddress]' --output text | fzf
+  aws ec2 describe-instances --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value | [0], InstanceId, InstanceType, PrivateIpAddress]' --output text | fzf -1
+}
+
+ssm() {
+  aws ssm start-session --target "$(in | awk '{print $2}')"
 }
