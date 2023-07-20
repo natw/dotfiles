@@ -11,7 +11,7 @@ m("i", "<c-c>", "<esc>")
 nm("<c-h>", "gT")
 nm("<c-l>", "gt")
 
-nm("<leader>c", "gc")
+vim.keymap.set({ "n", "v" }, "<leader>c", "gc", { remap = true })
 
 nm("<leader>v", "V`]")
 nm("<leader><leader>", "<c-^>")
