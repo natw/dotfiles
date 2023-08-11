@@ -20,7 +20,8 @@
   yesterday = log --graph --all --abbrev-commit --since=yesterday --before=0am
   pr = !open "https://github.com/$(git remote get-url origin | sed -n 's/^.*:\\(.*\\)\\.git$/\\1/p')/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"
   burn = restore --staged --worktree
-  merged = "!git branch -l --format='%(refname:short)' | grep -v -e '^master$' -e '^main$' | while read branch; do [ -z \"$(git diff origin/HEAD...${branch})\" ] && echo \"${branch}\"; done"
+  merged = "!git branch -l --format='%(refname:short)' | grep -v -e '^production$' -e '^master$' -e '^main$' | while read branch; do [ -z \"$(git diff origin/HEAD...${branch})\" ] && echo \"${branch}\"; done"
+  delete-squashed = "!f() { local targetBranch=${1:-master} && git checkout -q $targetBranch && git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
 
 [format]
   pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
@@ -77,4 +78,7 @@
 ;   git-fetch-with-cli = true
 
 [tag]
+  sort = version:refname
+
+[branch]
   sort = version:refname
