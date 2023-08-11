@@ -98,6 +98,11 @@ local function lspconfig_config()
   lsp.terraformls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    settings = {
+      experimentalFeatures = {
+        prefillRequiredField = true,
+      },
+    },
   }
 
   lsp.tflint.setup {
