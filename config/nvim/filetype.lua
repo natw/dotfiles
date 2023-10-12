@@ -1,9 +1,7 @@
 vim.filetype.add({
-  extension = {
-    ["tmux.conf"] = "tmux",
-    ["yaml.gotmpl"] = "yaml",
-  },
+  extension = {},
   filename = {
+    ["tmux.conf"] = "tmux",
     ["Capfile"] = "ruby",
     ["Gemfile"] = "ruby",
     ["Vagrantfile"] = "ruby",
@@ -11,5 +9,7 @@ vim.filetype.add({
     ["Chart.lock"] = "yaml",
   },
   pattern = {
+    -- ["%g+.pkr.hcl"] = "hcl.packer",
+    ["%g+.yaml.gotmpl"] = "yaml",
   },
 })
