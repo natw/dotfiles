@@ -1,5 +1,6 @@
 -- config for both regular lsp stuff and null-lsp
 
+vim.lsp.set_log_level("off")
 if vim.env.DEBUG_LSP == "true" then
   require('vim.lsp.log').set_format_func(vim.inspect)
   vim.lsp.set_log_level("debug")
@@ -319,8 +320,8 @@ vim.cmd('sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsS
 vim.cmd('sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint linehl= numhl=')
 
 return {
-  { 'neovim/nvim-lspconfig', lazy = false, config = lspconfig_config },
-  { 'ojroques/nvim-lspfuzzy', lazy = false, config = {} },
+  { 'neovim/nvim-lspconfig',           lazy = false, config = lspconfig_config },
+  { 'ojroques/nvim-lspfuzzy',          lazy = false, config = {} },
   -- 'folke/lsp-colors.nvim' -- dunno if I actually need this atm. TODO: actually compare documents with this on and off
   { 'jose-elias-alvarez/null-ls.nvim', lazy = false, config = nls_config },
 }
