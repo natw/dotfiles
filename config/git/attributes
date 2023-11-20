@@ -1,0 +1,5 @@
+*.tf diff=terraform
+*.rb diff=ruby
+*.go diff=golang
+*.py diff=python
+*.sh diff=bash
