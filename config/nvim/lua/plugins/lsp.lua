@@ -2,7 +2,7 @@
 
 vim.lsp.set_log_level("off")
 if vim.env.DEBUG_LSP == "true" then
-  require('vim.lsp.log').set_format_func(vim.inspect)
+  require("vim.lsp.log").set_format_func(vim.inspect)
   vim.lsp.set_log_level("debug")
 end
 
@@ -12,77 +12,79 @@ vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
   float = {
-    source = 'always',
-    header = '',
-    prefix = '',
+    source = "always",
+    header = "",
+    prefix = "",
   },
 })
 
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
-  local bm = function(lhs, rhs) require('utils').bufmap('n', lhs, rhs, opts) end
+  local bm = function(lhs, rhs)
+    require("utils").bufmap("n", lhs, rhs, opts)
+  end
 
-  bm('K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-  bm('gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-  bm('gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-  bm('g?', '<cmd>lua vim.diagnostic.open_float()<cr>')
+  bm("K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+  bm("gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+  bm("gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
+  bm("g?", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
-  bm(',,r', '<cmd>lua vim.lsp.buf.references()<cr>')
-  bm(',,i', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-  bm(',,t', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-  bm(',,h', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-  bm(',,re', '<cmd>lua vim.lsp.buf.rename()<cr>')
-  bm(',,ca', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-  bm(',,q', '<cmd>lua vim.diagnostic.setloclist()<cr>')
-  bm(',,sd', '<cmd>lua vim.lsp.buf.document_symbol()<cr>')
-  bm(',,sw', '<cmd>lua vim.lsp.buf.workspace_symbol(".")<cr>')
-  bm(',,ci', '<cmd>lua vim.lsp.buf.incoming_calls()<cr>')
-  bm(',,co', '<cmd>lua vim.lsp.buf.outgoing_calls()<cr>')
+  bm(",,r", "<cmd>lua vim.lsp.buf.references()<cr>")
+  bm(",,i", "<cmd>lua vim.lsp.buf.implementation()<cr>")
+  bm(",,t", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
+  bm(",,h", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
+  bm(",,re", "<cmd>lua vim.lsp.buf.rename()<cr>")
+  bm(",,ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+  bm(",,q", "<cmd>lua vim.diagnostic.setloclist()<cr>")
+  bm(",,sd", "<cmd>lua vim.lsp.buf.document_symbol()<cr>")
+  bm(",,sw", '<cmd>lua vim.lsp.buf.workspace_symbol(".")<cr>')
+  bm(",,ci", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>")
+  bm(",,co", "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>")
 
-  bm('[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-  bm(']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+  bm("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+  bm("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
-  bm('==', '<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>')
+  bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
   -- vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
 local function lspconfig_config()
-  local lsp = require('lspconfig')
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  local lsp = require("lspconfig")
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-  lsp.clangd.setup {
+  lsp.clangd.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     -- cmd = { "clangd", "--log=verbose" },
-  }
+  })
 
-  lsp.pylsp.setup {
+  lsp.pylsp.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
       pyls = {
         configurationSources = {
-          "pycodestyle"
+          "pycodestyle",
         },
         plugins = {
           pyflakes = {
             enabled = false,
           },
           pyls_mypy = {
-            enabled = true,
-            live_mode = false,
-          }
-        }
-      }
-    }
-  }
+            enabled = false,
+            --   live_mode = false,
+          },
+        },
+      },
+    },
+  })
 
-  lsp.tsserver.setup {
+  lsp.tsserver.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  })
 
-  lsp.vimls.setup {
+  lsp.vimls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     init_options = {
@@ -94,9 +96,9 @@ local function lspconfig_config()
         enable = true,
       },
     },
-  }
+  })
 
-  lsp.terraformls.setup {
+  lsp.terraformls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -104,15 +106,14 @@ local function lspconfig_config()
         prefillRequiredField = true,
       },
     },
-  }
+  })
 
-  lsp.tflint.setup {
+  lsp.tflint.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  })
 
-
-  lsp.gopls.setup {
+  lsp.gopls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -135,19 +136,19 @@ local function lspconfig_config()
         },
       },
     },
-  }
+  })
 
-  lsp.clojure_lsp.setup {
+  lsp.clojure_lsp.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  })
 
   local rpath = vim.split(package.path, ";")
   table.insert(rpath, "lua/?.lua")
   table.insert(rpath, "lua/?/init.lua")
   -- local lualspRoot = vim.env.HOME .. "/src/lua-language-server"
 
-  lsp.lua_ls.setup {
+  lsp.lua_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     -- cmd = {lualspRoot .. "/bin/macOS/lua-language-server", "-E", lualspRoot .. "/main.lua"},
@@ -160,8 +161,8 @@ local function lspconfig_config()
         format = {
           enabled = true,
           defaultConfig = {
-            indent_style = 'space',
-            indent_size = '2',
+            indent_style = "space",
+            indent_size = "2",
           },
         },
         completion = {
@@ -171,7 +172,7 @@ local function lspconfig_config()
           workspaceWord = true,
         },
         diagnostics = {
-          globals = { 'vim' },
+          globals = { "vim" },
           neededFileStatus = {
             ["codestyle-check"] = "Any",
           },
@@ -185,7 +186,7 @@ local function lspconfig_config()
         },
       },
     },
-  }
+  })
 
   lsp.rust_analyzer.setup({
     on_attach = on_attach,
@@ -216,7 +217,7 @@ local function lspconfig_config()
     },
   })
 
-  lsp.texlab.setup {
+  lsp.texlab.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "texlab" },
@@ -230,7 +231,7 @@ local function lspconfig_config()
         },
         chktex = {
           onEdit = true,
-          onOpenAndSave = true
+          onOpenAndSave = true,
         },
         latexFormatter = "latexindent",
         latexindent = {
@@ -238,15 +239,15 @@ local function lspconfig_config()
         },
       },
     },
-  }
+  })
 
-  lsp.ruby_ls.setup {}
+  lsp.ruby_ls.setup({})
 
-  lsp.sorbet.setup {
+  lsp.sorbet.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "bundle", "exec", "srb", "t", "--lsp" },
-  }
+  })
 
   -- lsp.clangd.setup{
   --   on_attach = on_attach,
@@ -254,7 +255,7 @@ local function lspconfig_config()
   --   cmd = {"clangd", "--log=verbose", "--enable-config"},
   -- }
 
-  lsp.yamlls.setup {
+  lsp.yamlls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -278,7 +279,7 @@ local function lspconfig_config()
       },
     },
     single_file_support = true,
-  }
+  })
 end
 
 local function nls_config()
@@ -294,7 +295,7 @@ local function nls_config()
 
       nls.builtins.formatting.black,
       nls.builtins.formatting.isort,
-      nls.builtins.diagnostics.mypy,
+      -- nls.builtins.diagnostics.mypy,
 
       nls.builtins.diagnostics.golangci_lint,
 
@@ -310,18 +311,18 @@ local function nls_config()
       }),
 
       nls.builtins.formatting.latexindent,
-    }
+    },
   })
 end
 
-vim.cmd('sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=')
-vim.cmd('sign define LspDiagnosticsSignWarning text=> texthl=LspDiagnosticsSignWarning linehl= numhl=')
-vim.cmd('sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsSignInformation linehl= numhl=')
-vim.cmd('sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint linehl= numhl=')
+vim.cmd("sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=")
+vim.cmd("sign define LspDiagnosticsSignWarning text=> texthl=LspDiagnosticsSignWarning linehl= numhl=")
+vim.cmd("sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsSignInformation linehl= numhl=")
+vim.cmd("sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint linehl= numhl=")
 
 return {
-  { 'neovim/nvim-lspconfig',           lazy = false, config = lspconfig_config },
-  { 'ojroques/nvim-lspfuzzy',          lazy = false, config = {} },
+  { "neovim/nvim-lspconfig", lazy = false, config = lspconfig_config },
+  { "ojroques/nvim-lspfuzzy", lazy = false, config = {} },
   -- 'folke/lsp-colors.nvim' -- dunno if I actually need this atm. TODO: actually compare documents with this on and off
-  { 'jose-elias-alvarez/null-ls.nvim', lazy = false, config = nls_config },
+  { "jose-elias-alvarez/null-ls.nvim", lazy = false, config = nls_config },
 }

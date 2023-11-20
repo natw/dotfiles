@@ -9,11 +9,11 @@ local function guard_config()
     stdin = true,
   })
 
-  ft("lua"):fmt({
-    cmd = "stylua",
-    args = { "--indent-type", "Spaces", "--indent-width", "2", "-" },
-    stdin = true,
-  })
+  -- ft("lua"):fmt({
+  --   cmd = "stylua",
+  --   args = { "--indent-type", "Spaces", "--indent-width", "2", "-" },
+  --   stdin = true,
+  -- })
 
   require("guard").setup({
     lsp_as_default_formatter = true,

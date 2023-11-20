@@ -66,12 +66,9 @@ local ts_config = {
       show_help = '?',
     },
   },
-
-  context_commentstring = {
-    enable = true
-  },
 }
 
+vim.g.skip_ts_context_commentstring_module = true
 
 return {
   {
@@ -85,6 +82,8 @@ return {
       require('nvim-treesitter.install').update()
       require('nvim-treesitter.configs').setup(ts_config)
       require('utils').map('n', '_', function() require("ts").statusline() end)
+
+      require('ts_context_commentstring').setup({})
     end,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
