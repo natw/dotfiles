@@ -44,7 +44,7 @@ local on_attach = function(_, bufnr)
   bm("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
   bm("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
-  bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
+  -- bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
   -- vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
@@ -301,38 +301,38 @@ local function lspconfig_config()
   })
 end
 
-local function nls_config()
-  local nls = require("null-ls")
-  nls.setup({
-    debug = (vim.env.DEBUG_LSP == "true"),
-    on_attach = on_attach,
-    capabilities = vim.lsp.protocol.make_client_capabilities(),
-    root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git", ".standard.yml"),
-    sources = {
-      nls.builtins.diagnostics.shellcheck,
-      nls.builtins.formatting.shfmt,
+-- local function nls_config()
+--   local nls = require("null-ls")
+--   nls.setup({
+--     debug = (vim.env.DEBUG_LSP == "true"),
+--     on_attach = on_attach,
+--     capabilities = vim.lsp.protocol.make_client_capabilities(),
+--     root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git", ".standard.yml"),
+--     sources = {
+--       nls.builtins.diagnostics.shellcheck,
+--       nls.builtins.formatting.shfmt,
 
-      nls.builtins.formatting.black,
-      nls.builtins.formatting.isort,
-      -- nls.builtins.diagnostics.mypy,
+--       nls.builtins.formatting.black,
+--       nls.builtins.formatting.isort,
+--       -- nls.builtins.diagnostics.mypy,
 
-      nls.builtins.diagnostics.golangci_lint,
+--       nls.builtins.diagnostics.golangci_lint,
 
-      nls.builtins.diagnostics.standardrb.with({
-        timeout = 10000,
-        -- root_dir = function(_) -- what was this for?
-        --   return nil
-        -- end,
-      }),
-      nls.builtins.formatting.standardrb.with({
-        timeout = 10000,
-        extra_args = { "--no-parallel" },
-      }),
+--       nls.builtins.diagnostics.standardrb.with({
+--         timeout = 10000,
+--         -- root_dir = function(_) -- what was this for?
+--         --   return nil
+--         -- end,
+--       }),
+--       nls.builtins.formatting.standardrb.with({
+--         timeout = 10000,
+--         extra_args = { "--no-parallel" },
+--       }),
 
-      nls.builtins.formatting.latexindent,
-    },
-  })
-end
+--       nls.builtins.formatting.latexindent,
+--     },
+--   })
+-- end
 
 vim.cmd("sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=")
 vim.cmd("sign define LspDiagnosticsSignWarning text=> texthl=LspDiagnosticsSignWarning linehl= numhl=")
@@ -340,8 +340,8 @@ vim.cmd("sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsS
 vim.cmd("sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint linehl= numhl=")
 
 return {
-  { "neovim/nvim-lspconfig", lazy = false, config = lspconfig_config },
+  { "neovim/nvim-lspconfig",  lazy = false, config = lspconfig_config },
   { "ojroques/nvim-lspfuzzy", lazy = false, config = {} },
   -- 'folke/lsp-colors.nvim' -- dunno if I actually need this atm. TODO: actually compare documents with this on and off
-  { "jose-elias-alvarez/null-ls.nvim", lazy = false, config = nls_config },
+  -- { "jose-elias-alvarez/null-ls.nvim", lazy = false, config = nls_config },
 }
