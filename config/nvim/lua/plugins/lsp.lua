@@ -58,25 +58,44 @@ local function lspconfig_config()
     -- cmd = { "clangd", "--log=verbose" },
   })
 
-  lsp.pylsp.setup({
+  lsp.pyright.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
-      pyls = {
-        configurationSources = {
-          "pycodestyle",
-        },
-        plugins = {
-          pyflakes = {
-            enabled = false,
-          },
-          pyls_mypy = {
-            enabled = false,
-            --   live_mode = false,
-          },
-        },
+      python = {
+        pythonPath = "/opt/homebrew/bin/python3",
       },
     },
+  })
+
+  -- lsp.pylsp.setup({
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   settings = {
+  --     pyls = {
+  --       configurationSources = {
+  --         "pycodestyle",
+  --       },
+  --       plugins = {
+  --         pyflakes = {
+  --           enabled = false,
+  --         },
+  --         -- pyls_mypy = {
+  --         --   enabled = false,
+  --         --   --   live_mode = false,
+  --         -- },
+  --       },
+  --     },
+  --   },
+  -- })
+
+  lsp.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    -- settings = {
+    --   ['rust-analyzer'] = {
+    --   },
+    -- },
   })
 
   lsp.tsserver.setup({
