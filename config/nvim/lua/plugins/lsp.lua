@@ -44,7 +44,7 @@ local on_attach = function(_, bufnr)
   bm("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
   bm("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
-  -- bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
+  bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
   -- vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 
@@ -139,7 +139,7 @@ local function lspconfig_config()
       gopls = {
         semanticTokens = true,
         usePlaceholders = true,
-        -- verboseOutput = true,
+        verboseOutput = true,
         gofumpt = true,
         ["local"] = "github.com/amount,github.com/kin,github.com/natw",
         staticcheck = true,

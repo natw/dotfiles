@@ -33,5 +33,5 @@ nm("<leader>t", ":call nat#GitFZF()<cr>")
 nm("<leader>hi", ":TSHighlightCapturesUnderCursor<cr>")
 nm("<leader>i", ":Inspect<cr>")
 
-vim.keymap.set({ "v" }, "=", "gq", { remap = true })
-vim.keymap.set({ "n" }, "==", "gggqG", { remap = true })
+vim.keymap.set({ "v" }, "=", "gq", { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "==", "gggqG", { noremap = true, silent = true })

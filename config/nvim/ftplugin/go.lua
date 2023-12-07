@@ -7,18 +7,24 @@ vim.o.foldmethod = "indent"
 
 vim.api.nvim_create_user_command("A", require("go_funcs").alternate, {})
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ buffnr = args.buf })
+-- nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
+
+local go_lsp_group = vim.api.nvim_create_augroup('GO_LSP', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+  buffer = 0,
+  group = go_lsp_group,
+  callback = function(_)
+    require('go_funcs').format()
+  end,
+})
+vim.api.nvim_create_autocmd('BufWritePre', {
+  buffer = 0,
+  group = go_lsp_group,
+  callback = function(_)
+    require('go_funcs').org_imports(3000)
   end,
 })
 
--- nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
--- augroup GO_LSP
--- 	autocmd! * <buffer=abuf>
---   autocmd BufWritePre <buffer=abuf> :silent! lua require('go_funcs').format()
---   autocmd BufWritePre <buffer=abuf> :silent! lua require('go_funcs').org_imports(3000)
--- augroup END
+
 
 -- setlocal foldexpr=nvim_treesitter#foldexpr()
