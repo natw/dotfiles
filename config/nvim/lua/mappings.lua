@@ -35,3 +35,19 @@ nm("<leader>i", ":Inspect<cr>")
 
 vim.keymap.set({ "v" }, "=", "gq", { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "==", "gggqG", { noremap = true, silent = true })
+
+local c = function(a, b)
+  vim.api.nvim_create_user_command(a, b, {})
+end
+c("W", "w")
+c("Wq", "wq")
+c("Q", "q")
+c("Vsp", "vsp")
+c("Wa", "wa")
+
+nm("<leader>wc", ":%s/<c-r><c-w>//gn<CR>")
+
+c("Rmsp", [[%s/\s\+$//]])
+
+vim.api.nvim_command([[:command! -nargs=1 -complete=file EditOrMkFileWithDir :call nat#EditOrMkFileWithDir(<q-args>)]])
+vim.api.nvim_command([[nnoremap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:p:h") . "/" <cr>]])
