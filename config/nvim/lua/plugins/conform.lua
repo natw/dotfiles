@@ -19,6 +19,7 @@ local conform_opts = {
     zsh = { "shfmt" },
     terraform = { "terraform_fmt" },
     yaml = { "yamlfmt" },
+    hcl = { "packer_fmt" },
     -- yaml = { "yamlfix" },
   },
 }
@@ -32,8 +33,8 @@ return {
     init = function()
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
-    keys = {
-      { "==", "=" },
-    },
+    -- keys = {
+    --   { "==", "=" },
+    -- },
   },
 }

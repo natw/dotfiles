@@ -2,7 +2,7 @@
 
 vim.lsp.set_log_level("off")
 if vim.env.DEBUG_LSP == "true" then
-  require("vim.lsp.log").set_format_func(vim.inspect)
+    require("vim.lsp.log").set_format_func(vim.inspect)
   vim.lsp.set_log_level("debug")
 end
 
@@ -44,7 +44,7 @@ local on_attach = function(_, bufnr)
   bm("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
   bm("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
-  bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
+  -- bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
   -- vim.api.nvim_command("autocmd CursorHold <buffer> lua require('echo-diagnostics').echo_line_diagnostic()")
 end
 

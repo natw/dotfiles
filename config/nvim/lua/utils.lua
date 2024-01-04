@@ -16,4 +16,13 @@ function M.bufmap(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+function M.onsave(groupName, callback)
+  local group = vim.api.nvim_create_augroup(groupName, { clear = false })
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = 0,
+    group = group,
+    callback = callback,
+  })
+end
+
 return M
