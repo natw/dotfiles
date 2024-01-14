@@ -4,7 +4,11 @@ setopt autolist # list completion candidates
 zmodload -i zsh/complist
 autoload -U zstyle+
 autoload -U compinit
-compinit -C
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 
 _force_rehash() {
     (( CURRENT ==1 )) && rehash

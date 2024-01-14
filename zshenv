@@ -40,8 +40,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 
 export AWS_DEFAULT_REGION=us-east-2
-[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+# [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
-[[ $commands[rbenv] ]] && eval "$(rbenv init -)"
+[[ $commands[rbenv] ]] && eval "$(rbenv init - --no-rehash)"
 
 export LANG=en_US.UTF-8

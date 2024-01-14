@@ -141,3 +141,7 @@ in() {
 ssm() {
   aws ssm start-session --target "$(in | awk '{print $2}')"
 }
+
+preview() {
+  spacectl stack preview --id "$1" --sha "$(git rev-parse HEAD)" | tee >(perl -lne '/(https:.+)/ && print $1' | read url && open $url)
+}
