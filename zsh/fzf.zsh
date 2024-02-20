@@ -40,10 +40,13 @@ _fzf_comprun() {
 _fzf_complete_git() {
     ARGS="$@"
     local branches
+    local tags
     if [[ $ARGS == 'git co'* ]]; then
         branches=$(git branch -vv --all)
+        tags=$(git tag -l)
         _fzf_complete "--reverse --multi" "$@" < <(
             echo $branches
+            echo $tags
         )
     elif [[ $ARGS == 'git stash pop'* ]]; then
         local preview_cmd='git stash show -p $(echo {} | cut -d: -f1)'
