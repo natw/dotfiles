@@ -1,0 +1,5 @@
+; vim: ft=gitconfig
+
+[user]
+  name = Nat Williams
+  email = nat.williams@kin.com

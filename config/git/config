@@ -3,6 +3,16 @@
 [include]
   path = ~/.gitconfig.local
 
+[user]
+  name = Nat Williams
+  email = nat.williams@gmail.com
+
+[includeIf "gitdir:~/work/**"]
+  path = config.kin
+
+[includeIf "hasconfig:remote.*.url:git@github.com:kin/*"]
+  path = config.kin
+
 [alias]
   st = status
   lg = log --graph --all --abbrev-commit
@@ -46,34 +56,39 @@
   defaultBranch = main
 
 [diff]
-  ; external = difft
+  external = difft
   algorithm = histogram
+  ; algorithm = patience
   colorMoved = default
+  renames = copies
+  word-diff = color
 
 [merge]
-  tool = vimdiff
-  ; conflictstyle = zdiff3
+  tool = nvimdiff
+  conflictstyle = zdiff3
 
 [core]
   pager = less -XFRS -x2
   excludesFile = "~/.gitignore"
+  ; fsmonitor = true
 
 [push]
   default = current
+  autoSetupRemote = true
 
 [rerere]
   enabled = true
 
 [fetch]
   prune = true
+  prunetags = true
+  fsckobjects = true
 
-;  fsckobjects = true
+[transfer]
+  fsckobjects = true
 
-; [transfer]
-;   fsckobjects = true
-
-; [receive]
-;   fsckObjects = true
+[receive]
+  fsckObjects = true
 
 ; [net]
 ;   git-fetch-with-cli = true
@@ -82,4 +97,9 @@
   sort = version:refname
 
 [branch]
-  sort = version:refname
+  ; sort = version:refname
+  sort = -committerdate
+
+[column]
+  branch = auto
+  tag = auto
