@@ -66,6 +66,8 @@ return {
     dir = "~/projects/altfiles.nvim",
   },
 
+  { "mizlan/delimited.nvim" },
+
   -- now entering the Tim Pope Zone
   { "tpope/vim-commentary",  lazy = false },
   { "tpope/vim-fugitive",    cmd = "Git" },
