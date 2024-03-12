@@ -1,0 +1,2 @@
+# logfilename                      [owner:group]    mode count size when  flags [/pid_file] [sig_num]
+/Users/nat/.local/state/nvim/*.log                  644  0     *    $D0   G
