@@ -634,6 +634,7 @@ dynamic_padding = true
 dynamic_title = true
 opacity = 1.0
 startup_mode = "Maximized"
+option_as_alt = "OnlyRight"
 
 [window.dimensions]
 columns = 400
