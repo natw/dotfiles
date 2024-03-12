@@ -31,6 +31,11 @@ return {
     -- ft = { "yaml" },
   },
 
+  -- {
+  --   "AbstractMachinesLab/tree-sitter-sexp",
+  --   -- build = "tree-sitter generate && tree-sitter test",
+  -- },
+
   { 'cespare/vim-toml', ft = { "toml" } },
   { 'jparise/vim-graphql', ft = { "graphql" } },
   { 'pangloss/vim-javascript', ft = { "javascript" } },

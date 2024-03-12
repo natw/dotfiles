@@ -26,11 +26,7 @@ return {
   {
     "junegunn/rainbow_parentheses.vim",
     cmd = { "RainbowParentheses" },
-  },
-
-  {
-    "AbstractMachinesLab/tree-sitter-sexp",
-    -- build = "tree-sitter generate && tree-sitter test",
+    ft = { 'clojure', 'lisp', 'racket' },
   },
 
   {
@@ -47,6 +43,7 @@ return {
 
   -- { 'folke/lsp-colors.nvim', lazy = false },
 
+  -- TODO: try https://github.com/NvChad/nvim-colorizer.lua instead
   {
     "rrethy/vim-hexokinase",
     build = "make hexokinase",
@@ -58,15 +55,6 @@ return {
     end,
     lazy = false,
   },
-
-  {
-    "natw/altfiles.nvim",
-    dev = true,
-    lazy = false,
-    dir = "~/projects/altfiles.nvim",
-  },
-
-  { "mizlan/delimited.nvim" },
 
   -- now entering the Tim Pope Zone
   { "tpope/vim-commentary", lazy = false },

@@ -1,6 +1,6 @@
 local ts_config = {
   ensure_installed = "all",
-  ignore_install = { "phpdoc" },
+  ignore_install = { "phpdoc" }, -- why did I do this?
 
   highlight = {
     enable = true,
@@ -68,6 +68,7 @@ local ts_config = {
   },
 }
 
+-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring?tab=readme-ov-file#getting-started
 vim.g.skip_ts_context_commentstring_module = true
 
 return {

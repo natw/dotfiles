@@ -30,6 +30,7 @@ return {
     "stevearc/conform.nvim",
     opts = conform_opts,
     lazy = true,
+    cmd = { "ConformInfo" },
     event = { "BufWritePre" },
     init = function()
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
