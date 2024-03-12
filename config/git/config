@@ -33,6 +33,9 @@
   merged = "!git branch -l --format='%(refname:short)' | grep -v -e '^production$' -e '^master$' -e '^main$' | while read branch; do [ -z \"$(git diff origin/HEAD...${branch})\" ] && echo \"${branch}\"; done"
   delete-squashed = "!f() { local targetBranch=${1:-master} && git checkout -q $targetBranch && git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
   orphans = "!git branch --format '%(refname:short) %(upstream:track)' | awk '/\\[gone\\]/ { print $1 }'"
+  diffn = diff --no-ext-diff
+  difn = diffn
+  dcn = diff --cached --no-ext-diff
 
 [format]
   pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
