@@ -34,7 +34,7 @@ nm("<leader>hi", ":TSHighlightCapturesUnderCursor<cr>")
 nm("<leader>i", ":Inspect<cr>")
 
 vim.keymap.set({ "v" }, "=", "gq", { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "==", "gggqG", { noremap = false, silent = true })
+vim.keymap.set({ "n" }, "==", "mMgggqGg`M", { noremap = false, silent = true })
 
 local c = function(a, b)
   vim.api.nvim_create_user_command(a, b, {})

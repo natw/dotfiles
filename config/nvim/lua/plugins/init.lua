@@ -53,7 +53,7 @@ return {
     init = function()
       vim.g.Hexokinase_v2 = true
       vim.g.Hexokinase_palettes =
-      { vim.fn.expand("<script>:p:h") .. "/lua/plugins/hexokinase_colorscheme_palette.json" }
+        { vim.fn.expand("<script>:p:h") .. "/lua/plugins/hexokinase_colorscheme_palette.json" }
       vim.g.Hexokinase_highlighters = { "backgroundfull" }
     end,
     lazy = false,
@@ -69,8 +69,8 @@ return {
   { "mizlan/delimited.nvim" },
 
   -- now entering the Tim Pope Zone
-  { "tpope/vim-commentary",  lazy = false },
-  { "tpope/vim-fugitive",    cmd = "Git" },
-  { "tpope/vim-surround",    lazy = false },
+  { "tpope/vim-commentary", lazy = false },
+  { "tpope/vim-fugitive", cmd = "Git" },
+  { "tpope/vim-surround", lazy = false },
   { "tpope/vim-speeddating", lazy = false },
 }
