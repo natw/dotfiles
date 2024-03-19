@@ -1,0 +1,19 @@
+filetree:
+  collapse-dir: true
+
+keybinding:
+  quit: q, ctrl+c
+  page-up: ctrl+b
+  page-down: ctrl+f
+  # https://github.com/wagoodman/dive/pull/499
+  # or https://github.com/wagoodman/dive/pull/501
+  # up: k
+  # down: j
+  toggle-added-files: a
+  toggle-removed-files: r
+  toggle-modified-files: m
+  toggle-unmodified-files: u
+  toggle-filetree-attributes: f
+
+  compare-all: ctrl+a
+  compare-layer: ctrl+l
