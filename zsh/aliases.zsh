@@ -145,3 +145,11 @@ ssm() {
 preview() {
   spacectl stack preview --id "$1" --sha "$(git rev-parse HEAD)" | tee >(perl -lne '/(https:.+)/ && print $1' | read url && open $url)
 }
+
+ap() {
+  profile=${1:-}
+  if [[ -z "$profile" ]]; then
+    profile=$(aws configure list-profiles | fzf)
+  fi
+  export AWS_PROFILE="$profile"
+}
