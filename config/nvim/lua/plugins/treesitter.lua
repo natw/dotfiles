@@ -1,6 +1,6 @@
 local ts_config = {
   ensure_installed = "all",
-  ignore_install = { "phpdoc" }, -- why did I do this?
+  ignore_install = { "phpdoc", "wing", "dockerfile" }, -- why did I do this?
 
   highlight = {
     enable = true,
@@ -83,8 +83,19 @@ return {
       require('nvim-treesitter.install').update()
       require('nvim-treesitter.configs').setup(ts_config)
       require('utils').map('n', '_', function() require("ts").statusline() end)
-
       require('ts_context_commentstring').setup({})
+
+      -- until https://github.com/camdencheek/tree-sitter-dockerfile/pull/45 gets merged
+      local pconfigs = require("nvim-treesitter.parsers").get_parser_configs()
+      pconfigs.dockerfile = {
+        install_info = {
+          url = "git@github.com:tvrinssen/tree-sitter-dockerfile.git",
+          branch = "support-heredocs",
+          requires_generate_from_grammar = false,
+        },
+        filetype = "dockerfile",
+      }
+      --
     end,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
