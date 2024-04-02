@@ -25,10 +25,16 @@ local function cmp_setup()
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
       { name = "nvim_lsp_signature_help" },
+      { name = "luasnip" },
       { name = "path" },
       { name = "buffer" },
     },
     preselect = cmp.PreselectMode.None,
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
     mapping = {
       -- ["<Tab>"] = if_cmp_visible(cmp.select_next_item),
       ["<Tab>"] = cmp.mapping(function(fallback)
@@ -97,6 +103,8 @@ return {
       { "hrsh7th/cmp-nvim-lua", lazy = false },
       { "hrsh7th/cmp-nvim-lsp", lazy = false },
       { "hrsh7th/cmp-nvim-lsp-signature-help", lazy = false },
+      { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp", lazy = false },
+      { "saadparwaiz1/cmp_luasnip", lazy = false },
     },
   },
 }
