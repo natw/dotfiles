@@ -260,8 +260,6 @@ local function lspconfig_config()
     },
   })
 
-  lsp.ruby_ls.setup({})
-
   lsp.sorbet.setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -299,6 +297,9 @@ local function lspconfig_config()
     },
     single_file_support = true,
   })
+
+  lsp.nim_langserver.setup({})
+
 end
 
 vim.cmd("sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=")
