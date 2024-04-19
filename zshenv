@@ -11,7 +11,8 @@ eval $(/opt/homebrew/bin/brew shellenv)
 path=(
   "$HOME/bin"
   "$HOME/.cargo/bin"
-  "/Applications/Postgres.app/Contents/Versions/12/bin"
+  "$HOME/.nimble/bin"
+  "/Applications/Postgres.app/Contents/Versions/16/bin"
   "/Users/nat/Library/Python/3.10/bin"
   "/opt/homebrew/opt/openssl@3/bin"
   "/opt/homebrew/opt/curl/bin"
