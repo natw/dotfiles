@@ -36,6 +36,7 @@
   diffn = diff --no-ext-diff
   difn = diffn
   dcn = diff --cached --no-ext-diff
+  squash = "!f() { local t=${1:-master} && git rebase -i $(git merge-base --fork-point $t); }; f"
 
 [format]
   pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
