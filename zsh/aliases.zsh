@@ -134,12 +134,8 @@ j() {
   cd "${target}"
 }
 
-in() {
-  aws ec2 describe-instances --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value | [0], InstanceId, InstanceType, PrivateIpAddress]' --output text | fzf -1
-}
-
 ssm() {
-  aws ssm start-session --target "$(in | awk '{print $2}')"
+  aws ssm start-session --target "$(aws ec2 describe-instances --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value | [0], InstanceId, InstanceType, PrivateIpAddress]' --output text | grep -v "None" | fzf -1 -q "$1" | awk '{print $2}')"
 }
 
 preview() {
@@ -152,4 +148,11 @@ ap() {
     profile=$(aws configure list-profiles | fzf)
   fi
   export AWS_PROFILE="$profile"
+}
+
+pf() {
+  aws ssm start-session \
+    --target i-0023f6038859334eb \
+    --document-name AWS-StartPortForwardingSessionToRemoteHost \
+    --parameters "{\"host\":[\"${1}\"],\"portNumber\":[\"5432\"], \"localPortNumber\":[\"55432\"]}"
 }
