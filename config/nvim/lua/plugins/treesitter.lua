@@ -39,12 +39,12 @@ local ts_config = {
   },
 
   incremental_selection = {
-    enable = false,
+    enable = true,
     keymaps = {
-      init_selection = '<cr>',
+      init_selection = '<s-cr>',
       scope_incremental = '<tab>',
-      node_incremental = '<cr>',
-      node_decremental = '<s-cr>',
+      node_incremental = '<s-cr>',
+      -- node_decremental = '<c-cr>',
     },
   },
 
