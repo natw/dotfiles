@@ -82,9 +82,11 @@ return {
     config = function()
       require('nvim-treesitter.install').update()
       require('nvim-treesitter.configs').setup(ts_config)
-      require('utils').map('n', '_', function() require("ts").statusline() end)
       require('ts_context_commentstring').setup({})
     end,
+    keys = {
+      { "_", require("ts").statusline, desc = "TreeSitter Statusline" },
+    },
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
       { 'JoosepAlviste/nvim-ts-context-commentstring' },

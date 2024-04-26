@@ -10,4 +10,4 @@ function _G.toggle_diagnostics()
   end
 end
 
-require("utils").map("n", "<leader>d", toggle_diagnostics)
+vim.keymap.set("n", "<leader>d", toggle_diagnostics, { noremap = true, silent = true })

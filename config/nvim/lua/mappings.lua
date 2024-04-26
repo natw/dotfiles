@@ -1,6 +1,8 @@
 -- mappings that mostly aren't tied to a specific plugin
 
-local m = require("utils").map
+local m = function(mode, lhs, rhs)
+  vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true })
+end
 local nm = function(lhs, rhs)
   m("n", lhs, rhs)
 end

@@ -21,7 +21,7 @@ vim.diagnostic.config({
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   local bm = function(lhs, rhs)
-    require("utils").bufmap("n", lhs, rhs, opts)
+    vim.keymap.set("n", lhs, rhs, opts)
   end
 
   bm("K", "<cmd>lua vim.lsp.buf.hover()<cr>")
