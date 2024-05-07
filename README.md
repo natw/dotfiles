@@ -14,9 +14,9 @@ These are some things I use, config for which is contained herein
 
 - [**neovim**](config/nvim/) - I care about my vim config more than I probably should. I use lazy.nvim for package management, but no frameworks or distribution or whatever. I'm trying to move everything over to Lua eventually, but really just because it's fun.
 - [**zsh**](zshrc) - This one is scattered about the repo a bit more than the others just because of where zsh expects things. Again, no frameworks here, just years of amalgamated config slowly iterated on.
-- [**git**](config/git/) - duh
-- [**tmux**](config/tmux) - it's good. Not too much to speak to here, it is what it is.
-- [**alacritty**](config/alacritty) - it's a good terminal
+- [**git**](config/git/config) - duh
+- [**tmux**](config/tmux/tmux.conf) - it's good. Not too much to speak to here, it is what it is.
+- [**alacritty**](config/alacritty/alacritty.toml) - it's a good terminal
 
 Some notable weird bits:
 
