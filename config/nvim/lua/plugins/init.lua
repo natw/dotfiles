@@ -26,7 +26,7 @@ return {
   {
     "junegunn/rainbow_parentheses.vim",
     cmd = { "RainbowParentheses" },
-    ft = { 'clojure', 'lisp', 'racket' },
+    ft = { "clojure", "lisp", "racket" },
   },
 
   {
@@ -54,6 +54,15 @@ return {
       vim.g.Hexokinase_highlighters = { "backgroundfull" }
     end,
     lazy = false,
+  },
+
+  {
+    "natw/nvim-indentnav",
+    dev = true,
+    keys = {
+      { "]l", function() require("indentnav").goto_next_line_at_same_indent() end, "n" },
+      { "[l", function() require("indentnav").goto_prev_line_at_same_indent() end, "n" },
+    },
   },
 
   -- now entering the Tim Pope Zone

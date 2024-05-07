@@ -110,7 +110,7 @@ alias accounts="aws organizations list-accounts --query 'Accounts[].[Name,Id]' -
 alias listening='sudo lsof -iTCP -sTCP:LISTEN -n -P'
 
 findip() {
-  aws --profile $1 ec2 describe-subnets --subnet-ids $(aws --profile $1 ec2 describe-network-interfaces --filters "Name=addresses.private-ip-address,Values=$2" | jq '.NetworkInterfaces[0].SubnetId' -r) | jq '.Subnets[0].Tags[] | select(.Key | contains("Name")) | .Value' -r
+  aws ec2 describe-subnets --subnet-ids $(aws ec2 describe-network-interfaces --filters "Name=addresses.private-ip-address,Values=$1" | jq '.NetworkInterfaces[0].SubnetId' -r) | jq '.Subnets[0].Tags[] | select(.Key | contains("Name")) | .Value' -r
 }
 
 pk() {

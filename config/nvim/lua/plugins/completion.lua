@@ -36,7 +36,6 @@ local function cmp_setup()
       end,
     },
     mapping = {
-      -- ["<Tab>"] = if_cmp_visible(cmp.select_next_item),
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           if #cmp.get_entries() == 1 then
@@ -44,9 +43,6 @@ local function cmp_setup()
           else
             cmp.select_next_item()
           end
-        --[[ Replace with your snippet engine (see above sections on this page)
-      elseif snippy.can_expand_or_advance() then
-        snippy.expand_or_advance() ]]
         elseif has_words_before() then
           cmp.complete()
           if #cmp.get_entries() == 1 then
