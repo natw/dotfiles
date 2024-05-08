@@ -38,7 +38,6 @@ vim.o.incsearch      = true
 vim.o.clipboard      = "unnamed"             -- use osx clipboard
 vim.o.undodir        = "/tmp/vim-undo"
 vim.o.undofile       = true
-vim.o.termguicolors  = true
 vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To prevent annoying flicker of text moving side to side
 vim.o.editorconfig   = false
 vim.o.commentstring  = "# %s"

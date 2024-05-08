@@ -12,7 +12,7 @@ return {
     "natw/nvim-hover-doc-url",
     keys = { "gx", "<cmd>lua require('hover-doc').visit()", "n" },
   },
-  { "seblj/nvim-echo-diagnostics" },
+
   { "mfussenegger/nvim-dap" },
 
   {
@@ -23,6 +23,7 @@ return {
     "junegunn/fzf.vim",
     lazy = false,
   },
+
   {
     "junegunn/rainbow_parentheses.vim",
     cmd = { "RainbowParentheses" },
@@ -41,19 +42,12 @@ return {
     end,
   },
 
-  -- { 'folke/lsp-colors.nvim', lazy = false },
-
-  -- TODO: try https://github.com/NvChad/nvim-colorizer.lua instead
   {
-    "rrethy/vim-hexokinase",
-    build = "make hexokinase",
-    init = function()
-      vim.g.Hexokinase_v2 = true
-      vim.g.Hexokinase_palettes =
-        { vim.fn.expand("<script>:p:h") .. "/lua/plugins/hexokinase_colorscheme_palette.json" }
-      vim.g.Hexokinase_highlighters = { "backgroundfull" }
-    end,
+    "norcalli/nvim-colorizer.lua",
     lazy = false,
+    config = {
+      '*',
+    },
   },
 
   {
