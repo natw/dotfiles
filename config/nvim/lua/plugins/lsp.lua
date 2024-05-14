@@ -136,7 +136,7 @@ local function lspconfig_config()
     capabilities = capabilities,
     settings = {
       gopls = {
-        semanticTokens = true,
+        semanticTokens = false,
         usePlaceholders = true,
         verboseOutput = true,
         gofumpt = true,
@@ -299,6 +299,7 @@ local function lspconfig_config()
 
   lsp.nim_langserver.setup({})
 
+  lsp.bashls.setup({})
 end
 
 vim.cmd("sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=")
