@@ -2,7 +2,6 @@ local conform_opts = {
   notify_on_error = true,
   -- log_level = vim.log.levels.TRACE,
   formatters_by_ft = {
-    ["*"] = { "trim_newlines" },
     ["_"] = { "trim_whitespace" },
     lua = { "stylua" },
     python = { "isort", "black" },
@@ -22,6 +21,7 @@ local conform_opts = {
     yaml = { "yamlfmt" },
     hcl = { "packer_fmt" },
     -- yaml = { "yamlfix" },
+    ["*"] = { "trim_newlines" },
   },
 }
 
