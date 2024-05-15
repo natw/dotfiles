@@ -136,7 +136,7 @@ local function lspconfig_config()
     capabilities = capabilities,
     settings = {
       gopls = {
-        semanticTokens = false,
+        semanticTokens = true,
         usePlaceholders = true,
         verboseOutput = true,
         gofumpt = true,
