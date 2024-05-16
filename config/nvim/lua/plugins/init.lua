@@ -60,7 +60,6 @@ return {
   },
 
   -- now entering the Tim Pope Zone
-  { "tpope/vim-commentary", lazy = false },
   { "tpope/vim-fugitive", cmd = "Git" },
   { "tpope/vim-surround", lazy = false },
   { "tpope/vim-speeddating", lazy = false },

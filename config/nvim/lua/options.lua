@@ -39,10 +39,10 @@ vim.o.clipboard      = "unnamed"             -- use osx clipboard
 vim.o.undodir        = "/tmp/vim-undo"
 vim.o.undofile       = true
 vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To prevent annoying flicker of text moving side to side
-vim.o.editorconfig   = false
+-- vim.o.editorconfig   = false
 vim.o.commentstring  = "# %s"
 
 vim.o.foldmethod           = "expr"
 vim.o.foldexpr             = "nvim_treesitter#foldexpr()"
-vim.o.nofoldenable         = true
-vim.g.python_highlight_all = 1
+-- vim.o.nofoldenable         = true
+-- vim.g.python_highlight_all = 1
