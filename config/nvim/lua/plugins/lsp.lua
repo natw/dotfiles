@@ -12,7 +12,7 @@ vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
   float = {
-    source = "always",
+    source = true,
     header = "",
     prefix = "",
   },
@@ -117,7 +117,11 @@ local function lspconfig_config()
   })
 
   lsp.terraformls.setup({
-    on_attach = on_attach,
+    -- terraform-ls's semantic tokens are kind of jacked at the moment
+    on_attach = function(client, opts)
+      client.server_capabilities.semanticTokensProvider = nil
+      return on_attach(client, opts)
+    end,
     capabilities = capabilities,
     settings = {
       experimentalFeatures = {

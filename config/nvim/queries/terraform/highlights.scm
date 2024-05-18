@@ -1,0 +1,3 @@
+(body
+  (attribute
+    (identifier) @property))
