@@ -66,6 +66,12 @@ local ts_config = {
       show_help = '?',
     },
   },
+  
+  query_linter = {
+    enable = true,
+    use_virtual_text = true,
+    lint_events = {"BufWrite", "CursorHold"},
+  },
 }
 
 -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring?tab=readme-ov-file#getting-started
