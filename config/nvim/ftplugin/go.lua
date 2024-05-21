@@ -4,25 +4,22 @@ vim.bo.shiftwidth = 4
 vim.bo.softtabstop = 4
 -- vim.bo.updatetime = 200
 vim.o.foldmethod = "indent"
+-- setlocal foldexpr=nvim_treesitter#foldexpr()
 
-vim.api.nvim_create_user_command("A", require("go_funcs").alternate, {})
+vim.api.nvim_create_user_command("A", function()
+  require("go_funcs").alternate()
+end, {})
 
 -- nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
 
--- local go_lsp_group = vim.api.nvim_create_augroup('GO_LSP', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePre', {
---   buffer = 0,
---   group = go_lsp_group,
---   callback = function(_)
---     require('go_funcs').format()
---   end,
--- })
-
 require("utils").onsave("GO", function()
-  require("go_funcs").format()
+  vim.lsp.buf.format({
+    timeout_ms = 1000,
+    bufnr = 0,
+  })
 end)
+
 require("utils").onsave("GO", function()
   require("go_funcs").org_imports(3000)
 end)
 
--- setlocal foldexpr=nvim_treesitter#foldexpr()
