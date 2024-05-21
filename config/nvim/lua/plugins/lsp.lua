@@ -40,6 +40,8 @@ local on_attach = function(_, bufnr)
   bm(",,sw", '<cmd>lua vim.lsp.buf.workspace_symbol(".")<cr>')
   bm(",,ci", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>")
   bm(",,co", "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>")
+  bm(",,cr", "<cmd>lua vim.lsp.codelens.refresh({ bufnr = 0 })<cr>")
+  bm(",,cl", "<cmd>lua vim.lsp.codelens.run()<cr>")
 
   bm("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
   bm("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
@@ -105,13 +107,17 @@ local function lspconfig_config()
   lsp.vimls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    init_options = {
+    initializationOptions = {
       isNeovim = true,
       indexes = {
         runtimepath = true,
       },
       diagnostic = {
         enable = true,
+      },
+      suggest = {
+        fromVimruntime = true,
+        fromRuntimepath = true,
       },
     },
   })
@@ -138,6 +144,7 @@ local function lspconfig_config()
   lsp.gopls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
+    -- cmd = { "gopls", "-logfile", "/tmp/gopls.log", "-rpc.trace" },
     settings = {
       gopls = {
         semanticTokens = true,
