@@ -1,6 +1,6 @@
 local M = {}
 
--- these get used in ftplugin/go, I think
+-- these get used in ftplugin/go
 
 -- I grabbed this from some github issue somewhere
 -- For some reason, golsp made the reorganization of imports
@@ -21,10 +21,6 @@ function M.org_imports(wait_ms)
       end
     end
   end
-end
-
-function M.format()
-  vim.lsp.buf.format(nil, 1000)
 end
 
 function M.alternate()

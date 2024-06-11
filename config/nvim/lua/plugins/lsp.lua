@@ -42,6 +42,9 @@ local on_attach = function(_, bufnr)
   bm(",,co", "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>")
   bm(",,cr", "<cmd>lua vim.lsp.codelens.refresh({ bufnr = 0 })<cr>")
   bm(",,cl", "<cmd>lua vim.lsp.codelens.run()<cr>")
+  bm(",,?", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+  end)
 
   bm("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
   bm("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
@@ -162,6 +165,15 @@ local function lspconfig_config()
         codelenses = {
           test = true,
           gc_details = true,
+        },
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
         },
       },
     },
