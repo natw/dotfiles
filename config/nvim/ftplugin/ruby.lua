@@ -1,1 +1,1 @@
-vim.bo.list = true
+vim.wo.list = true
