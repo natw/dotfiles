@@ -6,6 +6,8 @@ return {
     dev = true,
   },
 
+  { "echasnovski/mini.colors", lazy = false },
+
   { "nvim-lua/plenary.nvim" },
 
   {
@@ -46,7 +48,7 @@ return {
     "norcalli/nvim-colorizer.lua",
     lazy = false,
     config = {
-      '*',
+      "*",
     },
   },
 
@@ -54,8 +56,20 @@ return {
     "natw/nvim-indentnav",
     dev = true,
     keys = {
-      { "]l", function() require("indentnav").goto_next_line_at_same_indent() end, "n" },
-      { "[l", function() require("indentnav").goto_prev_line_at_same_indent() end, "n" },
+      {
+        "]l",
+        function()
+          require("indentnav").goto_next_line_at_same_indent()
+        end,
+        "n",
+      },
+      {
+        "[l",
+        function()
+          require("indentnav").goto_prev_line_at_same_indent()
+        end,
+        "n",
+      },
     },
   },
 
