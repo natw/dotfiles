@@ -59,8 +59,11 @@ local function cmp_setup()
       ["<c-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
       ["<CR>"] = cmp.mapping({
         i = function(fallback)
+          -- If I select a completion item with <cr>, then I also want the newline
           if cmp.visible() and cmp.get_active_entry() then
-            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }, function()
+              fallback()
+            end)
           else
             fallback()
           end
