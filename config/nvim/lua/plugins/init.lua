@@ -5,9 +5,7 @@ return {
     branch = "main",
     dev = true,
   },
-
-  { "echasnovski/mini.colors", lazy = false },
-
+  
   { "nvim-lua/plenary.nvim" },
 
   {

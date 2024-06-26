@@ -84,7 +84,7 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    lazy = false,
+    -- lazy = false,
     config = function()
       require('nvim-treesitter.install').update()
       require('nvim-treesitter.configs').setup(ts_config)
@@ -93,6 +93,7 @@ return {
     keys = {
       { "_", require("ts").statusline, desc = "TreeSitter Statusline" },
     },
+    cmd = { "TSInstall", "TSUpdate", "TSModuleInfo", "TSDisable" },
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
       { 'JoosepAlviste/nvim-ts-context-commentstring' },
