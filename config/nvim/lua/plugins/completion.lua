@@ -42,7 +42,7 @@ local function cmp_setup()
           else
             cmp.select_next_item()
           end
-        elseif vim.snippet.jumpable(1) then
+        elseif vim.snippet.active({ direction = 1 }) then
           vim.snippet.jump(1)
         elseif has_words_before() then
           cmp.complete()
