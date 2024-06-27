@@ -1,5 +1,3 @@
--- config for both regular lsp stuff and null-lsp
-
 vim.lsp.set_log_level("off")
 if vim.env.DEBUG_LSP == "true" then
   require("vim.lsp.log").set_format_func(vim.inspect)
@@ -331,6 +329,15 @@ vim.cmd("sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsS
 vim.cmd("sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint linehl= numhl=")
 
 return {
-  { "neovim/nvim-lspconfig", lazy = false, config = lspconfig_config },
-  { "ojroques/nvim-lspfuzzy", lazy = false, config = {} },
+  {
+    "neovim/nvim-lspconfig",
+    config = lspconfig_config,
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {},
+  },
+  {
+    "ojroques/nvim-lspfuzzy",
+    dependencies = { "junegunn/fzf.vim" },
+    cmd = { "LspDiagnosticsAll" },
+  },
 }

@@ -1,12 +1,4 @@
 return {
-  -- {
-  --   'tpope/vim-rake',
-  --   lazy = false,
-  --   dependencies = {
-  --     { 'tpope/vim-projectionist', lazy = false },
-  --   },
-  -- },
-  --
   {
     'tpope/vim-rails',
     ft = { "ruby" },

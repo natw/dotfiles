@@ -2,27 +2,21 @@ return {
   {
     "natw/vim-railscasts",
     lazy = false,
+    priority = 1000,
     branch = "main",
     dev = true,
   },
-  
-  { "nvim-lua/plenary.nvim" },
+
+  -- { "nvim-lua/plenary.nvim" },
 
   {
     "natw/nvim-hover-doc-url",
-    keys = { "gx", "<cmd>lua require('hover-doc').visit()", "n" },
+    keys = {
+      { "gx", function() require("hover-doc").visit() end, "n" },
+    },
   },
 
   { "mfussenegger/nvim-dap" },
-
-  {
-    dir = "/opt/homebrew/opt/fzf",
-    lazy = false,
-  },
-  {
-    "junegunn/fzf.vim",
-    lazy = false,
-  },
 
   {
     "junegunn/rainbow_parentheses.vim",

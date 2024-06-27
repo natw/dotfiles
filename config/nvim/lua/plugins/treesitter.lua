@@ -21,7 +21,6 @@ local ts_config = {
       goto_next_start = {
         ["]]"] = "@function.outer",
       },
-
     },
 
     select = {
@@ -41,9 +40,9 @@ local ts_config = {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = '<s-cr>',
-      scope_incremental = '<tab>',
-      node_incremental = '<s-cr>',
+      init_selection = "<s-cr>",
+      scope_incremental = "<tab>",
+      node_incremental = "<s-cr>",
       -- node_decremental = '<c-cr>',
     },
   },
@@ -51,26 +50,26 @@ local ts_config = {
   playground = {
     enable = true,
     disable = {},
-    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
     keybindings = {
-      toggle_query_editor = 'o',
-      toggle_hl_groups = 'i',
-      toggle_injected_languages = 't',
-      toggle_anonymous_nodes = 'a',
-      toggle_language_display = 'I',
-      focus_language = 'f',
-      unfocus_language = 'F',
-      update = 'R',
-      goto_node = '<cr>',
-      show_help = '?',
+      toggle_query_editor = "o",
+      toggle_hl_groups = "i",
+      toggle_injected_languages = "t",
+      toggle_anonymous_nodes = "a",
+      toggle_language_display = "I",
+      focus_language = "f",
+      unfocus_language = "F",
+      update = "R",
+      goto_node = "<cr>",
+      show_help = "?",
     },
   },
-  
+
   query_linter = {
     enable = true,
     use_virtual_text = true,
-    lint_events = {"BufWrite", "CursorHold"},
+    lint_events = { "BufWrite", "CursorHold" },
   },
 }
 
@@ -79,29 +78,35 @@ vim.g.skip_ts_context_commentstring_module = true
 
 return {
   {
-    'natw/ts-yamlpath.nvim',
+    "natw/ts-yamlpath.nvim",
   },
 
   {
-    'nvim-treesitter/nvim-treesitter',
-    -- lazy = false,
+    "nvim-treesitter/nvim-treesitter",
     config = function()
-      require('nvim-treesitter.install').update()
-      require('nvim-treesitter.configs').setup(ts_config)
-      require('ts_context_commentstring').setup({})
+      require("nvim-treesitter.install").update()
+      require("nvim-treesitter.configs").setup(ts_config)
+      require("ts_context_commentstring").setup({})
     end,
     keys = {
       { "_", require("ts").statusline, desc = "TreeSitter Statusline" },
     },
     cmd = { "TSInstall", "TSUpdate", "TSModuleInfo", "TSDisable" },
     dependencies = {
-      { 'nvim-treesitter/nvim-treesitter-textobjects' },
-      { 'JoosepAlviste/nvim-ts-context-commentstring' },
+      { "nvim-treesitter/nvim-treesitter-textobjects" },
+      { "JoosepAlviste/nvim-ts-context-commentstring" },
     },
   },
 
   {
-    'nvim-treesitter/playground',
+    "nvim-treesitter/playground",
+    keys = {
+      {
+        "<leader>hi",
+        ":TSHighlightCapturesUnderCursor<cr>",
+        { desc = "Highlight TS Captures", noremap = true, silent = true },
+      },
+    },
     cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
   },
 }

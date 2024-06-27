@@ -25,14 +25,11 @@ nm(",t", ":tabnew<cr>")
 
 nm("<c-w><c-c>", "<c-[>")
 
-nm("<c-n>", require("diagnostics").next_thing)
-nm("<c-p>", require("diagnostics").prev_thing)
+nm("<c-n>", function() require("diagnostics").next_thing() end)
+nm("<c-p>", function() require("diagnostics").prev_thing() end)
 
 m("t", "<esc>", "<c-\\><c-n>")
 
-nm("<leader>t", ":call nat#GitFZF()<cr>")
-
-nm("<leader>hi", ":TSHighlightCapturesUnderCursor<cr>")
 nm("<leader>i", ":Inspect<cr>")
 
 vim.keymap.set({ "v" }, "=", "gq", { noremap = true, silent = true })
