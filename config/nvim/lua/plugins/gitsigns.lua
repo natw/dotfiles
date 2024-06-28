@@ -26,7 +26,7 @@ return {
       desc = "DiffThis",
     },
   },
-  config = {
+  opts = {
     auto_attach = true,
   },
 }

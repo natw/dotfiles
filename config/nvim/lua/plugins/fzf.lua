@@ -1,13 +1,11 @@
 return {
   {
     "junegunn/fzf.vim",
-    config = function()
-      puts("farts")
-    end,
     keys = {
       {
         "<leader>t",
         function()
+          -- TODO: rewrite this in lua?
           vim.cmd("call nat#GitFZF()")
         end,
         { desc = "nat#GitFZF()", noremap = true, silent = true },

@@ -58,7 +58,7 @@ local railscasts = {
 return {
   'nvim-lualine/lualine.nvim',
   lazy = false,
-  config = {
+  opts = {
     options = {
       icons_enabled = false,
       theme = railscasts,

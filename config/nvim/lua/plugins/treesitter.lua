@@ -73,9 +73,6 @@ local ts_config = {
   },
 }
 
--- https://github.com/JoosepAlviste/nvim-ts-context-commentstring?tab=readme-ov-file#getting-started
-vim.g.skip_ts_context_commentstring_module = true
-
 return {
   {
     "natw/ts-yamlpath.nvim",
@@ -83,18 +80,23 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("nvim-treesitter.install").update()
       require("nvim-treesitter.configs").setup(ts_config)
-      require("ts_context_commentstring").setup({})
     end,
     keys = {
-      { "_", require("ts").statusline, desc = "TreeSitter Statusline" },
+      {
+        "_",
+        function()
+          require("ts").statusline()
+        end,
+        desc = "TreeSitter Statusline",
+      },
     },
     cmd = { "TSInstall", "TSUpdate", "TSModuleInfo", "TSDisable" },
     dependencies = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
-      { "JoosepAlviste/nvim-ts-context-commentstring" },
     },
   },
 
