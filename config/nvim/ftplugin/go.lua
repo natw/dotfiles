@@ -13,9 +13,10 @@ end, {})
 -- nnoremap <leader>rt ot.Run("", func(t *testing.T) {<cr>})<esc>kci"
 
 require("utils").onsave("GO", function()
+  local bufnr = vim.api.nvim_get_current_buf()
   vim.lsp.buf.format({
     timeout_ms = 1000,
-    bufnr = 0,
+    bufnr = bufnr,
   })
 end)
 
