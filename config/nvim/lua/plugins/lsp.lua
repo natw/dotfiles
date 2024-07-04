@@ -18,36 +18,33 @@ vim.diagnostic.config({
 
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
-  local bm = function(lhs, rhs)
-    vim.keymap.set("n", lhs, rhs, opts)
-  end
 
-  bm("K", "<cmd>lua vim.lsp.buf.hover()<cr>")
-  bm("gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-  bm("gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
-  bm("g?", "<cmd>lua vim.diagnostic.open_float()<cr>")
+  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+  vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+  vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+  vim.keymap.set("n", "g?", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 
-  bm(",,r", "<cmd>lua vim.lsp.buf.references()<cr>")
-  bm(",,i", "<cmd>lua vim.lsp.buf.implementation()<cr>")
-  bm(",,t", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
-  bm(",,h", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-  bm(",,re", "<cmd>lua vim.lsp.buf.rename()<cr>")
-  bm(",,ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-  bm(",,q", "<cmd>lua vim.diagnostic.setloclist()<cr>")
-  bm(",,sd", "<cmd>lua vim.lsp.buf.document_symbol()<cr>")
-  bm(",,sw", '<cmd>lua vim.lsp.buf.workspace_symbol(".")<cr>')
-  bm(",,ci", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>")
-  bm(",,co", "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>")
-  bm(",,cr", "<cmd>lua vim.lsp.codelens.refresh({ bufnr = 0 })<cr>")
-  bm(",,cl", "<cmd>lua vim.lsp.codelens.run()<cr>")
-  bm(",,?", function()
+  vim.keymap.set("n", ",,r", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+  vim.keymap.set("n", ",,i", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+  vim.keymap.set("n", ",,t", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+  vim.keymap.set("n", ",,h", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+  vim.keymap.set("n", ",,re", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+  vim.keymap.set("n", ",,ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+  vim.keymap.set("n", ",,q", "<cmd>lua vim.diagnostic.setloclist()<cr>", opts)
+  vim.keymap.set("n", ",,sd", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
+  vim.keymap.set("n", ",,sw", '<cmd>lua vim.lsp.buf.workspace_symbol(".")<cr>', opts)
+  vim.keymap.set("n", ",,ci", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
+  vim.keymap.set("n", ",,co", "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>", opts)
+  vim.keymap.set("n", ",,cr", "<cmd>lua vim.lsp.codelens.refresh({ bufnr = 0 })<cr>", opts)
+  vim.keymap.set("n", ",,cl", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
+  vim.keymap.set("n", ",,?", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-  end)
+  end, opts)
 
-  bm("[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-  bm("]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
+  vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+  vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
 
-  -- bm("==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>")
+  -- vim.keymap.set("n", "==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>", opts)
 end
 
 local function lspconfig_config()
@@ -143,14 +140,19 @@ local function lspconfig_config()
   })
 
   lsp.gopls.setup({
-    on_attach = on_attach,
+    on_attach = function(_, bufnr)
+      on_attach(_, bufnr)
+      vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    end,
     capabilities = capabilities,
     -- cmd = { "gopls", "-logfile", "/tmp/gopls.log", "-rpc.trace" },
     settings = {
       gopls = {
+        experimentalPostfixCompletions = false,
+        completeFunctionCalls = false,
         semanticTokens = true,
         usePlaceholders = true,
-        verboseOutput = true,
+        -- verboseOutput = true,
         gofumpt = true,
         ["local"] = "github.com/amount,github.com/kin,github.com/natw",
         staticcheck = true,
@@ -174,6 +176,9 @@ local function lspconfig_config()
           rangeVariableTypes = true,
         },
       },
+    },
+    init_options = {
+      usePlaceholders = true,
     },
   })
 
