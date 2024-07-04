@@ -43,7 +43,8 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.bold]
-family = "Menlo Nerd Font"
+# family = "Menlo Nerd Font"
+family = "MesloLGS Nerd Font Mono"
 style = "Bold"
 
 [font.glyph_offset]
@@ -51,11 +52,14 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Menlo Nerd Font"
+# family = "Menlo Nerd Font"
+family = "MesloLGS Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "Menlo Nerd Font"
+# family = "Menlo Nerd Font"
+# family = "MesloLGS Nerd Font Mono"
+family = "BitstromWera Nerd Font Mono"
 style = "Regular"
 
 [font.offset]
