@@ -1,5 +1,7 @@
 vim.filetype.add({
-  extension = {},
+  extension = {
+    tf = "terraform",
+  },
   filename = {
     ["tmux.conf"] = "tmux",
     ["Capfile"] = "ruby",

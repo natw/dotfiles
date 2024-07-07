@@ -46,3 +46,5 @@ vim.o.foldmethod           = "expr"
 vim.o.foldexpr             = "nvim_treesitter#foldexpr()"
 -- vim.o.nofoldenable         = true
 -- vim.g.python_highlight_all = 1
+
+vim.g.netrw_browsex_viewer = "open"

@@ -214,12 +214,17 @@ local function lspconfig_config()
           displayContext = 1,
           showWord = "Enable", -- "Fallback"
           workspaceWord = true,
+          callSnippet = "Both",
         },
         diagnostics = {
           globals = { "vim" },
           neededFileStatus = {
             ["codestyle-check"] = "Any",
           },
+          disable = { "inject-field" },
+        },
+        library = {
+          vim.env.VIMRUNTIME,
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file("", true),
