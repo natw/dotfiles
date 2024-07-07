@@ -12,7 +12,13 @@ return {
   {
     "natw/nvim-hover-doc-url",
     keys = {
-      { "gx", function() require("hover-doc").visit() end, "n" },
+      {
+        "gx",
+        function()
+          require("hover-doc").visit()
+        end,
+        "n",
+      },
     },
   },
 
@@ -53,14 +59,14 @@ return {
         function()
           require("indentnav").goto_next_line_at_same_indent()
         end,
-        "n",
+        { "n", "v" },
       },
       {
         "[l",
         function()
           require("indentnav").goto_prev_line_at_same_indent()
         end,
-        "n",
+        { "n", "v" },
       },
     },
   },

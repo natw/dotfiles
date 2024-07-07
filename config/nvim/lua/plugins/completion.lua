@@ -1,4 +1,4 @@
-vim.api.nvim_set_option("completeopt", "menu,menuone,noselect")
+vim.o.completeopt = "menu,menuone,noselect"
 
 -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#confirm-candidate-on-tab-immediately-when-theres-only-one-completion-entry
 local has_words_before = function()
@@ -59,6 +59,15 @@ local function cmp_setup()
     --   documentation = cmp.config.window.bordered(),
     -- },
 
+    window = {
+      completion = {
+        border = "solid",
+      },
+      documentation = {
+        border = "solid"
+      },
+    },
+
     mapping = {
       ["<c-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
       ["<c-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
@@ -92,9 +101,13 @@ local function cmp_setup()
       ["<cr>"] = cmp.mapping({
         i = function(fallback)
           -- If I select a completion item with <cr>, then I also want the newline
-          if cmp.visible() and cmp.get_active_entry() then
+          -- unless it's a snippet, then I want to do snippet stuff
+          local entry = cmp.get_active_entry()
+          if cmp.visible() and entry then
             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }, function()
-              fallback()
+              if not entry:get_kind() == "Snippet" then
+                fallback()
+              end
             end)
           else
             fallback()
@@ -123,6 +136,11 @@ local function cmp_setup()
         return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
       end
     end,
+  })
+
+  -- disable completion for these filetypes
+  cmp.setup.filetype({ "gitcommit" }, {
+    enabled = function() return false end,
   })
 end
 

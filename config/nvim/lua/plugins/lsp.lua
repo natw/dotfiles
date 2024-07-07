@@ -148,7 +148,7 @@ local function lspconfig_config()
     -- cmd = { "gopls", "-logfile", "/tmp/gopls.log", "-rpc.trace" },
     settings = {
       gopls = {
-        experimentalPostfixCompletions = false,
+        experimentalPostfixCompletions = true,
         completeFunctionCalls = false,
         semanticTokens = true,
         usePlaceholders = true,
