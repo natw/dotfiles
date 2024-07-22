@@ -50,3 +50,7 @@ c("Rmsp", [[%s/\s\+$//]])
 
 vim.api.nvim_command([[:command! -nargs=1 -complete=file EditOrMkFileWithDir :call nat#EditOrMkFileWithDir(<q-args>)]])
 vim.api.nvim_command([[nnoremap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:p:h") . "/" <cr>]])
+
+vim.keymap.set("c", "<c-a>", "<Home>", { noremap = true })
+vim.keymap.set("c", "<c-b>", "<S-Left>", { noremap = true })
+vim.keymap.set("c", "<c-f>", "<S-Right>", { noremap = true })
