@@ -40,7 +40,6 @@ vim.o.undodir        = "/tmp/vim-undo"
 vim.o.undofile       = true
 vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To prevent annoying flicker of text moving side to side
 vim.g.editorconfig   = false
-vim.o.commentstring  = "# %s"
 
 vim.o.foldmethod           = "expr"
 vim.o.foldexpr             = "nvim_treesitter#foldexpr()"
