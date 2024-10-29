@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [bell]
@@ -40,11 +41,12 @@ COLORTERM = "truecolor"
 TERM = "xterm-256color"
 
 [font]
-size = 12.0
+size = 13.0
 
 [font.bold]
 # family = "Menlo Nerd Font"
-family = "MesloLGS Nerd Font Mono"
+# family = "MesloLGS Nerd Font Mono"
+family = "BitstromWera Nerd Font Mono"
 style = "Bold"
 
 [font.glyph_offset]
@@ -53,14 +55,21 @@ y = 0
 
 [font.italic]
 # family = "Menlo Nerd Font"
-family = "MesloLGS Nerd Font Mono"
-style = "Italic"
+# family = "MesloLGS Nerd Font Mono"
+# style = "Italic"
+family = "BitstromWera Nerd Font Mono"
+style = "Oblique"
 
 [font.normal]
-# family = "Menlo Nerd Font"
 # family = "MesloLGS Nerd Font Mono"
+# family = "SauceCodePro Nerd Font Mono"
+# family = "JetBrainsMono Nerd Font Mono"
+
 family = "BitstromWera Nerd Font Mono"
 style = "Regular"
+
+# family = "CaskaydiaMono Nerd Font"
+# style = "SemiLight"
 
 [font.offset]
 x = 0
@@ -649,6 +658,10 @@ dynamic_title = true
 opacity = 1.0
 startup_mode = "Maximized"
 option_as_alt = "OnlyRight"
+
+[window.padding]
+x = 4
+y = 5
 
 [window.dimensions]
 columns = 400
