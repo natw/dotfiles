@@ -1,6 +1,7 @@
 vim.filetype.add({
   extension = {
     tf = "terraform",
+    spc = "hcl",
   },
   filename = {
     ["tmux.conf"] = "tmux",

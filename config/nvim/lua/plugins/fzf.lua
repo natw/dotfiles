@@ -13,6 +13,7 @@ return {
     },
     cmd = {
       "Files",
+      "GFiles",
       "Buffers",
       "Colors",
       "Ag",

@@ -97,7 +97,7 @@ local function lspconfig_config()
     -- },
   })
 
-  lsp.tsserver.setup({
+  lsp.ts_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
   })
@@ -290,11 +290,20 @@ local function lspconfig_config()
     },
   })
 
-  lsp.sorbet.setup({
+  lsp.ruby_lsp.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "bundle", "exec", "srb", "t", "--lsp" },
+    init_options = {
+      formatter = 'standard',
+      linters = { 'standard' },
+    },
   })
+
+  -- lsp.sorbet.setup({
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   cmd = { "bundle", "exec", "srb", "t", "--lsp" },
+  -- })
 
   -- lsp.clangd.setup{
   --   on_attach = on_attach,
@@ -331,6 +340,8 @@ local function lspconfig_config()
   lsp.nim_langserver.setup({})
 
   lsp.bashls.setup({})
+
+  require("lspfuzzy").setup({})
 end
 
 vim.cmd("sign define LspDiagnosticsSignError text=> texthl=LspDiagnosticsSignError linehl= numhl=")
