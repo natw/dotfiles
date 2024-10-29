@@ -14,7 +14,7 @@ source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 
 ###
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag -g "" --ignore-dir sorbet/rbi/gems'
 
 # I don't care for the default fzf style of completion, with a trigger sequence + <tab>
 # I'd rather just use an explicit ^T
