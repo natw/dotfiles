@@ -39,13 +39,13 @@ dos2unix() {
 # }
 
 # ruby stuff
-alias rc="bin/rails console"
-alias rs="bin/rails server"
+# alias rc="bin/rails console"
+# alias rs="bin/rails server"
 alias be="bundle exec"
-alias rg="bundle exec rails generate"
-alias mi="bundle exec rake db:migrate"
-alias ta="tmux attach"
-
+# alias rg="bundle exec rails generate"
+# alias mi="bundle exec rake db:migrate"
+# alias ta="tmux attach"
+#
 alias kc=kubectl
 alias kt=kubectx
 alias kn=kubens
