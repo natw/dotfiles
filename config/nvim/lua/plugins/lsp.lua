@@ -57,15 +57,15 @@ local function lspconfig_config()
     -- cmd = { "clangd", "--log=verbose" },
   })
 
-  lsp.pyright.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      python = {
-        pythonPath = "/opt/homebrew/bin/python3",
-      },
-    },
-  })
+  -- lsp.pyright.setup({
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   settings = {
+  --     python = {
+  --       pythonPath = "/opt/homebrew/bin/python3",
+  --     },
+  --   },
+  -- })
 
   -- lsp.pylsp.setup({
   --   on_attach = on_attach,
