@@ -8,8 +8,3 @@ function! nat#EditOrMkFileWithDir(path) abort
   endif
   execute 'edit' a:path
 endfunction
-
-function! nat#GitFZF()
-  let l:git_root = system('git rev-parse --show-toplevel 2> /dev/null')
-  call fzf#vim#files(substitute(l:git_root, "\n$", '' ,''))
-endfunction

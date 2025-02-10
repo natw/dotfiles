@@ -1,38 +1,21 @@
 return {
   {
-    "junegunn/fzf.vim",
+    "ibhagwan/fzf-lua",
     keys = {
       {
         "<leader>t",
         function()
-          -- TODO: rewrite this in lua?
-          vim.cmd("call nat#GitFZF()")
+          require('fzf-lua').git_files()
         end,
-        { desc = "nat#GitFZF()", noremap = true, silent = true },
+        { desc = "fzf-lua.git_files()", noremap = true, silent = true },
+      },
+      {
+        "<leader>fz",
+        ":FzfLua ",
       },
     },
-    cmd = {
-      "Files",
-      "GFiles",
-      "Buffers",
-      "Colors",
-      "Ag",
-      "Lines",
-      "BLines",
-      "Tags",
-      "BTags",
-      "Changes",
-      "Marks",
-      "Jumps",
-      "Windows",
-      "History",
-      "Commands",
-      "Maps",
-      "Helptags",
-      "Filetypes",
-    },
     dependencies = {
-      { dir = "/opt/homebrew/opt/fzf" },
+      { "nvim-tree/nvim-web-devicons" },
     },
   },
 }
