@@ -35,9 +35,7 @@ return {
     cmd = "Ack",
     init = function()
       vim.cmd([[
-        if executable('ag')
-          let g:ackprg = 'ag --vimgrep'
-        endif
+        let g:ackprg = 'rg --vimgrep'
       ]])
     end,
   },
