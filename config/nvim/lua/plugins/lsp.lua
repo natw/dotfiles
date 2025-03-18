@@ -158,7 +158,6 @@ local function lspconfig_config()
         staticcheck = true,
         analyses = {
           nillness = true,
-          fieldalignment = true,
           unusedparams = true,
           unusedwrite = true,
         },
