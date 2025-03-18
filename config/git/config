@@ -66,6 +66,7 @@
   colorMoved = default
   renames = copies
   word-diff = color
+  mnemonicPrefix = true
 
 [merge]
   tool = nvimdiff
@@ -74,14 +75,17 @@
 [core]
   pager = less -XFRS -x2
   excludesFile = "~/.gitignore"
+  untrackedCache = true
   ; fsmonitor = true
 
 [push]
   default = current
   autoSetupRemote = true
+  followTags = true
 
 [rerere]
   enabled = true
+  autoupdate = true
 
 [fetch]
   prune = true
@@ -104,12 +108,19 @@
   ; sort = version:refname
   sort = -committerdate
 
-; [column]
-;   branch = auto
-;   tag = auto
+[column]
+  ui = auto
+  ; branch = auto
+  ; tag = auto
 
 [commit]
   verbose = true
 
 [log]
   date = local
+
+[help]
+  autoCorrect = prompt
+
+[rebase]
+
