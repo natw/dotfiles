@@ -191,10 +191,22 @@ local function lspconfig_config()
   table.insert(rpath, "lua/?/init.lua")
   -- local lualspRoot = vim.env.HOME .. "/src/lua-language-server"
 
+  local root_files = {
+    '.luarc.json',
+    '.luarc.jsonc',
+    '.luacheckrc',
+    '.stylua.toml',
+    'stylua.toml',
+    'selene.toml',
+    'selene.yml',
+    '.git',
+  }
+
   lsp.lua_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     -- cmd = {lualspRoot .. "/bin/macOS/lua-language-server", "-E", lualspRoot .. "/main.lua"},
+    root_dir = lsp.util.root_pattern(root_files),
     settings = {
       Lua = {
         runtime = {
@@ -222,11 +234,11 @@ local function lspconfig_config()
           },
           disable = { "inject-field" },
         },
-        library = {
-          vim.env.VIMRUNTIME,
-        },
         workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
+          -- library = vim.api.nvim_get_runtime_file("", true),
+          library = {
+            vim.env.VIMRUNTIME,
+          },
           checkThirdParty = false, -- this is what got sumneko to stop asking to change settings or something
         },
         telemetry = {
