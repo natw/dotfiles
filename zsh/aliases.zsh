@@ -22,6 +22,7 @@ alias ksl='kubectl get pods --show-labels'
 alias stripcolor='gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 
 [[ $commands[ag] ]] && alias ack=ag  # ag is faster, but I have so much muscle memory around ack
+[[ $commands[rg] ]] && alias ack=rg
 
 add_missing_newline() {
   [ -n "$(tail -c1 $1)" ] && echo >> $1    # add trailing newline to last line if missing
