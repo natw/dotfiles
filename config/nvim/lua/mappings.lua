@@ -1,5 +1,8 @@
 -- mappings that mostly aren't tied to a specific plugin
 
+vim.g.mapleader = '\\'
+vim.g.maplocalleader = '\\'
+
 local m = function(mode, lhs, rhs)
   vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true })
 end
