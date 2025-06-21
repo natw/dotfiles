@@ -1,8 +1,11 @@
 require 'irb/completion'
 
-require 'irb/ext/save-history'
-IRB.conf[:SAVE_HISTORY] = 200
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-history"
+begin
+  require 'irb/ext/save-history'
+  IRB.conf[:SAVE_HISTORY] = 200
+  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-history"
+rescue LoadError
+end
 
 begin
   require 'amazing_print'
