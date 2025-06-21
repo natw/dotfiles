@@ -14,6 +14,7 @@ vim.lsp.enable({
   "yamlls",
   "bashls",
   "lua_ls",
+  "sorbet",
 })
 
 vim.lsp.config("*", {
