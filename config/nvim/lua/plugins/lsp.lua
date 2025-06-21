@@ -9,7 +9,7 @@ vim.diagnostic.config({
   update_in_insert = false,
   virtual_text = false,
   severity_sort = true,
-  virtual_lines = { current_line = true },
+  -- virtual_lines = { current_line = true },
   float = {
     source = true,
     header = "",
