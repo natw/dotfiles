@@ -20,6 +20,7 @@ return {
 
       schemas = {
         ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/deploy.yaml",
+        ["https://json.schemastore.org/traefik-v3.json"] = { "traefik.yaml", "traefik.yml" },
       },
     },
   },

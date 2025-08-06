@@ -15,6 +15,7 @@ vim.lsp.enable({
   "bashls",
   "lua_ls",
   "sorbet",
+  "nimlangserver",
 })
 
 vim.lsp.config("*", {
