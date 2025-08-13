@@ -12,7 +12,7 @@ alias vim=nvim
 
 alias ex=exercism
 alias pgrep='pgrep -fil'
-alias vimdiff="vimdiff -c 'map q :qa!<CR>'"
+alias vimdiff="vim -c 'map q :qa!<cr>' -d"
 alias tf='terraform'
 
 [[ $commands[ggrep] ]] && alias grep=ggrep
