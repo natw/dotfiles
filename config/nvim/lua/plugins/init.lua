@@ -1,5 +1,32 @@
 return {
   {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+
+  {
+    "dmtrKovalenko/fff.nvim",
+    build = "cargo build --release",
+    opts = {
+      keymaps = {
+        close = { "<Esc>", "<c-c>" },
+        move_up = { "<Up>", "<c-k>", "<c-p>" },
+        move_down = { "<Down>", "<c-j>", "<c-n>" },
+      },
+    },
+    keys = {
+      {
+        "<leader>ff",
+        function()
+          require("fff").find_in_git_root()
+        end,
+        desc = "open fff files picker",
+      },
+    },
+  },
+
+  {
     "natw/vim-railscasts",
     lazy = false,
     priority = 1000,
@@ -70,18 +97,17 @@ return {
   },
 
   {
-    'JoosepAlviste/nvim-ts-context-commentstring',
+    "JoosepAlviste/nvim-ts-context-commentstring",
     config = function()
       require("nvim-ts-context-commentstring").setup({
         enable_autocmd = false,
       })
       local get_option = vim.filetype.get_option
       vim.filetype.get_option = function(filetype, option)
-        return option == "commentstring"
-          and require("ts_context_commentstring.internal").calculate_commentstring()
+        return option == "commentstring" and require("ts_context_commentstring.internal").calculate_commentstring()
           or get_option(filetype, option)
       end
-    end
+    end,
   },
 
   -- now entering the Tim Pope Zone
