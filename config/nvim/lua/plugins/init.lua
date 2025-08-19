@@ -14,10 +14,13 @@ return {
         move_up = { "<Up>", "<c-k>", "<c-p>" },
         move_down = { "<Down>", "<c-j>", "<c-n>" },
       },
+      layout = {
+        prompt_position = 'top',
+      },
     },
     keys = {
       {
-        "<leader>ff",
+        "<leader>t",
         function()
           require("fff").find_in_git_root()
         end,
