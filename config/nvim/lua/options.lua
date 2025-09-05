@@ -40,10 +40,6 @@ vim.o.undodir        = "/tmp/vim-undo"
 vim.o.undofile       = true
 vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To prevent annoying flicker of text moving side to side
 vim.g.editorconfig   = false
-
-vim.o.foldmethod           = "expr"
-vim.o.foldexpr             = "nvim_treesitter#foldexpr()"
--- vim.o.nofoldenable         = true
--- vim.g.python_highlight_all = 1
+vim.o.foldmethod     = "expr"                -- this seems to use treesitter by default?
 
 vim.g.netrw_browsex_viewer = "open"
