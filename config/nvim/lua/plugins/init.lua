@@ -78,26 +78,43 @@ return {
     },
   },
 
-  {
-    "natw/nvim-indentnav",
-    dev = true,
-    keys = {
-      {
-        "]l",
-        function()
-          require("indentnav").goto_next_line_at_same_indent()
-        end,
-        { "n", "v" },
-      },
-      {
-        "[l",
-        function()
-          require("indentnav").goto_prev_line_at_same_indent()
-        end,
-        { "n", "v" },
-      },
-    },
-  },
+  -- {
+  --   "natw/nvim-indentnav",
+  --   dev = true,
+  --   keys = {
+  --     {
+  --       "]l",
+  --       function()
+  --         print("what")
+  --         require("indentnav").goto_next_line_at_same_indent()
+  --       end,
+  --       { "n", "v" },
+  --     },
+  --     {
+  --       "[l",
+  --       function()
+  --         require("indentnav").goto_prev_line_at_same_indent()
+  --       end,
+  --       { "n", "v" },
+  --     },
+  --     -- {
+  --     --   "il",
+  --     --   function()
+  --     --     print("func 1")
+  --     --     require("indentnav").selectInner()
+  --     --   end,
+  --     --   { "x", "o" },
+  --     -- },
+  --     -- {
+  --     --   "al",
+  --     --   function()
+  --     --     print("func 2")
+  --     --     require("indentnav").selectOuter()
+  --     --   end,
+  --     --   { "x", "o" },
+  --     -- },
+  --   },
+  -- },
 
   {
     "JoosepAlviste/nvim-ts-context-commentstring",

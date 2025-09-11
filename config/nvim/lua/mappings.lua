@@ -57,3 +57,19 @@ vim.api.nvim_command([[nnoremap <leader>fe :EditOrMkFileWithDir <C-R>=expand("%:
 vim.keymap.set("c", "<c-a>", "<Home>", { noremap = true })
 vim.keymap.set("c", "<c-b>", "<S-Left>", { noremap = true })
 vim.keymap.set("c", "<c-f>", "<S-Right>", { noremap = true })
+
+vim.keymap.set({ "x", "o" }, "il", function()
+  require("indentnav").select_indent(false)
+end, { noremap = true, silent = true })
+
+vim.keymap.set({ "x", "o" }, "al", function()
+  require("indentnav").select_indent(true)
+end, { noremap = true, silent = true })
+
+vim.keymap.set({ "n", "v", "o" }, "]l", function()
+  require("indentnav").goto_next_line_at_same_indent()
+end, { noremap = true, silent = true })
+
+vim.keymap.set({ "n", "v", "o" }, "[l", function()
+  require("indentnav").goto_prev_line_at_same_indent()
+end, { noremap = true, silent = true })

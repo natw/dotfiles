@@ -1,4 +1,4 @@
--- vim.cmd("set debug=throw")
+vim.cmd("set debug=throw")
 vim.loader.enable()
 
 require("options")
