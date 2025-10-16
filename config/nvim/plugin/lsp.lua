@@ -2,16 +2,17 @@
 -- vim.lsp.set_log_level("debug")
 
 vim.lsp.enable({
+  "arduino_language_server",
+  "bashls",
   "clangd",
   "gopls",
+  "lua_ls",
+  "nimlangserver",
+  "sorbet",
   "terraformls",
   "tflint",
   "vimls",
   "yamlls",
-  "bashls",
-  "lua_ls",
-  "sorbet",
-  "nimlangserver",
   "zuban",
 })
 

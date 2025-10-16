@@ -22,7 +22,7 @@ return {
       {
         "<leader>t",
         function()
-          require("fff").find_in_git_root()
+          require("fff").find_files()
         end,
         desc = "open fff files picker",
       },
@@ -71,10 +71,10 @@ return {
   },
 
   {
-    "norcalli/nvim-colorizer.lua",
-    lazy = false,
+    "catgoose/nvim-colorizer.lua",
+    event = "VeryLazy",
     opts = {
-      "*",
+      lazy_load = true,
     },
   },
 
