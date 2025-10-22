@@ -7,7 +7,7 @@
 return {
   cmd = { "gopls" },
   -- cmd = { "gopls", "-logfile", "/tmp/gopls.log", "-rpc.trace" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl", "tmpl" },
   root_markers = { "go.mod" },
   settings = {
     gopls = {
@@ -20,6 +20,8 @@ return {
       ["local"] = "github.com/amount,github.com/kin,github.com/natw",
       staticcheck = true,
       analyses = {
+        ST1000 = false,
+        ST1020 = false,
         nillness = true,
         unusedparams = true,
         unusedwrite = true,
