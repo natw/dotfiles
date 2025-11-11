@@ -13,9 +13,8 @@ for fname in $HOME/.zsh/*.zsh; do
 done
 
 # machine specific settings
-if [[ -a ~/.zshrc-local ]]; then
-    source ~/.zshrc-local
-fi
+[[ -a ~/.zshrc-local ]] && source ~/.zshrc-local
+[[ -a ~/.zshrc.local ]] && source ~/.zshrc.local
 
 if [ -z host_nick ]; then
     host_nick = '%m'
