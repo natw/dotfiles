@@ -46,6 +46,6 @@ vim.lsp.config("*", {
     vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
     vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
 
-    -- vim.keymap.set("n", "==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>", opts)
+    vim.keymap.set("n", "==", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 10000 })<cr>", opts)
   end,
 })

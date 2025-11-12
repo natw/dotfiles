@@ -44,3 +44,5 @@ vim.o.foldmethod     = "expr"                -- this seems to use treesitter by 
 
 vim.g.netrw_browsex_viewer = "open"
 vim.g.loaded_matchparen = 1                  -- disable highlighting matching brackets
+
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
