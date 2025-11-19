@@ -1,1 +1,1 @@
-vim.wo.list = true
+vim.cmd([[ setlocal list ]])
