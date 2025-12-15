@@ -5,6 +5,8 @@ vim.lsp.enable({
   "arduino_language_server",
   "bashls",
   "clangd",
+  "clojure-lsp",
+  "gleam",
   "gopls",
   "lua_ls",
   "nimlangserver",
@@ -13,6 +15,7 @@ vim.lsp.enable({
   "tflint",
   "vimls",
   "yamlls",
+  "zls",
   "zuban",
 })
 
