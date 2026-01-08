@@ -20,6 +20,7 @@ return {
         prompt_position = 'top',
       },
     },
+    lazy = false,
     keys = {
       {
         "<leader>t",

@@ -19,17 +19,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
-    event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
     lazy = false,
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "<filetype>" },
-        callback = function()
-          vim.treesitter.start()
-        end,
-      })
-    end,
     keys = {
       {
         "_",

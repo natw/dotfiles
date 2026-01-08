@@ -3,3 +3,5 @@ require("utils").onsave("TF", function(args)
 end)
 
 vim.bo.commentstring = [[# %s]]
+
+vim.treesitter.start()
