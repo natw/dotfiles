@@ -64,8 +64,8 @@ gem_cache() {
 autoload -U zmv
 alias mmv='noglob zmv -W'
 
-alias sc="script/console"
-alias ss="script/server"
+# alias sc="script/console"
+# alias ss="script/server"
 alias be='bundle exec'
 
 # (( $+commands[gsed] )) && alias sed=gsed # use gsed if it's available
