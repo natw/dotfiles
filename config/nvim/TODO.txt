@@ -1,0 +1,2 @@
+- better colors in fzf with lspfuzzy
+- weird issue with completion where the cursor skips back to the beginning of a word or matched pair

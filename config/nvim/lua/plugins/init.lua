@@ -33,6 +33,14 @@ return {
   },
 
   {
+    "ojroques/nvim-lspfuzzy",
+    dependencies = {
+      { "junegunn/fzf" },
+      { "junegunn/fzf.vim" },
+    },
+  },
+
+  {
     "natw/vim-railscasts",
     lazy = false,
     priority = 1000,
