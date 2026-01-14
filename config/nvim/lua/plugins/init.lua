@@ -20,7 +20,7 @@ return {
         prompt_position = 'top',
       },
     },
-    lazy = false,
+    lazy = true,
     keys = {
       {
         "<leader>t",
@@ -136,13 +136,13 @@ return {
       local get_option = vim.filetype.get_option
       vim.filetype.get_option = function(filetype, option)
         return option == "commentstring" and require("ts_context_commentstring.internal").calculate_commentstring()
-          or get_option(filetype, option)
+            or get_option(filetype, option)
       end
     end,
   },
 
   -- now entering the Tim Pope Zone
-  { "tpope/vim-fugitive", cmd = "Git" },
-  { "tpope/vim-surround", lazy = false },
+  { "tpope/vim-fugitive",    cmd = "Git" },
+  { "tpope/vim-surround",    lazy = false },
   { "tpope/vim-speeddating", lazy = false },
 }

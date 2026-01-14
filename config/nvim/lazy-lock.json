@@ -6,7 +6,7 @@
   "cmp-nvim-lua": { "branch": "main", "commit": "e3a22cb071eb9d6508a156306b102c45cd2d573d" },
   "cmp-path": { "branch": "main", "commit": "c642487086dbd9a93160e1679a1327be111cbc25" },
   "conform.nvim": { "branch": "master", "commit": "238f542a118984a88124fc915d5b981680418707" },
-  "cyberdream.nvim": { "branch": "main", "commit": "7464438b099c0ebcd42c4b6dd9abbd6ed93cb7f8" },
+  "cyberdream.nvim": { "branch": "main", "commit": "2f8b572bbd69c3c93e6bb1f2b655f72b98b33ab7" },
   "fff.nvim": { "branch": "main", "commit": "5ab271ea9da084495d18e3f90f47aa6a87289b01" },
   "fzf": { "branch": "master", "commit": "d1f037059ab57aa1c70abe124b2b72a710f4a28f" },
   "fzf.vim": { "branch": "master", "commit": "ddc14a6a5471147e2a38e6b32a7268282f669b0a" },
@@ -31,5 +31,5 @@
   "vim-rails": { "branch": "master", "commit": "b0a5c76f86ea214ade36ab0b811e730c3f0add67" },
   "vim-speeddating": { "branch": "master", "commit": "c17eb01ebf5aaf766c53bab1f6592710e5ffb796" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
-  "vim-test": { "branch": "master", "commit": "aa619692ff48a3cf3e6bdb893765039488d4e5f3" }
+  "vim-test": { "branch": "master", "commit": "aaaff58ab897211b9c9bd9967c1340a6fd15d42d" }
 }
