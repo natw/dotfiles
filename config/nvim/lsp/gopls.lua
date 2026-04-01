@@ -22,6 +22,7 @@ return {
       analyses = {
         ST1000 = false,
         ST1020 = false,
+        ST1003 = false,
         nillness = true,
         unusedparams = true,
         unusedwrite = true,

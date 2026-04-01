@@ -8,16 +8,6 @@ return {
     branch = "main",
     build = ":TSUpdate",
     lazy = false,
-    keys = {
-      {
-        "_",
-        function()
-          require("ts").statusline()
-        end,
-        desc = "TreeSitter Statusline",
-      },
-    },
-    cmd = { "TSInstall", "TSUpdate", "TSModuleInfo", "TSDisable" },
   },
 
   {
@@ -93,5 +83,10 @@ return {
         mode = { "v", "o" },
       },
     }
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    cmd = { "TSContext" },
   },
 }

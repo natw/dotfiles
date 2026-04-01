@@ -19,13 +19,17 @@ return {
       layout = {
         prompt_position = 'top',
       },
+      debug = {
+        enabled = true,
+      },
     },
-    lazy = true,
+    lazy = false,
     keys = {
       {
         "<leader>t",
         function()
-          require("fff").find_files()
+          -- require("fff").find_files()
+          require("fff").find_in_git_root()
         end,
         desc = "open fff files picker",
       },
@@ -83,49 +87,12 @@ return {
 
   {
     "catgoose/nvim-colorizer.lua",
-    event = "VeryLazy",
+    event = "BufReadPre",
     opts = {
       lazy_load = true,
+      suppress_deprecation = true,
     },
   },
-
-  -- {
-  --   "natw/nvim-indentnav",
-  --   dev = true,
-  --   keys = {
-  --     {
-  --       "]l",
-  --       function()
-  --         print("what")
-  --         require("indentnav").goto_next_line_at_same_indent()
-  --       end,
-  --       { "n", "v" },
-  --     },
-  --     {
-  --       "[l",
-  --       function()
-  --         require("indentnav").goto_prev_line_at_same_indent()
-  --       end,
-  --       { "n", "v" },
-  --     },
-  --     -- {
-  --     --   "il",
-  --     --   function()
-  --     --     print("func 1")
-  --     --     require("indentnav").selectInner()
-  --     --   end,
-  --     --   { "x", "o" },
-  --     -- },
-  --     -- {
-  --     --   "al",
-  --     --   function()
-  --     --     print("func 2")
-  --     --     require("indentnav").selectOuter()
-  --     --   end,
-  --     --   { "x", "o" },
-  --     -- },
-  --   },
-  -- },
 
   {
     "JoosepAlviste/nvim-ts-context-commentstring",

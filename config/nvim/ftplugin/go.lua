@@ -24,3 +24,4 @@ require("utils").onsave("GO", function()
   require("go_funcs").org_imports(3000)
 end)
 
+vim.treesitter.start()
