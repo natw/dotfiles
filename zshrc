@@ -29,7 +29,7 @@ fi
 PS1="$FG[015][$FG[107]${ps1part} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 
 # fnm
-[[ $commands[fnm] ]] && eval "$(fnm env)"
+[[ $commands[fnm] ]] && eval "$(fnm env --use-on-cd --shell zsh)"
 
 # [[ $commands[rbenv] ]] && eval "$(rbenv init - --no-rehash)"
 
