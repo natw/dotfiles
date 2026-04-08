@@ -91,6 +91,13 @@ return {
     opts = {
       lazy_load = true,
       suppress_deprecation = true,
+      options = {
+        parsers = {
+          names = {
+            enable = false,
+          },
+        },
+      },
     },
   },
 
