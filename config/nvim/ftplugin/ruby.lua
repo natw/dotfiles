@@ -1,2 +1,3 @@
 vim.cmd([[ setlocal list ]])
 vim.treesitter.start()
+vim.bo.syntax = 'ON' -- this fixes indentation somehow...
