@@ -7,7 +7,7 @@
   "cmp-path": { "branch": "main", "commit": "c642487086dbd9a93160e1679a1327be111cbc25" },
   "conform.nvim": { "branch": "master", "commit": "dca1a190aa85f9065979ef35802fb77131911106" },
   "cyberdream.nvim": { "branch": "main", "commit": "d1866f5b606896ca530be00bafbd12a3e6bb6efd" },
-  "fff.nvim": { "branch": "main", "commit": "e8dd50ce5a6857f2dc7f827746163a4b1040ba9c" },
+  "fff.nvim": { "branch": "main", "commit": "8cb1f4768b4badab5edcb0c5f45184e236fa3f8a" },
   "fzf": { "branch": "master", "commit": "263eb4732fc6268f9fb35cffb634903ea8e2a26b" },
   "fzf.vim": { "branch": "master", "commit": "b9624aa012ddcbae9e79964bfd30cc1fbe3cf263" },
   "gitsigns.nvim": { "branch": "main", "commit": "dd3f588bacbeb041be6facf1742e42097f62165d" },
@@ -20,7 +20,7 @@
   "nvim-hover-doc-url": { "branch": "main", "commit": "0ab8cdd907d5d093bd310f395adf797f73a6aa16" },
   "nvim-lspfuzzy": { "branch": "main", "commit": "cd51aecb511d773226d8148124c708e636742457" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
-  "nvim-treesitter-context": { "branch": "master", "commit": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636" },
+  "nvim-treesitter-context": { "branch": "master", "commit": "b311b30818951d01f7b4bf650521b868b3fece16" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "6141a40173c6efa98242dc951ed4b6f892c97027" },
   "parinfer-rust": { "branch": "master", "commit": "845bfbb9916687cba5b6bae088c9eab70dbb83a3" },
@@ -32,5 +32,5 @@
   "vim-rails": { "branch": "master", "commit": "b0a5c76f86ea214ade36ab0b811e730c3f0add67" },
   "vim-speeddating": { "branch": "master", "commit": "c17eb01ebf5aaf766c53bab1f6592710e5ffb796" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
-  "vim-test": { "branch": "master", "commit": "bc0e94059de40641d163516a83c63bc45c716acf" }
+  "vim-test": { "branch": "master", "commit": "7062b50979a28e804081f0e82b7321184ec1c20b" }
 }
