@@ -38,5 +38,6 @@ pb-kill-whole-line () {
 copy-whole-line() {
   echo -n $BUFFER | pbcopy
 }
+
 zle -N copy-whole-line
 bindkey "^u" copy-whole-line
