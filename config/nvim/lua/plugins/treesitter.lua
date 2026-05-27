@@ -1,17 +1,13 @@
 return {
   {
-    "natw/ts-yamlpath.nvim",
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "main",
-    build = ":TSUpdate",
+    "arborist-ts/arborist.nvim",
+    opts = {
+      prefer_wasm = false,
+    },
     lazy = false,
   },
 
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+  { "nvim-treesitter/nvim-treesitter-textobjects",
     branch = "main",
     lazy = false,
     opts = {
