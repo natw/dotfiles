@@ -31,7 +31,14 @@ return {
           -- require("fff").find_files()
           require("fff").find_in_git_root()
         end,
-        desc = "open fff files picker",
+        desc = "FFFind FFFiles",
+      },
+      {
+        "<leader>f",
+        function()
+          require('fff').live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+        end,
+        desc = "FFFuzzy grep",
       },
     },
   },
