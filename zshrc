@@ -9,11 +9,11 @@ typeset -U fpath
 export fpath
 
 for fname in $HOME/.zsh/*.zsh; do
+  zcompile -R -- "$fname".zwc "$fname"
   source $fname
 done
 
 # machine specific settings
-[[ -a ~/.zshrc-local ]] && source ~/.zshrc-local
 [[ -a ~/.zshrc.local ]] && source ~/.zshrc.local
 
 if [ -z host_nick ]; then
@@ -28,27 +28,17 @@ fi
 
 PS1="$FG[015][$FG[107]${ps1part} $FG[173]%~$FG[015]]$FG[107]%#$FX[reset] "
 
-# fnm
 [[ $commands[fnm] ]] && eval "$(fnm env --use-on-cd --shell zsh)"
-
-# [[ $commands[rbenv] ]] && eval "$(rbenv init - --no-rehash)"
 
 # this is super slow.
 # reconsider once https://github.com/kubernetes/kubernetes/pull/96087 is merged
 # [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/natwilliams/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/natwilliams/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/natwilliams/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-fi
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   export PYENV_ROOT="$HOME/.pyenv"
+#   export PATH="$PYENV_ROOT/bin:$PATH"
+#   eval "$(pyenv init --path)"
+# fi
 
 # to profile, uncomment `zmodload zsh/prof` at the top of .zshenv
 # zprof

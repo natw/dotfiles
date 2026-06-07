@@ -2,13 +2,16 @@ setopt correct # correct commands
 setopt autolist # list completion candidates
 
 zmodload -i zsh/complist
-autoload -U zstyle+
-autoload -U compinit
+autoload -Uz zstyle+
+
+autoload -Uz compinit
 if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
   compinit
 else
   compinit -C
 fi
+autoload -Uz bashcompinit
+bashcompinit
 
 _force_rehash() {
     (( CURRENT ==1 )) && rehash
@@ -78,5 +81,4 @@ zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.(o|c~|old|pro|zwc|p
 zstyle ':completion:*:*:kill:*:processes' command 'ps -axco pid,user,command'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
-autoload bashcompinit && bashcompinit
 complete -C "$commands[aws_completer]" aws

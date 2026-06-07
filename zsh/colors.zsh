@@ -1,5 +1,5 @@
 if [[ "$COLORTERM" = "truecolor" || "$TERM" =~ "256" ]] {
-    autoload spectrum && spectrum
+    autoload -Uz spectrum && spectrum
 }
 
 test_colors() {
