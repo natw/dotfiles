@@ -5,6 +5,9 @@ vim.diagnostic.config({
   update_in_insert = false,
   virtual_text = false,
   severity_sort = true,
+  jump = {
+    float = true,
+  },
   -- virtual_lines = { current_line = true },
   float = {
     source = true,

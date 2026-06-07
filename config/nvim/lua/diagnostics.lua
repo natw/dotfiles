@@ -6,7 +6,7 @@ function M.prev_thing()
   elseif require("windows").is_filetype_open("Trouble") then
     require("trouble").previous({ skip_groups = true, jump = true })
   else
-    vim.diagnostic.goto_prev()
+    vim.diagnostic.jump({ count = -1 })
   end
 end
 
@@ -16,7 +16,7 @@ function M.next_thing()
   elseif require("windows").is_filetype_open("Trouble") then
     require("trouble").next({ skip_groups = true, jump = true })
   else
-    vim.diagnostic.goto_next()
+    vim.diagnostic.jump({ count = 1 })
   end
 end
 
