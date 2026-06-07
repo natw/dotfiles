@@ -38,6 +38,7 @@
   dcn = diff --cached --no-ext-diff
   squash = "!f() { local t=${1:-main} && git rebase -i $(git merge-base --fork-point $t); }; f"
   showp = show --pretty=fuller
+  mt = mergetool
 
 [format]
   pretty = format:%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%ci) %C(bold blue)<%an>%Creset
@@ -62,7 +63,8 @@
 
 [diff]
   external = difft
-  algorithm = histogram
+  ; algorithm = minimal
+  ; algorithm = histogram
   ; algorithm = patience
   colorMoved = default
   renames = copies
@@ -71,7 +73,13 @@
 
 [merge]
   tool = nvimdiff
-  conflictstyle = zdiff3
+  conflictstyle = diff3
+
+[mergetool]
+  keepBackup = false
+
+[mergetool "nvimdiff"]
+  layout = "(LOCAL,BASE,REMOTE)/MERGED"
 
 [core]
   pager = less -XFRS -x2
@@ -124,4 +132,5 @@
   autoCorrect = prompt
 
 [rebase]
-
+  backend = apply
+  ; backend = merge
