@@ -6,7 +6,7 @@ return {
   },
 
   {
-    "dmtrKovalenko/fff.nvim",
+    "dmtrKovalenko/fff",
     build = function()
       require("fff.download").download_or_build_binary()
     end,
@@ -82,15 +82,15 @@ return {
     ft = { "clojure", "lisp", "racket" },
   },
 
-  {
-    "mileszs/ack.vim",
-    cmd = "Ack",
-    init = function()
-      vim.cmd([[
-        let g:ackprg = 'rg --vimgrep'
-      ]])
-    end,
-  },
+  -- {
+  --   "mileszs/ack.vim",
+  --   cmd = "Ack",
+  --   init = function()
+  --     vim.cmd([[
+  --       let g:ackprg = 'rg --vimgrep'
+  --     ]])
+  --   end,
+  -- },
 
   {
     "catgoose/nvim-colorizer.lua",
