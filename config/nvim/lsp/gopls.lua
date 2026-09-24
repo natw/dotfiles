@@ -13,7 +13,7 @@ return {
     gopls = {
       experimentalPostfixCompletions = true,
       completeFunctionCalls = false,
-      semanticTokens = true,
+      -- semanticTokens = true,
       usePlaceholders = true,
       -- verboseOutput = true,
       gofumpt = true,
@@ -40,6 +40,7 @@ return {
         parameterNames = true,
         rangeVariableTypes = true,
       },
+      -- templateExtensions = { "html.tmpl", "tmpl" },
     },
   },
 }

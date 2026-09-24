@@ -2,6 +2,7 @@ vim.filetype.add({
   extension = {
     tf = "terraform",
     spc = "hcl",
+    tmpl = "gotmpl",
   },
   filename = {
     ["tmux.conf"] = "tmux",
@@ -13,6 +14,6 @@ vim.filetype.add({
   },
   pattern = {
     -- ["%g+.pkr.hcl"] = "hcl.packer",
-    ["%g+.yaml.gotmpl"] = "yaml",
+    -- ["%g+.yaml.gotmpl"] = "yaml",
   },
 })
