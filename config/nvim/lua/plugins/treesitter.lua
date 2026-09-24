@@ -4,7 +4,8 @@ return {
     opts = {
       prefer_wasm = false,
       disable = {
-        indent = { "yaml" },
+        indent = { "yaml", "go" },
+        highlight = { "json" },
       },
     },
     lazy = false,
