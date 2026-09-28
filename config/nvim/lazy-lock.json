@@ -9,7 +9,7 @@
   "cyberdream.nvim": { "branch": "main", "commit": "b3f4ef5e9b8ee370c913a48b63e130b730ee8782" },
   "fff": { "branch": "main", "commit": "89c19270ea2dfc20829a7429f72022571558093e" },
   "fzf": { "branch": "master", "commit": "b1be3a8be1b833ce5b92fbbac11637643d60a046" },
-  "fzf.vim": { "branch": "master", "commit": "8a0068127ac9ee23d71dab2944ce995726bef462" },
+  "fzf.vim": { "branch": "master", "commit": "a630ef91e1e050574e703f506cd0812b18d26939" },
   "gitsigns.nvim": { "branch": "main", "commit": "070a5d7b985546cc57e1fc61e5bc507fecac6045" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lspkind.nvim": { "branch": "master", "commit": "c7274c48137396526b59d86232eabcdc7fed8a32" },
