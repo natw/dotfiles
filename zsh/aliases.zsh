@@ -152,8 +152,20 @@ ap() {
 }
 
 pf() {
+  local remotePort=$1
+  local localPort=${2:-$(printf '1%s' "$remotePort")}
+  local target=$(aws ec2 describe-instances --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value | [0], InstanceId, InstanceType, PrivateIpAddress]' --output text | grep -v "None" | fzf -1 | awk '{print $2}')
   aws ssm start-session \
-    --target i-0023f6038859334eb \
-    --document-name AWS-StartPortForwardingSessionToRemoteHost \
-    --parameters "{\"host\":[\"${1}\"],\"portNumber\":[\"5432\"], \"localPortNumber\":[\"55432\"]}"
+    --target "$target" \
+    --document-name AWS-StartPortForwardingSession \
+    --parameters "{\"portNumber\":[\"${remotePort}\"], \"localPortNumber\":[\"${localPort}\"]}"
+}
+
+jj() {
+  while IFS= read -r line; do
+    parts=(${(@s:.:)line})
+    echo $parts[1] | basenc --base64url -d | jq
+    echo $parts[2] | basenc --base64url -d | jq || echo $parts[2] | basenc --base64url -d
+    echo $parts[3]
+  done
 }
