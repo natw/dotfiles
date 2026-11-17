@@ -21,7 +21,6 @@ vim.o.completeopt    = "menuone"             -- and just the menu
 vim.o.foldlevelstart = 99                    -- forces folds open by default
 vim.o.foldenable     = true                  -- enable fold
 vim.o.joinspaces     = false                 -- don't use two spaces after a . when joining lines
-vim.o.grepprg        = "rg --vimgrep"        -- better than grep
 vim.o.background     = "dark"                -- dark terminals 4 lyfe
 vim.o.lazyredraw     = true                  -- don't redraw while executing macros or that sort of thing
 vim.o.title          = true                  -- set window title
@@ -42,9 +41,11 @@ vim.o.signcolumn     = "yes"                 -- don't collapse sign column. To p
 vim.g.editorconfig   = false
 vim.o.foldmethod     = "expr"                -- this seems to use treesitter by default?
 
+vim.o.grepprg = "rg --vimgrep --smart-case --hidden" -- better than grep
+
 vim.g.netrw_browsex_viewer = "open"
 -- vim.g.loaded_matchparen = 1                  -- disable highlighting matching brackets
 
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
-vim.g.is_posix = true
+vim.g.is_posix = true -- tells vim shell file highlighting to understand stuff like `$(...)`
