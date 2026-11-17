@@ -5,7 +5,7 @@ return {
       prefer_wasm = false,
       disable = {
         indent = { "yaml", "go", "ruby", },
-        highlight = { "json" },
+        highlight = { "json", "csv", },
       },
     },
     lazy = false,
