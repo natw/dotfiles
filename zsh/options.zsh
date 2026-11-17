@@ -1,11 +1,12 @@
 setopt extendedglob
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
-setopt HIST_FIND_NO_DUPS
+setopt hist_find_no_dups
 setopt extended_history # append history entries w/ timestamp
-setopt inc_append_history
+# setopt inc_append_history
+setopt inc_append_history_time
 setopt hist_fcntl_lock # better locking for history file.  maybe doesn't work everywhere
-setopt HIST_IGNORE_SPACE # don't write commands starting with space to history
+setopt hist_ignore_space # don't write commands starting with space to history
 
 setopt multibyte # maybe enabled by default
 setopt no_beep # HATE. BEEPS.

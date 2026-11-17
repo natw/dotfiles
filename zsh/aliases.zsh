@@ -169,3 +169,7 @@ jj() {
     echo $parts[3]
   done
 }
+
+curlv() {
+  curl -v --out-null $@
+}

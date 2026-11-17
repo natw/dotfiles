@@ -13,7 +13,7 @@ export DOCKER_BUILDKIT=1
 export HISTFILE=$HOME/.zhistory
 export HISTSIZE='100000'
 export SAVEHIST='100000'
-setopt SHARE_HISTORY
+# setopt SHARE_HISTORY
 
 # for stupid BSD ls (osx)
 export LSCOLORS="Dxgxcxdxcxegedabagacad"

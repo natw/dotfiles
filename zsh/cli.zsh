@@ -1,7 +1,7 @@
 # vim bindings in the shell are ridiculous
 bindkey -e
 
-bindkey "^X" edit-command-line
+bindkey "^X^X" edit-command-line
 
 # somehow I survived for years without this.
 # They called it living, but I'm not so sure.
